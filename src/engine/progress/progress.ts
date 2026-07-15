@@ -6,7 +6,8 @@ export interface ProgressStore {
   setItem(key: string, value: string): void;
 }
 
-const KEY = "ai-primer:progress:v1";
+export const PROGRESS_KEY = "ai-primer:progress:v1";
+const KEY = PROGRESS_KEY;
 
 /** Load the set of completed lesson ids (tolerant of missing/corrupt data). */
 export function loadCompleted(store: ProgressStore): string[] {

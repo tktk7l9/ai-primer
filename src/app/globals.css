@@ -1,49 +1,872 @@
+/* ============================================================
+   AI Primer — 「AI観測手帳 (Field Notes)」デザインシステム
+   紙のノートに未知の存在(AI)を観察・記録していく世界観。
+   light = 昼の観察ノート / dark = 夜間観測モード（prefers-color-scheme 自動）
+   コントラストは WCAG AA (4.5:1) 以上を維持すること。
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light dark;
+
+  /* 紙とインク */
+  --paper: #faf7f1;
+  --paper-2: #f2ede2;
+  --card: #fffdf8;
+  --ink: #243240;
+  --ink-soft: #5a6672;
+  --line: #ddd5c2;
+  --line-soft: #e9e3d3;
+
+  /* シグナル（電気的アクセント＝観測対象のAI） */
+  --accent: #5646c8;
+  --accent-soft: #edeafc;
+  --accent-ink: #ffffff;
+
+  /* 意味色 */
+  --good: #22703f;
+  --good-soft: #e3f2e7;
+  --warn: #8a5a00;
+  --warn-soft: #f8ecd2;
+  --bad: #a63a34;
+  --bad-soft: #f9e6e4;
+
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow: 0 1px 2px rgba(36, 50, 64, 0.06), 0 4px 16px rgba(36, 50, 64, 0.07);
+  --shadow-lift: 0 2px 4px rgba(36, 50, 64, 0.08), 0 10px 28px rgba(36, 50, 64, 0.12);
+
+  --sans: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper: #131824;
+    --paper-2: #0e1220;
+    --card: #1b2231;
+    --ink: #e8e3d6;
+    --ink-soft: #a0a8b4;
+    --line: #303b50;
+    --line-soft: #262f42;
+
+    --accent: #a89bff;
+    --accent-soft: #2b2a4a;
+    --accent-ink: #14122e;
+
+    --good: #7fd3a1;
+    --good-soft: #1c3427;
+    --warn: #e6c069;
+    --warn-soft: #3a3121;
+    --bad: #ee9b92;
+    --bad-soft: #442420;
+
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.35);
+    --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.45), 0 10px 28px rgba(0, 0, 0, 0.4);
   }
 }
 
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* ---------- ベース ---------- */
 
 * {
   box-sizing: border-box;
-  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
   margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  /* 紙の質感：ごく薄い横罫 */
+  background-image: linear-gradient(var(--line-soft) 1px, transparent 1px);
+  background-size: 100% 2.4rem;
+  background-attachment: fixed;
+}
+
+:lang(ja) body,
+body:lang(ja) {
+  letter-spacing: 0.01em;
 }
 
 a {
-  color: inherit;
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.35;
+  font-feature-settings: "palt";
+  text-wrap: balance;
+  margin: 0 0 0.6em;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---------- レイアウト ---------- */
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 3.4rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.brand .brand-mark {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 0.05rem 0.4rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-left: auto;
+  font-size: 0.92rem;
+}
+
+.site-nav a {
+  color: var(--ink-soft);
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+}
+
+.locale-switch {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.6rem;
+  text-decoration: none;
+}
+
+.locale-switch:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.site-footer {
+  margin-top: 4rem;
+  border-top: 1px solid var(--line);
+  background: var(--paper-2);
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.site-footer .container {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* ---------- トップ（コース概要） ---------- */
+
+.hero {
+  padding: 3.5rem 0 2rem;
+  max-width: 44rem;
+}
+
+.hero h1 {
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  margin-bottom: 0.4em;
+}
+
+.hero p {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  text-wrap: pretty;
+  margin: 0 0 1.4rem;
+}
+
+.button-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.65rem 1.3rem;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lift);
+}
+
+.overall-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 1.2rem 0 2rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.news-banner {
+  display: block;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-2);
+  color: var(--ink-soft);
+  padding: 0.6rem 1rem;
+  font-size: 0.88rem;
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+}
+
+.news-banner:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.1rem;
+  padding-bottom: 2rem;
+}
+
+.track-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem 1.2rem 1rem;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.track-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--accent);
+}
+
+.specimen-tag {
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--paper-2);
+  padding: 0.1rem 0.45rem;
+}
+
+.track-card h2 {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.track-card .track-emoji {
+  margin-right: 0.4rem;
+}
+
+.track-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  text-wrap: pretty;
+  flex-grow: 1;
+}
+
+.progress-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  border: 1px solid var(--line-soft);
+  overflow: hidden;
+  flex: 1;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.progress-count {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.track-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* ---------- トラック / レッスン一覧 ---------- */
+
+.page-title {
+  padding: 2.4rem 0 0.4rem;
+}
+
+.page-title h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+}
+
+.page-title .lead {
+  color: var(--ink-soft);
+  max-width: 44rem;
+  text-wrap: pretty;
+}
+
+.lesson-list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+  max-width: 44rem;
+}
+
+.lesson-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.lesson-list a:hover {
+  border-color: var(--accent);
+  transform: translateX(2px);
+}
+
+.lesson-list .lesson-no {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.lesson-list .lesson-title {
+  flex: 1;
+}
+
+.lesson-list .lesson-summary {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* 完了スタンプ（観察済みマーク） */
+.tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  color: transparent;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.tick[data-done="true"] {
+  border-color: var(--good);
+  color: var(--good);
+  background: var(--good-soft);
+  transform: rotate(-8deg);
+}
+
+/* ---------- レッスンページ ---------- */
+
+.lesson-layout {
+  display: grid;
+  grid-template-columns: 15.5rem minmax(0, 1fr);
+  gap: 2.5rem;
+  padding: 2rem 0;
+}
+
+.lesson-aside {
+  position: sticky;
+  top: 4.4rem;
+  align-self: start;
+  font-size: 0.88rem;
+}
+
+.lesson-aside nav {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.lesson-aside .aside-track {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+
+.lesson-aside a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border-left: 2px solid transparent;
+}
+
+.lesson-aside a:hover {
+  color: var(--ink);
+  background: var(--paper-2);
+}
+
+.lesson-aside a[aria-current="page"] {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.lesson-aside .tick {
+  width: 1.05rem;
+  height: 1.05rem;
+  font-size: 0.65rem;
+}
+
+.lesson-main {
+  max-width: 44rem;
+  min-width: 0;
+}
+
+.lesson-main :lang(ja) {
+  line-height: 1.9;
+}
+
+.lesson-header .specimen-tag {
+  margin-bottom: 0.6rem;
+}
+
+.lesson-header h1 {
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  margin-bottom: 0.3em;
+}
+
+.lesson-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.freshness-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--good);
+  background: var(--good-soft);
+  border: 1px solid color-mix(in srgb, var(--good) 40%, transparent);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+}
+
+.freshness-badge[data-stale="true"] {
+  color: var(--warn);
+  background: var(--warn-soft);
+  border-color: color-mix(in srgb, var(--warn) 45%, transparent);
+}
+
+/* 本文 */
+.prose {
+  font-size: 1rem;
+}
+
+.prose:lang(ja) {
+  line-height: 1.95;
+}
+
+.prose h2 {
+  font-size: 1.3rem;
+  margin: 2em 0 0.7em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--line);
+}
+
+.prose h3 {
+  font-size: 1.1rem;
+  margin: 1.6em 0 0.5em;
+}
+
+.prose p {
+  margin: 0 0 1.1em;
+  text-wrap: pretty;
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.4em;
+  margin: 0 0 1.1em;
+}
+
+.prose li {
+  margin-bottom: 0.35em;
+}
+
+.prose code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--paper-2);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  padding: 0.08em 0.35em;
+}
+
+.prose pre {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.prose blockquote {
+  margin: 0 0 1.1em;
+  padding: 0.1em 0 0.1em 1em;
+  border-left: 3px solid var(--accent);
+  color: var(--ink-soft);
+}
+
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 1.1em;
+  font-size: 0.92rem;
+}
+
+.prose th, .prose td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+}
+
+.prose th {
+  background: var(--paper-2);
+}
+
+/* ---------- クイズ（貼り付けた付箋風） ---------- */
+
+.quiz-block {
+  margin: 2.5rem 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.3rem 1.4rem;
+}
+
+.quiz-block > h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quiz-question {
+  margin-bottom: 1.4rem;
+}
+
+.quiz-question:last-child {
+  margin-bottom: 0;
+}
+
+.quiz-prompt {
+  font-weight: 600;
+  margin: 0 0 0.7rem;
+  text-wrap: pretty;
+}
+
+.quiz-choices {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 0.8rem;
+}
+
+.quiz-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: left;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.8rem;
+  color: var(--ink);
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+
+.quiz-choice:hover {
+  border-color: var(--accent);
+}
+
+.quiz-choice[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.quiz-choice .order-no {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  min-width: 1.2em;
+}
+
+.quiz-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.quiz-check {
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+}
+
+.quiz-check:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.quiz-reset {
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  padding: 0.3rem;
+}
+
+.quiz-feedback {
+  font-weight: 600;
+}
+
+.quiz-feedback[data-state="correct"] {
+  color: var(--good);
+}
+
+.quiz-feedback[data-state="incorrect"] {
+  color: var(--bad);
+}
+
+.quiz-explanation {
+  margin-top: 0.8rem;
+  background: var(--good-soft);
+  border-left: 3px solid var(--good);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.92rem;
+}
+
+.quiz-explanation strong {
+  color: var(--good);
+}
+
+/* ---------- 出典・ページャ ---------- */
+
+.sources {
+  margin: 2.5rem 0 0;
+  border-top: 1px dashed var(--line);
+  padding-top: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.sources h2 {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.sources ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.3rem;
+}
+
+.pager a {
+  display: grid;
+  gap: 0.15rem;
+  max-width: 48%;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 0.7rem 1rem;
+  transition: border-color 0.15s ease;
+}
+
+.pager a:hover {
+  border-color: var(--accent);
+}
+
+.pager .pager-label {
+  font-size: 0.75rem;
+  font-family: var(--mono);
+  color: var(--ink-soft);
+}
+
+.pager .pager-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+/* ---------- モバイル ---------- */
+
+.aside-toggle {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .lesson-layout {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .lesson-aside {
+    position: static;
+  }
+
+  .aside-toggle {
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--card);
+    padding: 0.6rem 0.9rem;
+  }
+
+  .aside-toggle summary {
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .aside-toggle nav {
+    margin-top: 0.6rem;
+  }
+
+  .lesson-aside > nav {
+    display: none;
+  }
+
+  .site-nav {
+    gap: 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ---------- reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
   html {
-    color-scheme: dark;
+    scroll-behavior: auto;
   }
 }
