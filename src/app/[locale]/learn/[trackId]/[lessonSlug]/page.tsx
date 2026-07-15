@@ -13,6 +13,8 @@ import { Pager } from "@/components/pager";
 import { LessonTick } from "@/components/progress";
 import { JsonLd } from "@/components/json-ld";
 
+const BASE_URL = "https://ai-primer.vercel.app";
+
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     ALL_LESSONS.map((ref) => ({ locale, trackId: ref.track.id, lessonSlug: ref.lesson.slug })),
@@ -68,11 +70,32 @@ export default async function LessonPage({
     isPartOf: { "@type": "Course", name: track.title[locale] },
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: dict.nav.home, item: `${BASE_URL}/${locale}` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: track.title[locale],
+        item: `${BASE_URL}/${locale}/learn/${track.id}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: lesson.title[locale],
+        item: `${BASE_URL}/${locale}/learn/${track.id}/${lesson.slug}`,
+      },
+    ],
+  };
+
   return (
     <div className="lesson-layout">
       <LessonSidebar track={track} locale={locale} currentLessonId={lesson.id} />
       <article className="lesson-main">
         <JsonLd data={jsonLd} nonce={nonce} />
+        <JsonLd data={breadcrumbJsonLd} nonce={nonce} />
         <div className="lesson-header">
           <span className="specimen-tag">{track.title[locale]}</span>
           <h1>{lesson.title[locale]}</h1>
