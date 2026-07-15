@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Primer
 
-## Getting Started
+AIの用語・歴史・仕組み・使い方を体系的に学べるバイリンガル（日本語/英語）チュートリアル。
+ChatGPT・Claude・Gemini・Grok などのチャットAIから、コーディング・画像・動画・音楽生成まで横断的に扱う。
 
-First, run the development server:
+<!-- スクリーンショット -->
+
+## 特徴
+
+- **8トラック / 約40レッスン**: 基礎用語 → 歴史 → LLMの仕組み → 主要AI比較 → プロンプト術 → コーディングAI → 生成メディア → 活用と倫理
+- **クイズと進捗管理**: 各レッスンに確認クイズ。進捗はブラウザ（localStorage）に保存
+- **全ての事実に出典リンク**: 各レッスン・カタログ項目が一次情報源を明記
+- **鮮度の可視化**: レッスンごとに「最終確認日」を表示。古くなった項目は月次ワークフローが自動検出
+  （※コンテンツ本文の更新は人手レビュー。「自動で最新化」ではありません）
+- 速報系のAIニュースは姉妹アプリ [AIニュース・ダイジェスト](https://ai-news-feed-app.vercel.app) が担当
+
+## 技術構成
+
+- Next.js 16 (App Router, TypeScript) / React 19
+- per-request nonce の厳格 CSP（proxy.ts）+ セキュリティヘッダー一式
+- 手書き i18n（`[locale]` セグメント + `Localized<T>` 型で両言語必須を強制）
+- Markdown → HTML はビルド時サーバー変換（remark/rehype、クライアントJS最小）
+- vitest: engine/i18n 層 100% カバレッジゲート（CI強制）
+
+## 開発
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run typecheck  # tsc --noEmit
+npm test           # vitest
+npm run coverage   # カバレッジ100%ゲート
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 品質指標
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<!-- publish-check で実測値を記入 -->
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- npm audit: 0 vulnerabilities
+- カバレッジ: engine/i18n 層 100%（thresholds ゲート）
