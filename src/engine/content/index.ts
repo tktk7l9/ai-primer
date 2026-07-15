@@ -2,9 +2,10 @@ import type { Lesson, Track, TrackId } from "./types";
 import { aiBasicsTrack } from "./tracks/ai-basics";
 import { historyTrack } from "./tracks/history";
 import { howLlmsWorkTrack } from "./tracks/how-llms-work";
+import { chatAisTrack } from "./tracks/chat-ais";
 
 /** 表示順どおりの全トラック。P4 完了時点で 8 本になる。 */
-export const TRACKS: readonly Track[] = [aiBasicsTrack, historyTrack, howLlmsWorkTrack];
+export const TRACKS: readonly Track[] = [aiBasicsTrack, historyTrack, howLlmsWorkTrack, chatAisTrack];
 
 export interface LessonRef {
   readonly track: Track;
