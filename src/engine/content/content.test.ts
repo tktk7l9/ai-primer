@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { ALL_LESSONS, TRACKS, lessonById, lessonBySlug, nextLesson, prevLesson, trackById } from "./index";
 import { TRACK_IDS } from "./types";
+import { GLOSSARY } from "./glossary";
 import { renderMarkdown } from "@/engine/markdown/render";
 import { parseISODate } from "@/engine/freshness/staleness";
 import { locales } from "@/i18n/config";
@@ -88,6 +89,13 @@ describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
       }
     });
 
+    it("glossaryRefs は glossary.ts の用語 id に解決する", () => {
+      const glossaryIds = new Set(GLOSSARY.map((g) => g.id));
+      for (const ref of lesson.glossaryRefs ?? []) {
+        expect(glossaryIds.has(ref), `glossaryRef '${ref}' が未定義`).toBe(true);
+      }
+    });
+
     it("出典が1件以上あり https で始まる", () => {
       expect(lesson.sources.length).toBeGreaterThan(0);
       for (const source of lesson.sources) {
@@ -110,6 +118,36 @@ describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
     });
   },
 );
+
+describe("glossary", () => {
+  it("id は一意", () => {
+    const ids = GLOSSARY.map((g) => g.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("term/definition が全ロケール非空、出典・lastVerified が妥当", () => {
+    for (const g of GLOSSARY) {
+      for (const locale of locales) {
+        expect(g.term[locale].trim().length).toBeGreaterThan(0);
+        expect(g.definition[locale].trim().length).toBeGreaterThan(0);
+      }
+      expect(g.sources.length).toBeGreaterThan(0);
+      for (const source of g.sources) {
+        expect(source.url).toMatch(/^https:\/\//);
+      }
+      expect(parseISODate(g.lastVerified)).not.toBeNull();
+    }
+  });
+
+  it("relatedLessonIds は実在するレッスンに解決する", () => {
+    const lessonIds = new Set(ALL_LESSONS.map((ref) => ref.lesson.id));
+    for (const g of GLOSSARY) {
+      for (const id of g.relatedLessonIds) {
+        expect(lessonIds.has(id), `relatedLessonId '${id}' が未定義 (glossary: ${g.id})`).toBe(true);
+      }
+    }
+  });
+});
 
 describe("lookup 関数", () => {
   const first = ALL_LESSONS[0];

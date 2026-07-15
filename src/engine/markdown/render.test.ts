@@ -30,4 +30,10 @@ describe("renderMarkdown", () => {
   it("空文字は空を返す", () => {
     expect(renderMarkdown("")).toBe("");
   });
+  it("GFMテーブルを変換する", () => {
+    const html = renderMarkdown("| a | b |\n|---|---|\n| 1 | 2 |");
+    expect(html).toContain("<table>");
+    expect(html).toContain("<th>a</th>");
+    expect(html).toContain("<td>1</td>");
+  });
 });
