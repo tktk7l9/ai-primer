@@ -8,7 +8,7 @@ export const chatgptMoment: Lesson = {
     en: "The ChatGPT Moment: When AI Went Mainstream",
   },
   summary: {
-    ja: "2022年11月30日の公開から、history上最速で普及した消費者向けサービスになった。",
+    ja: "2022年11月30日の公開から、史上最速で普及した消費者向けサービスになった。",
     en: "Released on Nov. 30, 2022, it became the fastest-adopted consumer product in history.",
   },
   body: {
@@ -16,7 +16,7 @@ export const chatgptMoment: Lesson = {
 
 OpenAI は **2022年11月30日**、GPT-3.5をベースにしたチャットサービス **ChatGPT** を無料の研究プレビューとして公開しました。
 
-普及の速さは記録的で、公開から**5日で利用者100万人**、**2か月で月間利用者1億人**規模に達したとされ、history上最も急速に広まった消費者向けサービスの一つと言われています。
+普及の速さは記録的で、公開から**5日で利用者100万人**、**2か月で月間利用者1億人**規模に達したとされ、史上最も急速に広まった消費者向けサービスの一つと言われています。
 
 その後の主な展開:
 - **2023年2月**: 有料プラン ChatGPT Plus を発表。

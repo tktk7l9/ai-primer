@@ -14,7 +14,7 @@ export const claudeLesson: Lesson = {
   body: {
     ja: `## 開発元: Anthropic
 
-**Claude** は **Anthropic** が開発するチャットAIです。AnthropicはAIの安全性research（AI safety）を重視する姿勢を掲げるAI研究企業として知られています。
+**Claude** は **Anthropic** が開発するチャットAIです。AnthropicはAIの安全性研究（AI safety）を重視する姿勢を掲げるAI研究企業として知られています。
 
 ### モデルの階層構造
 Anthropicは長らく、用途に応じて複数の「サイズ」のモデルを並行して提供する構成を取ってきました（名称やラインアップは時期によって変わります）:
@@ -54,7 +54,7 @@ Specific model names change quickly — see the [model catalog](/models) for cur
       },
       answer: true,
       explanation: {
-        ja: "AnthropicはAI safetyを重視する企業として位置づけられています。",
+        ja: "Anthropicは安全性研究（AI safety）を重視する企業として位置づけられています。",
         en: "Anthropic positions itself as a company centered on AI safety.",
       },
     },

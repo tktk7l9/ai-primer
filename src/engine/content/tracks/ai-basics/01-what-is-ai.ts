@@ -1,6 +1,5 @@
 import type { Lesson } from "@/engine/content/types";
 
-// ⚠ P3（パイロット執筆）で Web 検索検証つきの本文に置き換える予定のプレースホルダー。
 export const whatIsAi: Lesson = {
   id: "ai-basics-01",
   slug: "what-is-ai",
