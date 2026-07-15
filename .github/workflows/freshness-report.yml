@@ -1,0 +1,41 @@
+name: Freshness report
+
+on:
+  schedule:
+    # 毎月1日 21:00 UTC ≈ JST 2日 06:00
+    - cron: "0 21 1 * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  check-freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run freshness check
+        id: check
+        run: |
+          set +e
+          npx tsx scripts/check-freshness.ts > freshness-report.md 2>freshness-report.err
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          cat freshness-report.err
+      - name: Create or update issue
+        if: steps.check.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="鮮度レポート: 要確認項目あり"
+          BODY_FILE=freshness-report.md
+          EXISTING=$(gh issue list --search "in:title \"$TITLE\"" --state open --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ] && [ "$EXISTING" != "null" ]; then
+            gh issue comment "$EXISTING" --body-file "$BODY_FILE"
+          else
+            gh issue create --title "$TITLE" --body-file "$BODY_FILE"
+          fi
