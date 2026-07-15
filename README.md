@@ -3,6 +3,8 @@
 AIの用語・歴史・仕組み・使い方を体系的に学べるバイリンガル（日本語/英語）チュートリアル。
 ChatGPT・Claude・Gemini・Grok などのチャットAIから、コーディング・画像・動画・音楽生成まで横断的に扱う。
 
+**公開URL**: https://ai-primer-nine.vercel.app
+
 <!-- スクリーンショット -->
 
 ## 特徴
@@ -35,7 +37,8 @@ npm run build
 
 ## 品質指標
 
-- npm audit: 0 vulnerabilities
+- npm audit: 0 vulnerabilities（全セベリティ）
+- gitleaks: 0 leaks
 - テスト: 368件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
-- Lighthouse（ローカル本番ビルド計測・2026-07-15）: desktop 100/100/100/100・mobile 98/100/100/100
-- Observatory: 公開後に計測（publish-check参照）
+- Lighthouse（本番URL計測・2026-07-15）: mobile 100/100/100/100・desktop 100/100/100/100
+- Mozilla Observatory（本番URL計測・2026-07-15）: A+（score 115・10/10 tests passed）
