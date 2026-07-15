@@ -13,7 +13,7 @@ import { Pager } from "@/components/pager";
 import { LessonTick } from "@/components/progress";
 import { JsonLd } from "@/components/json-ld";
 
-const BASE_URL = "https://ai-primer.vercel.app";
+const BASE_URL = "https://ai-primer-nine.vercel.app";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>

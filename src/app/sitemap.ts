@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { ALL_LESSONS, TRACKS } from "@/engine/content";
 import { locales } from "@/i18n/config";
 
-const BASE_URL = "https://ai-primer.vercel.app";
+const BASE_URL = "https://ai-primer-nine.vercel.app";
 
 function alternates(path: string): Record<string, string> {
   return Object.fromEntries(locales.map((l) => [l, `${BASE_URL}/${l}${path}`]));

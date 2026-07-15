@@ -7,7 +7,7 @@ import { TrackCard } from "@/components/track-card";
 import { ProgressMeter } from "@/components/progress";
 import { JsonLd } from "@/components/json-ld";
 
-const BASE_URL = "https://ai-primer.vercel.app";
+const BASE_URL = "https://ai-primer-nine.vercel.app";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

@@ -6,7 +6,7 @@ import { Header } from "@/components/header";
 import { type Locale, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
-const BASE_URL = "https://ai-primer.vercel.app";
+const BASE_URL = "https://ai-primer-nine.vercel.app";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
