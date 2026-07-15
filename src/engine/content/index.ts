@@ -3,9 +3,16 @@ import { aiBasicsTrack } from "./tracks/ai-basics";
 import { historyTrack } from "./tracks/history";
 import { howLlmsWorkTrack } from "./tracks/how-llms-work";
 import { chatAisTrack } from "./tracks/chat-ais";
+import { promptingTrack } from "./tracks/prompting";
 
 /** 表示順どおりの全トラック。P4 完了時点で 8 本になる。 */
-export const TRACKS: readonly Track[] = [aiBasicsTrack, historyTrack, howLlmsWorkTrack, chatAisTrack];
+export const TRACKS: readonly Track[] = [
+  aiBasicsTrack,
+  historyTrack,
+  howLlmsWorkTrack,
+  chatAisTrack,
+  promptingTrack,
+];
 
 export interface LessonRef {
   readonly track: Track;
