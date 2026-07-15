@@ -5,6 +5,7 @@ import { howLlmsWorkTrack } from "./tracks/how-llms-work";
 import { chatAisTrack } from "./tracks/chat-ais";
 import { promptingTrack } from "./tracks/prompting";
 import { codingAiTrack } from "./tracks/coding-ai";
+import { generativeMediaTrack } from "./tracks/generative-media";
 
 /** 表示順どおりの全トラック。P4 完了時点で 8 本になる。 */
 export const TRACKS: readonly Track[] = [
@@ -14,6 +15,7 @@ export const TRACKS: readonly Track[] = [
   chatAisTrack,
   promptingTrack,
   codingAiTrack,
+  generativeMediaTrack,
 ];
 
 export interface LessonRef {
