@@ -48,6 +48,8 @@ export default async function TimelinePage({
   if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale as Locale;
   const dict = await getDictionary(locale);
+  // データ本体(TIMELINE)は古い順の正史として保持し、表示のみ新しい順に反転する。
+  const newestFirst = [...TIMELINE].reverse();
 
   return (
     <div className="narrow-page">
@@ -56,7 +58,7 @@ export default async function TimelinePage({
         <p className="lead">{dict.timeline.lead}</p>
       </div>
       <ol className="timeline-list">
-        {TIMELINE.map((event) => (
+        {newestFirst.map((event) => (
           <li key={event.id} className="timeline-item">
             <span className="timeline-date">{formatEventDate(event, locale)}</span>
             <h2>{event.title[locale]}</h2>

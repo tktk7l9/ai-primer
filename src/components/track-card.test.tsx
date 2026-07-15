@@ -52,4 +52,14 @@ describe("TrackCard", () => {
     render(<TrackCard track={track} index={7} locale="ja" dict={ja} />);
     expect(screen.getByText(/Track 08/)).toBeInTheDocument();
   });
+
+  it("所要時間の目安(約N分)を表示する", () => {
+    render(<TrackCard track={track} index={0} locale="ja" dict={ja} />);
+    expect(screen.getByText(/約\d+分/)).toBeInTheDocument();
+  });
+
+  it("英語ロケールでは ~N min 形式で表示する", () => {
+    render(<TrackCard track={track} index={0} locale="en" dict={ja} />);
+    expect(screen.getByText(/~\d+ min/)).toBeInTheDocument();
+  });
 });

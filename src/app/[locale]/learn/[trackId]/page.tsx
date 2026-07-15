@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { TRACKS, trackById } from "@/engine/content";
+import { estimateTrackMinutes, formatMinutes } from "@/engine/content/reading-time";
 import { type Locale, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { LessonTick } from "@/components/progress";
@@ -41,11 +42,14 @@ export default async function TrackPage({
   const track = trackById(trackId);
   if (!track) notFound();
   const dict = await getDictionary(locale);
+  const duration = formatMinutes(estimateTrackMinutes(track, locale), locale);
 
   return (
     <div className="narrow-page">
       <div className="page-title">
-        <span className="specimen-tag">{track.emoji} Track</span>
+        <span className="specimen-tag">
+          {track.emoji} Track · {duration}
+        </span>
         <h1>{track.title[locale]}</h1>
         <p className="lead">{track.summary[locale]}</p>
       </div>
