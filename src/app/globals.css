@@ -870,3 +870,165 @@ button {
     scroll-behavior: auto;
   }
 }
+
+/* ---------- モデルカタログ ---------- */
+
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.1rem;
+  padding: 1.5rem 0 3rem;
+}
+
+.model-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem 1.2rem;
+}
+
+.model-card .specimen-tag {
+  align-self: flex-start;
+}
+
+.model-card h2 {
+  font-size: 1.05rem;
+  margin: 0.3em 0 0;
+}
+
+.model-card .model-vendor {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.model-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  flex-grow: 1;
+}
+
+.model-card .model-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  margin-top: 0.4rem;
+}
+
+.free-tier-badge {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--good) 40%, transparent);
+  color: var(--good);
+  background: var(--good-soft);
+}
+
+.free-tier-badge[data-free="false"] {
+  border-color: var(--line);
+  color: var(--ink-soft);
+  background: var(--paper-2);
+}
+
+/* ---------- AI年表 ---------- */
+
+.timeline-list {
+  list-style: none;
+  margin: 1.5rem 0 3rem;
+  padding: 0 0 0 1.5rem;
+  border-left: 2px solid var(--line);
+  display: grid;
+  gap: 1.4rem;
+  max-width: 44rem;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.72rem;
+  top: 0.3rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline-date {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-item h2 {
+  font-size: 1.05rem;
+  margin: 0 0 0.3em;
+}
+
+.timeline-item p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+/* ---------- 用語集 ---------- */
+
+.glossary-list {
+  list-style: none;
+  margin: 1.5rem 0 3rem;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+  max-width: 44rem;
+}
+
+.glossary-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+}
+
+.glossary-item dt {
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.glossary-item dd {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.glossary-related {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+}
+
+.glossary-related a {
+  font-family: var(--mono);
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+}
+
+.glossary-related a:hover {
+  border-color: var(--accent);
+}

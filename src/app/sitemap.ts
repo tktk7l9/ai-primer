@@ -29,6 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: { languages: alternates(`/learn/${track.id}/${lesson.slug}`) },
       });
     }
+    for (const path of ["/models", "/timeline", "/glossary"]) {
+      entries.push({
+        url: `${BASE_URL}/${locale}${path}`,
+        alternates: { languages: alternates(path) },
+      });
+    }
   }
 
   return entries;

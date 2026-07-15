@@ -49,6 +49,22 @@ const en: Dictionary = {
       "This site covers slow-changing fundamentals. Content reflects information as of each lesson's “last verified” date.",
     github: "GitHub",
   },
+  models: {
+    title: "Model Catalog",
+    lead: "Who makes each major AI service, how it's positioned, and what it's good at. Pricing and specific versions change fast — always check the official site for current details.",
+    officialSite: "Official site",
+    freeTierYes: "Free tier available",
+    freeTierNo: "No free tier",
+  },
+  timeline: {
+    title: "AI Timeline",
+    lead: "From the 1950 Turing Test to today, tracing AI's history in order. Pair this with the History track's lessons for more depth.",
+  },
+  glossary: {
+    title: "Glossary",
+    lead: "Every term used across this site's lessons, in one place — each links to the lessons where it comes up.",
+    relatedLessons: "Related lessons",
+  },
 };
 
 export default en;

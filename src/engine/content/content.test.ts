@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import { ALL_LESSONS, TRACKS, lessonById, lessonBySlug, nextLesson, prevLesson, trackById } from "./index";
 import { TRACK_IDS } from "./types";
 import { GLOSSARY } from "./glossary";
+import { MODELS } from "./models";
+import { TIMELINE } from "./timeline";
 import { renderMarkdown } from "@/engine/markdown/render";
 import { parseISODate } from "@/engine/freshness/staleness";
 import { locales } from "@/i18n/config";
@@ -146,6 +148,63 @@ describe("glossary", () => {
         expect(lessonIds.has(id), `relatedLessonId '${id}' が未定義 (glossary: ${g.id})`).toBe(true);
       }
     }
+  });
+});
+
+describe("models", () => {
+  it("id は一意", () => {
+    const ids = MODELS.map((m) => m.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("vendor/name/strengths が非空、出典・lastVerified が妥当", () => {
+    for (const m of MODELS) {
+      expect(m.vendor.trim().length).toBeGreaterThan(0);
+      expect(m.name.trim().length).toBeGreaterThan(0);
+      expect(m.officialUrl).toMatch(/^https:\/\//);
+      for (const locale of locales) {
+        expect(m.strengths[locale].trim().length).toBeGreaterThan(0);
+      }
+      expect(m.sources.length).toBeGreaterThan(0);
+      for (const source of m.sources) {
+        expect(source.url).toMatch(/^https:\/\//);
+      }
+      expect(parseISODate(m.lastVerified)).not.toBeNull();
+    }
+  });
+
+  it("kind は既定の種別のみ", () => {
+    const kinds = ["chat", "coding", "image", "video", "music"];
+    for (const m of MODELS) {
+      expect(kinds).toContain(m.kind);
+    }
+  });
+});
+
+describe("timeline", () => {
+  it("id は一意", () => {
+    const ids = TIMELINE.map((e) => e.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("title/summary が非空、日付が妥当、出典がある", () => {
+    for (const e of TIMELINE) {
+      for (const locale of locales) {
+        expect(e.title[locale].trim().length).toBeGreaterThan(0);
+        expect(e.summary[locale].trim().length).toBeGreaterThan(0);
+      }
+      expect(parseISODate(e.date)).not.toBeNull();
+      expect(e.sources.length).toBeGreaterThan(0);
+      for (const source of e.sources) {
+        expect(source.url).toMatch(/^https:\/\//);
+      }
+    }
+  });
+
+  it("日付が古い順に並んでいる", () => {
+    const dates = TIMELINE.map((e) => e.date);
+    const sorted = [...dates].sort();
+    expect(dates).toEqual(sorted);
   });
 });
 
