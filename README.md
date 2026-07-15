@@ -35,7 +35,7 @@ npm run build
 
 ## 品質指標
 
-<!-- publish-check で実測値を記入 -->
-
 - npm audit: 0 vulnerabilities
-- カバレッジ: engine/i18n 層 100%（thresholds ゲート）
+- テスト: 368件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
+- Lighthouse（ローカル本番ビルド計測・2026-07-15）: desktop 100/100/100/100・mobile 98/100/100/100
+- Observatory: 公開後に計測（publish-check参照）
