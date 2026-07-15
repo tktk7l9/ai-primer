@@ -185,6 +185,74 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "Anthropic: Introducing the next generation of Claude", url: "https://www.anthropic.com/news/claude-3-family" }],
   },
   {
+    id: "2024-gpt4o",
+    date: "2024-05-13",
+    precision: "day",
+    title: { ja: "GPT-4o発表", en: "GPT-4o Announced" },
+    summary: {
+      ja: "OpenAIがテキスト・音声・画像をリアルタイムで横断して扱えるマルチモーダルモデルGPT-4oを発表した。",
+      en: "OpenAI introduced GPT-4o, a multimodal model that reasons across text, audio, and vision in real time.",
+    },
+    sources: [{ label: "OpenAI: Hello GPT-4o", url: "https://openai.com/index/hello-gpt-4o/" }],
+  },
+  {
+    id: "2024-claude35-sonnet",
+    date: "2024-06-20",
+    precision: "day",
+    title: { ja: "Claude 3.5 Sonnet発表", en: "Claude 3.5 Sonnet Announced" },
+    summary: {
+      ja: "AnthropicがClaude 3 Opusを上回る性能を、より低コスト・高速な3.5 Sonnetで実現したと発表した。",
+      en: "Anthropic released Claude 3.5 Sonnet, outperforming Claude 3 Opus at a lower cost and higher speed.",
+    },
+    sources: [{ label: "Anthropic: Introducing Claude 3.5 Sonnet", url: "https://www.anthropic.com/news/claude-3-5-sonnet" }],
+  },
+  {
+    id: "2024-eu-ai-act",
+    date: "2024-08-01",
+    precision: "day",
+    title: { ja: "EU AI Actが発効", en: "The EU AI Act Enters Into Force" },
+    summary: {
+      ja: "欧州連合の包括的なAI規制法が発効。主要条項は6〜36ヶ月かけて段階的に適用される。",
+      en: "The European Union's comprehensive AI regulation entered into force, with major provisions phasing in over 6 to 36 months.",
+    },
+    sources: [
+      { label: "European Commission: AI Act enters into force", url: "https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en" },
+    ],
+  },
+  {
+    id: "2024-o1",
+    date: "2024-09-12",
+    precision: "day",
+    title: { ja: "OpenAI o1 — 「推論」モデルの登場", en: "OpenAI o1: A \"Reasoning\" Model Arrives" },
+    summary: {
+      ja: "回答前に時間をかけて考える設計のo1-preview/o1-miniが登場。数学・科学・コーディングでの複雑な問題に強くなった。",
+      en: "OpenAI released o1-preview and o1-mini, models designed to spend more time reasoning before answering — stronger on complex math, science, and coding problems.",
+    },
+    sources: [{ label: "OpenAI: Introducing OpenAI o1", url: "https://openai.com/index/introducing-openai-o1-preview/" }],
+  },
+  {
+    id: "2025-deepseek-r1",
+    date: "2025-01-20",
+    precision: "day",
+    title: { ja: "DeepSeek-R1公開", en: "DeepSeek-R1 Released" },
+    summary: {
+      ja: "中国のDeepSeekが推論モデルR1を公開。低コストな学習を謳い、公開1週間でiOSの無料アプリ首位に立った。",
+      en: "China's DeepSeek released its R1 reasoning model, claiming low-cost training, and topped the iOS free-app charts within a week.",
+    },
+    sources: [{ label: "Wikipedia: DeepSeek", url: "https://en.wikipedia.org/wiki/DeepSeek" }],
+  },
+  {
+    id: "2025-gpt5",
+    date: "2025-08-07",
+    precision: "day",
+    title: { ja: "GPT-5発表", en: "GPT-5 Announced" },
+    summary: {
+      ja: "OpenAIがコーディング・数学・文章作成・視覚認識などで従来モデルを上回るGPT-5を発表した。",
+      en: "OpenAI introduced GPT-5, with a jump in capability across coding, math, writing, and visual perception over prior models.",
+    },
+    sources: [{ label: "OpenAI: Introducing GPT-5", url: "https://openai.com/index/introducing-gpt-5/" }],
+  },
+  {
     id: "2025-openai-restructuring",
     date: "2025-10-28",
     precision: "day",
@@ -194,5 +262,38 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "OpenAI restructured so that the nonprofit OpenAI Foundation governs the public benefit corporation OpenAI Group PBC.",
     },
     sources: [{ label: "OpenAI: Evolving OpenAI's structure", url: "https://openai.com/index/evolving-our-structure/" }],
+  },
+  {
+    id: "2026-spacex-xai",
+    date: "2026-02-02",
+    precision: "day",
+    title: { ja: "SpaceXがxAIを統合", en: "SpaceX Acquires xAI" },
+    summary: {
+      ja: "SpaceXがGrokの開発元xAIを統合すると発表。xAIは「宇宙を理解する」ことを使命に掲げてきた。",
+      en: "SpaceX announced it had acquired xAI, the maker of Grok, which has framed its mission as \"understanding the universe.\"",
+    },
+    sources: [{ label: "xAI: xAI joins SpaceX", url: "https://x.ai/news/xai-joins-spacex" }],
+  },
+  {
+    id: "2026-claude-fable-5",
+    date: "2026-06-09",
+    precision: "day",
+    title: { ja: "Claude Fable 5が一般提供開始", en: "Claude Fable 5 Becomes Generally Available" },
+    summary: {
+      ja: "Anthropicの一般提供モデルとして最も高性能なClaude Fable 5がAPI・主要クラウド経由で利用可能になった。",
+      en: "Claude Fable 5, Anthropic's most capable widely released model, became available via the API and major cloud platforms.",
+    },
+    sources: [{ label: "Anthropic: Models overview", url: "https://platform.claude.com/docs/en/about-claude/models/overview" }],
+  },
+  {
+    id: "2026-gpt56",
+    date: "2026-07-09",
+    precision: "day",
+    title: { ja: "GPT-5.6発表", en: "GPT-5.6 Announced" },
+    summary: {
+      ja: "OpenAIがSol・Terra・Lunaの3モデルからなるGPT-5.6ファミリーを発表。ChatGPT・Codex・APIに展開された。",
+      en: "OpenAI introduced the GPT-5.6 family — Sol, Terra, and Luna — rolling out across ChatGPT, Codex, and the API.",
+    },
+    sources: [{ label: "OpenAI: GPT-5.6", url: "https://openai.com/index/gpt-5-6/" }],
   },
 ];
