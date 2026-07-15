@@ -43,7 +43,7 @@ export default async function TrackPage({
   const dict = await getDictionary(locale);
 
   return (
-    <>
+    <div className="narrow-page">
       <div className="page-title">
         <span className="specimen-tag">{track.emoji} Track</span>
         <h1>{track.title[locale]}</h1>
@@ -63,6 +63,6 @@ export default async function TrackPage({
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }

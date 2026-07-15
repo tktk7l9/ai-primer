@@ -160,12 +160,8 @@ button {
 }
 
 .brand .brand-mark {
-  font-family: var(--mono);
-  font-size: 0.8rem;
   color: var(--accent);
-  border: 1.5px solid var(--accent);
-  border-radius: var(--radius-sm);
-  padding: 0.05rem 0.4rem;
+  flex-shrink: 0;
 }
 
 .site-nav {
@@ -369,6 +365,13 @@ button {
 
 /* ---------- トラック / レッスン一覧 ---------- */
 
+/* 読み物系の1カラムページ（トラック一覧・年表・用語集）を container の中で
+   左詰めにせず中央に据えるための共通ラッパー。 */
+.narrow-page {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
 .page-title {
   padding: 2.4rem 0 0.4rem;
 }
@@ -379,7 +382,6 @@ button {
 
 .page-title .lead {
   color: var(--ink-soft);
-  max-width: 44rem;
   text-wrap: pretty;
 }
 
@@ -389,7 +391,6 @@ button {
   padding: 0;
   display: grid;
   gap: 0.6rem;
-  max-width: 44rem;
 }
 
 .lesson-list a {
@@ -946,7 +947,6 @@ button {
   border-left: 2px solid var(--line);
   display: grid;
   gap: 1.4rem;
-  max-width: 44rem;
 }
 
 .timeline-item {
@@ -978,9 +978,29 @@ button {
 }
 
 .timeline-item p {
-  margin: 0;
+  margin: 0 0 0.5rem;
   color: var(--ink-soft);
   font-size: 0.92rem;
+}
+
+.timeline-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+}
+
+.timeline-sources a {
+  font-family: var(--mono);
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+}
+
+.timeline-sources a:hover {
+  border-color: var(--accent);
 }
 
 /* ---------- 用語集 ---------- */
@@ -991,7 +1011,6 @@ button {
   padding: 0;
   display: grid;
   gap: 0.9rem;
-  max-width: 44rem;
 }
 
 .glossary-item {

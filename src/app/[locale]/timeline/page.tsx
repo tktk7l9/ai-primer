@@ -50,7 +50,7 @@ export default async function TimelinePage({
   const dict = await getDictionary(locale);
 
   return (
-    <>
+    <div className="narrow-page">
       <div className="page-title">
         <h1>{dict.timeline.title}</h1>
         <p className="lead">{dict.timeline.lead}</p>
@@ -61,9 +61,16 @@ export default async function TimelinePage({
             <span className="timeline-date">{formatEventDate(event, locale)}</span>
             <h2>{event.title[locale]}</h2>
             <p>{event.summary[locale]}</p>
+            <div className="timeline-sources">
+              {event.sources.map((s) => (
+                <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer">
+                  {s.label} ↗
+                </a>
+              ))}
+            </div>
           </li>
         ))}
       </ol>
-    </>
+    </div>
   );
 }

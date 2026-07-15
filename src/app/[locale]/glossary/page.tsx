@@ -41,7 +41,7 @@ export default async function GlossaryPage({
   const sorted = [...GLOSSARY].sort((a, b) => a.term[locale].localeCompare(b.term[locale], locale));
 
   return (
-    <>
+    <div className="narrow-page">
       <div className="page-title">
         <h1>{dict.glossary.title}</h1>
         <p className="lead">{dict.glossary.lead}</p>
@@ -68,6 +68,6 @@ export default async function GlossaryPage({
           </div>
         ))}
       </dl>
-    </>
+    </div>
   );
 }

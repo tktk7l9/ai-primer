@@ -24,23 +24,15 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-          <div
-            style={{
-              width: 84,
-              height: 84,
-              borderRadius: 16,
-              background: "#5646c8",
-              color: "#ffffff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 34,
-              fontWeight: 800,
-              fontFamily: "monospace",
-            }}
-          >
-            AI
-          </div>
+          <svg width="84" height="84" viewBox="0 0 32 32">
+            <rect width="32" height="32" rx="7" fill="#5646c8" />
+            <line x1="10" y1="11" x2="22" y2="11" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" />
+            <line x1="10" y1="11" x2="16" y2="22" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" />
+            <line x1="22" y1="11" x2="16" y2="22" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" />
+            <circle cx="10" cy="11" r="2.4" fill="#ffffff" />
+            <circle cx="22" cy="11" r="2.4" fill="#ffffff" />
+            <circle cx="16" cy="22" r="2.8" fill="#ffffff" />
+          </svg>
           <div style={{ display: "flex", fontSize: 24, letterSpacing: 6, color: "#5a6672" }}>
             FIELD NOTES ON ARTIFICIAL INTELLIGENCE
           </div>
