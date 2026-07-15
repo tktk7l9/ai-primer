@@ -6,8 +6,9 @@ import { chatAisTrack } from "./tracks/chat-ais";
 import { promptingTrack } from "./tracks/prompting";
 import { codingAiTrack } from "./tracks/coding-ai";
 import { generativeMediaTrack } from "./tracks/generative-media";
+import { societyTrack } from "./tracks/society";
 
-/** 表示順どおりの全トラック。P4 完了時点で 8 本になる。 */
+/** 表示順どおりの全トラック（8本、全て揃った）。 */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
@@ -16,6 +17,7 @@ export const TRACKS: readonly Track[] = [
   promptingTrack,
   codingAiTrack,
   generativeMediaTrack,
+  societyTrack,
 ];
 
 export interface LessonRef {
