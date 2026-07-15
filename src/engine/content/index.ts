@@ -1,8 +1,9 @@
 import type { Lesson, Track, TrackId } from "./types";
 import { aiBasicsTrack } from "./tracks/ai-basics";
+import { historyTrack } from "./tracks/history";
 
 /** 表示順どおりの全トラック。P4 完了時点で 8 本になる。 */
-export const TRACKS: readonly Track[] = [aiBasicsTrack];
+export const TRACKS: readonly Track[] = [aiBasicsTrack, historyTrack];
 
 export interface LessonRef {
   readonly track: Track;
