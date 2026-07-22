@@ -16,7 +16,7 @@
     "@vercel/analytics": "^2.0.1",
     "next": "16.2.10",
     "react": "^19.2.8",
-    "react-dom": "19.2.7",
+    "react-dom": "19.2.8",
     "rehype-stringify": "^10.0.1",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
