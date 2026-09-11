@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import {
-  STALE_AFTER_DAYS,
   daysSince,
   formatVerified,
   isStale,
@@ -37,9 +36,6 @@ describe("daysSince", () => {
 });
 
 describe("isStale", () => {
-  it("STALE_AFTER_DAYS は 90", () => {
-    expect(STALE_AFTER_DAYS).toBe(90);
-  });
   it("ちょうど90日は stale でない", () => {
     expect(isStale("2026-04-16", NOW)).toBe(false); // 90日前
   });
