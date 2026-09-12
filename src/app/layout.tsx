@@ -7,9 +7,6 @@ export const metadata: Metadata = {
   description: "AIを体系的に学べるバイリンガル・チュートリアル",
 };
 
-// Per-request rendering so the CSP nonce (set in proxy.ts) is applied.
-export const dynamic = "force-dynamic";
-
 export default function RootLayout({
   children,
 }: Readonly<{
