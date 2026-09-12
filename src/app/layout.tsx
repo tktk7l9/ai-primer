@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,8 +14,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
+        {/* Vercel Analytics は移行に伴って外した。Cloudflare Web Analytics の
+            ビーコンはダッシュボードでトークンを取得してから別コミットで入れる。 */}
         {children}
-        {process.env.VERCEL && <Analytics />}
       </body>
     </html>
   );
