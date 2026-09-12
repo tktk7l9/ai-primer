@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { ALL_LESSONS, lessonBySlug, nextLesson, prevLesson } from "@/engine/content";
 import { type Locale, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -58,7 +57,6 @@ export default async function LessonPage({
   const { locale, ref } = resolved;
   const { track, lesson } = ref;
   const dict = await getDictionary(locale);
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -94,8 +92,8 @@ export default async function LessonPage({
     <div className="lesson-layout">
       <LessonSidebar track={track} locale={locale} currentLessonId={lesson.id} />
       <article className="lesson-main">
-        <JsonLd data={jsonLd} nonce={nonce} />
-        <JsonLd data={breadcrumbJsonLd} nonce={nonce} />
+        <JsonLd data={jsonLd} />
+        <JsonLd data={breadcrumbJsonLd} />
         <div className="lesson-header">
           <span className="specimen-tag">{track.title[locale]}</span>
           <h1>{lesson.title[locale]}</h1>

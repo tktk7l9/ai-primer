@@ -1,4 +1,3 @@
-import { headers } from "next/headers";
 import { TRACKS, ALL_LESSONS } from "@/engine/content";
 import { type Locale, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -23,7 +22,6 @@ export default async function HomePage({
   const locale = rawLocale as Locale;
   const dict = await getDictionary(locale);
   const allLessonIds = ALL_LESSONS.map((ref) => ref.lesson.id);
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -42,7 +40,7 @@ export default async function HomePage({
 
   return (
     <>
-      <JsonLd data={jsonLd} nonce={nonce} />
+      <JsonLd data={jsonLd} />
       <section className="hero">
         <h1>{dict.home.heroTitle}</h1>
         <p>{dict.home.heroLead}</p>
