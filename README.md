@@ -19,7 +19,7 @@ ChatGPT・Claude・Gemini・Grok などのチャットAIから、コーディン
 ## 技術構成
 
 - Next.js 16 (App Router, TypeScript) / React 19
-- per-request nonce の厳格 CSP（proxy.ts）+ セキュリティヘッダー一式
+- 静的ヘッダーの CSP（`src/lib/csp.ts` が正本・next.config.ts が配る）+ セキュリティヘッダー一式
 - 手書き i18n（`[locale]` セグメント + `Localized<T>` 型で両言語必須を強制）
 - Markdown → HTML はビルド時サーバー変換（remark/rehype、クライアントJS最小）
 - vitest: engine/i18n 層 100% カバレッジゲート（CI強制）
@@ -42,3 +42,4 @@ npm run build
 - テスト: 368件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
 - Lighthouse（本番URL計測・2026-07-15）: mobile 100/100/100/100・desktop 100/100/100/100
 - Mozilla Observatory（本番URL計測・2026-07-15）: A+（score 115・10/10 tests passed）
+  ※ 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）で低下する見込み。移行後に再計測する
