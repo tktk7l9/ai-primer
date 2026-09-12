@@ -1,6 +1,5 @@
 import type { Dictionary } from "@/i18n/dictionaries";
-
-const NEWS_URL = "https://ai-news-feed-app.vercel.app";
+import { NEWS_APP_URL } from "@/engine/site";
 
 export function Footer({ dict }: { dict: Dictionary }) {
   return (
@@ -8,7 +7,7 @@ export function Footer({ dict }: { dict: Dictionary }) {
       <div className="container">
         <p>{dict.footer.disclaimer}</p>
         <p>
-          <a href={NEWS_URL} rel="noopener noreferrer" target="_blank">
+          <a href={NEWS_APP_URL} rel="noopener noreferrer" target="_blank">
             {dict.footer.newsLink} ↗
           </a>
         </p>

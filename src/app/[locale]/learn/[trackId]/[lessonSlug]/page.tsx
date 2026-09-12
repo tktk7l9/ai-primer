@@ -11,8 +11,7 @@ import { FreshnessBadge } from "@/components/freshness-badge";
 import { Pager } from "@/components/pager";
 import { LessonTick } from "@/components/progress";
 import { JsonLd } from "@/components/json-ld";
-
-const BASE_URL = "https://ai-primer-nine.vercel.app";
+import { SITE_URL } from "@/engine/site";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -72,18 +71,18 @@ export default async function LessonPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: dict.nav.home, item: `${BASE_URL}/${locale}` },
+      { "@type": "ListItem", position: 1, name: dict.nav.home, item: `${SITE_URL}/${locale}` },
       {
         "@type": "ListItem",
         position: 2,
         name: track.title[locale],
-        item: `${BASE_URL}/${locale}/learn/${track.id}`,
+        item: `${SITE_URL}/${locale}/learn/${track.id}`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: lesson.title[locale],
-        item: `${BASE_URL}/${locale}/learn/${track.id}/${lesson.slug}`,
+        item: `${SITE_URL}/${locale}/learn/${track.id}/${lesson.slug}`,
       },
     ],
   };
