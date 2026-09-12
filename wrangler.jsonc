@@ -9,7 +9,9 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ai-primer",
   "main": ".open-next/worker.js",
-  "compatibility_date": "2026-09-13",
+  // この日付はUTCで検証される。JST基準の「今日」を入れるとUTCがまだ前日で
+  // 「in the future」エラーになることがある（2026-09-13デプロイ時に実際発生）。
+  "compatibility_date": "2026-09-12",
   // Next.js の実行に必須。日付は 2024-09-23 以降であること。
   "compatibility_flags": ["nodejs_compat"],
   "assets": {

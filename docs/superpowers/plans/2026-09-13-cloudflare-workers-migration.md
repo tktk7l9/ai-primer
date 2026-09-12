@@ -15,7 +15,7 @@
 - 新しい公開URLは `https://ai-primer.saitotakuya0719.workers.dev`（既存16本と同じ `<name>.saitotakuya0719.workers.dev` 形式。Worker 名 `ai-primer` は空いていることを確認済み）。
 - 姉妹アプリの正しいURLは `https://ai-news-feed-app.saitotakuya0719.workers.dev`（`vercel.app` 版は移行済み・プロジェクト削除済みで**現在リンク切れ**）。
 - `esbuild` は**明示的な devDependency にする**。OpenNext は esbuild を import するのに依存宣言しておらず、Dependabot が lockfile を再生成すると `npm ci` で入らなくなり**デプロイだけが `ERR_MODULE_NOT_FOUND: esbuild` で死ぬ**（テストは通るので CI は緑）。バージョンは `^0.28.2`（vitest 5 / vite の peer が `^0.27 || ^0.28` なので `^0.25` は ERESOLVE）。
-- `wrangler.jsonc` の `compatibility_flags` に `nodejs_compat` は必須。`compatibility_date` は `2026-09-13`。
+- `wrangler.jsonc` の `compatibility_flags` に `nodejs_compat` は必須。`compatibility_date` は `2026-09-12`（この値はUTCで検証されるため、JST基準の「今日」を入れるとUTCがまだ前日で「in the future」エラーになることがある）。
 - CSP は `src/lib/csp.ts` が正本。**`'strict-dynamic'` を足してはいけない**（`'self'` と `'unsafe-inline'` が無視され全スクリプトが停止する。`src/lib/csp.test.ts` が止める）。この移行では CSP を一切触らない。
 - `src/engine/**` と `src/i18n/**` は vitest の **カバレッジ 100% ゲート**の対象（CI で強制）。`src/engine/site.ts` を追加するなら、それを import するテストが必要。
 - テストスイートの baseline は **414 tests**。
@@ -356,7 +356,7 @@ Create `wrangler.jsonc`:
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ai-primer",
   "main": ".open-next/worker.js",
-  "compatibility_date": "2026-09-13",
+  "compatibility_date": "2026-09-12",
   // Next.js の実行に必須。日付は 2024-09-23 以降であること。
   "compatibility_flags": ["nodejs_compat"],
   "assets": {

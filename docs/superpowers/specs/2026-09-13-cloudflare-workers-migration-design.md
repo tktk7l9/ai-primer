@@ -51,7 +51,7 @@ my-apps-portal / resume / utility-tracker）が同じ形で動いている。そ
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ai-primer",
   "main": ".open-next/worker.js",
-  "compatibility_date": "2026-09-13",
+  "compatibility_date": "2026-09-12",
   "compatibility_flags": ["nodejs_compat"],
   "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
   "observability": { "enabled": true },
