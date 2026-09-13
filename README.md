@@ -39,7 +39,7 @@ npm run build
 
 - npm audit: 0 vulnerabilities（全セベリティ）
 - gitleaks: 0 leaks
-- テスト: 368件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
+- テスト: 421件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
 - Lighthouse（本番URL計測・2026-07-15）: mobile 100/100/100/100・desktop 100/100/100/100
 - Mozilla Observatory（本番URL計測・2026-07-15）: A+（score 115・10/10 tests passed）
   ※ 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）で低下する見込み。移行後に再計測する
