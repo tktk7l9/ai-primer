@@ -40,6 +40,10 @@ npm run build
 - npm audit: 0 vulnerabilities（全セベリティ）
 - gitleaks: 0 leaks
 - テスト: 421件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
-- Lighthouse（本番URL計測・2026-07-15）: mobile 100/100/100/100・desktop 100/100/100/100
-- Mozilla Observatory（本番URL計測・2026-07-15）: A+（score 115・10/10 tests passed）
-  ※ 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）で低下する見込み。移行後に再計測する
+- Lighthouse（本番URL計測・2026-09-14 / Cloudflare Workers・3回計測の中央値）:
+  mobile 100/100/100/100・desktop 100/100/100/100
+- Mozilla Observatory（本番URL計測・2026-09-14 / Cloudflare Workers）: B+（score 80・11/12 tests passed）
+  ※ 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）で A+（score 115・10/10）から低下した。
+    落ちているのは CSP の1項目のみで、他11項目は通っている。移行のために受け入れた代償
+    （Next 16 の proxy が Node 専用で OpenNext が Node middleware 非対応のため、
+    nonce を残すと Workers へ移行できなかった）。性能は移行前と同値を維持している。

@@ -54,5 +54,7 @@ nextjs.org/learn 風のAIリテラシー・チュートリアル。ja/en完全�
 ## 公開前
 
 - private 開始。公開は publish-check 経由のみ（gitleaks 0 / npm audit 全0 / PII なし）。
-  Observatory は 2026-09-12 の CSP 移行で A+ を外れる見込み。`'unsafe-inline'` による減点は
-  受け入れた代償なので、スコアの低下自体は公開のブロッカーにしない（実測値は記録する）。
+  Observatory は 2026-09-12 の CSP 移行で **A+（115）から B+（80・11/12）へ低下**した
+  （2026-09-14 に Workers の本番URLで実測）。落ちているのは CSP の1項目のみ。
+  `'unsafe-inline'` による減点は受け入れた代償なので、このスコアは公開のブロッカーにしない。
+  Lighthouse は mobile/desktop ともに 100/100/100/100 を維持している。
