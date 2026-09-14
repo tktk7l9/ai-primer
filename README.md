@@ -39,11 +39,15 @@ npm run build
 
 - npm audit: 0 vulnerabilities（全セベリティ）
 - gitleaks: 0 leaks
-- テスト: 421件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
+- テスト: 422件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
 - Lighthouse（本番URL計測・2026-09-14 / Cloudflare Workers・3回計測の中央値）:
   mobile 100/100/100/100・desktop 100/100/100/100
-- Mozilla Observatory（本番URL計測・2026-09-14 / Cloudflare Workers）: B+（score 80・11/12 tests passed）
-  ※ 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）で A+（score 115・10/10）から低下した。
-    落ちているのは CSP の1項目のみで、他11項目は通っている。移行のために受け入れた代償
-    （Next 16 の proxy が Node 専用で OpenNext が Node middleware 非対応のため、
-    nonce を残すと Workers へ移行できなかった）。性能は移行前と同値を維持している。
+- Mozilla Observatory（本番URL計測・2026-09-14 / Cloudflare Workers）: B（score 75・10/12 tests passed）
+  ※ 落ちている2項目はどちらも意図した代償で、他10項目は通っている。性能は移行前と同値を維持している。
+    - `content-security-policy` −20: 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）による。
+      A+（score 115・10/10）から B+（80・11/12）へ落ちた分。Next 16 の proxy が Node 専用で
+      OpenNext が Node middleware 非対応のため、nonce を残すと Workers へ移行できなかった。
+    - `subresource-integrity` −5: Cloudflare Web Analytics のビーコン導入による。それまで外部
+      スクリプトが1本も無く素通りで通っていた項目。**SRI は足さない** — `beacon.min.js` は
+      バージョンの付かない URL を Cloudflare が差し替える運用なので、`integrity` を固定すると
+      次の更新でビーコンだけ黙って止まる。
