@@ -5,8 +5,7 @@ import { notFound } from "next/navigation";
 import { TrackCard } from "@/components/track-card";
 import { ProgressMeter } from "@/components/progress";
 import { JsonLd } from "@/components/json-ld";
-
-const BASE_URL = "https://ai-primer-nine.vercel.app";
+import { NEWS_APP_URL, SITE_URL } from "@/engine/site";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -29,12 +28,12 @@ export default async function HomePage({
     name: dict.meta.title,
     description: dict.meta.description,
     inLanguage: locale,
-    url: `${BASE_URL}/${locale}`,
+    url: `${SITE_URL}/${locale}`,
     hasPart: TRACKS.map((track) => ({
       "@type": "Course",
       name: track.title[locale],
       description: track.summary[locale],
-      url: `${BASE_URL}/${locale}/learn/${track.id}`,
+      url: `${SITE_URL}/${locale}/learn/${track.id}`,
     })),
   };
 
@@ -55,7 +54,7 @@ export default async function HomePage({
 
       <a
         className="news-banner"
-        href="https://ai-news-feed-app.vercel.app"
+        href={NEWS_APP_URL}
         target="_blank"
         rel="noopener noreferrer"
       >

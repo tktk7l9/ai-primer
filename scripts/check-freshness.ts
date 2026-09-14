@@ -18,7 +18,7 @@ const CONCURRENCY = 8;
 // 実ブラウザに近い UA を付ける。多くのサイトが UA なしの HEAD/GET を
 // ボット判定して 403 を返すため、これがないと誤検知が大量発生する。
 const USER_AGENT =
-  "Mozilla/5.0 (compatible; ai-primer-freshness-check/1.0; +https://ai-primer.vercel.app)";
+  "Mozilla/5.0 (compatible; ai-primer-freshness-check/1.0; +https://ai-primer.saitotakuya0719.workers.dev)";
 
 interface StaleEntry {
   label: string;

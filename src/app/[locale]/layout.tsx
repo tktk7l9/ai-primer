@@ -5,8 +5,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { type Locale, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-
-const BASE_URL = "https://ai-primer-nine.vercel.app";
+import { SITE_URL } from "@/engine/site";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -23,7 +22,7 @@ export async function generateMetadata({
   const dict = await getDictionary(locale);
 
   return {
-    metadataBase: new URL(BASE_URL),
+    metadataBase: new URL(SITE_URL),
     title: { default: dict.meta.title, template: `%s — ${dict.meta.title}` },
     description: dict.meta.description,
     alternates: {
@@ -33,7 +32,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       locale: locale === "ja" ? "ja_JP" : "en_US",
-      url: `${BASE_URL}/${locale}`,
+      url: `${SITE_URL}/${locale}`,
       siteName: dict.meta.title,
       title: dict.meta.title,
       description: dict.meta.description,
