@@ -3,7 +3,6 @@ import Link from "next/link";
 import { TRACKS, trackById } from "@/engine/content";
 import { estimateTrackMinutes, formatMinutes } from "@/engine/content/reading-time";
 import { type Locale, isLocale, locales } from "@/i18n/config";
-import { getDictionary } from "@/i18n/dictionaries";
 import { LessonTick } from "@/components/progress";
 import type { Metadata } from "next";
 
@@ -41,7 +40,6 @@ export default async function TrackPage({
   const locale = rawLocale as Locale;
   const track = trackById(trackId);
   if (!track) notFound();
-  const dict = await getDictionary(locale);
   const duration = formatMinutes(estimateTrackMinutes(track, locale), locale);
 
   return (

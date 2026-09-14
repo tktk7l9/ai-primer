@@ -10,6 +10,8 @@ const eslintConfig = defineConfig([
     // OpenNext / wrangler build output (generated)
     ".open-next/**",
     ".wrangler/**",
+    // vitest のカバレッジ出力（生成物）
+    "coverage/**",
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
