@@ -21,7 +21,7 @@ describe("contentSecurityPolicy", () => {
     // Next の bootstrap（self.__next_f.push）がインラインなので必要。
     // 末尾の ; まで含めて固定する。含めないと "'unsafe-inline' https: *" のように
     // 後ろに緩い値が足されても通ってしまう。
-    expect(prod).toContain("script-src 'self' 'unsafe-inline';");
+    expect(prod).toContain("script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com;");
   });
 
   it("本番では 'unsafe-eval' を出さない", () => {
@@ -38,7 +38,7 @@ describe("contentSecurityPolicy", () => {
       "style-src 'self' 'unsafe-inline'",
       "font-src 'self'",
       "img-src 'self' data:",
-      "connect-src 'self'",
+      "connect-src 'self' https://cloudflareinsights.com;",
       "manifest-src 'self'",
       "frame-ancestors 'none'",
       "base-uri 'self'",
@@ -48,6 +48,13 @@ describe("contentSecurityPolicy", () => {
     ]) {
       expect(prod).toContain(directive);
     }
+  });
+
+  it("Cloudflare Web Analytics のビーコンに必要な2オリジンを許可している", () => {
+    // 片方でも欠けるとページは正常に見えたままビーコンだけ黙ってブロックされる。
+    // static... が beacon.min.js の配信元、もう一方が計測データの送信先。
+    expect(prod).toContain("https://static.cloudflareinsights.com");
+    expect(prod).toContain("connect-src 'self' https://cloudflareinsights.com;");
   });
 
   it("ディレクティブは ; 区切りで、末尾に余分な ; を付けない", () => {
