@@ -12,6 +12,7 @@ const ja = {
     timeline: "AI年表",
     glossary: "用語集",
     switchLocale: "English",
+    breadcrumb: "現在地",
   },
   home: {
     heroTitle: "AIを、体系的に。",
@@ -62,6 +63,12 @@ const ja = {
   timeline: {
     title: "AI年表",
     lead: "1950年のチューリングテストから現在まで、AIの歴史を出来事順にたどります。各出来事は歴史トラックのレッスンとあわせて読むとより理解が深まります。",
+  },
+  notFound: {
+    title: "ページが見つかりません",
+    lead: "URL が変わったか、削除された可能性があります。コースの一覧か用語集から探してください。",
+    backHome: "コース一覧へ",
+    glossary: "用語集で探す",
   },
   glossary: {
     title: "用語集",

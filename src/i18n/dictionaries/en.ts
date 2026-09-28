@@ -12,6 +12,7 @@ const en: Dictionary = {
     timeline: "AI timeline",
     glossary: "Glossary",
     switchLocale: "日本語",
+    breadcrumb: "Breadcrumb",
   },
   home: {
     heroTitle: "Learn AI, systematically.",
@@ -62,6 +63,12 @@ const en: Dictionary = {
   timeline: {
     title: "AI Timeline",
     lead: "From the 1950 Turing Test to today, tracing AI's history in order. Pair this with the History track's lessons for more depth.",
+  },
+  notFound: {
+    title: "Page not found",
+    lead: "The URL may have changed or the page was removed. Try the course list or the glossary.",
+    backHome: "Go to the course list",
+    glossary: "Search the glossary",
   },
   glossary: {
     title: "Glossary",
