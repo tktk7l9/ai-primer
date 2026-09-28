@@ -52,7 +52,7 @@ export default async function GlossaryPage({
             <dt>{g.term[locale]}</dt>
             <dd>{g.definition[locale]}</dd>
             {g.relatedLessonIds.length > 0 && (
-              <div className="glossary-related">
+              <dd className="glossary-related">
                 <span>{dict.glossary.relatedLessons}:</span>
                 {g.relatedLessonIds.map((id) => {
                   const ref = lessonById(id);
@@ -63,7 +63,7 @@ export default async function GlossaryPage({
                     </Link>
                   );
                 })}
-              </div>
+              </dd>
             )}
           </div>
         ))}
