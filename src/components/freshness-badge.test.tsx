@@ -14,13 +14,14 @@ describe("FreshnessBadge", () => {
     render(<FreshnessBadge lastVerified={daysAgo(10)} locale="ja" dict={ja} />);
     const badge = screen.getByText(new RegExp(ja.lesson.lastVerified));
     expect(badge).toHaveAttribute("data-stale", "false");
-    expect(badge).not.toHaveAttribute("title");
+    expect(screen.queryByText(ja.lesson.staleNotice)).not.toBeInTheDocument();
   });
 
-  it("90日超は data-stale=true で警告タイトルを持つ", () => {
+  it("90日超は data-stale=true で警告文を画面に出す", () => {
     render(<FreshnessBadge lastVerified={daysAgo(120)} locale="ja" dict={ja} />);
     const badge = screen.getByText(new RegExp(ja.lesson.lastVerified));
     expect(badge).toHaveAttribute("data-stale", "true");
-    expect(badge).toHaveAttribute("title", ja.lesson.staleNotice);
+    // Visible text, not a hover-only title, so touch users can read it (SHIG 31, 96).
+    expect(screen.getByText(ja.lesson.staleNotice)).toBeVisible();
   });
 });

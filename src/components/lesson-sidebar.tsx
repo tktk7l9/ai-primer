@@ -6,10 +6,12 @@ function NavList({
   track,
   locale,
   currentLessonId,
+  doneLabel,
 }: {
   track: Track;
   locale: Locale;
   currentLessonId: string;
+  doneLabel: string;
 }) {
   return (
     <nav aria-label="Track outline">
@@ -20,7 +22,7 @@ function NavList({
           href={`/${locale}/learn/${track.id}/${lesson.slug}`}
           aria-current={lesson.id === currentLessonId ? "page" : undefined}
         >
-          <LessonTick lessonId={lesson.id} />
+          <LessonTick lessonId={lesson.id} doneLabel={doneLabel} />
           {lesson.title[locale]}
         </a>
       ))}
@@ -32,17 +34,29 @@ export function LessonSidebar({
   track,
   locale,
   currentLessonId,
+  doneLabel,
 }: {
   track: Track;
   locale: Locale;
   currentLessonId: string;
+  doneLabel: string;
 }) {
   return (
     <aside className="lesson-aside">
-      <NavList track={track} locale={locale} currentLessonId={currentLessonId} />
+      <NavList
+          track={track}
+          locale={locale}
+          currentLessonId={currentLessonId}
+          doneLabel={doneLabel}
+        />
       <details className="aside-toggle">
         <summary>{track.title[locale]}</summary>
-        <NavList track={track} locale={locale} currentLessonId={currentLessonId} />
+        <NavList
+          track={track}
+          locale={locale}
+          currentLessonId={currentLessonId}
+          doneLabel={doneLabel}
+        />
       </details>
     </aside>
   );

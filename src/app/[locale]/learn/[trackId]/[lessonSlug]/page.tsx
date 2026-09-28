@@ -9,7 +9,7 @@ import { QuizBlock } from "@/components/quiz/quiz-block";
 import { SourcesList } from "@/components/sources-list";
 import { FreshnessBadge } from "@/components/freshness-badge";
 import { Pager } from "@/components/pager";
-import { LessonTick } from "@/components/progress";
+import { LessonStatus } from "@/components/progress";
 import { JsonLd } from "@/components/json-ld";
 import { SITE_URL } from "@/engine/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -91,7 +91,12 @@ export default async function LessonPage({
 
   return (
     <div className="lesson-layout">
-      <LessonSidebar track={track} locale={locale} currentLessonId={lesson.id} />
+      <LessonSidebar
+        track={track}
+        locale={locale}
+        currentLessonId={lesson.id}
+        doneLabel={dict.lesson.completed}
+      />
       <article className="lesson-main">
         <JsonLd data={jsonLd} />
         <JsonLd data={breadcrumbJsonLd} />
@@ -106,7 +111,7 @@ export default async function LessonPage({
           <h1>{lesson.title[locale]}</h1>
           <div className="lesson-meta">
             <FreshnessBadge lastVerified={lesson.lastVerified} locale={locale} dict={dict} />
-            <LessonTick lessonId={lesson.id} />
+            <LessonStatus lessonId={lesson.id} label={dict.lesson.completed} />
           </div>
         </div>
 

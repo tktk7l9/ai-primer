@@ -64,7 +64,7 @@ export default async function TrackPage({
                 {lesson.title[locale]}
                 <span className="lesson-summary">{lesson.summary[locale]}</span>
               </span>
-              <LessonTick lessonId={lesson.id} />
+              <LessonTick lessonId={lesson.id} doneLabel={dict.lesson.completed} />
             </Link>
           </li>
         ))}
