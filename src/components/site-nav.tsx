@@ -16,9 +16,11 @@ export function SiteNav({ locale, labels }: { locale: Locale; labels: Dictionary
     { section: "timeline", href: `/${locale}/timeline`, label: labels.timeline },
     { section: "glossary", href: `/${locale}/glossary`, label: labels.glossary },
   ];
+  // The locale switch sits outside <nav> so that on phones it can stay on the
+  // brand row while the section links get their own line (SHIG 85).
   return (
-    <nav className="site-nav" aria-label="Site">
-      <div className="site-nav-links">
+    <>
+      <nav className="site-nav" aria-label="Site">
         {items.map((item) => (
           <Link
             key={item.section}
@@ -28,8 +30,8 @@ export function SiteNav({ locale, labels }: { locale: Locale; labels: Dictionary
             {item.label}
           </Link>
         ))}
-      </div>
+      </nav>
       <LocaleSwitcher locale={locale} label={labels.switchLocale} />
-    </nav>
+    </>
   );
 }

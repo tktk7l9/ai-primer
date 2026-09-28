@@ -172,12 +172,6 @@ button {
   font-size: 0.92rem;
 }
 
-.site-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-}
-
 .site-nav a {
   color: var(--ink-soft);
   text-decoration: none;
@@ -990,6 +984,37 @@ button {
   .site-nav {
     gap: 0.6rem;
     font-size: 0.85rem;
+  }
+}
+
+/* Phones: the four section links no longer fit beside the brand and used to
+   wrap one character per line. Give them their own row with 44px targets
+   (SHIG 85, 69, 78); the locale switch stays top-right. */
+@media (max-width: 600px) {
+  .site-header .container {
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+
+  .locale-switch {
+    margin-left: auto;
+    padding-block: 0.45rem;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    gap: 1.1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-top: 1px solid var(--line);
+  }
+
+  .site-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
   }
 }
 
