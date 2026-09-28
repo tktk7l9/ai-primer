@@ -12,6 +12,7 @@ import { Pager } from "@/components/pager";
 import { LessonTick } from "@/components/progress";
 import { JsonLd } from "@/components/json-ld";
 import { SITE_URL } from "@/engine/site";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -94,7 +95,13 @@ export default async function LessonPage({
         <JsonLd data={jsonLd} />
         <JsonLd data={breadcrumbJsonLd} />
         <div className="lesson-header">
-          <span className="specimen-tag">{track.title[locale]}</span>
+          <Breadcrumbs
+            label={dict.nav.breadcrumb}
+            items={[
+              { label: dict.nav.home, href: `/${locale}` },
+              { label: track.title[locale], href: `/${locale}/learn/${track.id}` },
+            ]}
+          />
           <h1>{lesson.title[locale]}</h1>
           <div className="lesson-meta">
             <FreshnessBadge lastVerified={lesson.lastVerified} locale={locale} dict={dict} />

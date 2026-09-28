@@ -5,6 +5,8 @@ import { estimateTrackMinutes, formatMinutes } from "@/engine/content/reading-ti
 import { type Locale, isLocale, locales } from "@/i18n/config";
 import { LessonTick } from "@/components/progress";
 import type { Metadata } from "next";
+import { getDictionary } from "@/i18n/dictionaries";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => TRACKS.map((track) => ({ locale, trackId: track.id })));
@@ -41,10 +43,12 @@ export default async function TrackPage({
   const track = trackById(trackId);
   if (!track) notFound();
   const duration = formatMinutes(estimateTrackMinutes(track, locale), locale);
+  const dict = await getDictionary(locale);
 
   return (
     <div className="narrow-page">
       <div className="page-title">
+        <Breadcrumbs label={dict.nav.breadcrumb} items={[{ label: dict.nav.home, href: `/${locale}` }]} />
         <span className="specimen-tag">
           {track.emoji} Track · {duration}
         </span>

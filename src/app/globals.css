@@ -172,14 +172,29 @@ button {
   font-size: 0.92rem;
 }
 
+.site-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
 .site-nav a {
   color: var(--ink-soft);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
   color: var(--ink);
+}
+
+/* Current section is shown by an underline too, not by color alone (SHIG 59, 96). */
+.site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
 }
 
 .locale-switch {
@@ -397,6 +412,43 @@ button {
 .page-title .lead {
   color: var(--ink-soft);
   text-wrap: pretty;
+}
+
+/* Visible trail back to the course / track (SHIG 59, 60). */
+.breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 0 0.4rem;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.breadcrumbs li + li::before {
+  content: "›";
+  margin: 0 0.45rem;
+  color: var(--ink-soft);
+}
+
+.breadcrumbs a {
+  display: inline-block;
+  padding: 0.35rem 0;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent);
+}
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 1.4rem 0 4rem;
 }
 
 .lesson-list {
