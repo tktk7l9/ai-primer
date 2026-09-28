@@ -9,13 +9,13 @@ beforeEach(() => {
 });
 
 describe("ProgressMeter", () => {
-  it("未完了の状態では 0/n を表示する", () => {
+  it("shows 0/n when nothing is complete", () => {
     render(<ProgressMeter lessonIds={["a", "b", "c"]} label="進捗" />);
     expect(screen.getByText("0/3")).toBeInTheDocument();
     expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "0");
   });
 
-  it("localStorageの完了状態を反映する", () => {
+  it("reflects completion stored in localStorage", () => {
     markComplete(window.localStorage, "a");
     markComplete(window.localStorage, "b");
     render(<ProgressMeter lessonIds={["a", "b", "c"]} label="進捗" />);
@@ -23,19 +23,19 @@ describe("ProgressMeter", () => {
     expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "2");
   });
 
-  it("レッスン0件でも安全に描画される", () => {
+  it("renders safely with zero lessons", () => {
     render(<ProgressMeter lessonIds={[]} label="進捗" />);
     expect(screen.getByText("0/0")).toBeInTheDocument();
   });
 });
 
 describe("LessonTick", () => {
-  it("未完了なら data-done=false", () => {
+  it("data-done=false when not complete", () => {
     render(<LessonTick lessonId="l1" doneLabel="完了" />);
     expect(document.querySelector(".tick")).toHaveAttribute("data-done", "false");
   });
 
-  it("完了済みなら data-done=true でチェックマークを表示", () => {
+  it("data-done=true with a check mark when complete", () => {
     markComplete(window.localStorage, "l1");
     render(<LessonTick lessonId="l1" doneLabel="完了" />);
     const tick = document.querySelector(".tick");

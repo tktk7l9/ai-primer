@@ -13,12 +13,12 @@ function keyPaths(obj: Record<string, unknown>, prefix = ""): string[] {
 }
 
 describe("getDictionary", () => {
-  it.each(locales)("'%s' の辞書を解決する", async (locale) => {
+  it.each(locales)("resolves the '%s' dictionary", async (locale) => {
     const dict = await getDictionary(locale);
     expect(dict.meta.title.length).toBeGreaterThan(0);
   });
 
-  it("ja と en は同一のキー構造を持ち、全値が非空文字列", async () => {
+  it("ja and en share the same key structure and every value is a non-empty string", async () => {
     const [ja, en] = await Promise.all([getDictionary("ja"), getDictionary("en")]);
     expect(keyPaths(en)).toEqual(keyPaths(ja));
     for (const dict of [ja, en]) {

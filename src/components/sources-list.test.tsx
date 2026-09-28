@@ -4,7 +4,7 @@ import { SourcesList } from "./sources-list";
 import ja from "@/i18n/dictionaries/ja";
 
 describe("SourcesList", () => {
-  it("出典を全てリンクとして描画し、新規タブ属性を持つ", () => {
+  it("renders every source as a link that opens in a new tab", () => {
     render(
       <SourcesList
         sources={[
@@ -21,7 +21,7 @@ describe("SourcesList", () => {
     expect(screen.getByRole("link", { name: /Source B/ })).toBeInTheDocument();
   });
 
-  it("出典が0件ならリンクを描画しない", () => {
+  it("renders no links when there are no sources", () => {
     render(<SourcesList sources={[]} dict={ja} />);
     expect(screen.queryByRole("link")).not.toBeInTheDocument();
   });

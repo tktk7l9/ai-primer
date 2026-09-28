@@ -46,17 +46,17 @@ function collectStale(now: Date): StaleEntry[] {
   const stale: StaleEntry[] = [];
   for (const { track, lesson } of ALL_LESSONS) {
     if (isStale(lesson.lastVerified, now)) {
-      stale.push({ label: `レッスン: ${track.id}/${lesson.slug}（${lesson.title.ja}）`, lastVerified: lesson.lastVerified });
+      stale.push({ label: `Lesson: ${track.id}/${lesson.slug} (${lesson.title.ja})`, lastVerified: lesson.lastVerified });
     }
   }
   for (const m of MODELS) {
     if (isStale(m.lastVerified, now)) {
-      stale.push({ label: `モデル: ${m.id}（${m.name}）`, lastVerified: m.lastVerified });
+      stale.push({ label: `Model: ${m.id} (${m.name})`, lastVerified: m.lastVerified });
     }
   }
   for (const g of GLOSSARY) {
     if (isStale(g.lastVerified, now)) {
-      stale.push({ label: `用語: ${g.id}（${g.term.ja}）`, lastVerified: g.lastVerified });
+      stale.push({ label: `Term: ${g.id} (${g.term.ja})`, lastVerified: g.lastVerified });
     }
   }
   return stale;
@@ -102,41 +102,41 @@ async function main() {
   const byUrl = collectSources();
   const urls = [...byUrl.keys()];
 
-  console.error(`[check-freshness] ${urls.length} 件の出典URLを確認中...`);
+  console.error(`[check-freshness] checking ${urls.length} source URLs...`);
   const results = await checkUrlsWithConcurrency(urls, CONCURRENCY);
   const dead = results.filter((r) => !r.ok);
   const stale = collectStale(now);
 
   const lines: string[] = [];
-  lines.push(`# 鮮度レポート（${now.toISOString().slice(0, 10)} 実行）`);
+  lines.push(`# Freshness report (run on ${now.toISOString().slice(0, 10)})`);
   lines.push("");
-  lines.push(`- 確認した出典URL: ${urls.length}件`);
-  lines.push(`- 死んでいる可能性のあるリンク: ${dead.length}件`);
-  lines.push(`- ${STALE_AFTER_DAYS}日超で未確認の項目: ${stale.length}件`);
+  lines.push(`- Source URLs checked: ${urls.length}`);
+  lines.push(`- Possibly dead links: ${dead.length}`);
+  lines.push(`- Items not verified for over ${STALE_AFTER_DAYS} days: ${stale.length}`);
   lines.push("");
 
   if (dead.length > 0) {
-    lines.push("## リンク切れの可能性");
+    lines.push("## Possibly dead links");
     lines.push("");
     for (const d of dead) {
       const labels = byUrl.get(d.url) ?? [];
       lines.push(`- ${d.url} — ${d.status ? `HTTP ${d.status}` : d.error}`);
-      for (const label of labels) lines.push(`  - 参照元: ${label}`);
+      for (const label of labels) lines.push(`  - Referenced by: ${label}`);
     }
     lines.push("");
   }
 
   if (stale.length > 0) {
-    lines.push(`## ${STALE_AFTER_DAYS}日超で未確認の項目`);
+    lines.push(`## Items not verified for over ${STALE_AFTER_DAYS} days`);
     lines.push("");
     for (const s of stale) {
-      lines.push(`- ${s.label} — 最終確認: ${s.lastVerified}`);
+      lines.push(`- ${s.label} — last verified: ${s.lastVerified}`);
     }
     lines.push("");
   }
 
   if (dead.length === 0 && stale.length === 0) {
-    lines.push("問題は見つかりませんでした。");
+    lines.push("No problems found.");
   }
 
   console.log(lines.join("\n"));
@@ -147,6 +147,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error("[check-freshness] 実行中にエラーが発生しました:", error);
+  console.error("[check-freshness] failed while running:", error);
   process.exitCode = 1;
 });

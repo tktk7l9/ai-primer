@@ -11,14 +11,14 @@ import { locales } from "@/i18n/config";
 // Checks the integrity of all content across the board (the css-atelier content.test.ts approach).
 // New lessons are picked up automatically by the parameterized tests here.
 
-describe("トラック構成", () => {
-  it("トラック id は定義済み TrackId のみで一意", () => {
+describe("track structure", () => {
+  it("track ids are unique and only defined TrackIds", () => {
     const ids = TRACKS.map((t) => t.id);
     expect(new Set(ids).size).toBe(ids.length);
     for (const id of ids) expect(TRACK_IDS).toContain(id);
   });
 
-  it("トラックの title/summary/emoji は全ロケール非空", () => {
+  it("track title/summary/emoji are non-empty in every locale", () => {
     for (const track of TRACKS) {
       expect(track.emoji.length).toBeGreaterThan(0);
       for (const locale of locales) {
@@ -28,7 +28,7 @@ describe("トラック構成", () => {
     }
   });
 
-  it("レッスン id は全体で一意・slug はトラック内で一意", () => {
+  it("lesson ids are globally unique and slugs unique within a track", () => {
     const ids = ALL_LESSONS.map((ref) => ref.lesson.id);
     expect(new Set(ids).size).toBe(ids.length);
     for (const track of TRACKS) {
@@ -37,7 +37,7 @@ describe("トラック構成", () => {
     }
   });
 
-  it("レッスン id は `<trackId>-NN` 形式", () => {
+  it("lesson ids follow the `<trackId>-NN` form", () => {
     for (const { track, lesson } of ALL_LESSONS) {
       expect(lesson.id).toMatch(new RegExp(`^${track.id}-\\d{2}$`));
     }
@@ -45,9 +45,9 @@ describe("トラック構成", () => {
 });
 
 describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
-  "レッスン %s",
+  "lesson %s",
   (_id, { lesson }) => {
-    it("title/summary/body が全ロケール非空", () => {
+    it("title/summary/body are non-empty in every locale", () => {
       for (const locale of locales) {
         expect(lesson.title[locale].trim().length).toBeGreaterThan(0);
         expect(lesson.summary[locale].trim().length).toBeGreaterThan(0);
@@ -55,11 +55,11 @@ describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
       }
     });
 
-    it("slug は URL 安全な kebab-case", () => {
+    it("slug is URL-safe kebab-case", () => {
       expect(lesson.slug).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
     });
 
-    it("クイズが1問以上あり、各問が整合している", () => {
+    it("has at least one quiz question and each is consistent", () => {
       expect(lesson.quiz.length).toBeGreaterThan(0);
       for (const q of lesson.quiz) {
         for (const locale of locales) {
@@ -91,14 +91,14 @@ describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
       }
     });
 
-    it("glossaryRefs は glossary.ts の用語 id に解決する", () => {
+    it("glossaryRefs resolve to term ids in glossary.ts", () => {
       const glossaryIds = new Set(GLOSSARY.map((g) => g.id));
       for (const ref of lesson.glossaryRefs ?? []) {
-        expect(glossaryIds.has(ref), `glossaryRef '${ref}' が未定義`).toBe(true);
+        expect(glossaryIds.has(ref), `glossaryRef '${ref}' is not defined`).toBe(true);
       }
     });
 
-    it("出典が1件以上あり https で始まる", () => {
+    it("has at least one source and each starts with https", () => {
       expect(lesson.sources.length).toBeGreaterThan(0);
       for (const source of lesson.sources) {
         expect(source.label.trim().length).toBeGreaterThan(0);
@@ -106,13 +106,13 @@ describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
       }
     });
 
-    it("lastVerified は有効な日付で未来でない", () => {
+    it("lastVerified is a valid date not in the future", () => {
       const date = parseISODate(lesson.lastVerified);
       expect(date).not.toBeNull();
       expect(date!.getTime()).toBeLessThanOrEqual(Date.now());
     });
 
-    it("body が Markdown として変換できる", () => {
+    it("body converts as Markdown", () => {
       for (const locale of locales) {
         const html = renderMarkdown(lesson.body[locale]);
         expect(html.length).toBeGreaterThan(0);
@@ -122,12 +122,12 @@ describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
 );
 
 describe("glossary", () => {
-  it("id は一意", () => {
+  it("ids are unique", () => {
     const ids = GLOSSARY.map((g) => g.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("term/definition が全ロケール非空、出典・lastVerified が妥当", () => {
+  it("term/definition are non-empty in every locale; sources and lastVerified are valid", () => {
     for (const g of GLOSSARY) {
       for (const locale of locales) {
         expect(g.term[locale].trim().length).toBeGreaterThan(0);
@@ -141,23 +141,23 @@ describe("glossary", () => {
     }
   });
 
-  it("relatedLessonIds は実在するレッスンに解決する", () => {
+  it("relatedLessonIds resolve to existing lessons", () => {
     const lessonIds = new Set(ALL_LESSONS.map((ref) => ref.lesson.id));
     for (const g of GLOSSARY) {
       for (const id of g.relatedLessonIds) {
-        expect(lessonIds.has(id), `relatedLessonId '${id}' が未定義 (glossary: ${g.id})`).toBe(true);
+        expect(lessonIds.has(id), `relatedLessonId '${id}' is not defined (glossary: ${g.id})`).toBe(true);
       }
     }
   });
 });
 
 describe("models", () => {
-  it("id は一意", () => {
+  it("ids are unique", () => {
     const ids = MODELS.map((m) => m.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("vendor/name/strengths が非空、出典・lastVerified が妥当", () => {
+  it("vendor/name/strengths are non-empty; sources and lastVerified are valid", () => {
     for (const m of MODELS) {
       expect(m.vendor.trim().length).toBeGreaterThan(0);
       expect(m.name.trim().length).toBeGreaterThan(0);
@@ -173,7 +173,7 @@ describe("models", () => {
     }
   });
 
-  it("kind は既定の種別のみ", () => {
+  it("kind is one of the defined kinds", () => {
     const kinds = ["chat", "coding", "image", "video", "music"];
     for (const m of MODELS) {
       expect(kinds).toContain(m.kind);
@@ -182,12 +182,12 @@ describe("models", () => {
 });
 
 describe("timeline", () => {
-  it("id は一意", () => {
+  it("ids are unique", () => {
     const ids = TIMELINE.map((e) => e.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("title/summary が非空、日付が妥当、出典がある", () => {
+  it("title/summary are non-empty, dates valid, and sources present", () => {
     for (const e of TIMELINE) {
       for (const locale of locales) {
         expect(e.title[locale].trim().length).toBeGreaterThan(0);
@@ -201,41 +201,41 @@ describe("timeline", () => {
     }
   });
 
-  it("日付が古い順に並んでいる", () => {
+  it("is sorted oldest first", () => {
     const dates = TIMELINE.map((e) => e.date);
     const sorted = [...dates].sort();
     expect(dates).toEqual(sorted);
   });
 });
 
-describe("lookup 関数", () => {
+describe("lookup functions", () => {
   const first = ALL_LESSONS[0];
   const second = ALL_LESSONS[1];
   const last = ALL_LESSONS[ALL_LESSONS.length - 1];
 
-  it("trackById は hit / miss を返す", () => {
+  it("trackById returns hit / miss", () => {
     expect(trackById(first.track.id)?.id).toBe(first.track.id);
     expect(trackById("no-such-track")).toBeUndefined();
   });
 
-  it("lessonById は hit / miss を返す", () => {
+  it("lessonById returns hit / miss", () => {
     expect(lessonById(first.lesson.id)?.lesson.id).toBe(first.lesson.id);
     expect(lessonById("no-such-lesson")).toBeUndefined();
   });
 
-  it("lessonBySlug は hit / miss を返す", () => {
+  it("lessonBySlug returns hit / miss", () => {
     expect(lessonBySlug(first.track.id, first.lesson.slug)?.lesson.id).toBe(first.lesson.id);
     expect(lessonBySlug(first.track.id, "no-such-slug")).toBeUndefined();
     expect(lessonBySlug("no-such-track", first.lesson.slug)).toBeUndefined();
   });
 
-  it("nextLesson は学習順で次を返し、末尾と未知の id は null", () => {
+  it("nextLesson returns the next in study order, and null at the end or for unknown ids", () => {
     expect(nextLesson(first.lesson.id)?.lesson.id).toBe(second.lesson.id);
     expect(nextLesson(last.lesson.id)).toBeNull();
     expect(nextLesson("no-such-lesson")).toBeNull();
   });
 
-  it("prevLesson は学習順で前を返し、先頭と未知の id は null", () => {
+  it("prevLesson returns the previous in study order, and null at the start or for unknown ids", () => {
     expect(prevLesson(second.lesson.id)?.lesson.id).toBe(first.lesson.id);
     expect(prevLesson(first.lesson.id)).toBeNull();
     expect(prevLesson("no-such-lesson")).toBeNull();
