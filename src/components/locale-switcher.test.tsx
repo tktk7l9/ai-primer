@@ -7,7 +7,7 @@ vi.mock("next/navigation", () => ({ usePathname }));
 const { LocaleSwitcher } = await import("./locale-switcher");
 
 describe("LocaleSwitcher", () => {
-  it("ja→en: 現在のパスを保ったままロケールだけ差し替える", () => {
+  it("ja→en: swaps only the locale and keeps the current path", () => {
     usePathname.mockReturnValue("/ja/learn/ai-basics/what-is-ai");
     render(<LocaleSwitcher locale="ja" label="English" />);
     expect(screen.getByRole("link", { name: "English" })).toHaveAttribute(
@@ -16,19 +16,19 @@ describe("LocaleSwitcher", () => {
     );
   });
 
-  it("en→ja: 逆方向も正しく差し替える", () => {
+  it("en→ja: swaps correctly in the other direction too", () => {
     usePathname.mockReturnValue("/en/models");
     render(<LocaleSwitcher locale="en" label="日本語" />);
     expect(screen.getByRole("link", { name: "日本語" })).toHaveAttribute("href", "/ja/models");
   });
 
-  it("pathnameがnullの場合はロケールのトップへフォールバックする", () => {
+  it("falls back to the locale root when pathname is null", () => {
     usePathname.mockReturnValue(null);
     render(<LocaleSwitcher locale="ja" label="English" />);
     expect(screen.getByRole("link", { name: "English" })).toHaveAttribute("href", "/en");
   });
 
-  it("hrefLang属性が切替先ロケールになっている", () => {
+  it("sets hrefLang to the target locale", () => {
     usePathname.mockReturnValue("/ja");
     render(<LocaleSwitcher locale="ja" label="English" />);
     expect(screen.getByRole("link", { name: "English" })).toHaveAttribute("hrefLang", "en");

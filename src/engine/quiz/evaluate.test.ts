@@ -35,61 +35,61 @@ const order: QuizSpec = {
 };
 
 describe("evaluate: single", () => {
-  it("正しい添字で正解", () => {
+  it("correct with the right index", () => {
     expect(evaluate(single, { kind: "single", index: 1 }).correct).toBe(true);
   });
-  it("誤った添字で不正解", () => {
+  it("incorrect with a wrong index", () => {
     expect(evaluate(single, { kind: "single", index: 0 }).correct).toBe(false);
   });
-  it("kind不一致は不正解", () => {
+  it("incorrect on a kind mismatch", () => {
     expect(evaluate(single, { kind: "boolean", value: true }).correct).toBe(false);
   });
 });
 
 describe("evaluate: multi", () => {
-  it("集合一致で正解（順不同）", () => {
+  it("correct when the sets match (any order)", () => {
     expect(evaluate(multi, { kind: "multi", indexes: [2, 0] }).correct).toBe(true);
   });
-  it("不足は不正解", () => {
+  it("incorrect when some are missing", () => {
     expect(evaluate(multi, { kind: "multi", indexes: [0] }).correct).toBe(false);
   });
-  it("過剰は不正解", () => {
+  it("incorrect when there are extras", () => {
     expect(evaluate(multi, { kind: "multi", indexes: [0, 2, 3] }).correct).toBe(false);
   });
-  it("同数でも要素違いは不正解", () => {
+  it("incorrect with the same count but different elements", () => {
     expect(evaluate(multi, { kind: "multi", indexes: [0, 3] }).correct).toBe(false);
   });
-  it("空回答は不正解", () => {
+  it("incorrect for an empty answer", () => {
     expect(evaluate(multi, { kind: "multi", indexes: [] }).correct).toBe(false);
   });
-  it("kind不一致は不正解", () => {
+  it("incorrect on a kind mismatch", () => {
     expect(evaluate(multi, { kind: "single", index: 0 }).correct).toBe(false);
   });
 });
 
 describe("evaluate: boolean", () => {
-  it("一致で正解", () => {
+  it("correct when it matches", () => {
     expect(evaluate(bool, { kind: "boolean", value: true }).correct).toBe(true);
   });
-  it("不一致で不正解", () => {
+  it("incorrect when it does not match", () => {
     expect(evaluate(bool, { kind: "boolean", value: false }).correct).toBe(false);
   });
-  it("kind不一致は不正解", () => {
+  it("incorrect on a kind mismatch", () => {
     expect(evaluate(bool, { kind: "order", order: [0] }).correct).toBe(false);
   });
 });
 
 describe("evaluate: order", () => {
-  it("昇順一致で正解", () => {
+  it("correct when the ascending order matches", () => {
     expect(evaluate(order, { kind: "order", order: [0, 1, 2] }).correct).toBe(true);
   });
-  it("順序違いは不正解", () => {
+  it("incorrect for a different order", () => {
     expect(evaluate(order, { kind: "order", order: [1, 0, 2] }).correct).toBe(false);
   });
-  it("長さ違いは不正解", () => {
+  it("incorrect for a different length", () => {
     expect(evaluate(order, { kind: "order", order: [0, 1] }).correct).toBe(false);
   });
-  it("kind不一致は不正解", () => {
+  it("incorrect on a kind mismatch", () => {
     expect(evaluate(order, { kind: "multi", indexes: [0, 1, 2] }).correct).toBe(false);
   });
 });
@@ -99,16 +99,16 @@ describe("allCorrect", () => {
     { kind: "single", index: 1 },
     { kind: "boolean", value: true },
   ];
-  it("全問正解で true", () => {
+  it("true when every question is correct", () => {
     expect(allCorrect([single, bool], answers)).toBe(true);
   });
-  it("1問でも不正解なら false", () => {
+  it("false when any question is wrong", () => {
     expect(allCorrect([single, bool], [answers[0], { kind: "boolean", value: false }])).toBe(false);
   });
-  it("回答数不一致は false", () => {
+  it("false when the answer count does not match", () => {
     expect(allCorrect([single, bool], [answers[0]])).toBe(false);
   });
-  it("空のクイズは false", () => {
+  it("false for an empty quiz", () => {
     expect(allCorrect([], [])).toBe(false);
   });
 });

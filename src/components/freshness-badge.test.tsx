@@ -10,14 +10,14 @@ function daysAgo(days: number): string {
 }
 
 describe("FreshnessBadge", () => {
-  it("90日以内は data-stale=false で警告タイトルを持たない", () => {
+  it("within 90 days: data-stale=false and no warning title", () => {
     render(<FreshnessBadge lastVerified={daysAgo(10)} locale="ja" dict={ja} />);
     const badge = screen.getByText(new RegExp(ja.lesson.lastVerified));
     expect(badge).toHaveAttribute("data-stale", "false");
     expect(screen.queryByText(ja.lesson.staleNotice)).not.toBeInTheDocument();
   });
 
-  it("90日超は data-stale=true で警告文を画面に出す", () => {
+  it("over 90 days: data-stale=true and shows the warning on screen", () => {
     render(<FreshnessBadge lastVerified={daysAgo(120)} locale="ja" dict={ja} />);
     const badge = screen.getByText(new RegExp(ja.lesson.lastVerified));
     expect(badge).toHaveAttribute("data-stale", "true");

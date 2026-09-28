@@ -30,7 +30,7 @@ const prevRef: LessonRef = { track, lesson: makeLesson("01", "first") };
 const nextRef: LessonRef = { track, lesson: makeLesson("02", "second") };
 
 describe("Pager", () => {
-  it("prev/next 両方あれば両方のリンクを描画する", () => {
+  it("renders both links when prev and next exist", () => {
     render(<Pager prev={prevRef} next={nextRef} locale="ja" dict={ja} />);
     const prevLink = screen.getByRole("link", { name: /レッスン01/ });
     const nextLink = screen.getByRole("link", { name: /レッスン02/ });
@@ -38,13 +38,13 @@ describe("Pager", () => {
     expect(nextLink).toHaveAttribute("href", "/ja/learn/ai-basics/second");
   });
 
-  it("prevがnullなら次のみ描画する", () => {
+  it("renders only next when prev is null", () => {
     render(<Pager prev={null} next={nextRef} locale="ja" dict={ja} />);
     expect(screen.queryByRole("link", { name: /レッスン01/ })).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: /レッスン02/ })).toBeInTheDocument();
   });
 
-  it("prev/next 両方nullなら何も描画しない", () => {
+  it("renders nothing when prev and next are both null", () => {
     const { container } = render(<Pager prev={null} next={null} locale="ja" dict={ja} />);
     expect(container).toBeEmptyDOMElement();
   });

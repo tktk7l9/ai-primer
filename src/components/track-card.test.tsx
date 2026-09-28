@@ -39,7 +39,7 @@ const track: Track = {
 };
 
 describe("TrackCard", () => {
-  it("トラック番号・タイトル・レッスン数・進捗を表示し正しいリンク先を持つ", () => {
+  it("shows track number, title, lesson count and progress with the right link", () => {
     render(<TrackCard track={track} index={0} locale="ja" dict={ja} />);
     expect(screen.getByRole("link")).toHaveAttribute("href", "/ja/learn/ai-basics");
     expect(screen.getByText(/Track 01/)).toBeInTheDocument();
@@ -48,17 +48,17 @@ describe("TrackCard", () => {
     expect(screen.getByText("0/2")).toBeInTheDocument();
   });
 
-  it("indexに応じてTrack番号が変わる(0埋め)", () => {
+  it("changes the zero-padded Track number with index", () => {
     render(<TrackCard track={track} index={7} locale="ja" dict={ja} />);
     expect(screen.getByText(/Track 08/)).toBeInTheDocument();
   });
 
-  it("所要時間の目安(約N分)を表示する", () => {
+  it("shows the estimated time (約N分)", () => {
     render(<TrackCard track={track} index={0} locale="ja" dict={ja} />);
     expect(screen.getByText(/約\d+分/)).toBeInTheDocument();
   });
 
-  it("英語ロケールでは ~N min 形式で表示する", () => {
+  it("shows ~N min in the English locale", () => {
     render(<TrackCard track={track} index={0} locale="en" dict={ja} />);
     expect(screen.getByText(/~\d+ min/)).toBeInTheDocument();
   });

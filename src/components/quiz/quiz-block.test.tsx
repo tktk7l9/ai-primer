@@ -43,14 +43,14 @@ beforeEach(() => {
 });
 
 describe("QuizBlock", () => {
-  it("クイズが0問なら何も描画しない", () => {
+  it("renders nothing when the quiz has no questions", () => {
     const { container } = render(
       <QuizBlock lessonId="l1" quiz={[]} locale="ja" dict={ja} />,
     );
     expect(container).toBeEmptyDOMElement();
   });
 
-  it("単一選択: 正解を選んで答え合わせすると正解と表示される", async () => {
+  it("single choice: picking the right answer and checking shows correct", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="l1" quiz={[single]} locale="ja" dict={ja} />);
     await user.click(screen.getByRole("button", { name: "2" }));
@@ -59,7 +59,7 @@ describe("QuizBlock", () => {
     expect(screen.getByText(/1\+1=2です/)).toBeInTheDocument();
   });
 
-  it("単一選択: 不正解を選ぶと不正解と表示され、解説は出ない", async () => {
+  it("single choice: a wrong answer shows incorrect without the explanation", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="l1" quiz={[single]} locale="ja" dict={ja} />);
     await user.click(screen.getByRole("button", { name: "1" }));
@@ -68,12 +68,12 @@ describe("QuizBlock", () => {
     expect(screen.queryByText(/1\+1=2です/)).not.toBeInTheDocument();
   });
 
-  it("答え合わせ前はボタンが無効", () => {
+  it("the check button is disabled before answering", () => {
     render(<QuizBlock lessonId="l1" quiz={[single]} locale="ja" dict={ja} />);
     expect(screen.getByRole("button", { name: ja.lesson.check })).toBeDisabled();
   });
 
-  it("選び直すと状態がリセットされる", async () => {
+  it("choosing again resets the state", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="l1" quiz={[single]} locale="ja" dict={ja} />);
     await user.click(screen.getByRole("button", { name: "1" }));
@@ -98,7 +98,7 @@ describe("QuizBlock", () => {
     expect(choices[0]).toHaveFocus();
   });
 
-  it("複数選択: 正解の組み合わせを選んで正解になる", async () => {
+  it("multiple choice: the right combination is correct", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="l1" quiz={[multi]} locale="ja" dict={ja} />);
     await user.click(screen.getByRole("button", { name: "2" }));
@@ -107,7 +107,7 @@ describe("QuizBlock", () => {
     expect(screen.getByText(ja.lesson.correct)).toBeInTheDocument();
   });
 
-  it("○×問題: 選択して判定できる", async () => {
+  it("true/false: can select and be judged", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="l1" quiz={[bool]} locale="ja" dict={ja} />);
     await user.click(screen.getByRole("button", { name: ja.lesson.trueLabel }));
@@ -115,7 +115,7 @@ describe("QuizBlock", () => {
     expect(screen.getByText(ja.lesson.correct)).toBeInTheDocument();
   });
 
-  it("並べ替え: 表示順(シャッフル後)で正しい順に選ぶと正解になる", async () => {
+  it("ordering: picking in the right order from the displayed (shuffled) order is correct", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="order-lesson" quiz={[order]} locale="ja" dict={ja} />);
     // The display is shuffled, so identify items by text and click them in the correct order (一 -> 二 -> 三)
@@ -126,7 +126,7 @@ describe("QuizBlock", () => {
     expect(screen.getByText(ja.lesson.correct)).toBeInTheDocument();
   });
 
-  it("全問正解すると進捗がlocalStorageに保存される", async () => {
+  it("saves progress to localStorage when every question is correct", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="lesson-x" quiz={[single, bool]} locale="ja" dict={ja} />);
     const checkButtons = () => screen.getAllByRole("button", { name: ja.lesson.check });
@@ -140,7 +140,7 @@ describe("QuizBlock", () => {
     expect(JSON.parse(raw ?? "[]")).toContain("lesson-x");
   });
 
-  it("1問でも不正解だと進捗は保存されない", async () => {
+  it("does not save progress when any question is wrong", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="lesson-y" quiz={[single, bool]} locale="ja" dict={ja} />);
     const checkButtons = () => screen.getAllByRole("button", { name: ja.lesson.check });
@@ -154,7 +154,7 @@ describe("QuizBlock", () => {
     expect(JSON.parse(raw ?? "[]")).not.toContain("lesson-y");
   });
 
-  it("英語ロケールでは英語の選択肢が表示される", () => {
+  it("shows English choices in the English locale", () => {
     const enSingle: QuizSpec = {
       kind: "single",
       prompt: { ja: "質問", en: "Question" },

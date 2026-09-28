@@ -20,35 +20,35 @@ function memoryStore(initial?: Record<string, string>): ProgressStore & { data: 
 const KEY = "ai-primer:progress:v1";
 
 describe("loadCompleted", () => {
-  it("未保存なら空配列", () => {
+  it("returns an empty array when nothing is stored", () => {
     expect(loadCompleted(memoryStore())).toEqual([]);
   });
-  it("保存済みの配列を返す", () => {
+  it("returns the stored array", () => {
     const store = memoryStore({ [KEY]: JSON.stringify(["a", "b"]) });
     expect(loadCompleted(store)).toEqual(["a", "b"]);
   });
-  it("文字列以外の要素は捨てる", () => {
+  it("drops non-string elements", () => {
     const store = memoryStore({ [KEY]: JSON.stringify(["a", 1, null]) });
     expect(loadCompleted(store)).toEqual(["a"]);
   });
-  it("配列でないJSONは空配列", () => {
+  it("returns an empty array for non-array JSON", () => {
     const store = memoryStore({ [KEY]: JSON.stringify({ a: 1 }) });
     expect(loadCompleted(store)).toEqual([]);
   });
-  it("壊れたJSONは空配列", () => {
+  it("returns an empty array for broken JSON", () => {
     const store = memoryStore({ [KEY]: "{oops" });
     expect(loadCompleted(store)).toEqual([]);
   });
 });
 
 describe("markComplete / isComplete", () => {
-  it("完了を保存し isComplete が true になる", () => {
+  it("stores completion and isComplete becomes true", () => {
     const store = memoryStore();
     markComplete(store, "l1");
     expect(isComplete(store, "l1")).toBe(true);
     expect(isComplete(store, "l2")).toBe(false);
   });
-  it("冪等（二重登録しない）", () => {
+  it("is idempotent (no double entries)", () => {
     const store = memoryStore();
     markComplete(store, "l1");
     const result = markComplete(store, "l1");
@@ -58,14 +58,14 @@ describe("markComplete / isComplete", () => {
 });
 
 describe("completion", () => {
-  it("完了数と比率を返す", () => {
+  it("returns the done count and ratio", () => {
     expect(completion(["a", "c"], ["a", "b", "c", "d"])).toEqual({
       done: 2,
       total: 4,
       ratio: 0.5,
     });
   });
-  it("レッスン0件なら ratio 0", () => {
+  it("ratio is 0 with no lessons", () => {
     expect(completion(["a"], [])).toEqual({ done: 0, total: 0, ratio: 0 });
   });
 });
