@@ -733,6 +733,12 @@ button {
   text-wrap: pretty;
 }
 
+.quiz-hint {
+  margin: -0.4rem 0 0.7rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
 .quiz-choices {
   display: grid;
   gap: 0.45rem;
@@ -776,6 +782,7 @@ button {
 }
 
 .quiz-check {
+  min-height: 2.75rem;
   background: var(--ink);
   color: var(--paper);
   border: none;
@@ -789,12 +796,41 @@ button {
   cursor: not-allowed;
 }
 
+/* 44px tall so the secondary action is as easy to hit as the primary one (SHIG 78). */
 .quiz-reset {
+  min-height: 2.75rem;
   background: none;
   border: none;
   color: var(--ink-soft);
   text-decoration: underline;
-  padding: 0.3rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.quiz-complete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.8rem;
+  margin: 1.2rem 0 0;
+  padding: 0.8rem 1rem;
+  background: var(--good-soft);
+  border: 1px solid color-mix(in srgb, var(--good) 40%, transparent);
+  border-radius: var(--radius-sm);
+}
+
+.quiz-complete strong {
+  color: var(--good);
+}
+
+.quiz-complete-mark {
+  color: var(--good);
+  font-weight: 700;
+}
+
+.quiz-complete a {
+  display: inline-block;
+  padding: 0.35rem 0;
+  font-weight: 600;
 }
 
 .quiz-feedback {

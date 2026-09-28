@@ -152,4 +152,58 @@ describe("QuizBlock", () => {
     expect(screen.getByText("Question")).toBeInTheDocument();
     expect(screen.getByText("Choice A")).toBeInTheDocument();
   });
+
+  it("labels each choice group with its prompt instead of a mismatched radiogroup", () => {
+    render(<QuizBlock lessonId="l1" quiz={[single]} locale="ja" dict={ja} />);
+    expect(screen.queryByRole("radiogroup")).not.toBeInTheDocument();
+    expect(screen.getByRole("group", { name: "1+1は?" })).toBeInTheDocument();
+  });
+
+  it("states the rules for multi-select and ordering questions up front", () => {
+    render(<QuizBlock lessonId="l1" quiz={[multi, order]} locale="ja" dict={ja} />);
+    expect(screen.getByText(ja.lesson.multiHint)).toBeInTheDocument();
+    expect(screen.getByText(ja.lesson.orderHint)).toBeInTheDocument();
+  });
+
+  it("announces the result through a live status region", async () => {
+    const user = userEvent.setup();
+    render(<QuizBlock lessonId="l1" quiz={[single]} locale="ja" dict={ja} />);
+    await user.click(screen.getByRole("button", { name: "2" }));
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    expect(screen.getAllByRole("status").some((el) => el.textContent === ja.lesson.correct)).toBe(
+      true,
+    );
+  });
+
+  it("shows a completion notice with the next lesson once every answer is right", async () => {
+    const user = userEvent.setup();
+    render(
+      <QuizBlock
+        lessonId="l1"
+        quiz={[single]}
+        locale="ja"
+        dict={ja}
+        next={{ href: "/ja/learn/t/next", title: "Next one" }}
+        courseHref="/ja"
+      />,
+    );
+    expect(screen.queryByText(ja.lesson.completedNotice)).not.toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "2" }));
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    expect(screen.getByText(ja.lesson.completedNotice)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Next one/ })).toHaveAttribute(
+      "href",
+      "/ja/learn/t/next",
+    );
+  });
+
+  it("points back to the course after the very last lesson", async () => {
+    const user = userEvent.setup();
+    render(
+      <QuizBlock lessonId="l1" quiz={[single]} locale="ja" dict={ja} next={null} courseHref="/ja" />,
+    );
+    await user.click(screen.getByRole("button", { name: "2" }));
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    expect(screen.getByRole("link", { name: ja.lesson.backToCourse })).toHaveAttribute("href", "/ja");
+  });
 });

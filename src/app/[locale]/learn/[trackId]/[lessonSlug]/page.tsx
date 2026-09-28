@@ -57,6 +57,7 @@ export default async function LessonPage({
   const { locale, ref } = resolved;
   const { track, lesson } = ref;
   const dict = await getDictionary(locale);
+  const next = nextLesson(lesson.id);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -111,13 +112,27 @@ export default async function LessonPage({
 
         <LessonBody markdown={lesson.body[locale]} />
 
-        <QuizBlock lessonId={lesson.id} quiz={lesson.quiz} locale={locale} dict={dict} />
+        <QuizBlock
+          lessonId={lesson.id}
+          quiz={lesson.quiz}
+          locale={locale}
+          dict={dict}
+          next={
+            next
+              ? {
+                  href: `/${locale}/learn/${next.track.id}/${next.lesson.slug}`,
+                  title: next.lesson.title[locale],
+                }
+              : null
+          }
+          courseHref={`/${locale}`}
+        />
 
         <SourcesList sources={lesson.sources} dict={dict} />
 
         <Pager
           prev={prevLesson(lesson.id)}
-          next={nextLesson(lesson.id)}
+          next={next}
           locale={locale}
           dict={dict}
         />

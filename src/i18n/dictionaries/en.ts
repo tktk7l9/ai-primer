@@ -42,6 +42,10 @@ const en: Dictionary = {
     reset: "Reset",
     trueLabel: "True",
     falseLabel: "False",
+    multiHint: "Select every answer that applies",
+    orderHint: "Tap the items in the correct order (tap again to undo)",
+    completedNotice: "Lesson complete",
+    backToCourse: "Back to the course list",
   },
   track: {
     lessonsIn: "Lessons in this track",

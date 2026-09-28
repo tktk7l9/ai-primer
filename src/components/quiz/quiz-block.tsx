@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { evaluate } from "@/engine/quiz/evaluate";
 import { shuffledIndexes } from "@/engine/quiz/shuffle";
 import type { QuizAnswer, QuizSpec } from "@/engine/quiz/spec";
@@ -53,6 +53,7 @@ function Question({
   locale: Locale;
   onResult: (correct: boolean) => void;
 }) {
+  const promptId = useId();
   const [answer, setAnswer] = useState<PartialAnswer>(() => initial(spec));
   const [checked, setChecked] = useState(false);
   const displayOrder = useMemo(
@@ -75,10 +76,14 @@ function Question({
 
   return (
     <div className="quiz-question">
-      <p className="quiz-prompt">{spec.prompt[locale]}</p>
+      <p className="quiz-prompt" id={promptId}>
+        {spec.prompt[locale]}
+      </p>
+      {spec.kind === "multi" && <p className="quiz-hint">{dict.lesson.multiHint}</p>}
+      {spec.kind === "order" && <p className="quiz-hint">{dict.lesson.orderHint}</p>}
 
       {spec.kind === "single" && (
-        <div className="quiz-choices" role="radiogroup">
+        <div className="quiz-choices" role="group" aria-labelledby={promptId}>
           {spec.choices.map((choice, i) => (
             <button
               key={i}
@@ -95,7 +100,7 @@ function Question({
       )}
 
       {spec.kind === "multi" && (
-        <div className="quiz-choices">
+        <div className="quiz-choices" role="group" aria-labelledby={promptId}>
           {spec.choices.map((choice, i) => {
             const selected = answer.kind === "multi" && answer.indexes.includes(i);
             return (
@@ -123,7 +128,7 @@ function Question({
       )}
 
       {spec.kind === "boolean" && (
-        <div className="quiz-choices">
+        <div className="quiz-choices" role="group" aria-labelledby={promptId}>
           {[true, false].map((v) => (
             <button
               key={String(v)}
@@ -140,7 +145,7 @@ function Question({
       )}
 
       {spec.kind === "order" && (
-        <div className="quiz-choices">
+        <div className="quiz-choices" role="group" aria-labelledby={promptId}>
           {displayOrder.map((itemIndex) => {
             const picked = answer.kind === "order" ? answer.order.indexOf(itemIndex) : -1;
             return (
@@ -183,11 +188,14 @@ function Question({
             {dict.lesson.reset}
           </button>
         )}
-        {result && (
-          <span className="quiz-feedback" data-state={result.correct ? "correct" : "incorrect"}>
-            {result.correct ? dict.lesson.correct : dict.lesson.incorrect}
-          </span>
-        )}
+        {/* Always mounted so screen readers announce the result when it appears (SHIG 66, 94). */}
+        <span
+          className="quiz-feedback"
+          role="status"
+          data-state={result ? (result.correct ? "correct" : "incorrect") : undefined}
+        >
+          {result ? (result.correct ? dict.lesson.correct : dict.lesson.incorrect) : ""}
+        </span>
       </div>
 
       {result?.correct && (
@@ -200,24 +208,34 @@ function Question({
   );
 }
 
+export interface NextLessonLink {
+  readonly href: string;
+  readonly title: string;
+}
+
 export function QuizBlock({
   lessonId,
   quiz,
   locale,
   dict,
+  next = null,
+  courseHref,
 }: {
   lessonId: string;
   quiz: readonly QuizSpec[];
   locale: Locale;
   dict: Dictionary;
+  /** Where to go after finishing; null on the last lesson of the course. */
+  next?: NextLessonLink | null;
+  courseHref?: string;
 }) {
   const [results, setResults] = useState<(boolean | null)[]>(() => quiz.map(() => null));
 
+  const allCorrect = results.length > 0 && results.every((r) => r === true);
+
   useEffect(() => {
-    if (results.length > 0 && results.every((r) => r === true)) {
-      markCompleteClient(lessonId);
-    }
-  }, [results, lessonId]);
+    if (allCorrect) markCompleteClient(lessonId);
+  }, [allCorrect, lessonId]);
 
   if (quiz.length === 0) return null;
 
@@ -236,6 +254,24 @@ export function QuizBlock({
           }
         />
       ))}
+      {/* Completing the lesson gets immediate, nearby feedback and the next step (SHIG 61, 66, 41). */}
+      <div className="quiz-complete-slot" role="status">
+        {allCorrect && (
+          <p className="quiz-complete">
+            <span className="quiz-complete-mark" aria-hidden="true">
+              ✓
+            </span>
+            <strong>{dict.lesson.completedNotice}</strong>
+            {next ? (
+              <a href={next.href}>
+                {dict.lesson.next}: {next.title} →
+              </a>
+            ) : (
+              courseHref && <a href={courseHref}>{dict.lesson.backToCourse}</a>
+            )}
+          </p>
+        )}
+      </div>
     </section>
   );
 }

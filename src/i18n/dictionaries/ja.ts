@@ -42,6 +42,10 @@ const ja = {
     reset: "選び直す",
     trueLabel: "正しい",
     falseLabel: "誤り",
+    multiHint: "当てはまるものをすべて選んでください",
+    orderHint: "正しい順にタップしてください（もう一度タップすると取り消せます）",
+    completedNotice: "このレッスンを完了しました",
+    backToCourse: "コース一覧へ戻る",
   },
   track: {
     lessonsIn: "このトラックのレッスン",
