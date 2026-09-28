@@ -44,11 +44,11 @@ export function LessonSidebar({
   return (
     <aside className="lesson-aside">
       <NavList
-          track={track}
-          locale={locale}
-          currentLessonId={currentLessonId}
-          doneLabel={doneLabel}
-        />
+        track={track}
+        locale={locale}
+        currentLessonId={currentLessonId}
+        doneLabel={doneLabel}
+      />
       <details className="aside-toggle">
         <summary>{track.title[locale]}</summary>
         <NavList

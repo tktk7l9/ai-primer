@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { evaluate } from "@/engine/quiz/evaluate";
 import { shuffledIndexes } from "@/engine/quiz/shuffle";
 import type { QuizAnswer, QuizSpec } from "@/engine/quiz/spec";
@@ -56,6 +56,16 @@ function Question({
   const promptId = useId();
   const [answer, setAnswer] = useState<PartialAnswer>(() => initial(spec));
   const [checked, setChecked] = useState(false);
+  // Checking disables the choices and the check button, and resetting unmounts
+  // the reset button, so without this keyboard focus falls back to <body>.
+  const rootRef = useRef<HTMLDivElement>(null);
+  const focusAfterToggle = useRef(false);
+  useEffect(() => {
+    if (!focusAfterToggle.current) return;
+    focusAfterToggle.current = false;
+    const selector = checked ? ".quiz-reset" : ".quiz-choice";
+    rootRef.current?.querySelector<HTMLButtonElement>(selector)?.focus();
+  }, [checked]);
   const displayOrder = useMemo(
     () => (spec.kind === "order" ? shuffledIndexes(spec.items.length, seed) : []),
     [spec, seed],
@@ -65,17 +75,19 @@ function Question({
 
   function check() {
     if (!isAnswered(answer)) return;
+    focusAfterToggle.current = true;
     setChecked(true);
     onResult(evaluate(spec, answer).correct);
   }
 
   function reset() {
+    focusAfterToggle.current = true;
     setAnswer(initial(spec));
     setChecked(false);
   }
 
   return (
-    <div className="quiz-question">
+    <div className="quiz-question" ref={rootRef}>
       <p className="quiz-prompt" id={promptId}>
         {spec.prompt[locale]}
       </p>

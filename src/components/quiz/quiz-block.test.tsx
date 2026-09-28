@@ -84,6 +84,20 @@ describe("QuizBlock", () => {
     expect(screen.getByRole("button", { name: ja.lesson.check })).toBeDisabled();
   });
 
+  it("keeps keyboard focus inside the question across check and reset", async () => {
+    const user = userEvent.setup();
+    render(<QuizBlock lessonId="l1" quiz={[single]} locale="ja" dict={ja} />);
+    const choices = screen.getAllByRole("button", { name: /^\d+$/ });
+    expect(document.body).toHaveFocus();
+    await user.click(choices[0]);
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    // The check button is now disabled; focus moves to the reset action, not <body>.
+    expect(screen.getByRole("button", { name: ja.lesson.reset })).toHaveFocus();
+    await user.keyboard("{Enter}");
+    // The reset button unmounts; focus returns to the first choice.
+    expect(choices[0]).toHaveFocus();
+  });
+
   it("複数選択: 正解の組み合わせを選んで正解になる", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="l1" quiz={[multi]} locale="ja" dict={ja} />);
