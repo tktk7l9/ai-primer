@@ -1,16 +1,16 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/engine/site";
 
-/** 学習データ収集・AI要約目的のクローラー。
+/** Crawlers that collect training data or summarize for AI.
  *
- *  2026-09-12 に nonce CSP をやめて全ルートが CDN キャッシュに乗るようになったので、
- *  「キャッシュに乗らないから1リクエストがそのまま課金される」という当初の理由は消えた。
- *  それでも抑制は残す。学習データ収集目的のクローラーは記事本文を丸ごと持っていくため、
- *  キャッシュに乗っても転送量そのものは発生する（2026-08-05 に無料枠 10GB へ到達した実績がある）。
- *  キャッシュ可否とは別の判断として維持している。
+ *  Since dropping the nonce CSP on 2026-09-12 every route is served from the CDN cache, so
+ *  the original reason ("not cacheable, so every request is billed as is") is gone.
+ *  The block stays anyway. Training-data crawlers take whole article bodies, so
+ *  transfer volume still occurs even when cached (the 10GB free tier was actually hit on 2026-08-05).
+ *  It is kept as a decision separate from cacheability.
  *
- *  検索流入は残したいので Googlebot / Bingbot は通す。
- *  Google-Extended は Gemini の学習利用のみを制御し、検索インデックスには影響しない。 */
+ *  Search traffic should stay, so Googlebot / Bingbot are allowed.
+ *  Google-Extended only controls use for Gemini training and does not affect the search index. */
 const DISALLOWED_AI_CRAWLERS = [
   "AI2Bot",
   "Amazonbot",

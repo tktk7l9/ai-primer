@@ -4,10 +4,10 @@ import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 
-// レッスン本文（リポジトリ内で著述された信頼済み Markdown）を HTML へ変換する。
-// remark-gfm でテーブル・打ち消し線等の GFM 拡張を有効化。
-// remark-rehype は生 HTML を既定で無視するため、出力は Markdown 由来の要素のみ。
-// サーバーコンポーネントで実行され、クライアントには静的 HTML だけが届く。
+// Converts lesson bodies (trusted Markdown authored in this repository) to HTML.
+// remark-gfm enables GFM extensions such as tables and strikethrough.
+// remark-rehype ignores raw HTML by default, so the output contains only Markdown-derived elements.
+// Runs in a server component; only static HTML reaches the client.
 const processor = unified()
   .use(remarkParse)
   .use(remarkGfm)

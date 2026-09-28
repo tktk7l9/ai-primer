@@ -17,10 +17,10 @@ export default defineConfig({
       include: ["src/engine/**/*.ts", "src/i18n/**/*.ts", "src/lib/**/*.ts"],
       exclude: ["src/**/*.test.{ts,tsx}"],
       reporter: ["text", "json-summary", "html"],
-      // 純ロジック層（engine: content / quiz / progress / freshness / markdown、
-      // i18n: config / dictionaries）は 100% を維持する。
-      // React コンポーネント層はテスト対象だが presentation として閾値ゲート対象外
-      // （quiz-block 等の状態遷移は個別にテストするが 100% までは求めない）。
+      // The pure logic layer (engine: content / quiz / progress / freshness / markdown,
+      // i18n: config / dictionaries) stays at 100%.
+      // The React component layer is tested but, as presentation, is outside the threshold gate
+      // (state transitions in quiz-block etc. are tested individually, but 100% is not required).
       thresholds: {
         "src/engine/**/*.ts": {
           statements: 100,

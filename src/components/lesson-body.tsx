@@ -1,11 +1,11 @@
 import { renderMarkdown } from "@/engine/markdown/render";
 
-/** サーバー側で Markdown → HTML 変換した信頼済みコンテンツを描画する。 */
+/** Renders trusted content converted from Markdown to HTML on the server. */
 export function LessonBody({ markdown }: { markdown: string }) {
   return (
     <div
       className="prose"
-      // biome-ignore lint: レッスン本文はリポジトリ内の信頼済み Markdown のみ
+      // biome-ignore lint: lesson bodies are only trusted Markdown from this repository
       dangerouslySetInnerHTML={{ __html: renderMarkdown(markdown) }}
     />
   );

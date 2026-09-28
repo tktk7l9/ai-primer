@@ -9,18 +9,18 @@ describe("contentSecurityPolicy", () => {
   });
 
   it("'strict-dynamic' を含まない", () => {
-    // CSP Level 3 では 'strict-dynamic' があると allowlist と 'self' / 'unsafe-inline' が
-    // 無視される。nonce もハッシュも無いこの構成で足すと信頼の起点が消え、
-    // ページ上の全スクリプトが動かなくなる。足すなら nonce かハッシュを同時に用意すること。
+    // Under CSP Level 3, 'strict-dynamic' makes the allowlist and 'self' / 'unsafe-inline'
+    // ignored. Adding it to this setup with no nonce or hash removes the root of trust,
+    // and every script on the page stops. If you add it, provide a nonce or hash at the same time.
     expect(prod).not.toContain("strict-dynamic");
-    // dev 側も同じく禁止。dev だけ壊れる混入を見逃さない。
+    // Forbidden in dev too, so a change that breaks only dev is not missed.
     expect(contentSecurityPolicy({ dev: true })).not.toContain("strict-dynamic");
   });
 
   it("インラインを許すことを script-src に明示している", () => {
-    // Next の bootstrap（self.__next_f.push）がインラインなので必要。
-    // 末尾の ; まで含めて固定する。含めないと "'unsafe-inline' https: *" のように
-    // 後ろに緩い値が足されても通ってしまう。
+    // Needed because Next's bootstrap (self.__next_f.push) is an inline script.
+    // Pin it including the trailing ;. Otherwise a looser value appended after it,
+    // like "'unsafe-inline' https: *", would still pass.
     expect(prod).toContain("script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com;");
   });
 
@@ -51,8 +51,8 @@ describe("contentSecurityPolicy", () => {
   });
 
   it("Cloudflare Web Analytics のビーコンに必要な2オリジンを許可している", () => {
-    // 片方でも欠けるとページは正常に見えたままビーコンだけ黙ってブロックされる。
-    // static... が beacon.min.js の配信元、もう一方が計測データの送信先。
+    // If either is missing, the page looks fine while only the beacon is silently blocked.
+    // static... serves beacon.min.js; the other receives the analytics data.
     expect(prod).toContain("https://static.cloudflareinsights.com");
     expect(prod).toContain("connect-src 'self' https://cloudflareinsights.com;");
   });

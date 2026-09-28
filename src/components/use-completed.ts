@@ -3,8 +3,8 @@
 import { useSyncExternalStore } from "react";
 import { PROGRESS_KEY, loadCompleted, markComplete } from "@/engine/progress/progress";
 
-// localStorage を購読する進捗フック。SSR では空（未完了）として描画し、
-// マウント後に useSyncExternalStore が実値へ差し替える（hydration mismatch なし）。
+// Progress hook that subscribes to localStorage. SSR renders it as empty (not completed),
+// and after mount useSyncExternalStore swaps in the real value (no hydration mismatch).
 
 const EVENT = "ai-primer:progress-changed";
 const EMPTY: readonly string[] = [];

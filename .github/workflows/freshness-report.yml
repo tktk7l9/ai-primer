@@ -2,7 +2,7 @@ name: Freshness report
 
 on:
   schedule:
-    # 毎月1日 21:00 UTC ≈ JST 2日 06:00
+    # 21:00 UTC on the 1st of every month ≈ 06:00 JST on the 2nd
     - cron: "0 21 1 * *"
   workflow_dispatch:
 

@@ -1,17 +1,17 @@
-// Content-Security-Policy の正本。next.config.ts の headers() がこれを配る。
+// Source of truth for the Content-Security-Policy. headers() in next.config.ts serves it.
 //
-// 以前は src/proxy.ts が per-request で nonce 付きの CSP を発行していたが、
-// Next 16 の proxy は Node ランタイム専用で、OpenNext (Cloudflare Workers) は
-// Node middleware に対応していないため移行できなかった。nonce をやめて静的ヘッダーに
-// したことで middleware が不要になり、同時にページがキャッシュ可能になった。
+// src/proxy.ts used to issue a per-request CSP with a nonce, but
+// Next 16's proxy is Node-runtime only and OpenNext (Cloudflare Workers)
+// does not support Node middleware, so it could not be migrated. Dropping the nonce for static headers
+// made middleware unnecessary and made pages cacheable at the same time.
 //
-// script-src に 'unsafe-inline' が要るのは Next の bootstrap（self.__next_f.push）が
-// インラインだから。ld+json はデータブロックで実行されないため script-src の対象外。
+// script-src needs 'unsafe-inline' because Next's bootstrap (self.__next_f.push)
+// is an inline script. ld+json is a data block that never executes, so it is outside script-src.
 //
-// cloudflareinsights の2オリジンは Cloudflare Web Analytics のビーコン用。
-// static.cloudflareinsights.com が beacon.min.js の配信元、cloudflareinsights.com が
-// 計測データの送信先。片方でも欠けるとページは正常に見えたままビーコンだけ黙って
-// ブロックされる（コンソールに CSP 違反が出るだけ）ので、csp.test.ts で両方を固定している。
+// The two cloudflareinsights origins are for the Cloudflare Web Analytics beacon.
+// static.cloudflareinsights.com serves beacon.min.js and cloudflareinsights.com
+// receives the analytics data. If either is missing, the page looks fine while only the beacon
+// is silently blocked (only a CSP violation in the console), so csp.test.ts pins both.
 export function contentSecurityPolicy({ dev = false }: { dev?: boolean } = {}): string {
   return [
     "default-src 'self'",

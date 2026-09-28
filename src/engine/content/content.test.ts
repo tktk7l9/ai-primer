@@ -8,8 +8,8 @@ import { renderMarkdown } from "@/engine/markdown/render";
 import { parseISODate } from "@/engine/freshness/staleness";
 import { locales } from "@/i18n/config";
 
-// コンテンツ全体の整合性を横断検証する（css-atelier の content.test.ts 方式）。
-// レッスンを追加するとここのパラメトライズが自動で対象に含める。
+// Checks the integrity of all content across the board (the css-atelier content.test.ts approach).
+// New lessons are picked up automatically by the parameterized tests here.
 
 describe("トラック構成", () => {
   it("トラック id は定義済み TrackId のみで一意", () => {

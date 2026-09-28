@@ -37,10 +37,10 @@ describe("daysSince", () => {
 
 describe("isStale", () => {
   it("ちょうど90日は stale でない", () => {
-    expect(isStale("2026-04-16", NOW)).toBe(false); // 90日前
+    expect(isStale("2026-04-16", NOW)).toBe(false); // 90 days ago
   });
   it("91日で stale", () => {
-    expect(isStale("2026-04-15", NOW)).toBe(true); // 91日前
+    expect(isStale("2026-04-15", NOW)).toBe(true); // 91 days ago
   });
   it("閾値を差し替えられる", () => {
     expect(isStale("2026-07-01", NOW, 7)).toBe(true);

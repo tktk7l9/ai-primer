@@ -1,10 +1,10 @@
-// 月次 freshness-report.yml から実行される鮮度チェック。
-// (1) 全 sources[].url の重複排除リストに HEAD リクエスト（405/501/エラー時は GET フォールバック）を送り、死んでいるリンクを検出する。
-// (2) lastVerified が STALE_AFTER_DAYS を超えたレッスン/モデル/年表項目を列挙する。
-// 結果を Markdown レポートとして stdout に出力する（呼び出し側の GitHub Actions が Issue へ変換する）。
+// Freshness check run by the monthly freshness-report.yml.
+// (1) Sends HEAD requests (falling back to GET on 405/501/errors) to the deduplicated list of all sources[].url to find dead links.
+// (2) Lists lessons/models/timeline entries whose lastVerified is older than STALE_AFTER_DAYS.
+// Prints the result as a Markdown report to stdout (the calling GitHub Actions workflow turns it into an Issue).
 //
-// 自動化はここまで。本文・カタログの実際の更新は人間 + Claude Code セッションで行う
-// （docs/refresh-runbook.md 参照）。空の draft PR は作らない。
+// Automation stops here. Actual updates to lesson bodies and the catalog are done by a human + a Claude Code session
+// (see docs/refresh-runbook.md). No empty draft PRs are created.
 
 import { ALL_LESSONS } from "../src/engine/content";
 import { GLOSSARY } from "../src/engine/content/glossary";
@@ -15,8 +15,8 @@ import type { Source } from "../src/engine/content/types";
 
 const TIMEOUT_MS = 10_000;
 const CONCURRENCY = 8;
-// 実ブラウザに近い UA を付ける。多くのサイトが UA なしの HEAD/GET を
-// ボット判定して 403 を返すため、これがないと誤検知が大量発生する。
+// Send a UA close to a real browser. Many sites treat HEAD/GET without a UA
+// as a bot and return 403, so without it we get a flood of false positives.
 const USER_AGENT =
   "Mozilla/5.0 (compatible; ai-primer-freshness-check/1.0; +https://ai-primer.saitotakuya0719.workers.dev)";
 
@@ -26,7 +26,7 @@ interface StaleEntry {
 }
 
 function collectSources(): Map<string, string[]> {
-  // url -> このURLを参照している項目ラベルのリスト
+  // url -> list of labels of the items referencing this URL
   const byUrl = new Map<string, string[]>();
   const add = (label: string, sources: readonly Source[]) => {
     for (const s of sources) {
@@ -69,8 +69,8 @@ async function checkUrl(url: string): Promise<{ url: string; ok: boolean; status
   try {
     let res = await fetch(url, { method: "HEAD", redirect: "follow", signal: controller.signal, headers });
     if (!res.ok) {
-      // HEAD 未対応(405/501)に加え、UA ベースのボット判定による 403 も
-      // GET で拾い直す（サーバーによって HEAD だけ弾くことがある）。
+      // Besides HEAD being unsupported (405/501), also retry 403s from UA-based bot detection
+      // with GET (some servers reject only HEAD).
       res = await fetch(url, { method: "GET", redirect: "follow", signal: controller.signal, headers });
     }
     return { url, ok: res.ok, status: res.status };

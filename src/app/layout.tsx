@@ -15,13 +15,13 @@ export default function RootLayout({
     <html lang="ja">
       <body>
         {children}
-        {/* Cloudflare Web Analytics。2026-09-12 の Workers 移行で Vercel Analytics を
-            外した代わり。token は HTML に埋まって全訪問者に見えるため秘密情報ではない。
-            許可オリジンは src/lib/csp.ts 側にあり、csp.test.ts が両方を固定している。
-            gitleaks は 32桁hex を generic-api-key として検出するので、その行だけ
-            gitleaks:allow で抑止する（設定ファイルを置くと他の本物の秘密まで隠れる）。 */}
+        {/* Cloudflare Web Analytics. Replaces Vercel Analytics, removed in the 2026-09-12 move to
+            Workers. The token is embedded in the HTML and visible to every visitor, so it is not a secret.
+            The allowed origins live in src/lib/csp.ts, and csp.test.ts pins both.
+            gitleaks flags 32-digit hex as generic-api-key, so only that line is
+            suppressed with gitleaks:allow (a config file would also hide real secrets). */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts --
-            type="module" のスクリプトは仕様上 defer されるため、パーサーを止めない */}
+            type="module" scripts are deferred by spec, so they do not block the parser */}
         <script
           type="module"
           src="https://static.cloudflareinsights.com/beacon.min.js"
