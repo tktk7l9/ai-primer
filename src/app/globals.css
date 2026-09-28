@@ -250,6 +250,20 @@ button {
   box-shadow: var(--shadow-lift);
 }
 
+.resume {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.9rem;
+}
+
+/* Reserves its line so the caption appearing after hydration does not shift layout. */
+.resume-next {
+  min-height: 1.5em;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
 .overall-progress {
   display: flex;
   align-items: center;

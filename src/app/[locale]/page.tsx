@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { TrackCard } from "@/components/track-card";
 import { ProgressMeter } from "@/components/progress";
 import { JsonLd } from "@/components/json-ld";
+import { ResumeLink } from "@/components/resume-link";
 import { NEWS_APP_URL, SITE_URL } from "@/engine/site";
 
 export function generateStaticParams() {
@@ -43,9 +44,15 @@ export default async function HomePage({
       <section className="hero">
         <h1>{dict.home.heroTitle}</h1>
         <p>{dict.home.heroLead}</p>
-        <a className="button-primary" href={`/${locale}/learn/${TRACKS[0].id}`}>
-          {dict.home.startLearning}
-        </a>
+        <ResumeLink
+          lessons={ALL_LESSONS.map((ref) => ({
+            id: ref.lesson.id,
+            href: `/${locale}/learn/${ref.track.id}/${ref.lesson.slug}`,
+            title: ref.lesson.title[locale],
+          }))}
+          startHref={`/${locale}/learn/${TRACKS[0].id}`}
+          dict={dict}
+        />
         <div className="overall-progress">
           <span>{dict.home.overallProgress}</span>
           <ProgressMeter lessonIds={allLessonIds} label={dict.home.overallProgress} />

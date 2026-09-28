@@ -4,6 +4,7 @@ import {
   isComplete,
   loadCompleted,
   markComplete,
+  resumePoint,
   type ProgressStore,
 } from "./progress";
 
@@ -66,5 +67,34 @@ describe("completion", () => {
   });
   it("レッスン0件なら ratio 0", () => {
     expect(completion(["a"], [])).toEqual({ done: 0, total: 0, ratio: 0 });
+  });
+});
+
+describe("resumePoint", () => {
+  const ids = ["a", "b", "c"];
+
+  it("starts at the first lesson when nothing is completed", () => {
+    expect(resumePoint([], ids)).toEqual({ kind: "start", lessonId: "a" });
+  });
+
+  it("resumes at the first incomplete lesson, skipping gaps in order", () => {
+    expect(resumePoint(["a"], ids)).toEqual({ kind: "resume", lessonId: "b" });
+    expect(resumePoint(["a", "c"], ids)).toEqual({ kind: "resume", lessonId: "b" });
+  });
+
+  it("resumes at the first lesson when only later lessons are done", () => {
+    expect(resumePoint(["c"], ids)).toEqual({ kind: "resume", lessonId: "a" });
+  });
+
+  it("ignores completed ids that are not in the course", () => {
+    expect(resumePoint(["zzz"], ids)).toEqual({ kind: "start", lessonId: "a" });
+  });
+
+  it("points back to the first lesson for review once everything is done", () => {
+    expect(resumePoint(["a", "b", "c"], ids)).toEqual({ kind: "review", lessonId: "a" });
+  });
+
+  it("returns null for an empty course", () => {
+    expect(resumePoint([], [])).toBeNull();
   });
 });

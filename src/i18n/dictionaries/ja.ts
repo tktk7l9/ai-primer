@@ -18,6 +18,9 @@ const ja = {
     heroLead:
       "用語・歴史・仕組みから、ChatGPT・Claude・Gemini・Grok の使い分け、コーディング・画像・動画・音楽生成まで。クイズと出典付きの無料チュートリアル。",
     startLearning: "学習を始める",
+    resumeLearning: "続きから学ぶ",
+    reviewLearning: "最初から復習する",
+    upNext: "次は",
     overallProgress: "全体の進捗",
     lessonsLabel: "レッスン",
     newsBanner: "最新のAIニュースは姉妹アプリ「AIニュース・ダイジェスト」へ",

@@ -18,6 +18,9 @@ const en: Dictionary = {
     heroLead:
       "From terminology, history and inner workings to choosing between ChatGPT, Claude, Gemini and Grok — and on to coding, image, video and music generation. Free, with quizzes and cited sources.",
     startLearning: "Start learning",
+    resumeLearning: "Continue learning",
+    reviewLearning: "Review from the start",
+    upNext: "Up next:",
     overallProgress: "Overall progress",
     lessonsLabel: "lessons",
     newsBanner: "For breaking AI news, visit our sister app “AI News Digest”",
