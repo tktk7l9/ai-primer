@@ -172,14 +172,27 @@ button {
   font-size: 0.92rem;
 }
 
+/* 44px tall at every width: tablets get the desktop row but are still touched (SHIG 78). */
 .site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   color: var(--ink-soft);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
   color: var(--ink);
+}
+
+/* Current section is shown by an underline too, not by color alone (SHIG 59, 96). */
+.site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
 }
 
 .locale-switch {
@@ -248,6 +261,26 @@ button {
 .button-primary:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-lift);
+}
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* Always its own single line, reserved before hydration, so the caption that
+   appears for returning learners cannot wrap or push the page down (CLS). */
+.resume-next {
+  max-width: 100%;
+  min-height: 1.5em;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .overall-progress {
@@ -385,6 +418,43 @@ button {
   text-wrap: pretty;
 }
 
+/* Visible trail back to the course / track (SHIG 59, 60). */
+.breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 0 0.4rem;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.breadcrumbs li + li::before {
+  content: "›";
+  margin: 0 0.45rem;
+  color: var(--ink-soft);
+}
+
+.breadcrumbs a {
+  display: inline-block;
+  padding: 0.35rem 0;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent);
+}
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 1.4rem 0 4rem;
+}
+
 .lesson-list {
   list-style: none;
   margin: 1.5rem 0;
@@ -446,6 +516,40 @@ button {
   color: var(--good);
   background: var(--good-soft);
   transform: rotate(-8deg);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.lesson-status {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--good);
+  background: var(--good-soft);
+  border: 1px solid color-mix(in srgb, var(--good) 40%, transparent);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+}
+
+.stale-notice {
+  font-size: 0.8rem;
+  color: var(--warn);
+}
+
+.stale-notice::before {
+  content: "⚠ ";
 }
 
 /* ---------- レッスンページ ---------- */
@@ -667,6 +771,12 @@ button {
   text-wrap: pretty;
 }
 
+.quiz-hint {
+  margin: -0.4rem 0 0.7rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
 .quiz-choices {
   display: grid;
   gap: 0.45rem;
@@ -710,6 +820,7 @@ button {
 }
 
 .quiz-check {
+  min-height: 2.75rem;
   background: var(--ink);
   color: var(--paper);
   border: none;
@@ -723,12 +834,41 @@ button {
   cursor: not-allowed;
 }
 
+/* 44px tall so the secondary action is as easy to hit as the primary one (SHIG 78). */
 .quiz-reset {
+  min-height: 2.75rem;
   background: none;
   border: none;
   color: var(--ink-soft);
   text-decoration: underline;
-  padding: 0.3rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.quiz-complete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.8rem;
+  margin: 1.2rem 0 0;
+  padding: 0.8rem 1rem;
+  background: var(--good-soft);
+  border: 1px solid color-mix(in srgb, var(--good) 40%, transparent);
+  border-radius: var(--radius-sm);
+}
+
+.quiz-complete strong {
+  color: var(--good);
+}
+
+.quiz-complete-mark {
+  color: var(--good);
+  font-weight: 700;
+}
+
+.quiz-complete a {
+  display: inline-block;
+  padding: 0.35rem 0;
+  font-weight: 600;
 }
 
 .quiz-feedback {
@@ -854,6 +994,37 @@ button {
   .site-nav {
     gap: 0.6rem;
     font-size: 0.85rem;
+  }
+}
+
+/* Phones: the four section links no longer fit beside the brand and used to
+   wrap one character per line. Give them their own row with 44px targets
+   (SHIG 85, 69, 78); the locale switch stays top-right. */
+@media (max-width: 600px) {
+  .site-header .container {
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+
+  .locale-switch {
+    margin-left: auto;
+    padding-block: 0.45rem;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    gap: 1.1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-top: 1px solid var(--line);
+  }
+
+  /* The nav scrolls sideways, which clips anything drawn outside it; keep the
+     keyboard focus ring inside the link. */
+  .site-nav a:focus-visible {
+    outline-offset: -2px;
   }
 }
 

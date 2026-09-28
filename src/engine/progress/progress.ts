@@ -55,3 +55,27 @@ export function completion(
   const total = lessonIds.length;
   return { done, total, ratio: total === 0 ? 0 : done / total };
 }
+
+/**
+ * Where "continue learning" should send the learner (SHIG 20, 12):
+ * - `start`: nothing in this course is done yet, begin at the first lesson.
+ * - `resume`: the first lesson (in course order) that is not done.
+ * - `review`: everything is done, go back to the first lesson.
+ * Returns null when the course has no lessons.
+ */
+export type ResumePoint =
+  | { readonly kind: "start"; readonly lessonId: string }
+  | { readonly kind: "resume"; readonly lessonId: string }
+  | { readonly kind: "review"; readonly lessonId: string };
+
+export function resumePoint(
+  completed: readonly string[],
+  lessonIds: readonly string[],
+): ResumePoint | null {
+  if (lessonIds.length === 0) return null;
+  const set = new Set(completed);
+  const firstIncomplete = lessonIds.find((id) => !set.has(id));
+  if (firstIncomplete === undefined) return { kind: "review", lessonId: lessonIds[0] };
+  const anyDone = lessonIds.some((id) => set.has(id));
+  return { kind: anyDone ? "resume" : "start", lessonId: firstIncomplete };
+}

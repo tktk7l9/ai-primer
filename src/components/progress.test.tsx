@@ -1,6 +1,6 @@
 import { describe, expect, it, beforeEach } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
-import { ProgressMeter, LessonTick } from "./progress";
+import { ProgressMeter, LessonStatus, LessonTick } from "./progress";
 import { markComplete } from "@/engine/progress/progress";
 
 beforeEach(() => {
@@ -31,15 +31,39 @@ describe("ProgressMeter", () => {
 
 describe("LessonTick", () => {
   it("未完了なら data-done=false", () => {
-    render(<LessonTick lessonId="l1" />);
+    render(<LessonTick lessonId="l1" doneLabel="完了" />);
     expect(document.querySelector(".tick")).toHaveAttribute("data-done", "false");
   });
 
   it("完了済みなら data-done=true でチェックマークを表示", () => {
     markComplete(window.localStorage, "l1");
-    render(<LessonTick lessonId="l1" />);
+    render(<LessonTick lessonId="l1" doneLabel="完了" />);
     const tick = document.querySelector(".tick");
     expect(tick).toHaveAttribute("data-done", "true");
-    expect(tick?.textContent).toBe("✓");
+    expect(tick?.textContent).toContain("✓");
+  });
+
+  it("exposes completion as text to assistive tech, not only as a mark", () => {
+    markComplete(window.localStorage, "l1");
+    render(<LessonTick lessonId="l1" doneLabel="完了" />);
+    expect(screen.getByText("完了")).toHaveClass("visually-hidden");
+  });
+
+  it("says nothing extra while the lesson is not done", () => {
+    render(<LessonTick lessonId="l1" doneLabel="完了" />);
+    expect(screen.queryByText("完了")).not.toBeInTheDocument();
+  });
+});
+
+describe("LessonStatus", () => {
+  it("renders nothing until the lesson is completed", () => {
+    const { container } = render(<LessonStatus lessonId="l1" label="完了" />);
+    expect(container).toBeEmptyDOMElement();
+  });
+
+  it("shows a visible text badge once completed", () => {
+    markComplete(window.localStorage, "l1");
+    render(<LessonStatus lessonId="l1" label="完了" />);
+    expect(screen.getByText("完了")).toBeVisible();
   });
 });

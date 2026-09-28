@@ -31,12 +31,29 @@ export function ProgressMeter({
   );
 }
 
-export function LessonTick({ lessonId }: { lessonId: string }) {
+/**
+ * Small completion stamp used in lists. The mark itself is decorative; a
+ * visually hidden label carries the state for screen readers (SHIG 96, 94).
+ */
+export function LessonTick({ lessonId, doneLabel }: { lessonId: string; doneLabel: string }) {
   const completed = useCompleted();
   const done = completed.includes(lessonId);
   return (
-    <span className="tick" data-done={done} aria-hidden="true">
-      {done ? "✓" : ""}
+    <span className="tick" data-done={done}>
+      <span aria-hidden="true">{done ? "✓" : ""}</span>
+      {done && <span className="visually-hidden">{doneLabel}</span>}
+    </span>
+  );
+}
+
+/** Visible "✓ completed" badge next to a lesson title; absent until completed (SHIG 25, 37). */
+export function LessonStatus({ lessonId, label }: { lessonId: string; label: string }) {
+  const completed = useCompleted();
+  if (!completed.includes(lessonId)) return null;
+  return (
+    <span className="lesson-status">
+      <span aria-hidden="true">✓ </span>
+      {label}
     </span>
   );
 }

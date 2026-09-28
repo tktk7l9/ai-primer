@@ -12,12 +12,16 @@ const en: Dictionary = {
     timeline: "AI timeline",
     glossary: "Glossary",
     switchLocale: "日本語",
+    breadcrumb: "Breadcrumb",
   },
   home: {
     heroTitle: "Learn AI, systematically.",
     heroLead:
       "From terminology, history and inner workings to choosing between ChatGPT, Claude, Gemini and Grok — and on to coding, image, video and music generation. Free, with quizzes and cited sources.",
     startLearning: "Start learning",
+    resumeLearning: "Continue learning",
+    reviewLearning: "Review from the start",
+    upNext: "Up next:",
     overallProgress: "Overall progress",
     lessonsLabel: "lessons",
     newsBanner: "For breaking AI news, visit our sister app “AI News Digest”",
@@ -38,6 +42,10 @@ const en: Dictionary = {
     reset: "Reset",
     trueLabel: "True",
     falseLabel: "False",
+    multiHint: "Select every answer that applies",
+    orderHint: "Tap the items in the correct order (tap again to undo)",
+    completedNotice: "Lesson complete",
+    backToCourse: "Back to the course list",
   },
   track: {
     lessonsIn: "Lessons in this track",
@@ -59,6 +67,12 @@ const en: Dictionary = {
   timeline: {
     title: "AI Timeline",
     lead: "From the 1950 Turing Test to today, tracing AI's history in order. Pair this with the History track's lessons for more depth.",
+  },
+  notFound: {
+    title: "Page not found",
+    lead: "The URL may have changed or the page was removed. Try the course list or the glossary.",
+    backHome: "Go to the course list",
+    glossary: "Search the glossary",
   },
   glossary: {
     title: "Glossary",

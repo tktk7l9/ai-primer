@@ -14,12 +14,12 @@ export function FreshnessBadge({
 }) {
   const stale = isStale(lastVerified, new Date());
   return (
-    <span
-      className="freshness-badge"
-      data-stale={stale}
-      title={stale ? dict.lesson.staleNotice : undefined}
-    >
-      {dict.lesson.lastVerified}: {formatVerified(lastVerified, locale)}
-    </span>
+    <>
+      <span className="freshness-badge" data-stale={stale}>
+        {dict.lesson.lastVerified}: {formatVerified(lastVerified, locale)}
+      </span>
+      {/* Spelled out rather than a hover-only title so touch users see it too (SHIG 31, 96). */}
+      {stale && <span className="stale-notice">{dict.lesson.staleNotice}</span>}
+    </>
   );
 }
