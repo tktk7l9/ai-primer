@@ -1,7 +1,7 @@
 import type { Localized } from "@/i18n/config";
 import type { QuizSpec } from "@/engine/quiz/spec";
 
-/** 出典（chronoscroll の EventSource と同形）。 */
+/** A source (same shape as chronoscroll's EventSource). */
 export interface Source {
   label: string;
   url: string;
@@ -21,20 +21,20 @@ export const TRACK_IDS = [
 export type TrackId = (typeof TRACK_IDS)[number];
 
 export interface Lesson {
-  /** "ai-basics-01" 形式。全レッスンで一意。 */
+  /** In the form "ai-basics-01". Unique across all lessons. */
   id: string;
-  /** URL セグメント（"what-is-ai" 形式。トラック内で一意）。 */
+  /** URL segment (in the form "what-is-ai"; unique within the track). */
   slug: string;
   title: Localized<string>;
   summary: Localized<string>;
-  /** Markdown。揮発性の事実（モデル名・料金）は書かず models へリンクする。 */
+  /** Markdown. Do not write volatile facts (model names, pricing); link to models instead. */
   body: Localized<string>;
   quiz: readonly QuizSpec[];
-  /** 出典。1件以上（content.test.ts が強制）。 */
+  /** Sources. At least one (enforced by content.test.ts). */
   sources: readonly Source[];
-  /** 内容を最後に事実確認した日（"yyyy-mm-dd"）。 */
+  /** Date the content was last fact-checked ("yyyy-mm-dd"). */
   lastVerified: string;
-  /** glossary.ts の用語 id への参照。 */
+  /** References to term ids in glossary.ts. */
   glossaryRefs?: readonly string[];
 }
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// CI での性能リグレッションガード。閾値は本番実測(mobile 98-100/desktop 100)より
-// かなり保守的に設定している — GitHub Actions の共有ランナーはスループットが
-// 変動しやすく、実測値に近い閾値だとフレーキーに失敗するため。さらに単発計測は
-// ランナー混雑で20点近く振れることがある（service-anatomy で同一コードのまま
-// 94→72 を実測）ため、3回計測の中央値で判定する。
+// Performance regression guard in CI. Thresholds are set well below production measurements
+// (mobile 98-100 / desktop 100) — GitHub Actions shared runners have fluctuating
+// throughput, and thresholds close to the measured values fail flakily. On top of that a single run
+// can swing by nearly 20 points when runners are busy (measured 94 -> 72 on service-anatomy
+// with identical code), so the verdict uses the median of 3 runs.
 import { execFileSync } from "node:child_process";
 import { readFileSync, unlinkSync } from "node:fs";
 
@@ -11,10 +11,10 @@ const URL = process.argv[2] ?? "http://localhost:3000/ja";
 const OUT = "/tmp/lighthouse-ci-report.json";
 const THRESHOLDS = { performance: 80, accessibility: 95, "best-practices": 90, seo: 95 };
 const RUNS = 3;
-// 1回の計測が起動失敗したときに試す回数（フレーク対策。本物の異常なら全部落ちる）
+// Attempts when one run fails to start (flake mitigation; a real failure fails every attempt)
 const ATTEMPTS_PER_RUN = 3;
 
-// 1回だけ計測する。lighthouse の起動自体が失敗すると execFileSync が例外を投げる。
+// Runs one measurement. If lighthouse itself fails to start, execFileSync throws.
 function measureOnce() {
   execFileSync(
     "npx",
@@ -36,25 +36,25 @@ function measureOnce() {
   );
 }
 
-// 計測1回ぶんをリトライ付きで取る。
+// Takes one measurement with retries.
 //
-// **これが無いと 3回計測の中央値という設計が意味をなさない。** execFileSync は
-// 非ゼロ終了で例外を投げ、それが Array.from を素通りしてジョブ全体を落とすので、
-// 共有ランナー由来の1回きりのフレーク（NO_NAVSTART 等、Chrome の起動失敗）が
-// そのまま CI 失敗になっていた。2026-09-14 に service-anatomy で実際に発生し、
-// コード変更ゼロの再実行で通ることを確認している。
+// **Without this, the median-of-3-runs design is meaningless.** execFileSync
+// throws on a non-zero exit, which passes straight through Array.from and fails the whole job, so
+// one-off flakes from shared runners (NO_NAVSTART etc., Chrome failing to start)
+// turned directly into CI failures. This actually happened on service-anatomy on 2026-09-14,
+// and a re-run with zero code changes was confirmed to pass.
 //
-// サーバーが落ちている等の本物の異常なら全試行が失敗するので、見逃しにはならない。
+// A real failure such as the server being down fails every attempt, so nothing is missed.
 function measure(runIndex) {
   for (let attempt = 1; attempt <= ATTEMPTS_PER_RUN; attempt += 1) {
     try {
       return measureOnce();
     } catch (err) {
-      // 途中で死ぬと古いレポートが残り、次の試行がそれを読んでしまうため消す。
+      // A run that dies midway leaves a stale report that the next attempt would read, so delete it.
       try {
         unlinkSync(OUT);
       } catch {
-        // 元々無ければ何もしなくてよい
+        // Nothing to do if it did not exist
       }
       if (attempt === ATTEMPTS_PER_RUN) throw err;
       const first = String(err.message).split("\n")[0];

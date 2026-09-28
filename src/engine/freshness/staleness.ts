@@ -1,11 +1,11 @@
 import type { Locale } from "@/i18n/config";
 
-/** これを超えて未確認のコンテンツは stale 扱い。 */
+/** Content unverified for longer than this is treated as stale. */
 export const STALE_AFTER_DAYS = 90;
 
 const ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
 
-/** "yyyy-mm-dd" のみ受け付ける（実在しない日付は null）。 */
+/** Accepts only "yyyy-mm-dd" (null for dates that do not exist). */
 export function parseISODate(iso: string): Date | null {
   const m = ISO_DATE.exec(iso);
   if (!m) return null;
@@ -18,7 +18,7 @@ export function parseISODate(iso: string): Date | null {
   return valid ? date : null;
 }
 
-/** lastVerified から now までの経過日数（不正な日付は Infinity = 常に stale）。 */
+/** Days elapsed from lastVerified to now (Infinity for invalid dates = always stale). */
 export function daysSince(lastVerified: string, now: Date): number {
   const date = parseISODate(lastVerified);
   if (!date) return Infinity;
@@ -38,7 +38,7 @@ const MONTHS_EN = [
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
 ] as const;
 
-/** バッジ表示用の月精度フォーマット（ja: "2026年7月" / en: "Jul 2026"）。不正な日付は原文を返す。 */
+/** Month-precision format for the badge (ja: "2026年7月" / en: "Jul 2026"). Returns the input as is for invalid dates. */
 export function formatVerified(lastVerified: string, locale: Locale): string {
   const date = parseISODate(lastVerified);
   if (!date) return lastVerified;

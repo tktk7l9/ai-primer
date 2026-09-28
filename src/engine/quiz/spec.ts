@@ -1,7 +1,7 @@
 import type { Localized } from "@/i18n/config";
 
-// クイズはシリアライズ可能な判別共用体（css-atelier の ValidatorSpec 方式）。
-// 評価ロジックは evaluate.ts の純関数に隔離し、UI はデータを描画するだけにする。
+// Quizzes are serializable discriminated unions (the css-atelier ValidatorSpec approach).
+// Evaluation logic is isolated in pure functions in evaluate.ts; the UI only renders the data.
 
 export interface SingleChoiceSpec {
   kind: "single";
@@ -26,7 +26,7 @@ export interface BooleanSpec {
   explanation: Localized<string>;
 }
 
-/** items は正解の順序で著述する。UI 側が提示時にシャッフルする。 */
+/** Author items in the correct order. The UI shuffles them for presentation. */
 export interface OrderSpec {
   kind: "order";
   prompt: Localized<string>;
@@ -36,8 +36,8 @@ export interface OrderSpec {
 
 export type QuizSpec = SingleChoiceSpec | MultiChoiceSpec | BooleanSpec | OrderSpec;
 
-// 回答。order は「正解順における添字」をユーザーが並べた順で持つ
-// （全問正解 = [0, 1, 2, ...] の昇順一致）。
+// Answers. order holds the indexes in the correct order, arranged in the order the user placed them
+// (all correct = matches ascending [0, 1, 2, ...]).
 export type QuizAnswer =
   | { kind: "single"; index: number }
   | { kind: "multi"; indexes: readonly number[] }

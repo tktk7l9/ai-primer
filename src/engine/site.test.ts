@@ -7,14 +7,14 @@ describe("SITE_URL", () => {
   });
 
   it("vercel.app を含まない", () => {
-    // Vercel の Hobby アカウントは 2026-08-11 から停止していて配信されない。
-    // ここが vercel.app に戻ると canonical・sitemap・OGP が死んだURLを指す。
+    // The Vercel Hobby account has been suspended since 2026-08-11 and serves nothing.
+    // If this goes back to vercel.app, canonical, sitemap and OGP point at a dead URL.
     expect(SITE_URL).not.toContain("vercel.app");
   });
 
   it("末尾スラッシュを持たない", () => {
-    // 各所で `${SITE_URL}/${locale}` のように連結するので、末尾スラッシュがあると
-    // // になる。
+    // Many places concatenate like `${SITE_URL}/${locale}`, so a trailing slash
+    // produces //.
     expect(SITE_URL.endsWith("/")).toBe(false);
   });
 
@@ -25,8 +25,8 @@ describe("SITE_URL", () => {
 
 describe("NEWS_APP_URL", () => {
   it("姉妹アプリの Workers URL を指している", () => {
-    // ai-news-feed-app は Workers へ移行済みで Vercel プロジェクトも削除されている。
-    // vercel.app 版はリンク切れ。
+    // ai-news-feed-app has moved to Workers and its Vercel project is deleted.
+    // The vercel.app version is a broken link.
     expect(NEWS_APP_URL).toBe("https://ai-news-feed-app.saitotakuya0719.workers.dev");
   });
 

@@ -8,7 +8,7 @@ import { codingAiTrack } from "./tracks/coding-ai";
 import { generativeMediaTrack } from "./tracks/generative-media";
 import { societyTrack } from "./tracks/society";
 
-/** 表示順どおりの全トラック（8本、全て揃った）。 */
+/** All tracks in display order (8, all complete). */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
@@ -25,7 +25,7 @@ export interface LessonRef {
   readonly lesson: Lesson;
 }
 
-/** 学習順（トラック順 × トラック内順）に平坦化した全レッスン。 */
+/** All lessons flattened in learning order (track order × order within the track). */
 export const ALL_LESSONS: readonly LessonRef[] = TRACKS.flatMap((track) =>
   track.lessons.map((lesson) => ({ track, lesson })),
 );
@@ -42,14 +42,14 @@ export function lessonBySlug(trackId: TrackId | string, slug: string): LessonRef
   return ALL_LESSONS.find((ref) => ref.track.id === trackId && ref.lesson.slug === slug);
 }
 
-/** 学習順で次のレッスン（トラック境界をまたぐ）。最後なら null。 */
+/** Next lesson in learning order (crosses track boundaries). null if last. */
 export function nextLesson(lessonId: string): LessonRef | null {
   const i = ALL_LESSONS.findIndex((ref) => ref.lesson.id === lessonId);
   if (i < 0 || i + 1 >= ALL_LESSONS.length) return null;
   return ALL_LESSONS[i + 1];
 }
 
-/** 学習順で前のレッスン。最初なら null。 */
+/** Previous lesson in learning order. null if first. */
 export function prevLesson(lessonId: string): LessonRef | null {
   const i = ALL_LESSONS.findIndex((ref) => ref.lesson.id === lessonId);
   if (i <= 0) return null;

@@ -48,7 +48,7 @@ export default async function TimelinePage({
   if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale as Locale;
   const dict = await getDictionary(locale);
-  // データ本体(TIMELINE)は古い順の正史として保持し、表示のみ新しい順に反転する。
+  // The data itself (TIMELINE) is kept oldest-first as the canonical history; only the display is reversed to newest-first.
   const newestFirst = [...TIMELINE].reverse();
 
   return (

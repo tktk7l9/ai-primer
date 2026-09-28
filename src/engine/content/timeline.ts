@@ -5,7 +5,7 @@ export type TimelinePrecision = "day" | "month" | "year";
 
 export interface TimelineEvent {
   id: string;
-  /** ISO date。precision が month/year の場合も yyyy-mm-dd 形式で01埋めする。 */
+  /** ISO date. Even when precision is month/year, use yyyy-mm-dd padded with 01. */
   date: string;
   precision: TimelinePrecision;
   title: Localized<string>;
@@ -13,7 +13,7 @@ export interface TimelineEvent {
   sources: readonly Source[];
 }
 
-// 日付・出来事は全て一次情報源または信頼できる百科事典で検証済み(2026-07-15時点)。
+// All dates and events verified against primary sources or reliable encyclopedias (as of 2026-07-15).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",

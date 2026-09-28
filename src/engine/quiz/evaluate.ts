@@ -4,7 +4,7 @@ export interface QuizResult {
   readonly correct: boolean;
 }
 
-/** spec と answer の kind が一致しない場合は不正解として扱う。 */
+/** A mismatch between the kinds of spec and answer counts as incorrect. */
 export function evaluate(spec: QuizSpec, answer: QuizAnswer): QuizResult {
   switch (spec.kind) {
     case "single":
@@ -29,7 +29,7 @@ export function evaluate(spec: QuizSpec, answer: QuizAnswer): QuizResult {
   }
 }
 
-/** レッスン内の全問に正解したか。 */
+/** Whether every question in the lesson was answered correctly. */
 export function allCorrect(specs: readonly QuizSpec[], answers: readonly QuizAnswer[]): boolean {
   return (
     specs.length > 0 &&

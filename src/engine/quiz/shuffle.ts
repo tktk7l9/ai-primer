@@ -1,5 +1,5 @@
-// order 問題の提示順シャッフル。SSR とクライアントで同一結果になるよう
-// 乱数は使わず、シード文字列（レッスンid+設問番号）から決定的に生成する。
+// Shuffles the presentation order of order questions. To give the same result on SSR and the client
+// it uses no randomness and derives it deterministically from a seed string (lesson id + question number).
 
 function hashSeed(seed: string): number {
   let h = 0x811c9dc5;
@@ -20,8 +20,8 @@ function mulberry32(a: number): () => number {
 }
 
 /**
- * [0..length-1] の添字を決定的にシャッフルして返す。
- * 返り値 r について「提示位置 i に置くのは正解順 r[i] 番目の項目」。
+ * Returns the indexes [0..length-1] shuffled deterministically.
+ * For the result r, "presentation position i shows the item at position r[i] in the correct order".
  */
 export function shuffledIndexes(length: number, seed: string): number[] {
   const indexes = Array.from({ length }, (_, i) => i);

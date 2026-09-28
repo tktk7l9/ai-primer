@@ -1,18 +1,18 @@
 /**
- * ai-primer — Cloudflare Workers 設定
+ * ai-primer — Cloudflare Workers config
  * https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/
  *
- * Next.js を @opennextjs/cloudflare でビルドして Workers で動かす。
- * 2026-08-11 から Vercel の Hobby アカウントが停止しているため移行した。
+ * Builds Next.js with @opennextjs/cloudflare and runs it on Workers.
+ * Migrated because the Vercel Hobby account has been suspended since 2026-08-11.
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ai-primer",
   "main": ".open-next/worker.js",
-  // この日付はUTCで検証される。JST基準の「今日」を入れるとUTCがまだ前日で
-  // 「in the future」エラーになることがある（2026-09-13デプロイ時に実際発生）。
+  // This date is validated in UTC. Putting "today" in JST can hit an "in the future" error
+  // because UTC is still on the previous day (actually happened in the 2026-09-13 deploy).
   "compatibility_date": "2026-09-12",
-  // Next.js の実行に必須。日付は 2024-09-23 以降であること。
+  // Required to run Next.js. The date must be 2024-09-23 or later.
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": ".open-next/assets",

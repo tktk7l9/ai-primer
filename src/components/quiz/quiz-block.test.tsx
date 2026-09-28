@@ -118,7 +118,7 @@ describe("QuizBlock", () => {
   it("並べ替え: 表示順(シャッフル後)で正しい順に選ぶと正解になる", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="order-lesson" quiz={[order]} locale="ja" dict={ja} />);
-    // 表示はシャッフルされるため、テキストで見分けて正解順(一→二→三)にクリックする
+    // The display is shuffled, so identify items by text and click them in the correct order (一 -> 二 -> 三)
     await user.click(screen.getByRole("button", { name: /一/ }));
     await user.click(screen.getByRole("button", { name: /二/ }));
     await user.click(screen.getByRole("button", { name: /三/ }));
@@ -145,7 +145,7 @@ describe("QuizBlock", () => {
     render(<QuizBlock lessonId="lesson-y" quiz={[single, bool]} locale="ja" dict={ja} />);
     const checkButtons = () => screen.getAllByRole("button", { name: ja.lesson.check });
 
-    await user.click(screen.getByRole("button", { name: "1" })); // 不正解
+    await user.click(screen.getByRole("button", { name: "1" })); // Incorrect
     await user.click(checkButtons()[0]);
     await user.click(screen.getByRole("button", { name: ja.lesson.trueLabel }));
     await user.click(checkButtons()[1]);

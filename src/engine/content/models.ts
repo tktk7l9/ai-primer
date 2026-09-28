@@ -15,8 +15,8 @@ export interface ModelEntry {
   lastVerified: string;
 }
 
-// 揮発性の高い個別バージョン名・料金は書かず、「開発元・立ち位置・強み」を中心にまとめる。
-// 詳細・最新の料金体系は officialUrl を必ず確認すること。
+// Do not write highly volatile specific version names or prices; focus on developer, positioning and strengths.
+// Always check officialUrl for details and the latest pricing.
 export const MODELS: readonly ModelEntry[] = [
   {
     id: "chatgpt",

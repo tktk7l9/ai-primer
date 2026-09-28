@@ -1,14 +1,14 @@
 /* ============================================================
-   AI Primer — 「AI観測手帳 (Field Notes)」デザインシステム
-   紙のノートに未知の存在(AI)を観察・記録していく世界観。
-   light = 昼の観察ノート / dark = 夜間観測モード（prefers-color-scheme 自動）
-   コントラストは WCAG AA (4.5:1) 以上を維持すること。
+   AI Primer — "AI観測手帳 (Field Notes)" design system
+   The concept: observing and recording an unknown being (AI) in a paper notebook.
+   light = daytime field notes / dark = night observation mode (automatic via prefers-color-scheme)
+   Keep contrast at WCAG AA (4.5:1) or higher.
    ============================================================ */
 
 :root {
   color-scheme: light dark;
 
-  /* 紙とインク */
+  /* Paper and ink */
   --paper: #faf7f1;
   --paper-2: #f2ede2;
   --card: #fffdf8;
@@ -17,12 +17,12 @@
   --line: #ddd5c2;
   --line-soft: #e9e3d3;
 
-  /* シグナル（電気的アクセント＝観測対象のAI） */
+  /* Signal (electric accent = the AI being observed) */
   --accent: #5646c8;
   --accent-soft: #edeafc;
   --accent-ink: #ffffff;
 
-  /* 意味色 */
+  /* Semantic colors */
   --good: #22703f;
   --good-soft: #e3f2e7;
   --warn: #8a5a00;
@@ -65,7 +65,7 @@
   }
 }
 
-/* ---------- ベース ---------- */
+/* ---------- Base ---------- */
 
 * {
   box-sizing: border-box;
@@ -82,7 +82,7 @@ body {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.7;
-  /* 紙の質感：ごく薄い横罫 */
+  /* Paper texture: very faint ruled lines */
   background-image: linear-gradient(var(--line-soft) 1px, transparent 1px);
   background-size: 100% 2.4rem;
   background-attachment: fixed;
@@ -125,7 +125,7 @@ button {
   border-radius: 2px;
 }
 
-/* ---------- レイアウト ---------- */
+/* ---------- Layout ---------- */
 
 .container {
   max-width: 72rem;
@@ -226,7 +226,7 @@ button {
   gap: 0.5rem;
 }
 
-/* ---------- トップ（コース概要） ---------- */
+/* ---------- Home (course overview) ---------- */
 
 .hero {
   padding: 3.5rem 0 2rem;
@@ -396,10 +396,10 @@ button {
   gap: 0.6rem;
 }
 
-/* ---------- トラック / レッスン一覧 ---------- */
+/* ---------- Tracks / lesson list ---------- */
 
-/* 読み物系の1カラムページ（トラック一覧・年表・用語集）を container の中で
-   左詰めにせず中央に据えるための共通ラッパー。 */
+/* Shared wrapper that centers single-column reading pages (track list, timeline, glossary)
+   inside the container instead of left-aligning them. */
 .narrow-page {
   max-width: 44rem;
   margin-inline: auto;
@@ -497,7 +497,7 @@ button {
   color: var(--ink-soft);
 }
 
-/* 完了スタンプ（観察済みマーク） */
+/* Completion stamp (the "observed" mark) */
 .tick {
   display: inline-flex;
   align-items: center;
@@ -552,7 +552,7 @@ button {
   content: "⚠ ";
 }
 
-/* ---------- レッスンページ ---------- */
+/* ---------- Lesson page ---------- */
 
 .lesson-layout {
   display: grid;
@@ -655,7 +655,7 @@ button {
   border-color: color-mix(in srgb, var(--warn) 45%, transparent);
 }
 
-/* 本文 */
+/* Body */
 .prose {
   font-size: 1rem;
 }
@@ -737,7 +737,7 @@ button {
   background: var(--paper-2);
 }
 
-/* ---------- クイズ（貼り付けた付箋風） ---------- */
+/* ---------- Quiz (styled like a stuck-on sticky note) ---------- */
 
 .quiz-block {
   margin: 2.5rem 0;
@@ -896,7 +896,7 @@ button {
   color: var(--good);
 }
 
-/* ---------- 出典・ページャ ---------- */
+/* ---------- Sources and pager ---------- */
 
 .sources {
   margin: 2.5rem 0 0;
@@ -952,7 +952,7 @@ button {
   text-align: right;
 }
 
-/* ---------- モバイル ---------- */
+/* ---------- Mobile ---------- */
 
 .aside-toggle {
   display: none;
@@ -1043,7 +1043,7 @@ button {
   }
 }
 
-/* ---------- モデルカタログ ---------- */
+/* ---------- Model catalog ---------- */
 
 .model-grid {
   display: grid;
@@ -1109,7 +1109,7 @@ button {
   background: var(--paper-2);
 }
 
-/* ---------- AI年表 ---------- */
+/* ---------- AI timeline ---------- */
 
 .timeline-list {
   list-style: none;
@@ -1174,7 +1174,7 @@ button {
   border-color: var(--accent);
 }
 
-/* ---------- 用語集 ---------- */
+/* ---------- Glossary ---------- */
 
 .glossary-list {
   list-style: none;
