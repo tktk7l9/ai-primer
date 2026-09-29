@@ -20,7 +20,7 @@ export function Pager({
 }) {
   if (!prev && !next) return null;
   return (
-    <nav className="pager" aria-label="Lesson pagination">
+    <nav className="pager" aria-label={dict.nav.lessonPager}>
       {prev ? (
         <Link href={lessonHref(locale, prev)}>
           <span className="pager-label">← {dict.lesson.prev}</span>

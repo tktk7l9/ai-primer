@@ -20,7 +20,7 @@ export function SiteNav({ locale, labels }: { locale: Locale; labels: Dictionary
   // brand row while the section links get their own line (SHIG 85).
   return (
     <>
-      <nav className="site-nav" aria-label="Site">
+      <nav className="site-nav" aria-label={labels.siteNav}>
         {items.map((item) => (
           <Link
             key={item.section}
