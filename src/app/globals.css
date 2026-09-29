@@ -226,6 +226,12 @@ button {
   gap: 0.5rem;
 }
 
+/* Standalone link on its own line: pad it to a 24px+ target (SHIG 13, WCAG 2.5.8). */
+.site-footer a {
+  display: inline-block;
+  padding-block: 0.25rem;
+}
+
 /* ---------- Home (course overview) ---------- */
 
 .hero {
@@ -915,6 +921,12 @@ button {
   padding-left: 1.2em;
 }
 
+/* One link per list item, so each is a standalone target (SHIG 13). */
+.sources li a {
+  display: inline-block;
+  padding-block: 0.25rem;
+}
+
 .pager {
   display: flex;
   justify-content: space-between;
@@ -976,7 +988,11 @@ button {
     padding: 0.6rem 0.9rem;
   }
 
+  /* The whole card row is the tap target, not just the 22px text line (SHIG 13, 78). */
   .aside-toggle summary {
+    /* Keep the default list-item display so the disclosure triangle stays. */
+    margin: -0.6rem -0.9rem;
+    padding: 0.7rem 0.9rem;
     cursor: pointer;
     font-family: var(--mono);
     font-size: 0.8rem;
@@ -984,7 +1000,7 @@ button {
   }
 
   .aside-toggle nav {
-    margin-top: 0.6rem;
+    margin-top: 1.2rem;
   }
 
   .lesson-aside > nav {
@@ -1091,6 +1107,10 @@ button {
   gap: 0.6rem;
   font-size: 0.82rem;
   margin-top: 0.4rem;
+}
+
+.model-card .model-footer a {
+  padding-block: 0.3rem;
 }
 
 .free-tier-badge {
@@ -1202,12 +1222,15 @@ button {
   font-size: 0.92rem;
 }
 
-.glossary-related {
+/* A second <dd> (valid inside the dl group); two classes so it beats .glossary-item dd. */
+.glossary-item .glossary-related {
   margin-top: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
   font-size: 0.78rem;
+  /* Keep the label color it had as a div; the dd rule would dim it to --ink-soft. */
+  color: inherit;
 }
 
 .glossary-related a {
