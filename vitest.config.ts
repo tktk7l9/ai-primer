@@ -18,8 +18,8 @@ export default defineConfig({
         "src/engine/**/*.ts",
         "src/i18n/**/*.ts",
         "src/lib/**/*.ts",
-        "src/components/**/*.tsx",
-        "src/app/**/*.tsx",
+        "src/components/**/*.{ts,tsx}",
+        "src/app/**/*.{ts,tsx}",
       ],
       // opengraph-image renders through next/og (Satori → PNG), which jsdom cannot exercise.
       exclude: ["src/**/*.test.{ts,tsx}", "src/app/opengraph-image.tsx"],
@@ -42,7 +42,7 @@ export default defineConfig({
           functions: 100,
           lines: 100,
         },
-        "src/{components,app}/**/*.tsx": {
+        "src/{components,app}/**/*.{ts,tsx}": {
           statements: 95,
           branches: 94,
           functions: 96,

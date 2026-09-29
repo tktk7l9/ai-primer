@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { render, screen, within } from "@testing-library/react";
+import { cleanup, render, screen, within } from "@testing-library/react";
 import { TIMELINE } from "@/engine/content/timeline";
 import en from "@/i18n/dictionaries/en";
 
@@ -40,6 +40,8 @@ describe("TimelinePage", () => {
   it("formats day-precision dates in each language", async () => {
     const [y, m, d] = dayEvent.date.split("-");
     expect((await itemFor("ja", dayEvent.id)).getByText(`${y}年${Number(m)}月${Number(d)}日`)).toBeInTheDocument();
+    cleanup();
+    expect((await itemFor("en", dayEvent.id)).getByText(dayEvent.date)).toBeInTheDocument();
   });
 
   it("shows year-only dates in English too", async () => {

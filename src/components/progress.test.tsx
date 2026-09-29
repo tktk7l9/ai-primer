@@ -67,3 +67,13 @@ describe("LessonStatus", () => {
     expect(screen.getByText("完了")).toBeVisible();
   });
 });
+
+describe("server render", () => {
+  it("renders progress as empty on the server so hydration never mismatches", async () => {
+    const { renderToString } = await import("react-dom/server");
+    markComplete(window.localStorage, "a");
+    const html = renderToString(<ProgressMeter lessonIds={["a", "b"]} label="進捗" />);
+    expect(html).toContain("width:0%");
+    expect(html).toContain('aria-valuenow="0"');
+  });
+});
