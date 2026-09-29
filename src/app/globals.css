@@ -1229,6 +1229,8 @@ button {
   flex-wrap: wrap;
   gap: 0.4rem;
   font-size: 0.78rem;
+  /* Keep the label color it had as a div; the dd rule would dim it to --ink-soft. */
+  color: inherit;
 }
 
 .glossary-related a {
