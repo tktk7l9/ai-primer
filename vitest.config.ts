@@ -14,13 +14,21 @@ export default defineConfig({
     include: ["src/**/*.test.{ts,tsx}"],
     coverage: {
       provider: "v8",
-      include: ["src/engine/**/*.ts", "src/i18n/**/*.ts", "src/lib/**/*.ts"],
-      exclude: ["src/**/*.test.{ts,tsx}"],
+      include: [
+        "src/engine/**/*.ts",
+        "src/i18n/**/*.ts",
+        "src/lib/**/*.ts",
+        "src/components/**/*.tsx",
+        "src/app/**/*.tsx",
+      ],
+      // opengraph-image renders through next/og (Satori → PNG), which jsdom cannot exercise.
+      exclude: ["src/**/*.test.{ts,tsx}", "src/app/opengraph-image.tsx"],
       reporter: ["text", "json-summary", "html"],
       // The pure logic layer (engine: content / quiz / progress / freshness / markdown,
       // i18n: config / dictionaries) stays at 100%.
-      // The React component layer is tested but, as presentation, is outside the threshold gate
-      // (state transitions in quiz-block etc. are tested individually, but 100% is not required).
+      // The React UI layer (components + app routes) has its own floor, set 2 points below the
+      // measured value so it catches untested UI without flaking. Tests there are behavioural:
+      // render the page, act like a user, assert visible text / roles / state.
       thresholds: {
         "src/engine/**/*.ts": {
           statements: 100,
@@ -33,6 +41,12 @@ export default defineConfig({
           branches: 100,
           functions: 100,
           lines: 100,
+        },
+        "src/{components,app}/**/*.tsx": {
+          statements: 95,
+          branches: 94,
+          functions: 96,
+          lines: 97,
         },
       },
     },
