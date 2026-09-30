@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { matchesQuery } from "@/engine/search/filter";
 
 export interface GlossaryItem {
@@ -34,6 +34,7 @@ export function GlossaryList({
 }) {
   const inputId = useId();
   const [query, setQuery] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
   const shown = items.filter((g) => matchesQuery([g.term, g.definition], query));
   const filtering = query.trim() !== "";
 
@@ -42,6 +43,7 @@ export function GlossaryList({
       <div className="glossary-filter">
         <label htmlFor={inputId}>{labels.filter}</label>
         <input
+          ref={inputRef}
           id={inputId}
           type="search"
           autoComplete="off"
@@ -56,7 +58,16 @@ export function GlossaryList({
       {shown.length === 0 && (
         <p className="glossary-empty">
           {labels.noMatch}{" "}
-          <button type="button" className="link-button" onClick={() => setQuery("")}>
+          <button
+            type="button"
+            className="link-button"
+            onClick={() => {
+              setQuery("");
+              // The button unmounts once the list refills; without this, keyboard
+              // focus falls back to <body> and the learner loses their place.
+              inputRef.current?.focus();
+            }}
+          >
             {labels.clearFilter}
           </button>
         </p>

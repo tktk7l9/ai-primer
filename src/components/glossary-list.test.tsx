@@ -42,5 +42,14 @@ describe("GlossaryList", () => {
     await user.click(screen.getByRole("button", { name: labels.clearFilter }));
     expect(screen.getAllByRole("term")).toHaveLength(3);
     expect(screen.getByRole("searchbox", { name: labels.filter })).toHaveValue("");
+    // The clear button disappears with the empty state, so focus goes back to the field.
+    expect(screen.getByRole("searchbox", { name: labels.filter })).toHaveFocus();
+  });
+
+  it("matches words in the definition too, not only the term", async () => {
+    const user = userEvent.setup();
+    render(<GlossaryList items={items} labels={labels} />);
+    await user.type(screen.getByRole("searchbox", { name: labels.filter }), "外部情報");
+    expect(screen.getAllByRole("term").map((t) => t.textContent)).toEqual(["RAG（検索拡張生成）"]);
   });
 });
