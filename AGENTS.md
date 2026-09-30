@@ -37,7 +37,11 @@ An AI literacy tutorial in the style of nextjs.org/learn. Fully bilingual ja/en,
 - `src/engine/**` and `src/i18n/**` require **100% coverage** (gated by thresholds in vitest.config.ts, enforced in CI).
 - `content.test.ts` checks content integrity across the board (unique ids, non-empty ja/en, quiz answers in range, sources ≥ 1,
   valid lastVerified, glossaryRefs resolve). Keep the design where new lessons are picked up by the tests automatically.
-- React components are the presentation layer and are excluded from coverage.
+- The React UI layer (`src/components/**`, `src/app/**`) has its own floor in vitest.config.ts
+  (2 points below the measured value). Write behavioural tests with Testing Library + user-event:
+  render the component or call the async page with `params`, act like a user, assert visible text,
+  roles and state. No snapshot-only tests. Mock `next/navigation` (`notFound` throws) per test file.
+  `src/app/opengraph-image.tsx` is excluded (next/og renders PNG; jsdom cannot exercise it).
 
 ## Content writing rules
 

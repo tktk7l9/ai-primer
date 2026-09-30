@@ -13,6 +13,9 @@ const ja = {
     glossary: "用語集",
     switchLocale: "English",
     breadcrumb: "現在地",
+    siteNav: "サイト内メニュー",
+    trackOutline: "このトラックの目次",
+    lessonPager: "前後のレッスン",
   },
   home: {
     heroTitle: "AIを、体系的に。",

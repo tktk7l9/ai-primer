@@ -96,6 +96,7 @@ export default async function LessonPage({
         locale={locale}
         currentLessonId={lesson.id}
         doneLabel={dict.lesson.completed}
+        outlineLabel={dict.nav.trackOutline}
       />
       <article className="lesson-main">
         <JsonLd data={jsonLd} />

@@ -7,14 +7,16 @@ function NavList({
   locale,
   currentLessonId,
   doneLabel,
+  outlineLabel,
 }: {
   track: Track;
   locale: Locale;
   currentLessonId: string;
   doneLabel: string;
+  outlineLabel: string;
 }) {
   return (
-    <nav aria-label="Track outline">
+    <nav aria-label={outlineLabel}>
       <div className="aside-track">{track.title[locale]}</div>
       {track.lessons.map((lesson) => (
         <a
@@ -35,11 +37,13 @@ export function LessonSidebar({
   locale,
   currentLessonId,
   doneLabel,
+  outlineLabel,
 }: {
   track: Track;
   locale: Locale;
   currentLessonId: string;
   doneLabel: string;
+  outlineLabel: string;
 }) {
   return (
     <aside className="lesson-aside">
@@ -48,6 +52,7 @@ export function LessonSidebar({
         locale={locale}
         currentLessonId={currentLessonId}
         doneLabel={doneLabel}
+        outlineLabel={outlineLabel}
       />
       <details className="aside-toggle">
         <summary>{track.title[locale]}</summary>
@@ -56,6 +61,7 @@ export function LessonSidebar({
           locale={locale}
           currentLessonId={currentLessonId}
           doneLabel={doneLabel}
+          outlineLabel={outlineLabel}
         />
       </details>
     </aside>

@@ -13,6 +13,9 @@ const en: Dictionary = {
     glossary: "Glossary",
     switchLocale: "日本語",
     breadcrumb: "Breadcrumb",
+    siteNav: "Site",
+    trackOutline: "Track outline",
+    lessonPager: "Lesson pagination",
   },
   home: {
     heroTitle: "Learn AI, systematically.",
