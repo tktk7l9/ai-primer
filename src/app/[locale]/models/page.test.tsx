@@ -19,7 +19,7 @@ describe("ModelsPage", () => {
     const cards = screen.getAllByRole("article");
     expect(cards).toHaveLength(MODELS.length);
     const card = within(cards[0]);
-    expect(card.getByRole("heading", { level: 2, name: MODELS[0].name })).toBeInTheDocument();
+    expect(card.getByRole("heading", { level: 3, name: MODELS[0].name })).toBeInTheDocument();
     const link = card.getByRole("link", { name: new RegExp(ja.models.officialSite) });
     expect(link).toHaveAttribute("href", MODELS[0].officialUrl);
     expect(link).toHaveAttribute("target", "_blank");
@@ -30,6 +30,21 @@ describe("ModelsPage", () => {
     const free = MODELS.filter((m) => m.freeTier).length;
     expect(screen.queryAllByText(ja.models.freeTierYes)).toHaveLength(free);
     expect(screen.queryAllByText(ja.models.freeTierNo)).toHaveLength(MODELS.length - free);
+  });
+
+  it("groups the cards by kind under headings in the page language (SHIG 10, 17, 11)", async () => {
+    render(await ModelsPage(params("ja")));
+    const kinds = [...new Set(MODELS.map((m) => m.kind))];
+    const headings = screen.getAllByRole("heading", { level: 2 }).map((h) => h.textContent);
+    expect(headings).toEqual(kinds.map((k) => ja.models.kinds[k]));
+    // Each group holds exactly the models of that kind, in data order.
+    for (const kind of kinds) {
+      const group = screen.getByRole("region", { name: ja.models.kinds[kind] });
+      const names = within(group).getAllByRole("heading", { level: 3 }).map((h) => h.textContent);
+      expect(names).toEqual(MODELS.filter((m) => m.kind === kind).map((m) => m.name));
+    }
+    // No raw English kind ids leak onto the Japanese page.
+    expect(screen.queryByText(/^(chat|coding|image|video|music)$/i)).not.toBeInTheDocument();
   });
 
   it("pre-renders both languages", () => {

@@ -1102,7 +1102,19 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.1rem;
-  padding: 1.5rem 0 3rem;
+  padding: 0.8rem 0 2rem;
+}
+
+/* Kind headings break the catalog into scannable groups (SHIG 10, 17). */
+.model-group {
+  margin-top: 1.2rem;
+}
+
+.model-group > h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .model-card {
@@ -1120,9 +1132,9 @@ button {
   align-self: flex-start;
 }
 
-.model-card h2 {
+.model-card h3 {
   font-size: 1.05rem;
-  margin: 0.3em 0 0;
+  margin: 0.1em 0 0;
 }
 
 .model-card .model-vendor {

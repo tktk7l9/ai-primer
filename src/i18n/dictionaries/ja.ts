@@ -69,6 +69,13 @@ const ja = {
     officialSite: "公式サイト",
     freeTierYes: "無料枠あり",
     freeTierNo: "無料枠なし",
+    kinds: {
+      chat: "チャット",
+      coding: "コーディング",
+      image: "画像生成",
+      video: "動画生成",
+      music: "音楽・音声生成",
+    },
   },
   timeline: {
     title: "AI年表",

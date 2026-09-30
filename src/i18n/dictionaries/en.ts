@@ -69,6 +69,13 @@ const en: Dictionary = {
     officialSite: "Official site",
     freeTierYes: "Free tier available",
     freeTierNo: "No free tier",
+    kinds: {
+      chat: "Chat",
+      coding: "Coding",
+      image: "Image generation",
+      video: "Video generation",
+      music: "Music & voice",
+    },
   },
   timeline: {
     title: "AI Timeline",
