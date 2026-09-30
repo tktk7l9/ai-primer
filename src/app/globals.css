@@ -298,6 +298,13 @@ button {
   color: var(--ink-soft);
 }
 
+/* The meter needs a width of its own here, or the bar collapses to 0 and only
+   the count shows (SHIG 25, 35). */
+.overall-progress .track-progress {
+  flex: 1;
+  max-width: 22rem;
+}
+
 .news-banner {
   display: block;
   border: 1px dashed var(--line);
