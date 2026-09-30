@@ -133,6 +133,18 @@ button {
   padding: 0 1.25rem;
 }
 
+/* Short pages (404, a four-lesson track) keep the footer at the bottom of the
+   viewport instead of floating mid-screen (SHIG 85). */
+body > div[lang] {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > div[lang] > main {
+  flex: 1;
+}
+
 .site-header {
   position: sticky;
   top: 0;
