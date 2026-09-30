@@ -91,6 +91,10 @@ const en: Dictionary = {
     title: "Glossary",
     lead: "Every term used across this site's lessons, in one place — each links to the lessons where it comes up.",
     relatedLessons: "Related lessons",
+    filter: "Filter terms",
+    matchCount: "{n} terms",
+    noMatch: "No term matches.",
+    clearFilter: "Clear filter",
   },
 };
 

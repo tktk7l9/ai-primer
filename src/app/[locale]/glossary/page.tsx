@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { GLOSSARY } from "@/engine/content/glossary";
 import { lessonById } from "@/engine/content";
 import { type Locale, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { GlossaryList, type GlossaryItem } from "@/components/glossary-list";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -39,6 +39,18 @@ export default async function GlossaryPage({
   const locale = rawLocale as Locale;
   const dict = await getDictionary(locale);
   const sorted = [...GLOSSARY].sort((a, b) => a.term[locale].localeCompare(b.term[locale], locale));
+  // Plain data for the client-side filter; lesson refs are resolved here on the server.
+  const items: GlossaryItem[] = sorted.map((g) => ({
+    id: g.id,
+    term: g.term[locale],
+    definition: g.definition[locale],
+    related: g.relatedLessonIds.flatMap((id) => {
+      const ref = lessonById(id);
+      return ref
+        ? [{ href: `/${locale}/learn/${ref.track.id}/${ref.lesson.slug}`, title: ref.lesson.title[locale] }]
+        : [];
+    }),
+  }));
 
   return (
     <div className="narrow-page">
@@ -46,28 +58,16 @@ export default async function GlossaryPage({
         <h1>{dict.glossary.title}</h1>
         <p className="lead">{dict.glossary.lead}</p>
       </div>
-      <dl className="glossary-list">
-        {sorted.map((g) => (
-          <div key={g.id} className="glossary-item">
-            <dt>{g.term[locale]}</dt>
-            <dd>{g.definition[locale]}</dd>
-            {g.relatedLessonIds.length > 0 && (
-              <dd className="glossary-related">
-                <span>{dict.glossary.relatedLessons}:</span>
-                {g.relatedLessonIds.map((id) => {
-                  const ref = lessonById(id);
-                  if (!ref) return null;
-                  return (
-                    <Link key={id} href={`/${locale}/learn/${ref.track.id}/${ref.lesson.slug}`}>
-                      {ref.lesson.title[locale]}
-                    </Link>
-                  );
-                })}
-              </dd>
-            )}
-          </div>
-        ))}
-      </dl>
+      <GlossaryList
+        items={items}
+        labels={{
+          filter: dict.glossary.filter,
+          relatedLessons: dict.glossary.relatedLessons,
+          matchCount: dict.glossary.matchCount,
+          noMatch: dict.glossary.noMatch,
+          clearFilter: dict.glossary.clearFilter,
+        }}
+      />
     </div>
   );
 }

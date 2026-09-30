@@ -91,6 +91,10 @@ const ja = {
     title: "用語集",
     lead: "本サイトのレッスンに登場する用語を一覧できます。各用語から関連レッスンにもリンクしています。",
     relatedLessons: "関連レッスン",
+    filter: "用語を絞り込む",
+    matchCount: "{n}件",
+    noMatch: "該当する用語がありません。",
+    clearFilter: "絞り込みを解除",
   },
 };
 
