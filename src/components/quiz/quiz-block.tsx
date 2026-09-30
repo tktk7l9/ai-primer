@@ -56,22 +56,34 @@ function Question({
   const promptId = useId();
   const [answer, setAnswer] = useState<PartialAnswer>(() => initial(spec));
   const [checked, setChecked] = useState(false);
-  // Checking disables the choices and the check button, and resetting unmounts
-  // the reset button, so without this keyboard focus falls back to <body>.
-  const rootRef = useRef<HTMLDivElement>(null);
-  const focusAfterToggle = useRef(false);
-  useEffect(() => {
-    if (!focusAfterToggle.current) return;
-    focusAfterToggle.current = false;
-    const selector = checked ? ".quiz-reset" : ".quiz-choice";
-    rootRef.current?.querySelector<HTMLButtonElement>(selector)?.focus();
-  }, [checked]);
   const displayOrder = useMemo(
     () => (spec.kind === "order" ? shuffledIndexes(spec.items.length, seed) : []),
     [spec, seed],
   );
 
   const result = checked && isAnswered(answer) ? evaluate(spec, answer) : null;
+  // A correct answer is final: the choices lock and the lesson counts as done.
+  // A wrong one is not a mode (SHIG 9, 90): the choices stay live, and changing
+  // the answer clears the verdict so the learner can check again right away.
+  const correct = result?.correct === true;
+
+  // Checking disables the check button (and, when correct, the choices), and
+  // resetting unmounts the reset button, so without this keyboard focus falls
+  // back to <body>.
+  const rootRef = useRef<HTMLDivElement>(null);
+  const focusAfterToggle = useRef(false);
+  useEffect(() => {
+    if (!focusAfterToggle.current) return;
+    focusAfterToggle.current = false;
+    const selector = !checked ? ".quiz-choice" : correct ? ".quiz-feedback" : ".quiz-reset";
+    rootRef.current?.querySelector<HTMLElement>(selector)?.focus();
+  }, [checked, correct]);
+
+  /** Every answer change goes through here so a stale verdict never survives it (SHIG 41). */
+  function choose(update: (prev: PartialAnswer) => PartialAnswer) {
+    setAnswer(update);
+    setChecked(false);
+  }
 
   function check() {
     if (!isAnswered(answer)) return;
@@ -102,8 +114,8 @@ function Question({
               type="button"
               className="quiz-choice"
               aria-pressed={answer.kind === "single" && answer.index === i}
-              disabled={checked}
-              onClick={() => setAnswer({ kind: "single", index: i })}
+              disabled={correct}
+              onClick={() => choose(() => ({ kind: "single", index: i }))}
             >
               {choice[locale]}
             </button>
@@ -121,9 +133,9 @@ function Question({
                 type="button"
                 className="quiz-choice"
                 aria-pressed={selected}
-                disabled={checked}
+                disabled={correct}
                 onClick={() =>
-                  setAnswer((prev) => {
+                  choose((prev) => {
                     if (prev.kind !== "multi") return prev;
                     const indexes = selected
                       ? prev.indexes.filter((x) => x !== i)
@@ -147,8 +159,8 @@ function Question({
               type="button"
               className="quiz-choice"
               aria-pressed={answer.kind === "boolean" && answer.value === v}
-              disabled={checked}
-              onClick={() => setAnswer({ kind: "boolean", value: v })}
+              disabled={correct}
+              onClick={() => choose(() => ({ kind: "boolean", value: v }))}
             >
               {v ? dict.lesson.trueLabel : dict.lesson.falseLabel}
             </button>
@@ -166,9 +178,9 @@ function Question({
                 type="button"
                 className="quiz-choice"
                 aria-pressed={picked >= 0}
-                disabled={checked}
+                disabled={correct}
                 onClick={() =>
-                  setAnswer((prev) => {
+                  choose((prev) => {
                     if (prev.kind !== "order") return prev;
                     const already = prev.order.includes(itemIndex);
                     const order = already
@@ -195,15 +207,18 @@ function Question({
         >
           {dict.lesson.check}
         </button>
-        {checked && (
+        {/* Only while wrong: after a correct answer there is nothing left to redo (SHIG 37). */}
+        {checked && !correct && (
           <button type="button" className="quiz-reset" onClick={reset}>
             {dict.lesson.reset}
           </button>
         )}
-        {/* Always mounted so screen readers announce the result when it appears (SHIG 66, 94). */}
+        {/* Always mounted so screen readers announce the result when it appears (SHIG 66, 94).
+            Focusable so keyboard focus can land on the verdict once the choices lock. */}
         <span
           className="quiz-feedback"
           role="status"
+          tabIndex={-1}
           data-state={result ? (result.correct ? "correct" : "incorrect") : undefined}
         >
           {result ? (result.correct ? dict.lesson.correct : dict.lesson.incorrect) : ""}

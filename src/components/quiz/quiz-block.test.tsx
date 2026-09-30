@@ -98,6 +98,76 @@ describe("QuizBlock", () => {
     expect(choices[0]).toHaveFocus();
   });
 
+  it("lets the learner change a wrong answer directly instead of resetting first (SHIG 9, 41, 90)", async () => {
+    const user = userEvent.setup();
+    render(<QuizBlock lessonId="l1" quiz={[single]} locale="ja" dict={ja} />);
+    await user.click(screen.getByRole("button", { name: "1" }));
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    expect(screen.getByText(ja.lesson.incorrect)).toBeInTheDocument();
+    // Choices stay enabled after a wrong answer.
+    expect(screen.getByRole("button", { name: "2" })).toBeEnabled();
+    await user.click(screen.getByRole("button", { name: "2" }));
+    // Changing the answer clears the old verdict and re-arms the check button.
+    expect(screen.queryByText(ja.lesson.incorrect)).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: ja.lesson.reset })).not.toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    expect(screen.getByText(ja.lesson.correct)).toBeInTheDocument();
+  });
+
+  it("locks the choices and drops the reset button once the answer is correct (SHIG 37)", async () => {
+    const user = userEvent.setup();
+    render(<QuizBlock lessonId="l1" quiz={[single]} locale="ja" dict={ja} />);
+    await user.click(screen.getByRole("button", { name: "2" }));
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    expect(screen.getByRole("button", { name: "1" })).toBeDisabled();
+    expect(screen.queryByRole("button", { name: ja.lesson.reset })).not.toBeInTheDocument();
+    // Focus lands on the verdict rather than falling back to <body>.
+    expect(screen.getByText(ja.lesson.correct)).toHaveFocus();
+  });
+
+  it("multi-select: deselecting after a wrong check clears the verdict too", async () => {
+    const user = userEvent.setup();
+    render(<QuizBlock lessonId="l1" quiz={[multi]} locale="ja" dict={ja} />);
+    await user.click(screen.getByRole("button", { name: "1" }));
+    await user.click(screen.getByRole("button", { name: "2" }));
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    expect(screen.getByText(ja.lesson.incorrect)).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "1" }));
+    expect(screen.queryByText(ja.lesson.incorrect)).not.toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "4" }));
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    expect(screen.getByText(ja.lesson.correct)).toBeInTheDocument();
+  });
+
+  it("ordering: re-tapping an item after a wrong check removes it and clears the verdict", async () => {
+    const user = userEvent.setup();
+    render(<QuizBlock lessonId="order-lesson" quiz={[order]} locale="ja" dict={ja} />);
+    await user.click(screen.getByRole("button", { name: /二/ }));
+    await user.click(screen.getByRole("button", { name: /一/ }));
+    await user.click(screen.getByRole("button", { name: /三/ }));
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    expect(screen.getByText(ja.lesson.incorrect)).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /二/ }));
+    expect(screen.queryByText(ja.lesson.incorrect)).not.toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /二/ }));
+    await user.click(screen.getByRole("button", { name: /三/ }));
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    // Order is now 一, 三, 二: still wrong; the reset button clears everything at once.
+    expect(screen.getByText(ja.lesson.incorrect)).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: ja.lesson.reset }));
+    expect(screen.getByRole("button", { name: ja.lesson.check })).toBeDisabled();
+  });
+
+  it("true/false: switching the answer after a wrong check clears the verdict", async () => {
+    const user = userEvent.setup();
+    render(<QuizBlock lessonId="l1" quiz={[bool]} locale="ja" dict={ja} />);
+    await user.click(screen.getByRole("button", { name: ja.lesson.falseLabel }));
+    await user.click(screen.getByRole("button", { name: ja.lesson.check }));
+    expect(screen.getByText(ja.lesson.incorrect)).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: ja.lesson.trueLabel }));
+    expect(screen.queryByText(ja.lesson.incorrect)).not.toBeInTheDocument();
+  });
+
   it("multiple choice: the right combination is correct", async () => {
     const user = userEvent.setup();
     render(<QuizBlock lessonId="l1" quiz={[multi]} locale="ja" dict={ja} />);
