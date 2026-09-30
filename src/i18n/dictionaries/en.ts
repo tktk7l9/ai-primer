@@ -15,6 +15,7 @@ const en: Dictionary = {
     breadcrumb: "Breadcrumb",
     siteNav: "Site",
     trackOutline: "Track outline",
+    outline: "Outline",
     lessonPager: "Lesson pagination",
   },
   home: {
@@ -48,11 +49,13 @@ const en: Dictionary = {
     multiHint: "Select every answer that applies",
     orderHint: "Tap the items in the correct order (tap again to undo)",
     completedNotice: "Lesson complete",
+    positionLabel: "Lesson",
     backToCourse: "Back to the course list",
   },
   track: {
     lessonsIn: "Lessons in this track",
     progress: "Progress",
+    nextUp: "Next up",
   },
   footer: {
     newsLink: "AI News Digest (updated daily)",

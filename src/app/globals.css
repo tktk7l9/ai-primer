@@ -504,6 +504,29 @@ button {
   flex: 1;
 }
 
+.lesson-list .lesson-minutes {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+/* "Next up" cue on the first unfinished lesson (SHIG 20, 77). */
+.next-up {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 .lesson-list .lesson-summary {
   display: block;
   font-size: 0.85rem;
@@ -647,6 +670,13 @@ button {
   align-items: center;
   gap: 0.6rem;
   margin-bottom: 1.6rem;
+}
+
+.lesson-position {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
 }
 
 .freshness-badge {

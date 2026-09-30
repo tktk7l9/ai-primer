@@ -13,6 +13,7 @@ import { LessonStatus } from "@/components/progress";
 import { JsonLd } from "@/components/json-ld";
 import { SITE_URL } from "@/engine/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { estimateLessonMinutes, formatMinutes } from "@/engine/content/reading-time";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -58,6 +59,8 @@ export default async function LessonPage({
   const { track, lesson } = ref;
   const dict = await getDictionary(locale);
   const next = nextLesson(lesson.id);
+  const position = track.lessons.findIndex((l) => l.id === lesson.id) + 1;
+  const duration = formatMinutes(estimateLessonMinutes(lesson, locale), locale);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -97,6 +100,7 @@ export default async function LessonPage({
         currentLessonId={lesson.id}
         doneLabel={dict.lesson.completed}
         outlineLabel={dict.nav.trackOutline}
+        summaryLabel={dict.nav.outline}
       />
       <article className="lesson-main">
         <JsonLd data={jsonLd} />
@@ -111,6 +115,10 @@ export default async function LessonPage({
           />
           <h1>{lesson.title[locale]}</h1>
           <div className="lesson-meta">
+            {/* Where am I in the track, and how long is this (SHIG 59, 32). */}
+            <span className="lesson-position">
+              {dict.lesson.positionLabel} {position} / {track.lessons.length} · {duration}
+            </span>
             <FreshnessBadge lastVerified={lesson.lastVerified} locale={locale} dict={dict} />
             <LessonStatus lessonId={lesson.id} label={dict.lesson.completed} />
           </div>

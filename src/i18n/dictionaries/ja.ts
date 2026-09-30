@@ -15,6 +15,7 @@ const ja = {
     breadcrumb: "現在地",
     siteNav: "サイト内メニュー",
     trackOutline: "このトラックの目次",
+    outline: "目次",
     lessonPager: "前後のレッスン",
   },
   home: {
@@ -48,11 +49,13 @@ const ja = {
     multiHint: "当てはまるものをすべて選んでください",
     orderHint: "正しい順にタップしてください（もう一度タップすると取り消せます）",
     completedNotice: "このレッスンを完了しました",
+    positionLabel: "レッスン",
     backToCourse: "コース一覧へ戻る",
   },
   track: {
     lessonsIn: "このトラックのレッスン",
     progress: "進捗",
+    nextUp: "次はここ",
   },
   footer: {
     newsLink: "AIニュース・ダイジェスト（日次更新）",

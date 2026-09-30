@@ -1,6 +1,6 @@
 "use client";
 
-import { completion } from "@/engine/progress/progress";
+import { completion, resumePoint } from "@/engine/progress/progress";
 import { useCompleted } from "./use-completed";
 
 export function ProgressMeter({
@@ -44,6 +44,26 @@ export function LessonTick({ lessonId, doneLabel }: { lessonId: string; doneLabe
       {done && <span className="visually-hidden">{doneLabel}</span>}
     </span>
   );
+}
+
+/**
+ * "Next up" marker for the first unfinished lesson of a track, so the track page
+ * carries the same "continue here" cue as the home page (SHIG 20, 77). Absent
+ * once the whole track is done.
+ */
+export function NextUpMark({
+  lessonIds,
+  lessonId,
+  label,
+}: {
+  lessonIds: readonly string[];
+  lessonId: string;
+  label: string;
+}) {
+  const completed = useCompleted();
+  const point = resumePoint(completed, lessonIds);
+  if (!point || point.kind === "review" || point.lessonId !== lessonId) return null;
+  return <span className="next-up">{label}</span>;
 }
 
 /** Visible "✓ completed" badge next to a lesson title; absent until completed (SHIG 25, 37). */

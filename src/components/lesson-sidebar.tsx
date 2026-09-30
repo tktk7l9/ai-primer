@@ -38,13 +38,19 @@ export function LessonSidebar({
   currentLessonId,
   doneLabel,
   outlineLabel,
+  summaryLabel,
 }: {
   track: Track;
   locale: Locale;
   currentLessonId: string;
   doneLabel: string;
   outlineLabel: string;
+  /** Short word for the collapsed phone outline, e.g. "目次". */
+  summaryLabel: string;
 }) {
+  // The phone summary says what it opens and where the learner is (SHIG 4, 59);
+  // the track title is already in the breadcrumb right below it.
+  const position = track.lessons.findIndex((lesson) => lesson.id === currentLessonId) + 1;
   return (
     <aside className="lesson-aside">
       <NavList
@@ -55,7 +61,9 @@ export function LessonSidebar({
         outlineLabel={outlineLabel}
       />
       <details className="aside-toggle">
-        <summary>{track.title[locale]}</summary>
+        <summary>
+          {summaryLabel} · {position} / {track.lessons.length}
+        </summary>
         <NavList
           track={track}
           locale={locale}
