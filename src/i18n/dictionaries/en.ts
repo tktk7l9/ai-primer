@@ -15,6 +15,7 @@ const en: Dictionary = {
     breadcrumb: "Breadcrumb",
     siteNav: "Site",
     trackOutline: "Track outline",
+    outline: "Outline",
     lessonPager: "Lesson pagination",
   },
   home: {
@@ -48,11 +49,13 @@ const en: Dictionary = {
     multiHint: "Select every answer that applies",
     orderHint: "Tap the items in the correct order (tap again to undo)",
     completedNotice: "Lesson complete",
+    positionLabel: "Lesson",
     backToCourse: "Back to the course list",
   },
   track: {
     lessonsIn: "Lessons in this track",
     progress: "Progress",
+    nextUp: "Next up",
   },
   footer: {
     newsLink: "AI News Digest (updated daily)",
@@ -66,6 +69,13 @@ const en: Dictionary = {
     officialSite: "Official site",
     freeTierYes: "Free tier available",
     freeTierNo: "No free tier",
+    kinds: {
+      chat: "Chat",
+      coding: "Coding",
+      image: "Image generation",
+      video: "Video generation",
+      music: "Music & voice",
+    },
   },
   timeline: {
     title: "AI Timeline",
@@ -81,6 +91,10 @@ const en: Dictionary = {
     title: "Glossary",
     lead: "Every term used across this site's lessons, in one place — each links to the lessons where it comes up.",
     relatedLessons: "Related lessons",
+    filter: "Filter terms",
+    matchCount: "{n} terms",
+    noMatch: "No term matches.",
+    clearFilter: "Clear filter",
   },
 };
 

@@ -1,9 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { TRACKS, trackById } from "@/engine/content";
-import { estimateTrackMinutes, formatMinutes } from "@/engine/content/reading-time";
+import {
+  estimateLessonMinutes,
+  estimateTrackMinutes,
+  formatMinutes,
+} from "@/engine/content/reading-time";
 import { type Locale, isLocale, locales } from "@/i18n/config";
-import { LessonTick } from "@/components/progress";
+import { LessonTick, NextUpMark } from "@/components/progress";
 import type { Metadata } from "next";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -44,6 +48,7 @@ export default async function TrackPage({
   if (!track) notFound();
   const duration = formatMinutes(estimateTrackMinutes(track, locale), locale);
   const dict = await getDictionary(locale);
+  const lessonIds = track.lessons.map((lesson) => lesson.id);
 
   return (
     <div className="narrow-page">
@@ -62,7 +67,11 @@ export default async function TrackPage({
               <span className="lesson-no">{String(i + 1).padStart(2, "0")}</span>
               <span className="lesson-title">
                 {lesson.title[locale]}
+                <NextUpMark lessonIds={lessonIds} lessonId={lesson.id} label={dict.track.nextUp} />
                 <span className="lesson-summary">{lesson.summary[locale]}</span>
+                <span className="lesson-minutes">
+                  {formatMinutes(estimateLessonMinutes(lesson, locale), locale)}
+                </span>
               </span>
               <LessonTick lessonId={lesson.id} doneLabel={dict.lesson.completed} />
             </Link>

@@ -45,6 +45,27 @@ describe("TrackPage", () => {
     expect(links[1]).not.toHaveTextContent(ja.lesson.completed);
   });
 
+  it("points at the first unfinished lesson as the next step (SHIG 20, 77)", async () => {
+    markComplete(window.localStorage, track.lessons[0].id);
+    markComplete(window.localStorage, track.lessons[1].id);
+    render(await TrackPage(params("ja", track.id)));
+    const links = within(document.querySelector(".lesson-list") as HTMLElement).getAllByRole("link");
+    expect(links[2]).toHaveTextContent(ja.track.nextUp);
+    expect(links.filter((a) => a.textContent?.includes(ja.track.nextUp))).toHaveLength(1);
+  });
+
+  it("does not mark a next step once the whole track is done", async () => {
+    for (const lesson of track.lessons) markComplete(window.localStorage, lesson.id);
+    render(await TrackPage(params("ja", track.id)));
+    expect(screen.queryByText(ja.track.nextUp)).not.toBeInTheDocument();
+  });
+
+  it("shows an estimated time for every lesson (SHIG 32)", async () => {
+    render(await TrackPage(params("en", track.id)));
+    const links = within(document.querySelector(".lesson-list") as HTMLElement).getAllByRole("link");
+    for (const link of links) expect(link).toHaveTextContent(/~\d+ min/);
+  });
+
   it("rejects unknown tracks and locales with a 404", async () => {
     await expect(TrackPage(params("ja", "no-such-track"))).rejects.toThrow("NEXT_NOT_FOUND");
     await expect(TrackPage(params("de", track.id))).rejects.toThrow("NEXT_NOT_FOUND");

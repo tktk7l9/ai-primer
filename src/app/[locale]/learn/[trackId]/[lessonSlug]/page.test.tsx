@@ -68,6 +68,16 @@ describe("LessonPage", () => {
     expect(screen.getByText(ja.lesson.lastVerified, { exact: false })).toBeInTheDocument();
   });
 
+  it("tells the learner where they are in the track and how long the lesson takes (SHIG 59, 32)", async () => {
+    await renderLesson({ locale: "ja", trackId: second.track.id, lessonSlug: second.lesson.slug });
+    const meta = document.querySelector(".lesson-meta") as HTMLElement;
+    const total = second.track.lessons.length;
+    expect(within(meta).getByText(`${ja.lesson.positionLabel} 2 / ${total}`, { exact: false })).toBeInTheDocument();
+    expect(within(meta).getByText(/約\d+分/)).toBeInTheDocument();
+    // The phone outline names itself and carries the same position, not just the track title.
+    expect(screen.getByText(`${ja.nav.outline} · 2 / ${total}`, { selector: "summary" })).toBeInTheDocument();
+  });
+
   it("labels the outline and pager landmarks in Japanese on Japanese pages", async () => {
     await renderLesson({ locale: "ja", trackId: second.track.id, lessonSlug: second.lesson.slug });
     expect(screen.getAllByRole("navigation", { name: ja.nav.trackOutline }).length).toBeGreaterThan(0);

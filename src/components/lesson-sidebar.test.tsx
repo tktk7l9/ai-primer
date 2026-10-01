@@ -32,6 +32,7 @@ function renderSidebar(locale: "ja" | "en" = "ja") {
       currentLessonId="demo-two"
       doneLabel="完了"
       outlineLabel="このトラックの目次"
+      summaryLabel="目次"
     />,
   );
 }
@@ -67,8 +68,10 @@ describe("LessonSidebar", () => {
     const { container } = renderSidebar("en");
     const details = container.querySelector("details")!;
     expect(details).not.toHaveAttribute("open");
-    await user.click(screen.getByText("Demo track", { selector: "summary" }));
+    // The summary says what opens and where the learner is (SHIG 4, 59), not only the track title.
+    await user.click(screen.getByText("目次 · 2 / 3", { selector: "summary" }));
     expect(details).toHaveAttribute("open");
+    expect(within(details).getByText("Demo track")).toBeInTheDocument();
     expect(within(details).getByRole("link", { name: "Demo 1" })).toHaveAttribute(
       "href",
       "/en/learn/ai-basics/one",

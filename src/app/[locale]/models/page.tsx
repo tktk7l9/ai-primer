@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { MODELS } from "@/engine/content/models";
+import { MODELS, type ModelKind } from "@/engine/content/models";
 import { type Locale, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
@@ -36,6 +36,10 @@ export default async function ModelsPage({
   if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale as Locale;
   const dict = await getDictionary(locale);
+  // Fifteen cards in one flat run were hard to scan; group them by kind, in the
+  // order the kinds first appear in the data (SHIG 10, 17).
+  const kinds: ModelKind[] = [];
+  for (const m of MODELS) if (!kinds.includes(m.kind)) kinds.push(m.kind);
 
   return (
     <>
@@ -43,24 +47,28 @@ export default async function ModelsPage({
         <h1>{dict.models.title}</h1>
         <p className="lead">{dict.models.lead}</p>
       </div>
-      <div className="model-grid">
-        {MODELS.map((m) => (
-          <article key={m.id} className="model-card">
-            <span className="specimen-tag">{m.kind}</span>
-            <span className="model-vendor">{m.vendor}</span>
-            <h2>{m.name}</h2>
-            <p>{m.strengths[locale]}</p>
-            <div className="model-footer">
-              <span className="free-tier-badge" data-free={m.freeTier}>
-                {m.freeTier ? dict.models.freeTierYes : dict.models.freeTierNo}
-              </span>
-              <a href={m.officialUrl} target="_blank" rel="noopener noreferrer">
-                {dict.models.officialSite} ↗
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
+      {kinds.map((kind) => (
+        <section key={kind} className="model-group" aria-labelledby={`models-${kind}`}>
+          <h2 id={`models-${kind}`}>{dict.models.kinds[kind]}</h2>
+          <div className="model-grid">
+            {MODELS.filter((m) => m.kind === kind).map((m) => (
+              <article key={m.id} className="model-card">
+                <span className="model-vendor">{m.vendor}</span>
+                <h3>{m.name}</h3>
+                <p>{m.strengths[locale]}</p>
+                <div className="model-footer">
+                  <span className="free-tier-badge" data-free={m.freeTier}>
+                    {m.freeTier ? dict.models.freeTierYes : dict.models.freeTierNo}
+                  </span>
+                  <a href={m.officialUrl} target="_blank" rel="noopener noreferrer">
+                    {dict.models.officialSite} ↗
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
     </>
   );
 }

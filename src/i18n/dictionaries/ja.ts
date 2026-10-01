@@ -15,6 +15,7 @@ const ja = {
     breadcrumb: "現在地",
     siteNav: "サイト内メニュー",
     trackOutline: "このトラックの目次",
+    outline: "目次",
     lessonPager: "前後のレッスン",
   },
   home: {
@@ -48,11 +49,13 @@ const ja = {
     multiHint: "当てはまるものをすべて選んでください",
     orderHint: "正しい順にタップしてください（もう一度タップすると取り消せます）",
     completedNotice: "このレッスンを完了しました",
+    positionLabel: "レッスン",
     backToCourse: "コース一覧へ戻る",
   },
   track: {
     lessonsIn: "このトラックのレッスン",
     progress: "進捗",
+    nextUp: "次はここ",
   },
   footer: {
     newsLink: "AIニュース・ダイジェスト（日次更新）",
@@ -66,6 +69,13 @@ const ja = {
     officialSite: "公式サイト",
     freeTierYes: "無料枠あり",
     freeTierNo: "無料枠なし",
+    kinds: {
+      chat: "チャット",
+      coding: "コーディング",
+      image: "画像生成",
+      video: "動画生成",
+      music: "音楽・音声生成",
+    },
   },
   timeline: {
     title: "AI年表",
@@ -81,6 +91,10 @@ const ja = {
     title: "用語集",
     lead: "本サイトのレッスンに登場する用語を一覧できます。各用語から関連レッスンにもリンクしています。",
     relatedLessons: "関連レッスン",
+    filter: "用語を絞り込む",
+    matchCount: "{n}件",
+    noMatch: "該当する用語がありません。",
+    clearFilter: "絞り込みを解除",
   },
 };
 

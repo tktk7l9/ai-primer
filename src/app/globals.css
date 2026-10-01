@@ -133,6 +133,18 @@ button {
   padding: 0 1.25rem;
 }
 
+/* Short pages (404, a four-lesson track) keep the footer at the bottom of the
+   viewport instead of floating mid-screen (SHIG 85). */
+body > div[lang] {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > div[lang] > main {
+  flex: 1;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -296,6 +308,13 @@ button {
   margin: 1.2rem 0 2rem;
   font-size: 0.9rem;
   color: var(--ink-soft);
+}
+
+/* The meter needs a width of its own here, or the bar collapses to 0 and only
+   the count shows (SHIG 25, 35). */
+.overall-progress .track-progress {
+  flex: 1;
+  max-width: 22rem;
 }
 
 .news-banner {
@@ -497,6 +516,29 @@ button {
   flex: 1;
 }
 
+.lesson-list .lesson-minutes {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+/* "Next up" cue on the first unfinished lesson (SHIG 20, 77). */
+.next-up {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 .lesson-list .lesson-summary {
   display: block;
   font-size: 0.85rem;
@@ -640,6 +682,13 @@ button {
   align-items: center;
   gap: 0.6rem;
   margin-bottom: 1.6rem;
+}
+
+.lesson-position {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
 }
 
 .freshness-badge {
@@ -1065,7 +1114,19 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.1rem;
-  padding: 1.5rem 0 3rem;
+  padding: 0.8rem 0 2rem;
+}
+
+/* Kind headings break the catalog into scannable groups (SHIG 10, 17). */
+.model-group {
+  margin-top: 1.2rem;
+}
+
+.model-group > h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .model-card {
@@ -1083,9 +1144,9 @@ button {
   align-self: flex-start;
 }
 
-.model-card h2 {
+.model-card h3 {
   font-size: 1.05rem;
-  margin: 0.3em 0 0;
+  margin: 0.1em 0 0;
 }
 
 .model-card .model-vendor {
@@ -1195,6 +1256,58 @@ button {
 }
 
 /* ---------- Glossary ---------- */
+
+/* Instant filter above the list (SHIG 22, 51); the field is a 44px target (78). */
+.glossary-filter {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
+  margin: 1.2rem 0 0.4rem;
+}
+
+.glossary-filter label {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.glossary-filter input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.5rem 0.8rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.glossary-filter input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.glossary-count {
+  margin: 0;
+  min-height: 1.4em;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.glossary-empty {
+  margin: 1rem 0;
+  color: var(--ink-soft);
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0.6rem 0.2rem;
+  font: inherit;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 .glossary-list {
   list-style: none;
