@@ -69,3 +69,7 @@ An AI literacy tutorial in the style of nextjs.org/learn. Fully bilingual ja/en,
   the beacon**: Cloudflare swaps `beacon.min.js` behind an unversioned URL, so pinning
   `integrity` silently stops just the beacon on the next update.
   Lighthouse holds 100/100/100/100 on both mobile and desktop.
+- CI runs `node scripts/audit-gate.mjs` instead of a bare `npm audit`. It fails on any advisory not listed in
+  `audit-allowlist.json`. An entry needs a reason and an `expires` date (keep it about a month out), and
+  `devOnly: true` stops matching once the package becomes reachable from production dependencies. The gate also
+  fails when an allowlisted advisory gets a fix, so the entry is removed by updating rather than forgotten.
