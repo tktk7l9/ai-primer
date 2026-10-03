@@ -61,7 +61,7 @@ An AI literacy tutorial in the style of nextjs.org/learn. Fully bilingual ja/en,
 
 ## Before publishing
 
-- Starts private. Publish only via publish-check (gitleaks 0 / npm audit all 0 / no PII).
+- Starts private. Publish only via publish-check (gitleaks 0 / `node scripts/audit-gate.mjs` passes, i.e. no advisory outside `audit-allowlist.json` / no PII).
   Observatory **dropped from A+ (115) to B (75, 10/12)** (measured on the Workers
   production URL on 2026-09-14). Both failing items are accepted costs, so this score is not a
   publishing blocker — `content-security-policy` −20 is the `'unsafe-inline'` from the CSP migration,

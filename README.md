@@ -37,7 +37,7 @@ npm run build
 
 ## 品質指標
 
-- npm audit: 0 vulnerabilities（全セベリティ）
+- npm audit: 本番依存は 0 件。開発用依存の braces（修正版なし・GHSA-vfj7-8cjw-p6xm）だけを、理由と期限つきの例外リスト（`audit-allowlist.json`）で許容し、CI の `scripts/audit-gate.mjs` で検査
 - gitleaks: 0 leaks
 - テスト: 422件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
 - Lighthouse（本番URL計測・2026-09-14 / Cloudflare Workers・3回計測の中央値）:
