@@ -6,7 +6,7 @@ import {
   estimateTrackMinutes,
   formatMinutes,
 } from "@/engine/content/reading-time";
-import { type Locale, isLocale, locales } from "@/i18n/config";
+import { isLocale, locales } from "@/i18n/config";
 import { LessonTick, NextUpMark } from "@/components/progress";
 import type { Metadata } from "next";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -23,7 +23,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale, trackId } = await params;
   if (!isLocale(rawLocale)) return {};
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const track = trackById(trackId);
   if (!track) return {};
   return {
@@ -43,7 +43,7 @@ export default async function TrackPage({
 }) {
   const { locale: rawLocale, trackId } = await params;
   if (!isLocale(rawLocale)) notFound();
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const track = trackById(trackId);
   if (!track) notFound();
   const duration = formatMinutes(estimateTrackMinutes(track, locale), locale);

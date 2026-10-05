@@ -1,5 +1,5 @@
 import { TRACKS, ALL_LESSONS } from "@/engine/content";
-import { type Locale, isLocale, locales } from "@/i18n/config";
+import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { notFound } from "next/navigation";
 import { TrackCard } from "@/components/track-card";
@@ -19,7 +19,7 @@ export default async function HomePage({
 }) {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) notFound();
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const dict = await getDictionary(locale);
   const allLessonIds = ALL_LESSONS.map((ref) => ref.lesson.id);
 

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ALL_LESSONS, lessonBySlug, nextLesson, prevLesson } from "@/engine/content";
-import { type Locale, isLocale, locales } from "@/i18n/config";
+import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { LessonBody } from "@/components/lesson-body";
 import { LessonSidebar } from "@/components/lesson-sidebar";
@@ -26,7 +26,7 @@ async function resolve(params: Promise<{ locale: string; trackId: string; lesson
   if (!isLocale(rawLocale)) return null;
   const ref = lessonBySlug(trackId, lessonSlug);
   if (!ref) return null;
-  return { locale: rawLocale as Locale, ref };
+  return { locale: rawLocale, ref };
 }
 
 export async function generateMetadata({
