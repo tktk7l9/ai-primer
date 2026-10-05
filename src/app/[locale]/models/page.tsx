@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { MODELS, type ModelKind } from "@/engine/content/models";
-import { type Locale, isLocale, locales } from "@/i18n/config";
+import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
 export function generateStaticParams() {
@@ -15,7 +15,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) return {};
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const dict = await getDictionary(locale);
   return {
     title: dict.models.title,
@@ -34,7 +34,7 @@ export default async function ModelsPage({
 }) {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) notFound();
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const dict = await getDictionary(locale);
   // Fifteen cards in one flat run were hard to scan; group them by kind, in the
   // order the kinds first appear in the data (SHIG 10, 17).

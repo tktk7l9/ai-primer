@@ -16,7 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) return {};
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const dict = await getDictionary(locale);
   return {
     title: dict.timeline.title,
@@ -46,7 +46,7 @@ export default async function TimelinePage({
 }) {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) notFound();
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const dict = await getDictionary(locale);
   // The data itself (TIMELINE) is kept oldest-first as the canonical history; only the display is reversed to newest-first.
   const newestFirst = [...TIMELINE].reverse();

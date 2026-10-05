@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { type Locale, isLocale, locales } from "@/i18n/config";
+import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL } from "@/engine/site";
 
@@ -18,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) return {};
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const dict = await getDictionary(locale);
 
   return {
@@ -55,7 +55,7 @@ export default async function LocaleLayout({
 }) {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) notFound();
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const dict = await getDictionary(locale);
 
   return (

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { GLOSSARY } from "@/engine/content/glossary";
 import { lessonById } from "@/engine/content";
-import { type Locale, isLocale, locales } from "@/i18n/config";
+import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { GlossaryList, type GlossaryItem } from "@/components/glossary-list";
 
@@ -17,7 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) return {};
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const dict = await getDictionary(locale);
   return {
     title: dict.glossary.title,
@@ -36,7 +36,7 @@ export default async function GlossaryPage({
 }) {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) notFound();
-  const locale = rawLocale as Locale;
+  const locale = rawLocale;
   const dict = await getDictionary(locale);
   const sorted = [...GLOSSARY].sort((a, b) => a.term[locale].localeCompare(b.term[locale], locale));
   // Plain data for the client-side filter; lesson refs are resolved here on the server.
