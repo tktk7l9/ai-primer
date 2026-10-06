@@ -75,6 +75,6 @@ Rather than expecting a perfect answer in one round, refining through specific f
   sources: [
     { label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["hallucination", "context-window"],
 };

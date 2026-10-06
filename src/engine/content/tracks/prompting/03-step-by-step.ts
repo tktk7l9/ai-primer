@@ -68,5 +68,5 @@ Rather than asking for a big task solved in one shot, surfacing the intermediate
       url: "https://www.prompthub.us/blog/chain-of-thought-prompting-guide",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

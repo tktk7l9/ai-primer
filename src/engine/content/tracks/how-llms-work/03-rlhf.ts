@@ -57,11 +57,12 @@ RLHF is what pushes a model beyond "generating plausible text" toward answers th
     },
   ],
   sources: [
+    { label: "arXiv: Training language models to follow instructions with human feedback", url: "https://arxiv.org/abs/2203.02155" },
     { label: "IBM: What Is RLHF?", url: "https://www.ibm.com/think/topics/rlhf" },
     {
       label: "Wikipedia: Reinforcement learning from human feedback",
       url: "https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

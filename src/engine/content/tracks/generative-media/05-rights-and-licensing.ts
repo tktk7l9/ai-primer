@@ -67,5 +67,5 @@ Rules differ by country and region, and may change as law and case precedent evo
       url: "https://www.copyright.gov/ai/",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

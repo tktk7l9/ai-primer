@@ -70,5 +70,5 @@ Classifying inquiries or drafting a first-pass reply — speeding up the step be
   sources: [
     { label: "IBM: What Are AI Agents?", url: "https://www.ibm.com/think/topics/ai-agents" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

@@ -17,8 +17,11 @@ export const videoGeneration: Lesson = {
 画像生成の技術（前のレッスン参照）を土台に、時間軸に沿った一貫性（物体の動き・物理法則・音声との同期など）まで扱うのが動画生成AIです。
 
 ### 代表的なツール
-- **Sora（OpenAI）**: 物理法則に沿ったリアルな動き、セリフや効果音を含む音声の同期生成などを特徴として打ち出してきたモデル。提供形態はサービスの統廃合により変わることがあるため、利用可否は都度公式情報で確認が必要です。
 - **Veo（Google DeepMind）**: テキストや画像からの動画生成に加え、環境音・セリフなどの音声もあわせて生成できる点が特徴とされています。
+- **Runway**: 映像制作者向けのプラットフォームで、文章・画像からの生成に加え、キーフレーム指定や動画から動画への編集といった制作向けの制御を打ち出しています。
+
+### 消えたツールの例 — Sora
+OpenAIの **Sora** は、物理法則に沿った動きや音声の同期生成を掲げて2024〜2025年に注目を集めましたが、2026年3月に提供終了が発表され、アプリは同年4月に、APIは9月に停止しました。注目度の高いサービスでも、採算や計算資源の都合で短期間に終わることがある、という実例です。
 
 ### 動画生成ならではの難しさ
 - **時間的な一貫性**: 前後のコマで人物やモノの形が変わってしまわないようにする必要がある。
@@ -31,8 +34,11 @@ export const videoGeneration: Lesson = {
 Building on image generation (previous lesson), video generation also has to handle consistency across time — object motion, physical plausibility, and audio synchronization.
 
 ### Notable tools
-- **Sora (OpenAI)**: a model that has emphasized physically plausible motion and synchronized audio, including dialogue and sound effects. Exactly how it's offered has changed as OpenAI has consolidated its products, so check OpenAI's official site for current availability.
 - **Veo (Google DeepMind)**: generates video from text or images, and is noted for also generating accompanying audio — ambient sound and dialogue.
+- **Runway**: a platform aimed at filmmakers, offering text- and image-to-video plus production controls such as keyframes and video-to-video editing.
+
+### A tool that disappeared: Sora
+OpenAI's **Sora** drew attention in 2024–2025 for physically plausible motion and synchronized audio, but OpenAI announced its discontinuation in March 2026; the app closed in April and the API in September of that year. It's a concrete example of how even a high-profile service can end within a short time over cost and compute constraints.
 
 ### What makes video generation hard
 - **Temporal consistency**: keeping people and objects looking the same from frame to frame.
@@ -61,7 +67,10 @@ Building on image generation (previous lesson), video generation also has to han
     },
   ],
   sources: [
-    { label: "Google DeepMind: Veo 3.1", url: "https://deepmind.google/models/veo/" },
+    { label: "Google DeepMind: Veo", url: "https://deepmind.google/models/veo/" },
+    { label: "Runway: Introducing Runway Gen-4.5", url: "https://runway.com/research/introducing-runway-gen-4.5" },
+    { label: "OpenAI Docs: Deprecations (Sora video models)", url: "https://developers.openai.com/api/docs/deprecations" },
+    { label: "Wikipedia: Sora (text-to-video model)", url: "https://en.wikipedia.org/wiki/Sora_(text-to-video_model)" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

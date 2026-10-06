@@ -23,6 +23,7 @@ export const githubCopilot: Lesson = {
 - **プルリクエスト支援**: 変更内容の要約や、レビュアーが注目すべき点をAIが生成。
 - **エージェント機能**: リポジトリを調査し実装計画を立て、ブランチ上でコードを変更する自律型の機能も提供。
 - **コンテキストの整理**: コード・ドキュメント・仕様などを「Spaces」としてまとめ、特定タスク向けに参照させる仕組みもある。
+- **外部のエージェント・ツールとの併用**: 他社製のコーディングエージェントやMCPサーバー（AIエージェントトラック参照）をCopilotと並べて使える。
 
 エディタへの深い統合と、GitHub上のワークフロー（Issue・PR）との親和性が大きな特徴です。`,
     en: `## Made by: GitHub (Microsoft)
@@ -36,6 +37,7 @@ export const githubCopilot: Lesson = {
 - **Pull request support**: AI-generated summaries of changes and what a reviewer should focus on.
 - **Agent capabilities**: an autonomous mode that researches a repository, plans an implementation, and makes changes on a branch.
 - **Context organization**: group code, docs, and specs into "Spaces" to ground responses in the right context for a task.
+- **External agents and tools**: third-party coding agents and MCP servers (see the AI Agents track) can work alongside Copilot.
 
 Its deep integration into editors and GitHub's own workflow (issues, pull requests) is a defining strength.`,
   },
@@ -54,7 +56,9 @@ Its deep integration into editors and GitHub's own workflow (issues, pull reques
     },
   ],
   sources: [
+    { label: "GitHub Docs: About GitHub Copilot Spaces", url: "https://docs.github.com/en/copilot/concepts/context/spaces" },
+    { label: "GitHub Docs: Plans for GitHub Copilot", url: "https://docs.github.com/en/copilot/get-started/plans" },
     { label: "GitHub Docs: GitHub Copilot features", url: "https://docs.github.com/en/copilot/get-started/features" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

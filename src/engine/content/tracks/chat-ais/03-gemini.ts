@@ -55,8 +55,9 @@ The biggest practical difference from other providers: if you already use Google
     },
   ],
   sources: [
+    { label: "Google DeepMind: Gemini", url: "https://deepmind.google/models/gemini/" },
     { label: "Google DeepMind", url: "https://deepmind.google/" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["multimodal", "context-window"],
 };

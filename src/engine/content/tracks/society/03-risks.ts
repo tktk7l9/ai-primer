@@ -61,6 +61,6 @@ AI is increasingly used in decisions that significantly affect people's lives â€
   sources: [
     { label: "Witness AI: AI Risks Explained", url: "https://witness.ai/blog/ai-risks/" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["hallucination"],
 };

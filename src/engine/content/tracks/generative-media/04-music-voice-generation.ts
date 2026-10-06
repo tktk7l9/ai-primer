@@ -15,7 +15,7 @@ export const musicVoiceGeneration: Lesson = {
     ja: `## 一文から曲まるごと、声もまるごと
 
 ### Suno — 音楽生成
-**Suno** は、1つの文章の指示から、歌詞・メロディ・演奏・ミックスまで含む1曲まるごとを短時間で生成できるサービスです。ジャンルを問わず幅広い曲調に対応し、有料プランでは自分の声を学習させて楽曲に使う機能も提供されています。
+**Suno** は、1つの文章の指示から、歌詞・メロディ・演奏・ミックスまで含む1曲まるごとを短時間で生成できるサービスです。ジャンルを問わず幅広い曲調に対応し、自分の声を数秒録音して、書いた歌詞をその声で歌わせる機能も提供されています。
 
 ### ElevenLabs — 音声生成
 **ElevenLabs** はもともと音声合成（テキスト読み上げ）・音声クローンを中心に展開してきたサービスで、自然な音声品質に強みがあります。2025年からは音楽生成機能（Eleven Music）も展開し、音声合成・音声クローン・効果音・対話AIなど幅広い音声関連機能を1つのプラットフォームでまとめて提供しています。
@@ -28,7 +28,7 @@ Sunoは「曲そのもの」を作ることに特化しているのに対し、E
     en: `## A whole song from one line, a whole voice from one sample
 
 ### Suno — music generation
-**Suno** generates a complete song — lyrics, melody, performance, and mix — from a single text prompt in a short amount of time, across a wide range of genres. Paid plans also offer a feature to train a model of your own voice for use in the music.
+**Suno** generates a complete song — lyrics, melody, performance, and mix — from a single text prompt in a short amount of time, across a wide range of genres. It also offers a feature that records a few seconds of your own voice and has it sing the lyrics you write.
 
 ### ElevenLabs — voice generation
 **ElevenLabs** started out focused on speech synthesis (text-to-speech) and voice cloning, and is known for natural-sounding voice quality. Since 2025 it has also offered music generation (Eleven Music), bringing speech synthesis, voice cloning, sound effects, and conversational AI together on one platform.
@@ -62,8 +62,9 @@ If you plan to publish or commercially use generated music or voice, always chec
     },
   ],
   sources: [
+    { label: "ElevenLabs: Pricing", url: "https://elevenlabs.io/pricing" },
     { label: "Suno", url: "https://suno.com/" },
     { label: "ElevenLabs", url: "https://elevenlabs.io/" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

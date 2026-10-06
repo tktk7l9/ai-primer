@@ -52,5 +52,5 @@ Another common control is **top-p (nucleus sampling)**. A top-p of 0.9, for exam
     { label: "IBM: What is LLM Temperature?", url: "https://www.ibm.com/think/topics/llm-temperature" },
     { label: "Prompt Engineering Guide: LLM Settings", url: "https://www.promptingguide.ai/introduction/settings" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

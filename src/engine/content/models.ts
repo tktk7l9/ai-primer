@@ -17,6 +17,7 @@ export interface ModelEntry {
 
 // Do not write highly volatile specific version names or prices; focus on developer, positioning and strengths.
 // Always check officialUrl for details and the latest pricing.
+// Retired products are removed rather than kept (Sora: app closed 2026-04-26, API 2026-09-24; DALL·E API: 2026-05-12).
 export const MODELS: readonly ModelEntry[] = [
   {
     id: "chatgpt",
@@ -29,8 +30,11 @@ export const MODELS: readonly ModelEntry[] = [
     },
     freeTier: true,
     officialUrl: "https://openai.com/chatgpt/overview/",
-    sources: [{ label: "OpenAI: ChatGPT", url: "https://openai.com/chatgpt/overview/" }],
-    lastVerified: "2026-07-15",
+    sources: [
+      { label: "OpenAI: ChatGPT", url: "https://openai.com/chatgpt/overview/" },
+      { label: "OpenAI Docs: Models", url: "https://developers.openai.com/api/docs/models" },
+    ],
+    lastVerified: "2026-10-06",
   },
   {
     id: "claude",
@@ -46,7 +50,7 @@ export const MODELS: readonly ModelEntry[] = [
     sources: [
       { label: "Anthropic: Models overview", url: "https://platform.claude.com/docs/en/about-claude/models/overview" },
     ],
-    lastVerified: "2026-07-15",
+    lastVerified: "2026-10-06",
   },
   {
     id: "gemini",
@@ -60,11 +64,11 @@ export const MODELS: readonly ModelEntry[] = [
     freeTier: true,
     officialUrl: "https://deepmind.google/models/gemini/",
     sources: [{ label: "Google DeepMind: Gemini", url: "https://deepmind.google/models/gemini/" }],
-    lastVerified: "2026-07-15",
+    lastVerified: "2026-10-06",
   },
   {
     id: "grok",
-    vendor: "xAI",
+    vendor: "SpaceXAI (formerly xAI)",
     name: "Grok",
     kind: "chat",
     strengths: {
@@ -73,8 +77,11 @@ export const MODELS: readonly ModelEntry[] = [
     },
     freeTier: true,
     officialUrl: "https://x.ai/grok",
-    sources: [{ label: "xAI: Grok", url: "https://x.ai/grok" }],
-    lastVerified: "2026-07-15",
+    sources: [
+      { label: "xAI: Grok", url: "https://x.ai/grok" },
+      { label: "xAI Docs: Release notes", url: "https://docs.x.ai/developers/release-notes" },
+    ],
+    lastVerified: "2026-10-06",
   },
   {
     id: "perplexity",
@@ -106,8 +113,11 @@ export const MODELS: readonly ModelEntry[] = [
     },
     freeTier: true,
     officialUrl: "https://github.com/features/copilot/",
-    sources: [{ label: "GitHub: Copilot", url: "https://github.com/features/copilot/" }],
-    lastVerified: "2026-07-15",
+    sources: [
+      { label: "GitHub: Copilot", url: "https://github.com/features/copilot/" },
+      { label: "GitHub Docs: Plans for GitHub Copilot", url: "https://docs.github.com/en/copilot/get-started/plans" },
+    ],
+    lastVerified: "2026-10-06",
   },
   {
     id: "claude-code",
@@ -121,7 +131,21 @@ export const MODELS: readonly ModelEntry[] = [
     freeTier: false,
     officialUrl: "https://claude.com/product/claude-code",
     sources: [{ label: "Claude Code Docs: Overview", url: "https://code.claude.com/docs/en/overview" }],
-    lastVerified: "2026-07-15",
+    lastVerified: "2026-10-06",
+  },
+  {
+    id: "codex",
+    vendor: "OpenAI",
+    name: "Codex",
+    kind: "coding",
+    strengths: {
+      ja: "ChatGPTと統合されたエージェント型コーディング環境。CLI・IDE拡張・デスクトップ・Web・クラウドの複数の形で、コードの理解から実装・レビュー・修正まで行う。",
+      en: "An agentic coding environment integrated with ChatGPT, available as a CLI, IDE extension, desktop, web, and cloud — from understanding code to building, reviewing, and fixing it.",
+    },
+    freeTier: true,
+    officialUrl: "https://developers.openai.com/codex",
+    sources: [{ label: "OpenAI: Codex docs", url: "https://developers.openai.com/codex" }],
+    lastVerified: "2026-10-06",
   },
   {
     id: "cursor",
@@ -134,8 +158,11 @@ export const MODELS: readonly ModelEntry[] = [
     },
     freeTier: true,
     officialUrl: "https://cursor.com/",
-    sources: [{ label: "Cursor: Product", url: "https://cursor.com/product" }],
-    lastVerified: "2026-07-15",
+    sources: [
+      { label: "Cursor: Product", url: "https://cursor.com/product" },
+      { label: "Cursor: Pricing", url: "https://cursor.com/pricing" },
+    ],
+    lastVerified: "2026-10-06",
   },
   {
     id: "midjourney",
@@ -152,18 +179,21 @@ export const MODELS: readonly ModelEntry[] = [
     lastVerified: "2026-07-15",
   },
   {
-    id: "dall-e",
+    id: "gpt-image",
     vendor: "OpenAI",
-    name: "DALL-E",
+    name: "ChatGPT Images (GPT Image)",
     kind: "image",
     strengths: {
-      ja: "ChatGPTに統合されており、文章から画像を手軽に生成できる。",
-      en: "Integrated into ChatGPT, making text-to-image generation easy to access.",
+      ja: "ChatGPTに統合された画像の生成・編集。DALL·Eの後継で、DALL·E 2/3はAPI提供を2026年5月12日に終了した。",
+      en: "Image generation and editing built into ChatGPT. The successor to DALL·E; the DALL·E 2/3 API was shut down on May 12, 2026.",
     },
     freeTier: true,
-    officialUrl: "https://openai.com/index/dall-e-3/",
-    sources: [{ label: "OpenAI: DALL·E 3", url: "https://openai.com/index/dall-e-3/" }],
-    lastVerified: "2026-07-15",
+    officialUrl: "https://developers.openai.com/api/docs/guides/image-generation",
+    sources: [
+      { label: "OpenAI Docs: Image generation", url: "https://developers.openai.com/api/docs/guides/image-generation" },
+      { label: "OpenAI Docs: Deprecations", url: "https://developers.openai.com/api/docs/deprecations" },
+    ],
+    lastVerified: "2026-10-06",
   },
   {
     id: "stable-diffusion",
@@ -177,21 +207,24 @@ export const MODELS: readonly ModelEntry[] = [
     freeTier: true,
     officialUrl: "https://stability.ai/",
     sources: [{ label: "Stability AI", url: "https://stability.ai/" }],
-    lastVerified: "2026-07-15",
+    lastVerified: "2026-10-06",
   },
   {
-    id: "sora",
-    vendor: "OpenAI",
-    name: "Sora",
+    id: "runway",
+    vendor: "Runway",
+    name: "Runway",
     kind: "video",
     strengths: {
-      ja: "物理法則に沿ったリアルな動きと、セリフ・効果音の同期生成が特徴。提供形態は変化が速いため公式情報の確認が必須。",
-      en: "Known for physically plausible motion and synchronized dialogue/sound effects. How it's offered changes quickly — always check official info.",
+      ja: "映像制作向けの動画生成プラットフォーム。文章・画像からの動画生成に加え、キーフレーム指定や動画から動画への編集など制作者向けの制御が充実。",
+      en: "A video generation platform aimed at filmmakers: text- and image-to-video plus creator controls like keyframes and video-to-video editing.",
     },
-    freeTier: false,
-    officialUrl: "https://openai.com/sora/",
-    sources: [{ label: "OpenAI: Sora", url: "https://openai.com/sora/" }],
-    lastVerified: "2026-07-15",
+    freeTier: true,
+    officialUrl: "https://runway.com/",
+    sources: [
+      { label: "Runway: Introducing Runway Gen-4.5", url: "https://runway.com/research/introducing-runway-gen-4.5" },
+      { label: "Runway: Pricing", url: "https://runway.com/pricing" },
+    ],
+    lastVerified: "2026-10-06",
   },
   {
     id: "veo",
@@ -204,8 +237,8 @@ export const MODELS: readonly ModelEntry[] = [
     },
     freeTier: false,
     officialUrl: "https://deepmind.google/models/veo/",
-    sources: [{ label: "Google DeepMind: Veo 3.1", url: "https://deepmind.google/models/veo/" }],
-    lastVerified: "2026-07-15",
+    sources: [{ label: "Google DeepMind: Veo", url: "https://deepmind.google/models/veo/" }],
+    lastVerified: "2026-10-06",
   },
   {
     id: "suno",
@@ -219,7 +252,7 @@ export const MODELS: readonly ModelEntry[] = [
     freeTier: true,
     officialUrl: "https://suno.com/",
     sources: [{ label: "Suno", url: "https://suno.com/" }],
-    lastVerified: "2026-07-15",
+    lastVerified: "2026-10-06",
   },
   {
     id: "elevenlabs",
@@ -232,7 +265,10 @@ export const MODELS: readonly ModelEntry[] = [
     },
     freeTier: true,
     officialUrl: "https://elevenlabs.io/",
-    sources: [{ label: "ElevenLabs", url: "https://elevenlabs.io/" }],
-    lastVerified: "2026-07-15",
+    sources: [
+      { label: "ElevenLabs", url: "https://elevenlabs.io/" },
+      { label: "ElevenLabs: Pricing", url: "https://elevenlabs.io/pricing" },
+    ],
+    lastVerified: "2026-10-06",
   },
 ];

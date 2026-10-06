@@ -53,8 +53,9 @@ Specific model names and pricing change quickly, so this site doesn't track indi
     },
   ],
   sources: [
+    { label: "OpenAI Docs: Models", url: "https://developers.openai.com/api/docs/models" },
     { label: "OpenAI: About", url: "https://openai.com/about/" },
     { label: "OpenAI: Evolving OpenAI's structure", url: "https://openai.com/index/evolving-our-structure/" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

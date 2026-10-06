@@ -42,11 +42,12 @@ But pre-training alone optimizes a model to "continue plausible text," not to fo
     },
   ],
   sources: [
+    { label: "Wikipedia: Large language model", url: "https://en.wikipedia.org/wiki/Large_language_model" },
     {
       label: "IBM: What Is Reinforcement Learning From Human Feedback (RLHF)?",
       url: "https://www.ibm.com/think/topics/rlhf",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["token"],
 };

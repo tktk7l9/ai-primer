@@ -14,7 +14,7 @@ export const grokAndOthers: Lesson = {
   body: {
     ja: `## Grok — 開発元: xAI
 
-**Grok** は **xAI**（2023年設立）が開発するチャットAIです。xAIは「宇宙を理解する」ことを使命に掲げています。
+**Grok** は **SpaceXAI**（旧xAI）が開発するチャットAIです。xAIは2023年に設立され、「宇宙を理解する」ことを使命に掲げてきました。2026年2月にSpaceXの傘下に入り、同年7月に社名をSpaceXAIに改めています。
 
 ### Grokの特徴
 - SNS「X」上の**リアルタイムの投稿**を読み取れる点が大きな差別化要素で、速報性の高い話題に強い。
@@ -23,8 +23,8 @@ export const grokAndOthers: Lesson = {
 
 ## その他の主要プレーヤー
 
-### GitHub Copilot（Microsoft/GitHub）
-コーディング支援に特化したAI。エディタ内でのコード補完や、チャット形式での実装相談に使われる（コーディングAIトラックで詳しく扱う）。
+### GitHub Copilot（Microsoft/GitHub）・Codex（OpenAI）
+コーディング支援に特化したAI。エディタ内でのコード補完や、チャット形式での実装相談、エージェントによる自律的な実装に使われる（コーディングAIトラックで詳しく扱う）。
 
 ### Perplexity
 検索エンジンとチャットAIを組み合わせた**回答エンジン**。質問に対し、参照した情報源へのリンク付きで回答するのが特徴で、出典を重視する調べ物に向く。
@@ -32,7 +32,7 @@ export const grokAndOthers: Lesson = {
 **選ぶときの視点**: 各社・各サービスで強みが異なるため、「どのAIが一番良いか」より「今の目的に何が向くか」で選ぶのが実用的です。次のレッスンで具体的な選び方を整理します。`,
     en: `## Grok — made by xAI
 
-**Grok** is the chat AI built by **xAI**, founded in 2023 with a stated mission of "understanding the universe."
+**Grok** is the chat AI built by **SpaceXAI** (formerly xAI). Founded in 2023 as xAI with a stated mission of "understanding the universe," the company became a SpaceX subsidiary in February 2026 and renamed itself SpaceXAI that July.
 
 ### What sets Grok apart
 - Real-time access to posts on X (formerly Twitter) is Grok's biggest differentiator, making it strong on breaking, fast-moving topics.
@@ -41,8 +41,8 @@ export const grokAndOthers: Lesson = {
 
 ## Other notable players
 
-### GitHub Copilot (Microsoft/GitHub)
-An AI focused specifically on coding assistance — in-editor code completion and chat-based implementation help (covered in depth in the Coding AI track).
+### GitHub Copilot (Microsoft/GitHub) and Codex (OpenAI)
+AI focused specifically on coding assistance — in-editor completion, chat-based implementation help, and autonomous agents that implement changes (covered in depth in the Coding AI track).
 
 ### Perplexity
 An **answer engine** that combines search with a chat AI. It answers questions with links to the sources it drew on, making it well suited to source-conscious research.
@@ -69,7 +69,9 @@ An **answer engine** that combines search with a chat AI. It answers questions w
     },
   ],
   sources: [
+    { label: "xAI Docs: Release notes", url: "https://docs.x.ai/developers/release-notes" },
+    { label: "Wikipedia: SpaceXAI", url: "https://en.wikipedia.org/wiki/SpaceXAI" },
     { label: "xAI: Company", url: "https://x.ai/company" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };
