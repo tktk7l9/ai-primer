@@ -18,7 +18,7 @@ export const safeUsageChecklist: Lesson = {
 
 ### 使う前に
 - [ ] 今の目的に、どのAI・どの手法が向いているかを考える（主要チャットAI比較トラック参照）。
-- [ ] 個人情報・秘密情報を入力しても問題ないサービスか確認する。
+- [ ] 個人情報・秘密情報を入力しても問題ないサービスか確認する（学習利用の設定・保存期間・職場のルール。仕事での情報の扱いのレッスン参照）。
 
 ### プロンプトを書くとき
 - [ ] 役割・文脈・タスク・出力形式を具体的にする（プロンプト術トラック参照）。
@@ -34,6 +34,11 @@ export const safeUsageChecklist: Lesson = {
 - [ ] 秘密情報を含むファイルをAIに読み込ませない設定にする（コーディングAIトラック参照）。
 - [ ] 破壊的な操作は人間が確認してから実行する。
 
+### エージェントに権限を与えるとき
+- [ ] 読める範囲と実行できる操作を、そのタスクに必要な分だけに絞る（AIエージェントトラック参照）。
+- [ ] 非公開データ・信頼できない内容・外部への通信の3つを同時に持たせない。
+- [ ] MCPサーバーは、誰が作ったか・何ができるかを確認してから接続する。
+
 ### 画像・音楽などを生成するとき
 - [ ] 公開・商用利用する前に、サービスの利用規約と著作権の基本を確認する（生成メディアトラック参照）。
 
@@ -44,7 +49,7 @@ Here's a checklist for everyday use, drawing on every track in this course.
 
 ### Before you start
 - [ ] Consider which AI or technique fits your current goal (see Comparing the Major Chat AIs).
-- [ ] Check whether it's safe to enter personal or confidential information into this service.
+- [ ] Check whether it's safe to enter personal or confidential information into this service (training settings, retention, workplace rules — see the lesson on handling information at work).
 
 ### Writing your prompt
 - [ ] Make role, context, task, and format concrete (see Prompting Techniques).
@@ -59,6 +64,11 @@ Here's a checklist for everyday use, drawing on every track in this course.
 - [ ] Always review the generated code.
 - [ ] Make sure files with secrets aren't exposed to the AI (see Coding AI).
 - [ ] Have a human confirm before running any destructive operation.
+
+### When granting an agent permissions
+- [ ] Limit what it can read and do to what the task needs (see the AI Agents track).
+- [ ] Don't give it private data, untrusted content, and external communication all at once.
+- [ ] Before connecting an MCP server, check who built it and what it can do.
 
 ### When generating images or music
 - [ ] Before publishing or commercial use, check the service's terms and the basics of copyright (see Generating Images, Video, and Music).
@@ -82,6 +92,6 @@ Here's a checklist for everyday use, drawing on every track in this course.
   sources: [
     { label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["hallucination"],
 };

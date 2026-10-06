@@ -20,7 +20,7 @@ export const ragAgentsFinetuning: Lesson = {
 質問に答える前に、外部のデータベースや文書から関連情報を**検索**し、その内容を踏まえて**生成**する2段階の仕組みです。モデル自体の重みは変えず、参照する情報を後から差し替えられるため、社内文書や最新情報への対応に向いています。
 
 ### AIエージェント
-検索・API呼び出し・コード実行などの**ツール**を使い、与えられた目標を達成するためにタスクを分解し自律的に実行し続けるシステムです。都度指示が必要な「アシスタント」と異なり、エージェントは初期の指示のあと自分で計画を立てて動きます。
+検索・API呼び出し・コード実行などの**ツール**を使い、与えられた目標を達成するためにタスクを分解し自律的に実行し続けるシステムです。都度指示が必要な「アシスタント」と異なり、エージェントは初期の指示のあと自分で計画を立てて動きます。仕組みの詳細はAIエージェントトラックで扱います。
 
 ### ファインチューニング
 事前学習済みモデルを、特定用途のデータで**追加学習**させ、モデル自身の重みを調整する手法です。話し方や出力形式を特定の型に合わせたい場合に向きますが、RAGと違い「知識」そのものの更新には向きません（学習データを作り直す必要があるため）。
@@ -38,7 +38,7 @@ A plain pre-trained LLM has limits: it doesn't know anything newer than its trai
 Before answering, the system **retrieves** relevant content from an external database or documents, then **generates** a response grounded in that content. The model's weights don't change — you can swap out what it references, which makes RAG well-suited to internal documents or fast-changing information.
 
 ### AI agents
-A system that uses tools — search, API calls, running code — to break a goal into subtasks and carry them out autonomously. Unlike an assistant that needs ongoing direction, an agent plans its own steps after an initial prompt.
+A system that uses tools — search, API calls, running code — to break a goal into subtasks and carry them out autonomously. Unlike an assistant that needs ongoing direction, an agent plans its own steps after an initial prompt. The AI Agents track covers how this works in detail.
 
 ### Fine-tuning
 Further training a pre-trained model on specialized data, adjusting the model's own weights. It's well suited to shaping tone or output format, but — unlike RAG — it isn't a good fit for keeping knowledge current, since that requires rebuilding the training data.
@@ -81,12 +81,13 @@ Further training a pre-trained model on specialized data, adjusting the model's 
     },
   ],
   sources: [
+    { label: "IBM: What is retrieval-augmented generation?", url: "https://www.ibm.com/think/topics/retrieval-augmented-generation" },
     {
       label: "Google Cloud: What is Retrieval-Augmented Generation (RAG)?",
       url: "https://cloud.google.com/use-cases/retrieval-augmented-generation",
     },
     { label: "IBM: What Are AI Agents?", url: "https://www.ibm.com/think/topics/ai-agents" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["rag", "agent", "fine-tuning"],
 };

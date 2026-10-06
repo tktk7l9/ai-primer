@@ -4,17 +4,19 @@ import { historyTrack } from "./tracks/history";
 import { howLlmsWorkTrack } from "./tracks/how-llms-work";
 import { chatAisTrack } from "./tracks/chat-ais";
 import { promptingTrack } from "./tracks/prompting";
+import { aiAgentsTrack } from "./tracks/ai-agents";
 import { codingAiTrack } from "./tracks/coding-ai";
 import { generativeMediaTrack } from "./tracks/generative-media";
 import { societyTrack } from "./tracks/society";
 
-/** All tracks in display order (8, all complete). */
+/** All tracks in display order (9, all complete). */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
   howLlmsWorkTrack,
   chatAisTrack,
   promptingTrack,
+  aiAgentsTrack,
   codingAiTrack,
   generativeMediaTrack,
   societyTrack,
