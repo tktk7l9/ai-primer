@@ -13,7 +13,8 @@ export interface TimelineEvent {
   sources: readonly Source[];
 }
 
-// All dates and events verified against primary sources or reliable encyclopedias (as of 2026-07-15; entries from 2024-11 onward re-verified or added on 2026-10-06).
+// All dates and events verified against primary sources or reliable encyclopedias (as of 2026-07-15; entries from 2024-11 onward re-verified or added on 2026-10-06;
+// C2PA, SynthID, Japan's AI copyright/guideline/basic-plan, Gemini Deep Research, and EU AI Act 2025-02 entries added on 2026-10-07).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -119,6 +120,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "HISTORY: ChatGPT is released to the public", url: "https://www.history.com/this-day-in-history/november-30/chatgpt-released-openai" }],
   },
   {
+    id: "2021-c2pa",
+    date: "2021-02-01",
+    precision: "month",
+    title: { ja: "C2PA発足 — コンテンツの来歴を記録する標準づくり", en: "C2PA Launches to Standardize Content Provenance" },
+    summary: {
+      ja: "Adobe・Arm・BBC・Intel・Microsoft・Truepicが、デジタルコンテンツの出どころと編集履歴を記録・確認する技術標準をつくる団体C2PAを立ち上げた。2022年1月に最初の仕様を公開した。",
+      en: "Adobe, Arm, the BBC, Intel, Microsoft, and Truepic launched the C2PA to build a technical standard for recording and checking where digital content came from and how it was edited. It released its first specification in January 2022.",
+    },
+    sources: [
+      {
+        label: "C2PA: C2PA Releases Specification of World's First Industry Standard for Content Provenance",
+        url: "https://c2pa.org/c2pa-releases-specification-of-worlds-first-industry-standard-for-content-provenance/",
+      },
+    ],
+  },
+  {
     id: "2021-github-copilot",
     date: "2021-06-29",
     precision: "day",
@@ -174,6 +191,23 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "HISTORY: ChatGPT is released to the public", url: "https://www.history.com/this-day-in-history/november-30/chatgpt-released-openai" }],
   },
   {
+    id: "2023-synthid",
+    date: "2023-08-29",
+    precision: "day",
+    title: { ja: "Google DeepMindがSynthIDを発表", en: "Google DeepMind Launches SynthID" },
+    summary: {
+      ja: "AIが生成した画像のピクセルに、人の目には見えないが検出できる電子透かしを埋め込むツールSynthIDのベータ版を公開。のちに音声・動画・テキストにも対象を広げた。",
+      en: "Google DeepMind released a beta of SynthID, which embeds a watermark into the pixels of AI-generated images — imperceptible to the human eye but detectable. It later expanded to audio, video, and text.",
+    },
+    sources: [
+      {
+        label: "Google DeepMind: Identifying AI-generated images with SynthID",
+        url: "https://deepmind.google/blog/identifying-ai-generated-images-with-synthid/",
+      },
+      { label: "Google DeepMind: SynthID", url: "https://deepmind.google/models/synthid/" },
+    ],
+  },
+  {
     id: "2024-claude3",
     date: "2024-03-01",
     precision: "month",
@@ -183,6 +217,36 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "Anthropic introduced its three-tier Opus/Sonnet/Haiku model lineup.",
     },
     sources: [{ label: "Anthropic: Introducing the next generation of Claude", url: "https://www.anthropic.com/news/claude-3-family" }],
+  },
+  {
+    id: "2024-japan-ai-copyright",
+    date: "2024-03-15",
+    precision: "day",
+    title: { ja: "「AIと著作権に関する考え方について」取りまとめ", en: "Japan's General Understanding on AI and Copyright" },
+    summary: {
+      ja: "文化審議会著作権分科会法制度小委員会が、AIと著作権の関係を「開発・学習段階」と「生成・利用段階」に分けて整理した考え方を取りまとめた。法的拘束力はなく、現行の著作権法の解釈についての小委員会の見解。",
+      en: "The Legal Subcommittee under the Copyright Subdivision of Japan's Cultural Council compiled its General Understanding, separating AI development and training from generation and use. It is not legally binding; it sets out the subcommittee's view of how the current Copyright Act applies.",
+    },
+    sources: [
+      {
+        label: "文化庁: AIと著作権に関する考え方について（2024年3月15日）",
+        url: "https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/pdf/94037901_01.pdf",
+      },
+      { label: "文化庁: AIと著作権", url: "https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html" },
+    ],
+  },
+  {
+    id: "2024-japan-ai-guidelines",
+    date: "2024-04-19",
+    precision: "day",
+    title: { ja: "AI事業者ガイドライン（第1.0版）公表", en: "Japan Publishes Its AI Guidelines for Business" },
+    summary: {
+      ja: "総務省と経済産業省が、AIの開発者・提供者・利用者向けの指針を、法的拘束力のないソフトローとして公表した。2026年3月31日に第1.2版へ改訂された。",
+      en: "Japan's Ministry of Internal Affairs and Communications and Ministry of Economy, Trade and Industry published guidelines for AI developers, providers, and business users as non-binding soft law. Version 1.2 followed on March 31, 2026.",
+    },
+    sources: [
+      { label: "総務省: 「AI事業者ガイドライン」掲載ページ", url: "https://www.soumu.go.jp/main_sosiki/kenkyu/ai_network/02ryutsu20_04000019.html" },
+    ],
   },
   {
     id: "2024-gpt4o",
@@ -242,6 +306,23 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "Anthropic: Introducing the Model Context Protocol", url: "https://www.anthropic.com/news/model-context-protocol" }],
   },
   {
+    id: "2024-gemini-deep-research",
+    date: "2024-12-11",
+    precision: "day",
+    title: { ja: "GeminiにDeep Researchが登場", en: "Deep Research Arrives in Gemini" },
+    summary: {
+      ja: "Googleが、AIが調査計画を立ててWeb検索を繰り返し、出典リンクつきのレポートにまとめるDeep ResearchをGemini Advancedで提供開始した。2025年2月2日にはOpenAIもChatGPTでdeep researchを公開した。",
+      en: "Google launched Deep Research in Gemini Advanced: the AI drafts a research plan, searches the web repeatedly, and compiles a report with links to its sources. OpenAI followed with deep research in ChatGPT on February 2, 2025.",
+    },
+    sources: [
+      {
+        label: "Google: Try Deep Research and our new experimental model in Gemini, your AI assistant",
+        url: "https://blog.google/products-and-platforms/products/gemini/google-gemini-deep-research/",
+      },
+      { label: "OpenAI: Introducing deep research", url: "https://openai.com/index/introducing-deep-research/" },
+    ],
+  },
+  {
     id: "2025-deepseek-r1",
     date: "2025-01-20",
     precision: "day",
@@ -251,6 +332,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "China's DeepSeek released its R1 reasoning model, claiming low-cost training, and topped the iOS free-app charts within a week.",
     },
     sources: [{ label: "Wikipedia: DeepSeek", url: "https://en.wikipedia.org/wiki/DeepSeek" }],
+  },
+  {
+    id: "2025-eu-ai-act-prohibitions",
+    date: "2025-02-02",
+    precision: "day",
+    title: { ja: "EU AI Actの禁止規定とAIリテラシーの規定が適用開始", en: "EU AI Act Bans and AI Literacy Rules Begin to Apply" },
+    summary: {
+      ja: "有害な操作や社会的スコアリングなど、EU AI Actが禁止するAIの規定と、AIリテラシーの規定が適用され始めた。段階的な適用の最初の節目。",
+      en: "The EU AI Act's bans on practices such as harmful manipulation and social scoring, along with its AI literacy obligations, began to apply — the first milestone in its phased rollout.",
+    },
+    sources: [
+      { label: "European Commission: AI Act", url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" },
+    ],
   },
   {
     id: "2025-gpt-oss",
@@ -319,6 +413,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [
       { label: "MCP Blog: MCP joins the Agentic AI Foundation", url: "https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/" },
     ],
+  },
+  {
+    id: "2025-japan-ai-basic-plan",
+    date: "2025-12-23",
+    precision: "day",
+    title: { ja: "初の人工知能基本計画を閣議決定", en: "Japan Adopts Its First AI Basic Plan" },
+    summary: {
+      ja: "AI法に基づく初めての人工知能基本計画が閣議決定された。2026年7月14日には第2期の計画が閣議決定された。",
+      en: "Japan's Cabinet adopted the first Artificial Intelligence Basic Plan under the AI Act; a second-term plan followed on July 14, 2026.",
+    },
+    sources: [{ label: "内閣府: 人工知能基本計画", url: "https://www8.cao.go.jp/cstp/ai/ai_plan/ai_plan.html" }],
   },
   {
     id: "2026-spacex-xai",
