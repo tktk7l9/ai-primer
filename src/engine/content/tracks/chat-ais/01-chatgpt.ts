@@ -21,7 +21,7 @@ export const chatgptLesson: Lesson = {
 - 用途に応じて複数のモデル（高速な応答向け・じっくり推論する向けなど）を使い分けられる設計を採用。
 - プラグイン的な拡張やコード実行、画像生成など、対話以外の機能も統合。
 
-具体的なモデル名・料金プランは更新が速いため、本サイトでは個別の版数を追わず [モデルカタログ](/models) にまとめています。最新情報は必ず OpenAI の公式サイトで確認してください。`,
+具体的なモデル名・料金プランは更新が速いため、本サイトでは個別の版数を追わず [モデルカタログ](/ja/models) にまとめています。最新情報は必ず OpenAI の公式サイトで確認してください。`,
     en: `## Made by: OpenAI
 
 **ChatGPT** is the chat AI built by **OpenAI**. Founded in 2015 as a nonprofit, OpenAI's stated mission is to ensure that artificial general intelligence (AGI) benefits all of humanity. In October 2025, it restructured so that the nonprofit **OpenAI Foundation** governs **OpenAI Group PBC**, a public benefit corporation.
@@ -31,7 +31,7 @@ export const chatgptLesson: Lesson = {
 - Offers multiple models tuned for different needs — fast everyday responses versus deeper step-by-step reasoning.
 - Integrates features beyond conversation, including code execution and image generation.
 
-Specific model names and pricing change quickly, so this site doesn't track individual versions in lesson text — see the [model catalog](/models) instead. Always check OpenAI's official site for the current lineup.`,
+Specific model names and pricing change quickly, so this site doesn't track individual versions in lesson text — see the [model catalog](/en/models) instead. Always check OpenAI's official site for the current lineup.`,
   },
   quiz: [
     {

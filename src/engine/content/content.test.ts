@@ -42,6 +42,27 @@ describe("track structure", () => {
       expect(lesson.id).toMatch(new RegExp(`^${track.id}-\\d{2}$`));
     }
   });
+
+  it("internal links in lesson bodies stay inside the body's locale and resolve", () => {
+    const staticPages = new Set(["models", "glossary", "timeline"]);
+    for (const { lesson } of ALL_LESSONS) {
+      for (const locale of locales) {
+        for (const [, href] of lesson.body[locale].matchAll(/\]\((\/[^)\s]*)\)/g)) {
+          // Every page lives under /[locale], so a bare "/models" is a 404.
+          expect(href.startsWith(`/${locale}/`), `${lesson.id} (${locale}): ${href}`).toBe(true);
+          const path = href.slice(locale.length + 2).split("#")[0];
+          const [section, trackId, slug] = path.split("/");
+          const resolves =
+            section === "learn"
+              ? slug
+                ? lessonBySlug(trackId, slug) !== undefined
+                : trackById(trackId) !== undefined
+              : staticPages.has(path);
+          expect(resolves, `${lesson.id} (${locale}): ${href} does not resolve`).toBe(true);
+        }
+      }
+    }
+  });
 });
 
 describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
