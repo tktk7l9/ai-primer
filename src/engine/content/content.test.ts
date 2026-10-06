@@ -11,6 +11,8 @@ import { locales } from "@/i18n/config";
 // Checks the integrity of all content across the board (the css-atelier content.test.ts approach).
 // New lessons are picked up automatically by the parameterized tests here.
 
+const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
+
 describe("track structure", () => {
   it("track ids are unique and only defined TrackIds", () => {
     const ids = TRACKS.map((t) => t.id);
@@ -40,6 +42,27 @@ describe("track structure", () => {
   it("lesson ids follow the `<trackId>-NN` form", () => {
     for (const { track, lesson } of ALL_LESSONS) {
       expect(lesson.id).toMatch(new RegExp(`^${track.id}-\\d{2}$`));
+    }
+  });
+
+  it("internal links in lesson bodies stay inside the body's locale and resolve", () => {
+    const staticPages = new Set(["models", "glossary", "timeline"]);
+    for (const { lesson } of ALL_LESSONS) {
+      for (const locale of locales) {
+        for (const [, href] of lesson.body[locale].matchAll(/\]\((\/[^)\s]*)\)/g)) {
+          // Every page lives under /[locale], so a bare "/models" is a 404.
+          expect(href.startsWith(`/${locale}/`), `${lesson.id} (${locale}): ${href}`).toBe(true);
+          const path = href.slice(locale.length + 2).split("#")[0];
+          const [section, trackId, slug] = path.split("/");
+          const resolves =
+            section === "learn"
+              ? slug
+                ? lessonBySlug(trackId, slug) !== undefined
+                : trackById(trackId) !== undefined
+              : staticPages.has(path);
+          expect(resolves, `${lesson.id} (${locale}): ${href} does not resolve`).toBe(true);
+        }
+      }
     }
   });
 });
@@ -109,7 +132,10 @@ describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
     it("lastVerified is a valid date not in the future", () => {
       const date = parseISODate(lesson.lastVerified);
       expect(date).not.toBeNull();
-      expect(date!.getTime()).toBeLessThanOrEqual(Date.now());
+      // lastVerified is a calendar date written in Japan (UTC+9). That day starts 9 hours
+      // before its UTC midnight, so compare from there; otherwise today's date counts as
+      // "future" every morning until 09:00 JST.
+      expect(date!.getTime() - JST_OFFSET_MS).toBeLessThanOrEqual(Date.now());
     });
 
     it("body converts as Markdown", () => {

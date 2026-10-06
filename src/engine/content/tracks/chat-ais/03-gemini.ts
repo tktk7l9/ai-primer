@@ -22,7 +22,7 @@ export const geminiLesson: Lesson = {
 - 用途に応じて、高度な推論に振ったモデルや、速度・コストを優先したモデルなど複数のバリエーションを提供。
 - 大きなコンテキストウィンドウを持つモデルもあり、長い文書や複数ファイルの一括処理に向く。
 
-Googleのサービスをすでに使っている場合、追加の導入なしにAI機能へアクセスできる点が他社との大きな違いです。具体的なモデル名は [モデルカタログ](/models) にまとめています。`,
+Googleのサービスをすでに使っている場合、追加の導入なしにAI機能へアクセスできる点が他社との大きな違いです。具体的なモデル名は [モデルカタログ](/ja/models) にまとめています。`,
     en: `## Made by: Google DeepMind
 
 **Gemini** is the AI family built by **Google DeepMind**, designed from the outset around **multimodal** input — text, images, audio, and video (see the AI Fundamentals track).
@@ -33,7 +33,7 @@ Googleのサービスをすでに使っている場合、追加の導入なし�
 - Multiple model variants for different needs — some tuned for deep reasoning, others for speed and cost.
 - Some models offer very large context windows, suited to long documents or processing multiple files at once.
 
-The biggest practical difference from other providers: if you already use Google's services, Gemini's AI features are available with no extra setup. See the [model catalog](/models) for specific model names.`,
+The biggest practical difference from other providers: if you already use Google's services, Gemini's AI features are available with no extra setup. See the [model catalog](/en/models) for specific model names.`,
   },
   quiz: [
     {

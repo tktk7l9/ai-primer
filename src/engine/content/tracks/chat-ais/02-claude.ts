@@ -27,7 +27,7 @@ Anthropicは長らく、用途に応じて複数の「サイズ」のモデル�
 - コーディング支援・エージェント的なタスク実行（ツールを使った自律的な作業）に力を入れている。
 - 対話の安全性・有用性・正直さを重視する設計方針を公言している。
 
-具体的なモデル名は更新が速いため、[モデルカタログ](/models) にまとめています。最新情報は Anthropic の公式サイトで確認してください。`,
+具体的なモデル名は更新が速いため、[モデルカタログ](/ja/models) にまとめています。最新情報は Anthropic の公式サイトで確認してください。`,
     en: `## Made by: Anthropic
 
 **Claude** is the chat AI built by **Anthropic**, an AI research company known for centering its work on AI safety.
@@ -43,7 +43,7 @@ Anthropic has long offered several model "sizes" in parallel for different needs
 - Strong emphasis on coding assistance and agentic task execution — autonomous work using tools.
 - A stated design philosophy centered on being helpful, honest, and safe.
 
-Specific model names change quickly — see the [model catalog](/models) for current details, and check Anthropic's official site for the latest lineup.`,
+Specific model names change quickly — see the [model catalog](/en/models) for current details, and check Anthropic's official site for the latest lineup.`,
   },
   quiz: [
     {
