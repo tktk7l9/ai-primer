@@ -46,7 +46,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIがもっともらしいが事実に基づかない内容を生成してしまう現象。",
       en: "When an AI generates plausible-sounding but factually incorrect or fabricated content.",
     },
-    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06"],
+    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02"],
     sources: [{ label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" }],
     lastVerified: "2026-10-06",
   },
@@ -84,7 +84,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "ツールを使い、目標達成のためのタスクを自律的に計画・実行するシステム。",
       en: "A system that uses tools to autonomously plan and execute tasks toward a goal.",
     },
-    relatedLessonIds: ["ai-basics-06", "ai-agents-01", "ai-agents-05"],
+    relatedLessonIds: ["ai-basics-06", "ai-agents-01", "ai-agents-05", "ai-at-work-06"],
     sources: [{ label: "IBM: What Are AI Agents?", url: "https://www.ibm.com/think/topics/ai-agents" }],
     lastVerified: "2026-10-06",
   },
@@ -106,7 +106,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "大量のテキストで訓練され、次に来るトークンを予測することで文章を生成するニューラルネットワーク。",
       en: "A neural network trained on vast amounts of text that generates language by predicting the next token.",
     },
-    relatedLessonIds: ["ai-basics-02", "how-llms-work-02"],
+    relatedLessonIds: ["ai-basics-02", "how-llms-work-02", "ai-at-work-03"],
     sources: [{ label: "Wikipedia: Large language model", url: "https://en.wikipedia.org/wiki/Large_language_model" }],
     lastVerified: "2026-10-06",
   },
@@ -150,7 +150,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "推論時にどれだけ低確率のトークンを選びやすくするかを調整するパラメータ。低いほど一貫性重視、高いほど多様性重視。",
       en: "A sampling parameter controlling how often lower-probability tokens get chosen. Lower favors consistency; higher favors variety.",
     },
-    relatedLessonIds: ["how-llms-work-04"],
+    relatedLessonIds: ["how-llms-work-04", "ai-at-work-04"],
     sources: [{ label: "IBM: What is LLM Temperature?", url: "https://www.ibm.com/think/topics/llm-temperature" }],
     lastVerified: "2026-10-06",
   },
@@ -230,7 +230,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIに対して行う指示文。役割・文脈・タスク・出力形式を具体化するほど狙った回答を引き出しやすい。",
       en: "The instruction given to an AI. The more concrete its role, context, task, and format, the more targeted the answer.",
     },
-    relatedLessonIds: ["prompting-01"],
+    relatedLessonIds: ["prompting-01", "ai-at-work-02"],
     sources: [{ label: "Prompt Engineering Guide", url: "https://www.promptingguide.ai/" }],
     lastVerified: "2026-10-06",
   },
@@ -276,7 +276,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIアプリと外部システム（ツール・データ）の接続方法を統一するオープン規格。2024年11月にAnthropicが公開し、2025年12月にLinux Foundation傘下のAgentic AI Foundationへ寄贈された。",
       en: "An open standard for connecting AI applications to external systems (tools and data). Released by Anthropic in November 2024 and donated to the Agentic AI Foundation under the Linux Foundation in December 2025.",
     },
-    relatedLessonIds: ["ai-agents-02", "ai-agents-04"],
+    relatedLessonIds: ["ai-agents-02", "ai-agents-04", "ai-at-work-06"],
     sources: [
       { label: "Model Context Protocol: What is MCP?", url: "https://modelcontextprotocol.io/docs/getting-started/intro" },
       {
@@ -309,7 +309,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "入力やツールで読み込んだ外部コンテンツに含まれる文によって、LLMの挙動が意図せず変えられてしまう脆弱性。外部のWebページや文書経由のものを「間接型」と呼ぶ。",
       en: "A vulnerability where text in the input, or in external content fetched by a tool, alters an LLM's behavior in unintended ways. Cases via web pages or documents are called \"indirect\" injection.",
     },
-    relatedLessonIds: ["ai-agents-04"],
+    relatedLessonIds: ["ai-agents-04", "ai-at-work-04", "ai-at-work-06"],
     sources: [{ label: "OWASP: LLM01:2025 Prompt Injection", url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/" }],
     lastVerified: "2026-10-06",
   },
@@ -333,7 +333,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "IT部門の正式な承認や監督なしに、従業員がAIツールを利用すること。情報漏えいや法令違反につながるリスクとして問題視される。",
       en: "Employees using AI tools without the formal approval or oversight of the IT department — flagged as a risk for data leaks and regulatory noncompliance.",
     },
-    relatedLessonIds: ["society-05"],
+    relatedLessonIds: ["society-05", "ai-at-work-01"],
     sources: [{ label: "IBM: What is shadow AI?", url: "https://www.ibm.com/think/topics/shadow-ai" }],
     lastVerified: "2026-10-06",
   },
@@ -378,7 +378,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "著作権侵害の判断に使われる2つの要件。既存の著作物と創作的表現が共通していること（類似性）と、既存の著作物をもとに作られたこと（依拠性）。日本では、AI生成物の利用もAIを使わない創作と同じ基準で判断されるとされる。",
       en: "The two requirements used to judge copyright infringement: sharing creative expression with an existing work (similarity) and being created based on that work (dependence). In Japan, the use of AI-generated material is judged by the same test as work made without AI.",
     },
-    relatedLessonIds: ["generative-media-06"],
+    relatedLessonIds: ["generative-media-06", "ai-at-work-05"],
     sources: [
       {
         label: "文化庁: AIと著作権に関する考え方について（2024年3月15日）",
@@ -398,7 +398,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "実在する人物・物・場所・出来事などに似せてAIで生成・加工した画像・音声・動画で、本物や真実であるかのように誤って見えるもの（EU AI Actの定義による）。",
       en: "AI-generated or manipulated image, audio, or video content that resembles existing persons, objects, places, entities, or events and would falsely appear to a person to be authentic or truthful (the EU AI Act's definition).",
     },
-    relatedLessonIds: ["generative-media-07", "society-07"],
+    relatedLessonIds: ["generative-media-07", "society-07", "ai-at-work-05"],
     sources: [
       { label: "AI Act Service Desk: Article 3 (Definitions)", url: "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-3" },
       {
@@ -415,7 +415,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "業界団体C2PAの標準で、画像・動画・音声などの来歴（誰が・どのツールで作り・どう編集したか）を、暗号で結びつけた記録としてファイルに付ける仕組み。来歴を示すもので、内容が真実かどうかを保証するものではない。",
       en: "A standard from the C2PA coalition that attaches a cryptographically bound record of provenance — who made the content, with what tool, and how it was edited — to images, video, audio, and other files. It shows origin and history, not whether the content is true.",
     },
-    relatedLessonIds: ["generative-media-07"],
+    relatedLessonIds: ["generative-media-07", "ai-at-work-05"],
     sources: [
       { label: "C2PA: Content Credentials Explainer", url: "https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html" },
     ],
@@ -525,6 +525,144 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     relatedLessonIds: ["society-07"],
     sources: [
       { label: "European Commission: AI Act", url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "speech-recognition",
+    term: { ja: "音声認識（文字起こし）", en: "Speech recognition (speech-to-text)" },
+    definition: {
+      ja: "人の話し声を、プログラムで文字に変換する技術。自動音声認識（ASR）とも呼ぶ。会議の文字起こしや音声入力に使われる。聞き違いのほか、元の音声にない語句や文を作ってしまう例も報告されている。",
+      en: "Technology that lets a program turn human speech into written text, also called automatic speech recognition (ASR). It powers meeting transcripts and voice input. Besides mishearing, it has been found to produce whole phrases or sentences that were never in the audio.",
+    },
+    relatedLessonIds: ["ai-at-work-01", "chat-ais-07"],
+    sources: [
+      { label: "IBM: What Is Speech Recognition?", url: "https://www.ibm.com/think/topics/speech-recognition" },
+      {
+        label: "Koenecke et al.: Careless Whisper: Speech-to-Text Hallucination Harms (ACM FAccT 2024)",
+        url: "https://arxiv.org/abs/2402.08021",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "localization",
+    term: { ja: "ローカライズ（ローカリゼーション）", en: "Localization" },
+    definition: {
+      ja: "製品・アプリケーション・文書の内容を、特定の対象市場（ロケール）の言語・文化・その他の要件に合わせて作り変えること。翻訳だけでなく、数字や日付・時刻の書式、通貨、法的な要件の違いなども対象になる。",
+      en: "Adapting a product, application, or document content to meet the language, cultural, and other requirements of a specific target market (a locale). Beyond translation, it covers number, date, and time formats, currency, differing legal requirements, and more.",
+    },
+    relatedLessonIds: ["ai-at-work-03"],
+    sources: [{ label: "W3C: Localization vs. Internationalization", url: "https://www.w3.org/International/questions/qa-i18n" }],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "post-editing",
+    term: { ja: "ポストエディット", en: "Post-editing" },
+    definition: {
+      ja: "機械翻訳（生成AIによる翻訳を含む）の出力を、人が確認して修正すること。専門の翻訳者による翻訳と同等の品質を目指す「フルポストエディット」と、スピードを重視して作業の一部を省いたり簡略化したりする「ライトポストエディット」に分けられることがある。",
+      en: "Having a person check and correct the output of machine translation, including translation by generative AI. It is sometimes divided into \"full post-editing,\" which aims for quality equal to a professional translator's, and \"light post-editing,\" which puts speed first by skipping or simplifying some of that work.",
+    },
+    relatedLessonIds: ["ai-at-work-03"],
+    sources: [
+      { label: "AAMT（アジア太平洋機械翻訳協会）: 機械翻訳ポストエディットガイドライン", url: "https://aamt.info/act/posteditguideline" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "back-translation",
+    term: { ja: "逆翻訳（バックトランスレーション）", en: "Back-translation" },
+    definition: {
+      ja: "翻訳した文章を元の言語に訳し戻し、元の文と比べて訳の問題を探す確認方法。問題を見つけられる一方で、誤った警告が少なくなく、多くの問題が隠れたまま残ることも指摘されている。",
+      en: "A check in which a translation is translated back into the original language and compared with the original to find problems. It can uncover problems, but it has been found to raise quite a number of false alarms and to leave many problems hidden.",
+    },
+    relatedLessonIds: ["ai-at-work-03"],
+    sources: [
+      {
+        label: "Behr (2017): Assessing the use of back translation: the shortcomings of back translation as a quality testing method",
+        url: "https://www.ssoar.info/ssoar/handle/document/74190",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "code-execution",
+    term: { ja: "コード実行（サンドボックス）", en: "Code execution (sandbox)" },
+    definition: {
+      ja: "AIが書いたプログラムを、隔離された環境（サンドボックス）で実際に動かし、その結果を回答に使う機能。データの集計やグラフ作成で、数字をモデルの推測ではなく計算の結果に基づかせられる。ただし、使うデータや処理の手順を誤れば結果も誤る。",
+      en: "A feature in which the AI actually runs the code it writes in an isolated environment (a sandbox) and uses the result in its answer. For totals and charts, the numbers then come from computation rather than the model's guesswork — though if it uses the wrong data or steps, the result is still wrong.",
+    },
+    relatedLessonIds: ["ai-at-work-04", "how-llms-work-05"],
+    sources: [
+      {
+        label: "Anthropic Docs: Code execution tool",
+        url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "human-in-the-loop",
+    term: { ja: "ヒューマン・イン・ザ・ループ（HITL）", en: "Human-in-the-loop (HITL)" },
+    definition: {
+      ja: "自動化されたシステムの動作・監督・意思決定に、人が能動的に関わる仕組み。AIエージェントの安全対策としては、影響の大きい操作の前に人の承認を求める形で使われる。",
+      en: "A system or process in which a human actively participates in the operation, supervision, or decision-making of an automated system. As a safeguard for AI agents, it takes the form of requiring a person to approve high-impact actions before they are taken.",
+    },
+    relatedLessonIds: ["ai-at-work-06", "ai-agents-01", "ai-agents-04"],
+    sources: [
+      { label: "IBM: What Is Human In The Loop (HITL)?", url: "https://www.ibm.com/think/topics/human-in-the-loop" },
+      { label: "OWASP: LLM06:2025 Excessive Agency", url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "excessive-agency",
+    term: { ja: "過剰なエージェンシー", en: "Excessive agency" },
+    definition: {
+      ja: "LLMの出力が想定外・曖昧・操作されたものだったときに、有害な操作が実行されてしまう脆弱性。OWASPの「LLMアプリケーション向けTop 10（2025年版）」のLLM06。根本原因は、機能・権限・自律性のいずれか（または複数）が大きすぎること。",
+      en: "The vulnerability that enables damaging actions to be performed in response to unexpected, ambiguous, or manipulated outputs from an LLM — LLM06 in OWASP's Top 10 for LLM Applications (2025). Its root cause is typically one or more of excessive functionality, excessive permissions, and excessive autonomy.",
+    },
+    relatedLessonIds: ["ai-at-work-06", "ai-agents-04"],
+    sources: [{ label: "OWASP: LLM06:2025 Excessive Agency", url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/" }],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "approval-fatigue",
+    term: { ja: "承認疲れ", en: "Approval fatigue" },
+    definition: {
+      ja: "確認や承認を求められる回数が多すぎて、人が承認する内容に注意を払わなくなること。AIコーディングツールが操作の前に出す確認画面などで問題として指摘されている。",
+      en: "When people are asked to confirm or approve so often that they stop paying close attention to what they're approving — flagged, for example, with the permission prompts AI coding tools show before taking actions.",
+    },
+    relatedLessonIds: ["ai-at-work-06", "ai-agents-01"],
+    sources: [
+      {
+        label: "Anthropic Engineering: How we built Claude Code auto mode: a safer way to skip permissions",
+        url: "https://www.anthropic.com/engineering/claude-code-auto-mode",
+      },
+      {
+        label: "Anthropic Engineering: Beyond permission prompts: making Claude Code more secure and autonomous",
+        url: "https://www.anthropic.com/engineering/claude-code-sandboxing",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "right-of-publicity",
+    term: { ja: "パブリシティ権", en: "Right of publicity" },
+    definition: {
+      ja: "人の氏名や肖像などが持つ、商品の販売などを促す力（顧客吸引力）を排他的に利用する権利。日本では2012年の最高裁判決（ピンク・レディー事件）が、肖像などを商品の広告に使うなど、専らその顧客吸引力の利用を目的とする無断使用は違法になるとした。2026年8月の法務省の検討会の報告書は、人の声も保護の対象に含まれるとし、生成AIによる侵害についての解釈の指針を示している。",
+      en: "The exclusive right to exploit the power of a person's name, likeness, and the like to attract customers. In Japan, a 2012 Supreme Court ruling (the Pink Lady case) held that unauthorized use is unlawful when its sole purpose is to exploit that power — for example, using someone's likeness to advertise a product. An August 2026 report by a Ministry of Justice study group says a person's voice is protected too, and sets out interpretive guidelines for infringement by generative AI.",
+    },
+    relatedLessonIds: ["ai-at-work-05"],
+    sources: [
+      {
+        label: "法務省: 肖像、声等の無断利用による民事責任の在り方に関する検討会",
+        url: "https://www.moj.go.jp/MINJI/minji07_00400.html",
+      },
+      {
+        label: "法務省: 取りまとめ報告書―生成AIによるパブリシティ権侵害等に関する解釈指針―【概要資料】（2026年8月）",
+        url: "https://www.moj.go.jp/content/001468506.pdf",
+      },
     ],
     lastVerified: "2026-10-07",
   },
