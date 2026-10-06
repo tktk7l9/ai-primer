@@ -11,6 +11,8 @@ import { locales } from "@/i18n/config";
 // Checks the integrity of all content across the board (the css-atelier content.test.ts approach).
 // New lessons are picked up automatically by the parameterized tests here.
 
+const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
+
 describe("track structure", () => {
   it("track ids are unique and only defined TrackIds", () => {
     const ids = TRACKS.map((t) => t.id);
@@ -130,7 +132,10 @@ describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
     it("lastVerified is a valid date not in the future", () => {
       const date = parseISODate(lesson.lastVerified);
       expect(date).not.toBeNull();
-      expect(date!.getTime()).toBeLessThanOrEqual(Date.now());
+      // lastVerified is a calendar date written in Japan (UTC+9). That day starts 9 hours
+      // before its UTC midnight, so compare from there; otherwise today's date counts as
+      // "future" every morning until 09:00 JST.
+      expect(date!.getTime() - JST_OFFSET_MS).toBeLessThanOrEqual(Date.now());
     });
 
     it("body converts as Markdown", () => {
