@@ -4,6 +4,8 @@ import { imageGenerationPractice } from "./02-image-generation-practice";
 import { videoGeneration } from "./03-video-generation";
 import { musicVoiceGeneration } from "./04-music-voice-generation";
 import { rightsAndLicensing } from "./05-rights-and-licensing";
+import { copyrightInJapan } from "./06-copyright-in-japan";
+import { deepfakesAndProvenance } from "./07-deepfakes-and-provenance";
 
 export const generativeMediaTrack: Track = {
   id: "generative-media",
@@ -13,8 +15,8 @@ export const generativeMediaTrack: Track = {
     en: "Generating Images, Video, and Music",
   },
   summary: {
-    ja: "拡散モデルの仕組みから、Sora・Veo・Suno・ElevenLabs、権利の話まで。",
-    en: "How diffusion models work, tools like Sora, Veo, Suno, and ElevenLabs, and the rights involved.",
+    ja: "拡散モデルの仕組みから、Veo・Suno・ElevenLabsなどのツール、米国と日本の著作権、ディープフェイクと来歴の確かめ方まで。",
+    en: "How diffusion models work, tools like Veo, Suno, and ElevenLabs, copyright in the US and Japan, and how to check deepfakes and provenance.",
   },
   lessons: [
     imageGenerationMechanism,
@@ -22,5 +24,7 @@ export const generativeMediaTrack: Track = {
     videoGeneration,
     musicVoiceGeneration,
     rightsAndLicensing,
+    copyrightInJapan,
+    deepfakesAndProvenance,
   ],
 };

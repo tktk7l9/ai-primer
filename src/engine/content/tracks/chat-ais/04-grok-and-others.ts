@@ -29,7 +29,7 @@ export const grokAndOthers: Lesson = {
 ### Perplexity
 検索エンジンとチャットAIを組み合わせた**回答エンジン**。質問に対し、参照した情報源へのリンク付きで回答するのが特徴で、出典を重視する調べ物に向く。
 
-**選ぶときの視点**: 各社・各サービスで強みが異なるため、「どのAIが一番良いか」より「今の目的に何が向くか」で選ぶのが実用的です。次のレッスンで具体的な選び方を整理します。`,
+**選ぶときの視点**: 各社・各サービスで強みが異なるため、「どのAIが一番良いか」より「今の目的に何が向くか」で選ぶのが実用的です。このトラックの最後のレッスンで、具体的な選び方を整理します。`,
     en: `## Grok — made by xAI
 
 **Grok** is the chat AI built by **SpaceXAI** (formerly xAI). Founded in 2023 as xAI with a stated mission of "understanding the universe," the company became a SpaceX subsidiary in February 2026 and renamed itself SpaceXAI that July.
@@ -47,7 +47,7 @@ AI focused specifically on coding assistance — in-editor completion, chat-base
 ### Perplexity
 An **answer engine** that combines search with a chat AI. It answers questions with links to the sources it drew on, making it well suited to source-conscious research.
 
-**How to think about choosing**: strengths differ across providers, so it's more useful to ask "what fits my current task" than "which AI is best overall." The next lesson breaks that down concretely.`,
+**How to think about choosing**: strengths differ across providers, so it's more useful to ask "what fits my current task" than "which AI is best overall." The last lesson in this track breaks that down concretely.`,
   },
   quiz: [
     {

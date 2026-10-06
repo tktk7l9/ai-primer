@@ -46,7 +46,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIがもっともらしいが事実に基づかない内容を生成してしまう現象。",
       en: "When an AI generates plausible-sounding but factually incorrect or fabricated content.",
     },
-    relatedLessonIds: ["ai-basics-04"],
+    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06"],
     sources: [{ label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" }],
     lastVerified: "2026-10-06",
   },
@@ -57,7 +57,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "テキスト・画像・音声など複数種のデータを1つのモデルで処理・関連づけられること。",
       en: "The ability of a single model to process and relate multiple data types — text, images, audio, and more.",
     },
-    relatedLessonIds: ["ai-basics-05"],
+    relatedLessonIds: ["ai-basics-05", "chat-ais-07"],
     sources: [{ label: "IBM: What is Multimodal AI?", url: "https://www.ibm.com/think/topics/multimodal-ai" }],
     lastVerified: "2026-10-06",
   },
@@ -84,7 +84,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "ツールを使い、目標達成のためのタスクを自律的に計画・実行するシステム。",
       en: "A system that uses tools to autonomously plan and execute tasks toward a goal.",
     },
-    relatedLessonIds: ["ai-basics-06", "ai-agents-01"],
+    relatedLessonIds: ["ai-basics-06", "ai-agents-01", "ai-agents-05"],
     sources: [{ label: "IBM: What Are AI Agents?", url: "https://www.ibm.com/think/topics/ai-agents" }],
     lastVerified: "2026-10-06",
   },
@@ -336,5 +336,196 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     relatedLessonIds: ["society-05"],
     sources: [{ label: "IBM: What is shadow AI?", url: "https://www.ibm.com/think/topics/shadow-ai" }],
     lastVerified: "2026-10-06",
+  },
+  {
+    id: "speech-to-speech",
+    term: { ja: "音声対音声（speech-to-speech）", en: "Speech-to-speech" },
+    definition: {
+      ja: "音声をいったん文字に起こさず、1つのモデルが音声を直接扱って音声で答える方式。文字起こし→文章生成→読み上げのリレーより応答が速く、声の調子などの情報も失われにくい。",
+      en: "An approach in which a single model works directly with audio and answers in speech, without transcribing it first. Compared with a transcribe → generate text → read aloud relay, it responds faster and keeps information such as tone of voice.",
+    },
+    relatedLessonIds: ["chat-ais-07"],
+    sources: [
+      { label: "OpenAI Docs: Getting started with the Realtime API", url: "https://developers.openai.com/api/docs/guides/realtime" },
+      { label: "OpenAI: Hello GPT-4o", url: "https://openai.com/index/hello-gpt-4o/" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "article-30-4",
+    term: { ja: "著作権法第30条の4（非享受目的の利用）", en: "Article 30-4 of Japan's Copyright Act (non-enjoyment use)" },
+    definition: {
+      ja: "著作物に表現された思想・感情の享受を目的としない利用（AI学習のための情報解析など）を、必要と認められる限度で著作権者の許諾なく認める日本の規定。享受目的が併存する場合や、著作権者の利益を不当に害することとなる場合は対象外。",
+      en: "A Japanese provision allowing uses not aimed at enjoying the thoughts or sentiments expressed in a work — such as data analysis for AI training — without the copyright holder's permission, to the extent necessary. It does not apply when an enjoyment purpose coexists or when the use would unreasonably prejudice the copyright holder's interests.",
+    },
+    relatedLessonIds: ["generative-media-06"],
+    sources: [
+      {
+        label: "e-Gov法令検索: 著作権法 第30条の4",
+        url: "https://laws.e-gov.go.jp/law/345AC0000000048#Mp-Ch_2-Se_3-Ss_5-At_30_4",
+      },
+      {
+        label: "文化庁: AIと著作権に関する考え方について（2024年3月15日）",
+        url: "https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/pdf/94037901_01.pdf",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "similarity-and-dependence",
+    term: { ja: "類似性と依拠性", en: "Similarity and dependence" },
+    definition: {
+      ja: "著作権侵害の判断に使われる2つの要件。既存の著作物と創作的表現が共通していること（類似性）と、既存の著作物をもとに作られたこと（依拠性）。日本では、AI生成物の利用もAIを使わない創作と同じ基準で判断されるとされる。",
+      en: "The two requirements used to judge copyright infringement: sharing creative expression with an existing work (similarity) and being created based on that work (dependence). In Japan, the use of AI-generated material is judged by the same test as work made without AI.",
+    },
+    relatedLessonIds: ["generative-media-06"],
+    sources: [
+      {
+        label: "文化庁: AIと著作権に関する考え方について（2024年3月15日）",
+        url: "https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/pdf/94037901_01.pdf",
+      },
+      {
+        label: "Agency for Cultural Affairs: General Understanding on AI and Copyright in Japan — Overview",
+        url: "https://www.bunka.go.jp/english/policy/copyright/pdf/94055801_01.pdf",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "deepfake",
+    term: { ja: "ディープフェイク", en: "Deepfake" },
+    definition: {
+      ja: "実在する人物・物・場所・出来事などに似せてAIで生成・加工した画像・音声・動画で、本物や真実であるかのように誤って見えるもの（EU AI Actの定義による）。",
+      en: "AI-generated or manipulated image, audio, or video content that resembles existing persons, objects, places, entities, or events and would falsely appear to a person to be authentic or truthful (the EU AI Act's definition).",
+    },
+    relatedLessonIds: ["generative-media-07", "society-07"],
+    sources: [
+      { label: "AI Act Service Desk: Article 3 (Definitions)", url: "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-3" },
+      {
+        label: "総務省: 令和6年版 情報通信白書（ディープフェイク）",
+        url: "https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r06/html/nd141210.html",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "content-credentials",
+    term: { ja: "コンテンツクレデンシャル（C2PA）", en: "Content Credentials (C2PA)" },
+    definition: {
+      ja: "業界団体C2PAの標準で、画像・動画・音声などの来歴（誰が・どのツールで作り・どう編集したか）を、暗号で結びつけた記録としてファイルに付ける仕組み。来歴を示すもので、内容が真実かどうかを保証するものではない。",
+      en: "A standard from the C2PA coalition that attaches a cryptographically bound record of provenance — who made the content, with what tool, and how it was edited — to images, video, audio, and other files. It shows origin and history, not whether the content is true.",
+    },
+    relatedLessonIds: ["generative-media-07"],
+    sources: [
+      { label: "C2PA: Content Credentials Explainer", url: "https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "digital-watermark",
+    term: { ja: "電子透かし（AI生成物の透かし）", en: "Digital watermark (for AI-generated content)" },
+    definition: {
+      ja: "AIが生成したコンテンツに、利用者には見えない形で埋め込む識別用の信号。GoogleのSynthIDなど。検出できるのはその透かしを埋め込むツールで作られたものに限られ、加工を重ねると検出できなくなることもある。",
+      en: "An identifying signal embedded in AI-generated content in a way users cannot see, such as Google's SynthID. Detection only works for content made with tools that embed that watermark, and repeated alteration can make it undetectable.",
+    },
+    relatedLessonIds: ["generative-media-07"],
+    sources: [
+      { label: "Google DeepMind: SynthID", url: "https://deepmind.google/models/synthid/" },
+      {
+        label: "Gemini Apps Help: Verify AI-generated images, videos, and audio",
+        url: "https://support.google.com/gemini/answer/16722517?hl=en",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "grounding",
+    term: { ja: "グラウンディング", en: "Grounding" },
+    definition: {
+      ja: "AIの回答を、検索結果や指定した文書など外部の情報源に根拠づけること。回答のどの部分がどの情報源に基づくかを示す引用情報が、回答と一緒に返されることが多い。",
+      en: "Tying an AI's answer to external sources such as search results or supplied documents, often returned together with citation data showing which part of the answer rests on which source.",
+    },
+    relatedLessonIds: ["ai-agents-05"],
+    sources: [
+      { label: "Google AI for Developers: Grounding with Google Search", url: "https://ai.google.dev/gemini-api/docs/google-search" },
+      { label: "Anthropic Docs: Web search tool", url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "deep-research",
+    term: { ja: "ディープリサーチ", en: "Deep research" },
+    definition: {
+      ja: "AIが調査の計画を立て、検索と読み込みを数分から数十分かけて繰り返し、出典つきのレポートにまとめる機能。調べ物に特化したエージェントの一種。",
+      en: "A feature in which the AI plans a research task, searches and reads repeatedly over several minutes or longer, and compiles a report with citations — a kind of agent specialized for research.",
+    },
+    relatedLessonIds: ["ai-agents-05"],
+    sources: [
+      { label: "OpenAI: Introducing deep research", url: "https://openai.com/index/introducing-deep-research/" },
+      {
+        label: "Google: Try Deep Research and our new experimental model in Gemini, your AI assistant",
+        url: "https://blog.google/products-and-platforms/products/gemini/google-gemini-deep-research/",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "retrieval-practice",
+    term: { ja: "想起練習（テスト効果）", en: "Retrieval practice (testing effect)" },
+    definition: {
+      ja: "学んだ内容を思い出す練習（小テストなど）をすると、読み返すだけより長く記憶に残りやすいという現象。直後のテストでは読み返しの方が成績がよくても、時間をおいたテストでは想起練習の方がはるかによく覚えていたことが実験で示されている。",
+      en: "The finding that practicing recall — for example with quizzes — makes material stick longer than rereading it. In experiments, rereading did better on an immediate test, but prior testing produced substantially greater retention on delayed tests.",
+    },
+    relatedLessonIds: ["society-06"],
+    sources: [
+      {
+        label: "Roediger & Karpicke (2006): Test-enhanced learning (Psychological Science)",
+        url: "https://profiles.wustl.edu/en/publications/test-enhanced-learning-taking-memory-tests-improves-long-term-ret/",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "ai-promotion-act",
+    term: { ja: "AI法（AI推進法）", en: "Japan's AI Act (AI Promotion Act)" },
+    definition: {
+      ja: "「人工知能関連技術の研究開発及び活用の推進に関する法律」の略称。2025年9月1日に全面施行。AIの研究開発と活用の推進を目的とし、人工知能戦略本部の設置や人工知能基本計画の策定を定める。罰則の規定はない。",
+      en: "Short name for Japan's Act on Promotion of Research and Development, and Utilization of AI-related Technology, fully in effect since September 1, 2025. Aimed at promoting AI research, development, and use, it establishes an AI strategy headquarters and a national AI Basic Plan. It contains no penalty provisions.",
+    },
+    relatedLessonIds: ["society-07"],
+    sources: [
+      {
+        label: "e-Gov法令検索: 人工知能関連技術の研究開発及び活用の推進に関する法律（AI法）",
+        url: "https://laws.e-gov.go.jp/law/507AC0000000053",
+      },
+      { label: "内閣府: AI法", url: "https://www8.cao.go.jp/cstp/ai/ai_act/ai_act.html" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "ai-guidelines-for-business",
+    term: { ja: "AI事業者ガイドライン", en: "AI Guidelines for Business" },
+    definition: {
+      ja: "総務省と経済産業省が、事業活動でAIに関わるAI開発者・AI提供者・AI利用者向けにまとめた指針。法的拘束力のないソフトローで、2024年4月の第1.0版以降、改訂が続いている（2026年3月に第1.2版）。",
+      en: "Guidelines from Japan's Ministry of Internal Affairs and Communications and Ministry of Economy, Trade and Industry for AI developers, AI providers, and AI business users. They are non-binding soft law, revised repeatedly since version 1.0 in April 2024 (version 1.2 in March 2026).",
+    },
+    relatedLessonIds: ["society-07"],
+    sources: [
+      { label: "総務省: AI事業者ガイドライン", url: "https://www.soumu.go.jp/main_sosiki/kenkyu/ai_network/02ryutsu20_04000019.html" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "eu-ai-act",
+    term: { ja: "EU AI Act（AI規則）", en: "EU AI Act" },
+    definition: {
+      ja: "EUの包括的なAI規制。AIをリスクの大きさで分け、禁止・厳しい義務・透明性の義務などを段階的に適用する。2024年8月1日に発効し、2026年8月2日に本格適用（高リスクAIの義務は改正により2027年12月以降に延期）。",
+      en: "The EU's comprehensive AI regulation. It sorts AI by level of risk and phases in prohibitions, strict obligations, and transparency duties. It entered into force on August 1, 2024 and became broadly applicable on August 2, 2026, with high-risk obligations postponed by amendment to December 2027 and later.",
+    },
+    relatedLessonIds: ["society-07"],
+    sources: [
+      { label: "European Commission: AI Act", url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" },
+    ],
+    lastVerified: "2026-10-07",
   },
 ];
