@@ -54,5 +54,5 @@ Large language models (LLMs) such as ChatGPT are products of deep learning.`,
       url: "https://www.ibm.com/topics/artificial-intelligence",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

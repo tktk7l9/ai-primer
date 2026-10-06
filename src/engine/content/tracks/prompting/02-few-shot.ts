@@ -68,5 +68,5 @@ Showing two or three examples like this makes the expected **format** and **gran
   sources: [
     { label: "Prompt Engineering Guide: Few-Shot Prompting", url: "https://www.promptingguide.ai/techniques/fewshot" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

@@ -17,10 +17,10 @@ export const aiWinter: Lesson = {
 **AIの冬**とは、AI研究への資金と関心が大きく落ち込んだ時期を指す言葉です。歴史上、代表的に2回の冬がありました。
 
 ### 第一次AIの冬（1970年代）
-1973年に英国で発表された **ライトヒル・レポート** が、多額の資金を投じたにもかかわらず目標に届いていないとAI研究を厳しく批判しました。影響は大きく、英国が資金を大幅に削減すると、米国・欧州でも同様の削減が続きました。米DARPAのAI研究予算は1970年代初頭の年間約3,000万ドルから1974年にはほぼゼロまで落ち込みました。
+1973年に英国で発表された **ライトヒル・レポート** が、多額の資金を投じたにもかかわらず目標に届いていないとAI研究を厳しく批判しました。影響は大きく、英国が資金を大幅に削減し、米国でも同様の削減が続きました。1974年までには、AI研究の資金はほとんど得られなくなっていました。
 
 ### 第二次AIの冬（1980年代後半）
-1980年代前半には、特定分野の専門知識をルール化した**エキスパートシステム**が商業的に成功し、1982年開始の日本の「第五世代コンピュータ」計画（8億5,000万ドル規模）も資金を集めました。しかし1980年代後半、エキスパートシステムが期待されたほど汎用的でないことが明らかになり、専用ハードウェア市場も崩壊、再び冬の時代へ入りました。
+1980年代前半には、特定分野の専門知識をルール化した**エキスパートシステム**が商業的に成功し、1981年に8億5,000万ドルの予算が確保され1982年に始まった日本の「第五世代コンピュータ」計画も注目を集めました。しかし1980年代後半、エキスパートシステムが期待されたほど汎用的でないことが明らかになり、専用ハードウェア市場も崩壊、再び冬の時代へ入りました。
 
 **教訓**: 過度な期待とその反動という同じパターンが繰り返されてきたことは、現在の生成AIブームを考える上でも参考になります。`,
     en: `## When expectations outran reality
@@ -28,10 +28,10 @@ export const aiWinter: Lesson = {
 An **AI winter** is a period of sharply reduced funding and interest in AI research. History records two major ones.
 
 ### The first AI winter (1970s)
-In 1973, the UK's **Lighthill Report** sharply criticized AI research for failing to meet its ambitious goals despite substantial funding. The impact was swift: the UK slashed AI funding, and similar cuts followed in the US and Europe. US DARPA funding for AI dropped from roughly $30 million a year in the early 1970s to almost nothing by 1974.
+In 1973, the UK's **Lighthill Report** sharply criticized AI research for failing to meet its ambitious goals despite substantial funding. The impact was swift: the UK slashed AI funding, and similar cuts followed in the US. By 1974, funding for AI research had become hard to find.
 
 ### The second AI winter (late 1980s)
-In the early 1980s, **expert systems** — which encoded specialist knowledge as rules — found commercial success, and Japan's Fifth Generation Computer Systems project (launched 1982, backed by $850 million) drew fresh investment. But by the late 1980s, expert systems turned out to be far less general-purpose than promised, the specialized hardware market collapsed, and the field entered a second winter.
+In the early 1980s, **expert systems** — which encoded specialist knowledge as rules — found commercial success, and Japan's Fifth Generation Computer Systems project ($850 million set aside in 1981, launched in 1982) drew attention. But by the late 1980s, expert systems turned out to be far less general-purpose than promised, the specialized hardware market collapsed, and the field entered a second winter.
 
 **The lesson**: this cycle of hype followed by retrenchment has repeated before — worth keeping in mind when thinking about today's generative-AI boom.`,
   },
@@ -44,13 +44,14 @@ In the early 1980s, **expert systems** — which encoded specialist knowledge as
       },
       answer: true,
       explanation: {
-        ja: "1973年のライトヒル・レポートを受けて英国が資金を大幅削減し、米欧にも波及しました。",
-        en: "Following the 1973 Lighthill Report, the UK sharply cut funding, and similar cuts spread to the US and Europe.",
+        ja: "1973年のライトヒル・レポートを受けて英国が資金を大幅削減し、米国にも波及しました。",
+        en: "Following the 1973 Lighthill Report, the UK sharply cut funding, and similar cuts spread to the US.",
       },
     },
   ],
   sources: [
+    { label: "Wikipedia: Fifth Generation Computer Systems", url: "https://en.wikipedia.org/wiki/Fifth_Generation_Computer_Systems" },
     { label: "Wikipedia: AI winter", url: "https://en.wikipedia.org/wiki/AI_winter" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

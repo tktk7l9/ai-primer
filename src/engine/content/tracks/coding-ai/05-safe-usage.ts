@@ -75,6 +75,6 @@ For anything hard to undo — deleting files, forced overwrites, pushing to prod
   sources: [
     { label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["hallucination"],
 };

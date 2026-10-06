@@ -40,10 +40,11 @@ A **large language model (LLM)** is a neural network trained on vast amounts of 
     },
   ],
   sources: [
+    { label: "Wikipedia: Large language model", url: "https://en.wikipedia.org/wiki/Large_language_model" },
     {
       label: "OpenAI Help: What are tokens and how to count them?",
       url: "https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

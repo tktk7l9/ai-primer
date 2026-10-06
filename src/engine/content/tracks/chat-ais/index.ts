@@ -4,6 +4,7 @@ import { claudeLesson } from "./02-claude";
 import { geminiLesson } from "./03-gemini";
 import { grokAndOthers } from "./04-grok-and-others";
 import { choosing } from "./05-choosing";
+import { localAndOpenModels } from "./06-local-and-open-models";
 
 export const chatAisTrack: Track = {
   id: "chat-ais",
@@ -16,5 +17,6 @@ export const chatAisTrack: Track = {
     ja: "ChatGPT・Claude・Gemini・Grok——それぞれの開発元と強み、選び方。",
     en: "ChatGPT, Claude, Gemini, Grok — who makes them, what they're good at, and how to choose.",
   },
-  lessons: [chatgptLesson, claudeLesson, geminiLesson, grokAndOthers, choosing],
+  // Lesson ids are stable keys for saved progress and do not imply order; "choosing" stays last as the wrap-up.
+  lessons: [chatgptLesson, claudeLesson, geminiLesson, grokAndOthers, localAndOpenModels, choosing],
 };

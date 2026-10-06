@@ -14,18 +14,18 @@ export const dartmouth: Lesson = {
   body: {
     ja: `## 1956年、ニューハンプシャー州ダートマス
 
-**人工知能（Artificial Intelligence, AI）**という言葉は、1956年に米ダートマス大学で開かれた研究集会「ダートマス夏季研究プロジェクト」で初めて公に使われました。
+**人工知能（Artificial Intelligence, AI）**という言葉は、1956年に米ダートマス大学で開かれた研究集会「ダートマス夏季研究プロジェクト」で定着しました。この語は、会議に先立つ1955年の提案書で初めて使われたものです。
 
-主催したのは **ジョン・マッカーシー**（この語の提唱者）、**マービン・ミンスキー**、そしてIBMの**クロード・シャノン**・**ネイサン・ロチェスター**の4人です。集まった研究者たちは「学習や知能のあらゆる側面は、原理的には機械で精密に記述し模倣できる」という前提のもと、数週間にわたり議論しました。
+主催したのは **ジョン・マッカーシー**（この語の提唱者）、**マービン・ミンスキー**、ベル研究所の**クロード・シャノン**、IBMの**ナサニエル・ロチェスター**の4人です。集まった研究者たちは「学習や知能のあらゆる側面は、原理的には機械で精密に記述し模倣できる」という前提のもと、数週間にわたり議論しました。
 
-この会議は今日「AIの誕生地」と呼ばれ、以降しばらく続く楽観的な期間は「AIの最初の夏」とも表現されます。ただし当時の参加者たちの見通しは楽観的すぎ、実際の技術がそれに追いつくまでには何十年もかかることになります。`,
+この会議は今日「AIの誕生地」と呼ばれ、ただし当時の参加者たちの見通しは楽観的すぎ、実際の技術がそれに追いつくまでには何十年もかかることになります。`,
     en: `## Summer 1956, Dartmouth College, New Hampshire
 
-The term **artificial intelligence (AI)** was first used publicly at the **Dartmouth Summer Research Project on Artificial Intelligence**, a workshop held at Dartmouth College in 1956.
+The term **artificial intelligence (AI)** took hold at the **Dartmouth Summer Research Project on Artificial Intelligence**, a workshop held at Dartmouth College in 1956. The term itself first appeared in the 1955 proposal for that workshop.
 
-It was organized by **John McCarthy** (who coined the term), **Marvin Minsky**, and IBM's **Claude Shannon** and **Nathan Rochester**. The researchers who gathered spent several weeks working from the premise that "every aspect of learning or intelligence can in principle be so precisely described that a machine can be made to simulate it."
+It was organized by **John McCarthy** (who coined the term), **Marvin Minsky**, **Claude Shannon** (Bell Labs), and **Nathaniel Rochester** (IBM). The researchers who gathered spent several weeks working from the premise that "every aspect of learning or intelligence can in principle be so precisely described that a machine can be made to simulate it."
 
-The conference is now widely called the "birthplace of AI," and the optimistic period that followed is sometimes referred to as AI's "first summer." The attendees' expectations, however, were far ahead of the technology of the time — it would take decades for reality to catch up.`,
+The conference is now widely called the "birthplace of AI." The attendees' expectations, however, were far ahead of the technology of the time — it would take decades for reality to catch up.`,
   },
   quiz: [
     {
@@ -47,10 +47,11 @@ The conference is now widely called the "birthplace of AI," and the optimistic p
     },
   ],
   sources: [
+    { label: "Wikipedia: Dartmouth workshop", url: "https://en.wikipedia.org/wiki/Dartmouth_workshop" },
     {
       label: "Dartmouth: Artificial Intelligence (AI) Coined at Dartmouth",
       url: "https://home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

@@ -60,7 +60,8 @@ Specific model names change quickly — see the [model catalog](/models) for cur
     },
   ],
   sources: [
+    { label: "Anthropic Docs: Model deprecations", url: "https://platform.claude.com/docs/en/about-claude/model-deprecations" },
     { label: "Anthropic: Models overview", url: "https://platform.claude.com/docs/en/about-claude/models/overview" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

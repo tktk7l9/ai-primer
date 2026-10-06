@@ -13,6 +13,7 @@ export const TRACK_IDS = [
   "how-llms-work",
   "chat-ais",
   "prompting",
+  "ai-agents",
   "coding-ai",
   "generative-media",
   "society",

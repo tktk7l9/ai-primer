@@ -61,10 +61,11 @@ Understanding this mechanism makes the practical tips in the next lesson easier 
     },
   ],
   sources: [
+    { label: "Wikipedia: Diffusion model", url: "https://en.wikipedia.org/wiki/Diffusion_model" },
     {
       label: "Britannica: Diffusion model",
       url: "https://www.britannica.com/technology/diffusion-model",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

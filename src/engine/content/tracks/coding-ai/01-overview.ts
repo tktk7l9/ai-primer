@@ -64,7 +64,7 @@ A single product can offer features at more than one level (many editors now com
     },
   ],
   sources: [
-    { label: "GitHub Docs: What is GitHub Copilot?", url: "https://docs.github.com/en/copilot/get-started/what-is-github-copilot" },
+    { label: "GitHub Docs: What is GitHub Copilot?", url: "https://docs.github.com/en/copilot/get-started/about-github-copilot" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

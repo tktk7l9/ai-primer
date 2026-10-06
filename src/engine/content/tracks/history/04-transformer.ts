@@ -55,5 +55,5 @@ As of 2026, the paper has been cited more than 250,000 times, ranking among the 
       url: "https://en.wikipedia.org/wiki/Attention_Is_All_You_Need",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

@@ -66,6 +66,6 @@ As a conversation grows long, earlier instructions and assumptions can get pushe
   sources: [
     { label: "IBM: What is a context window?", url: "https://www.ibm.com/think/topics/context-window" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["context-window"],
 };

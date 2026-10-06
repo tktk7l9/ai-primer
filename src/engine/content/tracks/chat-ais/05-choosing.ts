@@ -22,6 +22,7 @@ export const choosing: Lesson = {
 - **コーディング支援が中心** → コーディングAIトラックで扱うツール群（Copilot・Claude Code等）を検討。
 - **長文書の一括処理・要約** → 大きなコンテキストウィンドウを持つモデルが有利。
 - **出典を明示した調べ物** → Perplexityのように参照元を提示する回答エンジンが向く。
+- **データを手元の端末から出したくない** → 自分のPCで動かせるオープンウェイトモデル（前のレッスン参照）を検討する。
 
 ### 実践的なコツ
 - 無料枠で複数のAIを試し、自分の作業のクセに合うものを見つける。
@@ -37,6 +38,7 @@ Each provider updates frequently, and which one leads on performance shifts ever
 - **Coding assistance is the main use case?** → Look at the tools covered in the Coding AI track (Copilot, Claude Code, and others).
 - **Bulk-processing or summarizing long documents?** → A model with a large context window has the edge.
 - **Research where sources matter?** → An answer engine like Perplexity, which cites what it drew on, fits well.
+- **Data that must not leave your device?** → Consider an open-weight model you run on your own PC (previous lesson).
 
 ### Practical tips
 - Try several AIs on free tiers to find what matches how you work.
@@ -60,6 +62,6 @@ Each provider updates frequently, and which one leads on performance shifts ever
   sources: [
     { label: "Anthropic: Models overview", url: "https://platform.claude.com/docs/en/about-claude/models/overview" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["rag", "context-window"],
 };

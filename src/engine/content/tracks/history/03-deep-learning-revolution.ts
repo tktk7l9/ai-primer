@@ -57,10 +57,11 @@ This win marked a shift from hand-engineered features to features learned automa
     },
   ],
   sources: [
+    { label: "Wikipedia: AlexNet", url: "https://en.wikipedia.org/wiki/AlexNet" },
     {
       label: "Pinecone: AlexNet and ImageNet: The Birth of Deep Learning",
       url: "https://www.pinecone.io/learn/series/image-search/imagenet/",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

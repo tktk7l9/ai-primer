@@ -55,10 +55,12 @@ LLMs existed before ChatGPT — GPT-3 (2020, 175 billion parameters) among them 
     },
   ],
   sources: [
+    { label: "Wikipedia: ChatGPT", url: "https://en.wikipedia.org/wiki/ChatGPT" },
+    { label: "Wikipedia: GPT-4", url: "https://en.wikipedia.org/wiki/GPT-4" },
     {
       label: "HISTORY: ChatGPT is released to the public",
       url: "https://www.history.com/this-day-in-history/november-30/chatgpt-released-openai",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

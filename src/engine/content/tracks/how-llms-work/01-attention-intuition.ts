@@ -52,5 +52,5 @@ The Transformer (see the History track) stacks many layers of attention and comp
       url: "https://en.wikipedia.org/wiki/Attention_Is_All_You_Need",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

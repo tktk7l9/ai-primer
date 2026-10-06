@@ -61,5 +61,5 @@ The more concrete the prompt, the more clues the AI has about what to answer, fo
   sources: [
     { label: "Prompt Engineering Guide", url: "https://www.promptingguide.ai/" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };

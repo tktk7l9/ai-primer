@@ -58,6 +58,6 @@ What makes it tricky: hallucinated text reads with the **same fluency and confid
       url: "https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["hallucination", "rag"],
 };

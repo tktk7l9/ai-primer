@@ -61,8 +61,10 @@ When "invent a plausible-sounding answer" looks more natural in the training dat
     },
   ],
   sources: [
+    { label: "Prompt Engineering Guide: Program-Aided Language Models", url: "https://www.promptingguide.ai/techniques/pal" },
+    { label: "Anthropic Docs: Models overview (knowledge cutoff)", url: "https://platform.claude.com/docs/en/about-claude/models/overview" },
     { label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
   glossaryRefs: ["hallucination", "rag"],
 };

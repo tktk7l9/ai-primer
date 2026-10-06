@@ -13,7 +13,7 @@ export interface TimelineEvent {
   sources: readonly Source[];
 }
 
-// All dates and events verified against primary sources or reliable encyclopedias (as of 2026-07-15).
+// All dates and events verified against primary sources or reliable encyclopedias (as of 2026-07-15; entries from 2024-11 onward re-verified or added on 2026-10-06).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -212,8 +212,8 @@ export const TIMELINE: readonly TimelineEvent[] = [
     precision: "day",
     title: { ja: "EU AI Actが発効", en: "The EU AI Act Enters Into Force" },
     summary: {
-      ja: "欧州連合の包括的なAI規制法が発効。主要条項は6〜36ヶ月かけて段階的に適用される。",
-      en: "The European Union's comprehensive AI regulation entered into force, with major provisions phasing in over 6 to 36 months.",
+      ja: "欧州連合の包括的なAI規制法が発効。主要条項は段階的に適用される計画で、高リスク分野の適用時期は後に延期された（2026年の項参照）。",
+      en: "The European Union's comprehensive AI regulation entered into force, with major provisions phasing in over time; the high-risk deadlines were later postponed (see the 2026 entry).",
     },
     sources: [
       { label: "European Commission: AI Act enters into force", url: "https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en" },
@@ -231,6 +231,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "OpenAI: Introducing OpenAI o1", url: "https://openai.com/index/introducing-openai-o1-preview/" }],
   },
   {
+    id: "2024-mcp",
+    date: "2024-11-25",
+    precision: "day",
+    title: { ja: "Model Context Protocol（MCP）公開", en: "The Model Context Protocol (MCP) Is Released" },
+    summary: {
+      ja: "AnthropicがAIアプリと外部のデータ・ツールをつなぐオープン規格MCPを公開。接続先ごとに専用実装を作る負担を減らす狙い。",
+      en: "Anthropic released MCP, an open standard for connecting AI applications to external data and tools, replacing one-off integrations with a common protocol.",
+    },
+    sources: [{ label: "Anthropic: Introducing the Model Context Protocol", url: "https://www.anthropic.com/news/model-context-protocol" }],
+  },
+  {
     id: "2025-deepseek-r1",
     date: "2025-01-20",
     precision: "day",
@@ -240,6 +251,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "China's DeepSeek released its R1 reasoning model, claiming low-cost training, and topped the iOS free-app charts within a week.",
     },
     sources: [{ label: "Wikipedia: DeepSeek", url: "https://en.wikipedia.org/wiki/DeepSeek" }],
+  },
+  {
+    id: "2025-gpt-oss",
+    date: "2025-08-05",
+    precision: "day",
+    title: { ja: "OpenAIがオープンウェイトモデルgpt-ossを公開", en: "OpenAI Releases the Open-Weight gpt-oss Models" },
+    summary: {
+      ja: "GPT-2以来となるOpenAIのオープンウェイト推論モデルgpt-oss-120b/20bをApache 2.0ライセンスで公開。小さい方は一般的なPCでも動く設計。",
+      en: "OpenAI released gpt-oss-120b and gpt-oss-20b, its first open-weight reasoning models since GPT-2, under the Apache 2.0 license; the smaller one targets consumer hardware.",
+    },
+    sources: [{ label: "OpenAI: Introducing gpt-oss", url: "https://openai.com/index/introducing-gpt-oss/" }],
   },
   {
     id: "2025-gpt5",
@@ -253,6 +275,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "OpenAI: Introducing GPT-5", url: "https://openai.com/index/introducing-gpt-5/" }],
   },
   {
+    id: "2025-japan-ai-act",
+    date: "2025-09-01",
+    precision: "day",
+    title: { ja: "日本のAI法が全面施行", en: "Japan's AI Promotion Act Takes Full Effect" },
+    summary: {
+      ja: "「人工知能関連技術の研究開発及び活用の推進に関する法律」が全面施行され、AI戦略本部の設置とAI基本計画の策定が始まった。規制ではなく推進を軸にした法律。",
+      en: "Japan's Act on the Promotion of Research, Development and Utilization of AI-Related Technologies took full effect, establishing an AI Strategy Headquarters and starting a national AI basic plan — a promotion-first law rather than a regulatory one.",
+    },
+    sources: [{ label: "内閣府: ＡＩ法 全面施行", url: "https://www.cao.go.jp/press/new_wave/20251003.html" }],
+  },
+  {
     id: "2025-openai-restructuring",
     date: "2025-10-28",
     precision: "day",
@@ -264,15 +297,56 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "OpenAI: Evolving OpenAI's structure", url: "https://openai.com/index/evolving-our-structure/" }],
   },
   {
+    id: "2025-gemini3",
+    date: "2025-11-18",
+    precision: "day",
+    title: { ja: "Gemini 3発表", en: "Gemini 3 Announced" },
+    summary: {
+      ja: "GoogleがGemini 3 Proと、より深く推論するDeep Thinkモード、エージェント型開発環境Antigravityを発表した。",
+      en: "Google introduced Gemini 3 Pro, the deeper-reasoning Deep Think mode, and Antigravity, an agentic development platform.",
+    },
+    sources: [{ label: "Google: Gemini 3", url: "https://blog.google/products-and-platforms/products/gemini/gemini-3/" }],
+  },
+  {
+    id: "2025-agentic-ai-foundation",
+    date: "2025-12-09",
+    precision: "day",
+    title: { ja: "MCPがAgentic AI Foundationへ", en: "MCP Joins the Agentic AI Foundation" },
+    summary: {
+      ja: "AnthropicがMCPをLinux Foundation傘下のAgentic AI Foundationに寄贈。Anthropic・Block・OpenAIが共同設立し、中立的な団体が規格を管理する体制になった。",
+      en: "Anthropic donated MCP to the Agentic AI Foundation under the Linux Foundation, co-founded with Block and OpenAI, putting the standard under neutral stewardship.",
+    },
+    sources: [
+      { label: "MCP Blog: MCP joins the Agentic AI Foundation", url: "https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/" },
+    ],
+  },
+  {
     id: "2026-spacex-xai",
     date: "2026-02-02",
     precision: "day",
     title: { ja: "SpaceXがxAIを統合", en: "SpaceX Acquires xAI" },
     summary: {
-      ja: "SpaceXがGrokの開発元xAIを統合すると発表。xAIは「宇宙を理解する」ことを使命に掲げてきた。",
-      en: "SpaceX announced it had acquired xAI, the maker of Grok, which has framed its mission as \"understanding the universe.\"",
+      ja: "SpaceXがGrokの開発元xAIを統合すると発表。xAIは「宇宙を理解する」ことを使命に掲げてきた。同年7月には社名をSpaceXAIに改めた。",
+      en: "SpaceX announced it had acquired xAI, the maker of Grok, which has framed its mission as \"understanding the universe.\" That July the company was renamed SpaceXAI.",
     },
-    sources: [{ label: "xAI: xAI joins SpaceX", url: "https://x.ai/news/xai-joins-spacex" }],
+    sources: [
+      { label: "xAI: xAI joins SpaceX", url: "https://x.ai/news/xai-joins-spacex" },
+      { label: "Wikipedia: SpaceXAI", url: "https://en.wikipedia.org/wiki/SpaceXAI" },
+    ],
+  },
+  {
+    id: "2026-sora-discontinued",
+    date: "2026-03-24",
+    precision: "day",
+    title: { ja: "OpenAIがSoraの提供終了を発表", en: "OpenAI Announces the End of Sora" },
+    summary: {
+      ja: "動画生成サービスSoraの終了を発表。アプリとWeb版は4月26日に、APIは9月24日に停止した。注目サービスでも短期間で終わりうることを示した例。",
+      en: "OpenAI announced it was discontinuing its Sora video service; the app and web experience closed on April 26 and the API on September 24. A reminder that even high-profile services can end quickly.",
+    },
+    sources: [
+      { label: "OpenAI Docs: Deprecations", url: "https://developers.openai.com/api/docs/deprecations" },
+      { label: "Wikipedia: Sora (text-to-video model)", url: "https://en.wikipedia.org/wiki/Sora_(text-to-video_model)" },
+    ],
   },
   {
     id: "2026-claude-fable-5",
@@ -280,10 +354,13 @@ export const TIMELINE: readonly TimelineEvent[] = [
     precision: "day",
     title: { ja: "Claude Fable 5が一般提供開始", en: "Claude Fable 5 Becomes Generally Available" },
     summary: {
-      ja: "Anthropicの一般提供モデルとして最も高性能なClaude Fable 5がAPI・主要クラウド経由で利用可能になった。",
-      en: "Claude Fable 5, Anthropic's most capable widely released model, became available via the API and major cloud platforms.",
+      ja: "当時のAnthropicの一般提供モデルで最も高性能とされたClaude Fable 5がAPI・主要クラウド経由で利用可能になった（同年9月に5.1へ更新）。",
+      en: "Claude Fable 5, then Anthropic's most capable widely released model, became available via the API and major cloud platforms (superseded by 5.1 that September).",
     },
-    sources: [{ label: "Anthropic: Models overview", url: "https://platform.claude.com/docs/en/about-claude/models/overview" }],
+    sources: [
+      { label: "Anthropic: Models overview", url: "https://platform.claude.com/docs/en/about-claude/models/overview" },
+      { label: "Anthropic Docs: Model deprecations", url: "https://platform.claude.com/docs/en/about-claude/model-deprecations" },
+    ],
   },
   {
     id: "2026-gpt56",
@@ -295,5 +372,57 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "OpenAI introduced the GPT-5.6 family — Sol, Terra, and Luna — rolling out across ChatGPT, Codex, and the API.",
     },
     sources: [{ label: "OpenAI: GPT-5.6", url: "https://openai.com/index/gpt-5-6/" }],
+  },
+  {
+    id: "2026-eu-ai-act-applicable",
+    date: "2026-08-02",
+    precision: "day",
+    title: { ja: "EU AI Actが本格適用、高リスク規制は延期", en: "The EU AI Act Becomes Applicable; High-Risk Rules Postponed" },
+    summary: {
+      ja: "AI Actが適用開始となり透明性の義務が発効。一方で「デジタル・オムニバス」により、高リスクAIの義務は分野別に2027年12月2日・2028年8月2日へ延期された。",
+      en: "The AI Act became applicable and its transparency rules took effect, while the Digital Omnibus postponed the high-risk obligations to 2 December 2027 and 2 August 2028 depending on the category.",
+    },
+    sources: [
+      { label: "European Commission: AI Act", url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" },
+    ],
+  },
+  {
+    id: "2026-claude-fable-5-1",
+    date: "2026-09-01",
+    precision: "day",
+    title: { ja: "Claude Fable 5.1 / Mythos 5.1発表", en: "Claude Fable 5.1 and Mythos 5.1 Announced" },
+    summary: {
+      ja: "AnthropicがFable 5.1を一般提供。同じモデルを基にしつつ安全装置の構成が異なるMythos 5.1は、審査済みのサイバーセキュリティ・生命科学の組織に限って提供される。",
+      en: "Anthropic made Fable 5.1 generally available; Mythos 5.1, built on the same model with a different safeguard configuration, is limited to vetted cybersecurity and life-sciences organizations.",
+    },
+    sources: [{ label: "Anthropic: Introducing Claude Fable 5.1 and Claude Mythos 5.1", url: "https://www.anthropic.com/claude-fable-and-mythos-5-1" }],
+  },
+  {
+    id: "2026-gpt6-astra",
+    date: "2026-09-03",
+    precision: "day",
+    title: { ja: "GPT-6 Astra発表", en: "GPT-6 Astra Announced" },
+    summary: {
+      ja: "OpenAIがGPT-6世代の最上位モデルAstraを発表。9月22日にはSol・Lunaが続き、9月29日のDevDayでGPT-6.1 Solが公開された。",
+      en: "OpenAI introduced GPT-6 Astra, the top model of the GPT-6 generation; Sol and Luna followed on September 22, and GPT-6.1 Sol was unveiled at DevDay on September 29.",
+    },
+    sources: [
+      { label: "OpenAI: GPT-6 Astra", url: "https://openai.com/index/gpt-6-astra/" },
+      { label: "OpenAI Docs: Models", url: "https://developers.openai.com/api/docs/models" },
+      { label: "Wikipedia: GPT-6 Astra", url: "https://en.wikipedia.org/wiki/GPT-6_Astra" },
+    ],
+  },
+  {
+    id: "2026-gemini-4-argon",
+    date: "2026-09-30",
+    precision: "day",
+    title: { ja: "Gemini 4 Argon発表", en: "Gemini 4 Argon Announced" },
+    summary: {
+      ja: "GoogleがGemini 4世代の最初のモデルArgonを発表。ソフトウェア開発・企業の知的業務・サイバー防御を掲げ、まず審査済みのサイバー防御者向けに段階的に提供を開始した。",
+      en: "Google announced Gemini 4 Argon, the first of the Gemini 4 generation, aimed at software engineering, enterprise knowledge work, and cyber defense, rolling out first to vetted cyber defenders.",
+    },
+    sources: [
+      { label: "Google: Introducing Gemini 4 Argon", url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" },
+    ],
   },
 ];

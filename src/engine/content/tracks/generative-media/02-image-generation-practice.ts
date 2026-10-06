@@ -60,10 +60,12 @@ Resolution and aspect-ratio settings, and generating multiple candidates to choo
     },
   ],
   sources: [
+    { label: "OpenAI Docs: Image generation", url: "https://developers.openai.com/api/docs/guides/image-generation" },
+    { label: "Google Cloud: Imagen prompt guide", url: "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/img-gen-prompt-guide" },
     {
       label: "Scale AI: Diffusion Models: A Practical Guide",
       url: "https://scale.com/guides/diffusion-models-guide",
     },
   ],
-  lastVerified: "2026-07-15",
+  lastVerified: "2026-10-06",
 };
