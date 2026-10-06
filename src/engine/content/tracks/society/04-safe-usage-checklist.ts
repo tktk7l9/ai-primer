@@ -20,6 +20,7 @@ export const safeUsageChecklist: Lesson = {
 - [ ] 今の目的に、どのAI・どの手法が向いているかを考える（主要チャットAI比較トラック参照）。
 - [ ] 個人情報・秘密情報を入力しても問題ないサービスか確認する（学習利用の設定・保存期間・職場のルール。仕事での情報の扱いのレッスン参照）。
 - [ ] 仕事で使うなら、職場のルールとAI事業者ガイドラインの「AI利用者」向けの項目を確認する（AIのルールのレッスン参照）。
+- [ ] 会議を録音・文字起こしするなら、始める前に参加者に知らせる（[会議の記録と要約](/ja/learn/ai-at-work/meeting-notes)のレッスン参照）。
 - [ ] 音声モードでカメラや画面を共有するなら、保存・学習の設定と、映り込む情報や周りの人を確認する（音声アシスタントのレッスン参照）。
 - [ ] 学ぶために使うなら、先に自分で考え、答えではなくヒントを頼む（AIで学ぶレッスン参照）。
 
@@ -30,6 +31,7 @@ export const safeUsageChecklist: Lesson = {
 ### 回答を受け取ったとき
 - [ ] 重要な事実・数値・引用は、自分で出典を確認する（ハルシネーションのレッスン参照）。
 - [ ] 出典つきの回答やディープリサーチのレポートでも、出典を開いて該当箇所を確かめる（AIで調べ物をするレッスン参照）。
+- [ ] AIが作った要約・翻訳・集計は、数字・固有名詞・担当者・期限を元の発言や資料と照らし合わせてから使う（[仕事でAIを使う](/ja/learn/ai-at-work)トラック参照）。
 - [ ] 医療・法律・税務など専門判断が必要な内容は、専門家に相談する。
 - [ ] 偏った・不公平な内容が含まれていないか、一歩引いて確認する（リスクのレッスン参照）。
 
@@ -42,6 +44,7 @@ export const safeUsageChecklist: Lesson = {
 - [ ] 読める範囲と実行できる操作を、そのタスクに必要な分だけに絞る（AIエージェントトラック参照）。
 - [ ] 非公開データ・信頼できない内容・外部への通信の3つを同時に持たせない。
 - [ ] MCPサーバーは、誰が作ったか・何ができるかを確認してから接続する。
+- [ ] 定型作業を任せるなら、送信・削除・支払いなど取り消しにくい操作の前に人の承認を挟み、記録を残す（[定型作業の自動化](/ja/learn/ai-at-work/automating-routine-work)のレッスン参照）。
 
 ### 画像・音楽などを生成するとき
 - [ ] 公開・商用利用する前に、サービスの利用規約と著作権の基本（米国と日本の考え方）を確認する（生成メディアトラック参照）。
@@ -59,6 +62,7 @@ Here's a checklist for everyday use, drawing on every track in this course.
 - [ ] Consider which AI or technique fits your current goal (see Comparing the Major Chat AIs).
 - [ ] Check whether it's safe to enter personal or confidential information into this service (training settings, retention, workplace rules — see the lesson on handling information at work).
 - [ ] At work, check your workplace's rules and the "AI business user" items in Japan's AI Guidelines for Business (see the lesson on the rules for AI).
+- [ ] Before recording or transcribing a meeting, tell the participants (see the [meeting notes](/en/learn/ai-at-work/meeting-notes) lesson).
 - [ ] Before sharing your camera or screen in a voice mode, check the storage and training settings, and what — and who — is in frame (see the voice assistants lesson).
 - [ ] When using AI to learn, think first and ask for hints rather than answers (see the lesson on learning with AI).
 
@@ -69,6 +73,7 @@ Here's a checklist for everyday use, drawing on every track in this course.
 ### Reading the answer
 - [ ] Verify important facts, numbers, and citations against real sources yourself (see the Hallucination lesson).
 - [ ] Even when an answer or a deep research report cites sources, open them and find the passage (see the lesson on researching with AI).
+- [ ] Before using an AI-made summary, translation, or calculation, check its numbers, names, owners, and deadlines against what was said or the source material (see the [Using AI at Work](/en/learn/ai-at-work) track).
 - [ ] For anything requiring professional judgment — medical, legal, tax — consult an actual professional.
 - [ ] Step back and check for biased or unfair content (see the Risks lesson).
 
@@ -81,6 +86,7 @@ Here's a checklist for everyday use, drawing on every track in this course.
 - [ ] Limit what it can read and do to what the task needs (see the AI Agents track).
 - [ ] Don't give it private data, untrusted content, and external communication all at once.
 - [ ] Before connecting an MCP server, check who built it and what it can do.
+- [ ] When automating routine work, put a human approval before hard-to-undo actions such as sending, deleting, or paying, and keep a log (see the [automating routine work](/en/learn/ai-at-work/automating-routine-work) lesson).
 
 ### When generating images or music
 - [ ] Before publishing or commercial use, check the service's terms and the basics of copyright in the US and Japan (see Generating Images, Video, and Music).

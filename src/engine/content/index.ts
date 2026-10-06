@@ -7,9 +7,10 @@ import { promptingTrack } from "./tracks/prompting";
 import { aiAgentsTrack } from "./tracks/ai-agents";
 import { codingAiTrack } from "./tracks/coding-ai";
 import { generativeMediaTrack } from "./tracks/generative-media";
+import { aiAtWorkTrack } from "./tracks/ai-at-work";
 import { societyTrack } from "./tracks/society";
 
-/** All tracks in display order (9, all complete). */
+/** All tracks in display order (10, all complete). */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
@@ -19,6 +20,8 @@ export const TRACKS: readonly Track[] = [
   aiAgentsTrack,
   codingAiTrack,
   generativeMediaTrack,
+  // Applies the tool tracks above to everyday tasks; society stays last so its checklist closes the course.
+  aiAtWorkTrack,
   societyTrack,
 ];
 

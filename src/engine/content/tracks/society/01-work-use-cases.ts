@@ -31,7 +31,9 @@ export const workUseCases: Lesson = {
 ### 顧客対応の下支え
 問い合わせ内容の分類・一次回答案の作成など、人間の最終判断の前段階を効率化する使い方。
 
-**共通する姿勢**: どの用途でも、AIは「叩き台を素早く作る」役割が中心で、最終的な事実確認・品質担保・意思決定は人間が担うという役割分担が実務での基本形です。`,
+**共通する姿勢**: どの用途でも、AIは「叩き台を素早く作る」役割が中心で、最終的な事実確認・品質担保・意思決定は人間が担うという役割分担が実務での基本形です。
+
+会議の記録・文章・翻訳・表計算・資料づくり・定型作業の自動化について、場面ごとの手順と確かめ方は「[仕事でAIを使う](/ja/learn/ai-at-work)」トラックにまとめています。`,
     en: `## Applying earlier lessons to real work
 
 The elements covered so far — chat AI, prompting, coding AI, generative media — combine in the workplace roughly like this:
@@ -51,7 +53,9 @@ Using image generation (Generative Media track) to rough out illustrations or vi
 ### Supporting customer interactions
 Classifying inquiries or drafting a first-pass reply — speeding up the step before a human makes the final call.
 
-**A common thread**: across use cases, AI mainly plays the role of producing a fast first draft, while final fact-checking, quality control, and decisions stay with a human — that division of labor is the practical baseline.`,
+**A common thread**: across use cases, AI mainly plays the role of producing a fast first draft, while final fact-checking, quality control, and decisions stay with a human — that division of labor is the practical baseline.
+
+For step-by-step guidance on meeting notes, writing, translation, spreadsheets, slides and images, and automating routine work — including what to check — see the [Using AI at Work](/en/learn/ai-at-work) track.`,
   },
   quiz: [
     {
