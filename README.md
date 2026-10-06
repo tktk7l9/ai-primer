@@ -9,7 +9,7 @@ ChatGPT・Claude・Gemini・Grok などのチャットAIから、コーディン
 
 ## 特徴
 
-- **9トラック / 46レッスン**: 基礎用語 → 歴史 → LLMの仕組み → 主要AI比較 → プロンプト術 → AIエージェントとツール連携 → コーディングAI → 生成メディア → 活用と倫理
+- **9トラック / 52レッスン**: 基礎用語 → 歴史 → LLMの仕組み → 主要AI比較 → プロンプト術 → AIエージェントとツール連携 → コーディングAI → 生成メディア → 活用・倫理・ルール
 - **クイズと進捗管理**: 各レッスンに確認クイズ。進捗はブラウザ（localStorage）に保存
 - **全ての事実に出典リンク**: 各レッスン・カタログ項目が一次情報源を明記
 - **鮮度の可視化**: レッスンごとに「最終確認日」を表示。古くなった項目は月次ワークフローが自動検出
@@ -39,7 +39,7 @@ npm run build
 
 - npm audit: 本番依存は 0 件。開発用依存の braces（修正版なし・GHSA-vfj7-8cjw-p6xm）だけを、理由と期限つきの例外リスト（`audit-allowlist.json`）で許容し、CI の `scripts/audit-gate.mjs` で検査
 - gitleaks: 0 leaks
-- テスト: 586件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
+- テスト: 631件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
 - Lighthouse（本番URL計測・2026-09-14 / Cloudflare Workers・3回計測の中央値）:
   mobile 100/100/100/100・desktop 100/100/100/100
 - Mozilla Observatory（本番URL計測・2026-09-14 / Cloudflare Workers）: B（score 75・10/12 tests passed）
