@@ -27,7 +27,8 @@ export const choosing: Lesson = {
 ### 実践的なコツ
 - 無料枠で複数のAIを試し、自分の作業のクセに合うものを見つける。
 - 重要な事実確認は、どのAIを使っていても出典を自分で確認する（ハルシネーションのレッスン参照）。
-- 具体的なモデル名・料金・機能差は変化が速いため、本サイトの [モデルカタログ](/ja/models) で随時確認する。`,
+- 具体的なモデル名・料金・機能差は変化が速いため、本サイトの [モデルカタログ](/ja/models) で随時確認する。
+- ベンチマークの点数やランキングで比べるときは、誰が・どの条件で測った数字かを確かめる（[ベンチマークの読み方](/ja/learn/understanding-ai/reading-benchmarks)のレッスン参照）。`,
     en: `## Fit for purpose, not "the best"
 
 Each provider updates frequently, and which one leads on performance shifts every few months. So instead of chasing "which is best," it's more practical to ask **what fits the task in front of you**.
@@ -43,7 +44,8 @@ Each provider updates frequently, and which one leads on performance shifts ever
 ### Practical tips
 - Try several AIs on free tiers to find what matches how you work.
 - Whichever AI you use, verify important facts against real sources yourself (see the Hallucination lesson).
-- Specific model names, pricing, and feature differences change fast — check this site's [model catalog](/en/models) for current details.`,
+- Specific model names, pricing, and feature differences change fast — check this site's [model catalog](/en/models) for current details.
+- When comparing benchmark scores or rankings, check who measured them and under what conditions (see [how to read AI benchmarks](/en/learn/understanding-ai/reading-benchmarks)).`,
   },
   quiz: [
     {

@@ -26,7 +26,7 @@ export const lifeUseCases: Lesson = {
 生成メディアトラックで扱った画像・音楽生成を使い、趣味の創作物のアイデア出しや叩き台作りに活用する。
 
 ### 健康・お金の相談の下調べ
-一般的な情報の整理には使えますが、医療・法律・税務など専門的な判断が必要な場面では、AIの回答を鵜呑みにせず専門家に相談することが重要です（AI基礎トラックのハルシネーションのレッスンも参照）。
+一般的な情報の整理には使えますが、医療・法律・税務など専門的な判断が必要な場面では、AIの回答を鵜呑みにせず専門家に相談することが重要です（AI基礎トラックのハルシネーションのレッスンも参照）。健康・医療の情報を調べるときの注意と、迷ったときの相談先は[健康・医療の情報をAIで調べるとき](/ja/learn/understanding-ai/health-information)のレッスンで扱います。
 
 **共通する心構え**: 生活での活用でも、「答えをそのまま信じる」のではなく、「選択肢を整理し、たたき台を作ってもらう」道具として使うのが安全な付き合い方です。`,
     en: `## Small everyday helpers
@@ -43,7 +43,7 @@ Suggesting meal ideas, drafting a rough travel itinerary, making a moving checkl
 Using image or music generation (Generative Media track) to brainstorm ideas or rough out a hobby project.
 
 ### Preliminary research on health or money questions
-Fine for organizing general information, but for anything requiring professional judgment — medical, legal, tax — don't take an AI's answer at face value; consult a professional (see also the Hallucination lesson in AI Fundamentals).
+Fine for organizing general information, but for anything requiring professional judgment — medical, legal, tax — don't take an AI's answer at face value; consult a professional (see also the Hallucination lesson in AI Fundamentals). For what to watch for when looking up health information, and where to turn when unsure, see [looking up health information with AI](/en/learn/understanding-ai/health-information).
 
 **A common mindset**: in everyday use too, the safer approach is treating AI as a tool that organizes options and drafts a starting point — not as a source of answers to accept at face value.`,
   },

@@ -18,6 +18,8 @@ export const safeUsageChecklist: Lesson = {
 
 ### 使う前に
 - [ ] 今の目的に、どのAI・どの手法が向いているかを考える（主要チャットAI比較トラック参照）。
+- [ ] ベンチマークの点数やランキングで選ぶときは、誰が・どの条件で測った数字かを確かめ、自分の課題でも試す（[ベンチマークの読み方](/ja/learn/understanding-ai/reading-benchmarks)のレッスン参照）。
+- [ ] 新しいAIを仕事などで本格的に使う前に、開発元のシステムカードで、試された範囲・対象外の機能・残るリスクに目を通す（[AIの安全性の取り組み](/ja/learn/understanding-ai/ai-safety-practices)のレッスン参照）。
 - [ ] 個人情報・秘密情報を入力しても問題ないサービスか確認する（学習利用の設定・保存期間・職場のルール。仕事での情報の扱いのレッスン参照）。
 - [ ] 仕事で使うなら、職場のルールとAI事業者ガイドラインの「AI利用者」向けの項目を確認する（AIのルールのレッスン参照）。
 - [ ] 会議を録音・文字起こしするなら、始める前に参加者に知らせる（[会議の記録と要約](/ja/learn/ai-at-work/meeting-notes)のレッスン参照）。
@@ -34,6 +36,7 @@ export const safeUsageChecklist: Lesson = {
 - [ ] 出典つきの回答やディープリサーチのレポートでも、出典を開いて該当箇所を確かめる（AIで調べ物をするレッスン参照）。
 - [ ] AIが作った要約・翻訳・集計は、数字・固有名詞・担当者・期限を元の発言や資料と照らし合わせてから使う（[仕事でAIを使う](/ja/learn/ai-at-work)トラック参照）。
 - [ ] 医療・法律・税務など専門判断が必要な内容は、専門家に相談する。
+- [ ] 体調や薬のことは、AIの答えだけで決めない。迷ったら医師・薬剤師や#7119などの電話相談に相談し、命に関わりそうなら119番に電話する（[健康・医療の情報をAIで調べるとき](/ja/learn/understanding-ai/health-information)のレッスン参照）。
 - [ ] 偏った・不公平な内容が含まれていないか、一歩引いて確認する（リスクのレッスン参照）。
 - [ ] 採用や評価など人に関わる判断に使うなら、名前や性別など関係ないはずの部分を入れ替えて結果が変わらないか試し、AIの出力だけで決めない（[AIのバイアスと公平性](/ja/learn/ai-and-society/bias-and-fairness)のレッスン参照）。
 
@@ -64,6 +67,8 @@ Here's a checklist for everyday use, drawing on every track in this course.
 
 ### Before you start
 - [ ] Consider which AI or technique fits your current goal (see Comparing the Major Chat AIs).
+- [ ] When choosing by benchmark scores or rankings, check who measured them and under what conditions, and try the AI on your own tasks too (see [how to read AI benchmarks](/en/learn/understanding-ai/reading-benchmarks)).
+- [ ] Before relying on a new AI for work or other serious use, skim the developer's system card for what was tested, what was out of scope, and what risks remain (see [how AI developers work on safety](/en/learn/understanding-ai/ai-safety-practices)).
 - [ ] Check whether it's safe to enter personal or confidential information into this service (training settings, retention, workplace rules — see the lesson on handling information at work).
 - [ ] At work, check your workplace's rules and the "AI business user" items in Japan's AI Guidelines for Business (see the lesson on the rules for AI).
 - [ ] Before recording or transcribing a meeting, tell the participants (see the [meeting notes](/en/learn/ai-at-work/meeting-notes) lesson).
@@ -80,6 +85,7 @@ Here's a checklist for everyday use, drawing on every track in this course.
 - [ ] Even when an answer or a deep research report cites sources, open them and find the passage (see the lesson on researching with AI).
 - [ ] Before using an AI-made summary, translation, or calculation, check its numbers, names, owners, and deadlines against what was said or the source material (see the [Using AI at Work](/en/learn/ai-at-work) track).
 - [ ] For anything requiring professional judgment — medical, legal, tax — consult an actual professional.
+- [ ] Don't let an AI's answer decide health or medicine questions for you. If you're unsure, ask a doctor or pharmacist or call a phone service such as #7119 in Japan, and call 119 if a life may be at risk (see [looking up health information with AI](/en/learn/understanding-ai/health-information)).
 - [ ] Step back and check for biased or unfair content (see the Risks lesson).
 - [ ] When AI helps with decisions about people, such as hiring or reviews, swap details that shouldn't matter — a name, a gender — to see whether the result changes, and don't let the AI's output decide on its own (see the [bias and fairness](/en/learn/ai-and-society/bias-and-fairness) lesson).
 

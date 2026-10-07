@@ -25,7 +25,7 @@ export const codingAiOverview: Lesson = {
 ### 3. エージェント型
 目標（「このバグを直して」「この機能を実装して」）を与えると、リポジトリを読み込み、実装計画を立て、複数ファイルを編集し、テストを実行し、変更をまとめるところまで**自律的に**行うタイプ。人間は結果をレビュー・承認する立場になります。
 
-同じ製品が複数の段階の機能を併せ持つこともあります（例: エディタ補完とエージェント機能を両方提供するツール）。次のレッスンから、代表的なツールを具体的に見ていきます。`,
+同じ製品が複数の段階の機能を併せ持つこともあります（例: エディタ補完とエージェント機能を両方提供するツール）。次のレッスンから、代表的なツールを具体的に見ていきます。コーディングAIの比較に使われるSWE-benchなどの点数の読み方は、[ベンチマークの読み方](/ja/learn/understanding-ai/reading-benchmarks)のレッスンで扱います。`,
     en: `## Three levels
 
 Coding-assistance AI roughly falls into three levels of capability.
@@ -39,7 +39,7 @@ A conversational interface for coding questions — debugging an error, discussi
 ### 3. Agentic
 Given a goal ("fix this bug," "implement this feature"), it reads the repository, plans an implementation, edits multiple files, runs tests, and wraps up the change — **autonomously**. Your role shifts to reviewing and approving the result.
 
-A single product can offer features at more than one level (many editors now combine completion with agentic capabilities). The next lessons look at specific, representative tools.`,
+A single product can offer features at more than one level (many editors now combine completion with agentic capabilities). The next lessons look at specific, representative tools. How to read the scores used to compare coding AI, such as SWE-bench, is covered in [how to read AI benchmarks](/en/learn/understanding-ai/reading-benchmarks).`,
   },
   quiz: [
     {

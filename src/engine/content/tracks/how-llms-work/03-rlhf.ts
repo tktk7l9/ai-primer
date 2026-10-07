@@ -23,7 +23,7 @@ export const rlhf: Lesson = {
 
 この手法が広く知られるきっかけになったのが、OpenAIが2022年に発表した **InstructGPT** です。指示に従うよう調整されたことで、パラメータ数が少ない1.3BのInstructGPTが、遥かに大きい175BのGPT-3よりも人間の評価者に好まれ、事実誤りや有害な出力も大きく減少したと報告されています。
 
-RLHFによって、モデルは単に「もっともらしい文章」を生成するだけでなく、「人間にとって役立ち、安全で、指示に沿った」回答を優先するようになります。`,
+RLHFによって、モデルは単に「もっともらしい文章」を生成するだけでなく、「人間にとって役立ち、安全で、指示に沿った」回答を優先するようになります。RLHFのほかに開発元が公開前に行う安全性の確認（レッドチーミングなど）と、その結果をまとめたシステムカードの読み方は、[AIの安全性の取り組み](/ja/learn/understanding-ai/ai-safety-practices)のレッスンで扱います。`,
     en: `## Turning human preferences into a training signal
 
 **RLHF (Reinforcement Learning from Human Feedback)** uses human evaluations to steer model tuning. Roughly:
@@ -35,7 +35,7 @@ RLHFによって、モデルは単に「もっともらしい文章」を生成�
 
 The technique became widely known through OpenAI's 2022 **InstructGPT** paper. After instruction-tuning with RLHF, a much smaller 1.3-billion-parameter InstructGPT was preferred by human raters over the far larger 175-billion-parameter GPT-3 in side-by-side comparisons, and produced markedly fewer factual errors and toxic outputs.
 
-RLHF is what pushes a model beyond "generating plausible text" toward answers that are helpful, safe, and responsive to instructions.`,
+RLHF is what pushes a model beyond "generating plausible text" toward answers that are helpful, safe, and responsive to instructions. The other safety checks developers run before release — such as red teaming — and how to read the system cards that report them are covered in [how AI developers work on safety](/en/learn/understanding-ai/ai-safety-practices).`,
   },
   quiz: [
     {
