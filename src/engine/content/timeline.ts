@@ -14,7 +14,9 @@ export interface TimelineEvent {
 }
 
 // All dates and events verified against primary sources or reliable encyclopedias (as of 2026-07-15; entries from 2024-11 onward re-verified or added on 2026-10-06;
-// C2PA, SynthID, Japan's AI copyright/guideline/basic-plan, Gemini Deep Research, and EU AI Act 2025-02 entries added on 2026-10-07).
+// C2PA, SynthID, Japan's AI copyright/guideline/basic-plan, Gemini Deep Research, and EU AI Act 2025-02 entries added on 2026-10-07;
+// the AI-and-society entries — NIST face recognition 2019, Apple Live Speech 2023, Japan's anti-fraud plan 2024, IEA/ILO/ChatGPT
+// parental controls 2025, and the 2026 labour white paper — added on 2026-10-07).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -109,6 +111,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "Wikipedia: Attention Is All You Need", url: "https://en.wikipedia.org/wiki/Attention_Is_All_You_Need" }],
   },
   {
+    id: "2019-nist-face-recognition-demographics",
+    date: "2019-12-19",
+    precision: "day",
+    title: {
+      ja: "NISTが顔認識の人種・性別・年齢による差を報告",
+      en: "NIST Reports Demographic Differences in Face Recognition",
+    },
+    summary: {
+      ja: "米国国立標準技術研究所（NIST）が、99の開発者による189の顔認識アルゴリズムを評価。1対1の照合では、アジア系やアフリカ系米国人の顔で別人を同一人物と誤判定する率が白人の顔より高く、その差はアルゴリズムによって10倍から100倍に及ぶことが多かった。",
+      en: "The US National Institute of Standards and Technology (NIST) evaluated 189 face recognition algorithms from 99 developers. In one-to-one matching, false positives were higher for Asian and African American faces than for white faces, with differentials often ranging from a factor of 10 to 100 depending on the algorithm.",
+    },
+    sources: [
+      {
+        label: "NIST: NIST Study Evaluates Effects of Race, Age, Sex on Face Recognition Software",
+        url: "https://www.nist.gov/news-events/news/2019/12/nist-study-evaluates-effects-race-age-sex-face-recognition-software",
+      },
+    ],
+  },
+  {
     id: "2020-gpt3",
     date: "2020-06-01",
     precision: "month",
@@ -191,6 +212,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "HISTORY: ChatGPT is released to the public", url: "https://www.history.com/this-day-in-history/november-30/chatgpt-released-openai" }],
   },
   {
+    id: "2023-apple-live-speech-personal-voice",
+    date: "2023-05-16",
+    precision: "day",
+    title: {
+      ja: "AppleがLive SpeechとPersonal Voiceを発表",
+      en: "Apple Previews Live Speech and Personal Voice",
+    },
+    summary: {
+      ja: "Appleが、打った文字を電話や対面の会話で読み上げる「Live Speech」と、ALSなどで発話能力を失うリスクのある人が自分の声に似た声を作れる「Personal Voice」を発表した。Personal Voiceは15分ほどの録音から、デバイス上の機械学習で作成する。",
+      en: "Apple previewed Live Speech, which speaks typed text aloud during phone calls and in-person conversations, and Personal Voice, which lets people at risk of losing their ability to speak, such as those with ALS, create a voice that sounds like them from about 15 minutes of recordings, using on-device machine learning.",
+    },
+    sources: [
+      {
+        label: "Apple Newsroom: Apple introduces new features for cognitive accessibility, along with Live Speech, Personal Voice, and Point and Speak in Magnifier",
+        url: "https://www.apple.com/newsroom/2023/05/apple-previews-live-speech-personal-voice-and-more-new-accessibility-features/",
+      },
+    ],
+  },
+  {
     id: "2023-synthid",
     date: "2023-08-29",
     precision: "day",
@@ -258,6 +298,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "OpenAI introduced GPT-4o, a multimodal model that reasons across text, audio, and vision in real time.",
     },
     sources: [{ label: "OpenAI: Hello GPT-4o", url: "https://openai.com/index/hello-gpt-4o/" }],
+  },
+  {
+    id: "2024-japan-anti-fraud-plan",
+    date: "2024-06-18",
+    precision: "day",
+    title: {
+      ja: "「国民を詐欺から守るための総合対策」決定",
+      en: "Japan Adopts a Comprehensive Plan Against Fraud",
+    },
+    summary: {
+      ja: "犯罪対策閣僚会議が、投資家や著名人になりすましたSNS上の偽広告などで被害者を誘い込む詐欺への対策として、プラットフォーム事業者に広告の事前審査の強化や、広告を出す人の本人確認の強化を求めることなどを盛り込んだ総合対策を決定した。",
+      en: "Japan's Ministerial Meeting on Crime Countermeasures adopted a comprehensive plan against fraud. To counter scams that lure victims with fake social media ads impersonating investors and celebrities, it calls on platform operators to strengthen ad screening and verification of advertisers' identities.",
+    },
+    sources: [
+      {
+        label: "犯罪対策閣僚会議: 国民を詐欺から守るための総合対策（2024-06-18）",
+        url: "https://www.cas.go.jp/jp/seisakukaigi/hanzai/kettei/240618/honbun.pdf",
+      },
+    ],
   },
   {
     id: "2024-claude35-sonnet",
@@ -347,6 +406,39 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2025-iea-energy-and-ai",
+    date: "2025-04-10",
+    precision: "day",
+    title: {
+      ja: "IEAが報告書「Energy and AI」を公表",
+      en: "The IEA Publishes Energy and AI",
+    },
+    summary: {
+      ja: "国際エネルギー機関（IEA）が、AIとエネルギーに関する報告書を公表。2024年に世界の電力消費の約1.5%（415TWh）だったデータセンターの電力消費が、2030年には約945TWhと2倍以上になり、AIがその最大の要因になる見通しを示した。",
+      en: "The International Energy Agency (IEA) published its report on energy and AI, projecting that data-centre electricity consumption — around 1.5% of the world's electricity, or 415 TWh, in 2024 — would more than double to around 945 TWh by 2030, with AI as the most important driver.",
+    },
+    sources: [{ label: "IEA: Energy and AI", url: "https://www.iea.org/reports/energy-and-ai" }],
+  },
+  {
+    id: "2025-ilo-genai-exposure-index",
+    date: "2025-05-20",
+    precision: "day",
+    title: {
+      ja: "ILOが生成AIへの職業の曝露の世界指標を公表",
+      en: "The ILO Publishes a Global Index of Exposure to Generative AI",
+    },
+    summary: {
+      ja: "国際労働機関（ILO）とポーランドの国立研究機関NASKが、世界の雇用の25%（高所得国では34%）が生成AIに曝露している職業にあるとする指標を公表。数字は潜在的な曝露であって実際に失われた仕事ではなく、置き換えより仕事の変化が起こりやすいとした。",
+      en: "The International Labour Organization (ILO) and Poland's NASK published an index finding that 25% of global employment (34% in high-income countries) is in occupations exposed to generative AI — stressing that this is potential exposure, not actual job losses, and that transformation is more likely than replacement.",
+    },
+    sources: [
+      {
+        label: "ILO: One in four jobs at risk of being transformed by GenAI, new ILO–NASK Global Index shows",
+        url: "https://www.ilo.org/resource/news/one-four-jobs-risk-being-transformed-genai-new-ilo%E2%80%93nask-global-index-shows",
+      },
+    ],
+  },
+  {
     id: "2025-gpt-oss",
     date: "2025-08-05",
     precision: "day",
@@ -378,6 +470,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "Japan's Act on the Promotion of Research, Development and Utilization of AI-Related Technologies took full effect, establishing an AI Strategy Headquarters and starting a national AI basic plan — a promotion-first law rather than a regulatory one.",
     },
     sources: [{ label: "内閣府: ＡＩ法 全面施行", url: "https://www.cao.go.jp/press/new_wave/20251003.html" }],
+  },
+  {
+    id: "2025-chatgpt-parental-controls",
+    date: "2025-09-29",
+    precision: "day",
+    title: {
+      ja: "ChatGPTにペアレンタルコントロール",
+      en: "Parental Controls Come to ChatGPT",
+    },
+    summary: {
+      ja: "OpenAIが、保護者と10代の子どものアカウントを連携し、年齢に合った使い方になるよう設定を調整できるペアレンタルコントロールを、ChatGPTのすべての利用者に提供し始めた。",
+      en: "OpenAI made parental controls available to all ChatGPT users, letting parents link their account with their teen's account and customize settings for a safe, age-appropriate experience.",
+    },
+    sources: [
+      { label: "OpenAI: Introducing parental controls", url: "https://openai.com/index/introducing-parental-controls/" },
+    ],
   },
   {
     id: "2025-openai-restructuring",
@@ -515,6 +623,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
       { label: "OpenAI: GPT-6 Astra", url: "https://openai.com/index/gpt-6-astra/" },
       { label: "OpenAI Docs: Models", url: "https://developers.openai.com/api/docs/models" },
       { label: "Wikipedia: GPT-6 Astra", url: "https://en.wikipedia.org/wiki/GPT-6_Astra" },
+    ],
+  },
+  {
+    id: "2026-japan-labour-white-paper-ai",
+    date: "2026-09-29",
+    precision: "day",
+    title: {
+      ja: "労働経済白書がAIを分析テーマに",
+      en: "Japan's Labour White Paper Focuses on AI",
+    },
+    summary: {
+      ja: "厚生労働省が「令和8年版 労働経済の分析」を公表。分析テーマを「AI等技術革新が進む中での労働市場の現状と課題」とし、国全体ではAIによって大きな雇用の減少が生じている証拠は現時点で示されていないとする一方、職種などによっては雇用を生む影響と失わせる影響の両方がありうるとした。",
+      en: "Japan's Ministry of Health, Labour and Welfare published its 2026 white paper on the labour economy, themed on the labour market amid AI and other technological innovation. It found no evidence so far of AI causing large employment declines across the economy, while noting that AI could both create and destroy jobs in particular occupations.",
+    },
+    sources: [
+      {
+        label: "厚生労働省: 「令和８年版 労働経済の分析」を公表します（2026-09-29）",
+        url: "https://www.mhlw.go.jp/stf/newpage_75700.html",
+      },
     ],
   },
   {

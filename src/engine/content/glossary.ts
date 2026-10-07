@@ -46,7 +46,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIがもっともらしいが事実に基づかない内容を生成してしまう現象。",
       en: "When an AI generates plausible-sounding but factually incorrect or fabricated content.",
     },
-    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02"],
+    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02", "ai-and-society-04", "ai-and-society-06"],
     sources: [{ label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" }],
     lastVerified: "2026-10-06",
   },
@@ -57,7 +57,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "テキスト・画像・音声など複数種のデータを1つのモデルで処理・関連づけられること。",
       en: "The ability of a single model to process and relate multiple data types — text, images, audio, and more.",
     },
-    relatedLessonIds: ["ai-basics-05", "chat-ais-07"],
+    relatedLessonIds: ["ai-basics-05", "chat-ais-07", "ai-and-society-04"],
     sources: [{ label: "IBM: What is Multimodal AI?", url: "https://www.ibm.com/think/topics/multimodal-ai" }],
     lastVerified: "2026-10-06",
   },
@@ -84,7 +84,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "ツールを使い、目標達成のためのタスクを自律的に計画・実行するシステム。",
       en: "A system that uses tools to autonomously plan and execute tasks toward a goal.",
     },
-    relatedLessonIds: ["ai-basics-06", "ai-agents-01", "ai-agents-05", "ai-at-work-06"],
+    relatedLessonIds: ["ai-basics-06", "ai-agents-01", "ai-agents-05", "ai-at-work-06", "ai-and-society-02"],
     sources: [{ label: "IBM: What Are AI Agents?", url: "https://www.ibm.com/think/topics/ai-agents" }],
     lastVerified: "2026-10-06",
   },
@@ -139,7 +139,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "人間による回答の順位づけから報酬モデルを学習し、それを使ってモデル自体を調整する手法。",
       en: "A technique that trains a reward model from human rankings of answers, then uses it to adjust the model itself.",
     },
-    relatedLessonIds: ["how-llms-work-03"],
+    relatedLessonIds: ["how-llms-work-03", "ai-and-society-03"],
     sources: [{ label: "IBM: What Is RLHF?", url: "https://www.ibm.com/think/topics/rlhf" }],
     lastVerified: "2026-10-06",
   },
@@ -398,7 +398,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "実在する人物・物・場所・出来事などに似せてAIで生成・加工した画像・音声・動画で、本物や真実であるかのように誤って見えるもの（EU AI Actの定義による）。",
       en: "AI-generated or manipulated image, audio, or video content that resembles existing persons, objects, places, entities, or events and would falsely appear to a person to be authentic or truthful (the EU AI Act's definition).",
     },
-    relatedLessonIds: ["generative-media-07", "society-07", "ai-at-work-05"],
+    relatedLessonIds: ["generative-media-07", "society-07", "ai-at-work-05", "ai-and-society-05"],
     sources: [
       { label: "AI Act Service Desk: Article 3 (Definitions)", url: "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-3" },
       {
@@ -535,7 +535,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "人の話し声を、プログラムで文字に変換する技術。自動音声認識（ASR）とも呼ぶ。会議の文字起こしや音声入力に使われる。聞き違いのほか、元の音声にない語句や文を作ってしまう例も報告されている。",
       en: "Technology that lets a program turn human speech into written text, also called automatic speech recognition (ASR). It powers meeting transcripts and voice input. Besides mishearing, it has been found to produce whole phrases or sentences that were never in the audio.",
     },
-    relatedLessonIds: ["ai-at-work-01", "chat-ais-07"],
+    relatedLessonIds: ["ai-at-work-01", "chat-ais-07", "ai-and-society-04"],
     sources: [
       { label: "IBM: What Is Speech Recognition?", url: "https://www.ibm.com/think/topics/speech-recognition" },
       {
@@ -662,6 +662,240 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       {
         label: "法務省: 取りまとめ報告書―生成AIによるパブリシティ権侵害等に関する解釈指針―【概要資料】（2026年8月）",
         url: "https://www.moj.go.jp/content/001468506.pdf",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "ai-exposure",
+    term: { ja: "AI曝露度", en: "AI exposure" },
+    definition: {
+      ja: "仕事の内容や個人のスキルが、AIによって代替または補完されうる度合いを示す指標。曝露度が高いことは、その仕事の多くの作業にAIが関われることを意味し、その仕事がなくなることを意味しない。ILOは、曝露の数字は潜在的なものであって、実際に失われた仕事ではないと強調している。",
+      en: "A measure of how far the content of a job or a person's skills could be substituted or complemented by AI. High exposure means AI could touch many of a job's tasks — not that the job will disappear. The ILO stresses that exposure figures reflect potential exposure, not actual job losses.",
+    },
+    relatedLessonIds: ["ai-and-society-01"],
+    sources: [
+      {
+        label: "厚生労働省: 令和8年版 労働経済の分析 第Ⅱ部第2章（2026-09-29）",
+        url: "https://www.mhlw.go.jp/wp/hakusyo/roudou/26/dl/26-1-2-2.pdf",
+      },
+      {
+        label: "ILO: One in four jobs at risk of being transformed by GenAI, new ILO–NASK Global Index shows (2025-05-20)",
+        url: "https://www.ilo.org/resource/news/one-four-jobs-risk-being-transformed-genai-new-ilo%E2%80%93nask-global-index-shows",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "augmentation-and-automation",
+    term: { ja: "補完と代替（オーグメンテーションとオートメーション）", en: "Augmentation and automation" },
+    definition: {
+      ja: "AIが仕事に与える影響の2つの型。代替（オートメーション）は、AIが人の作業を代わりに行うこと。補完（オーグメンテーション）は、職業の中の一部の作業を自動化しつつ、人がほかの仕事に時間を回せるようにすること。ILOは2023年の分析で、生成AIの影響は職業を丸ごと自動化するより、補完が中心になりそうだとした。",
+      en: "Two ways AI can affect work. Automation means AI performs tasks in place of people; augmentation means automating some tasks within an occupation while leaving time for other duties. In a 2023 analysis, the ILO concluded that generative AI's main impact is likely to be augmenting work rather than fully automating occupations.",
+    },
+    relatedLessonIds: ["ai-and-society-01"],
+    sources: [
+      {
+        label: "ILO Working Paper 96: Generative AI and Jobs: A global analysis of potential effects on job quantity and quality (2023)",
+        url: "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/@dgreports/@inst/documents/publication/wcms_890761.pdf",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "inference",
+    term: { ja: "推論（インファレンス）", en: "Inference" },
+    definition: {
+      ja: "学習を終えたAIモデルを使って、予測をしたり文章や画像を生成したりすること。モデルを作る「学習（トレーニング）」と区別される。AIの電力や水の数字を読むときは、推論と学習のどちらを数えたものかが重要になる。",
+      en: "Using a trained AI model to make predictions or generate text or images, as distinct from training, which builds the model. When reading figures for AI's electricity or water use, it matters whether they count inference, training, or both.",
+    },
+    relatedLessonIds: ["how-llms-work-04", "ai-and-society-02"],
+    sources: [
+      {
+        label: "Google Cloud Blog: How much energy does Google's AI use? We did the math (2025-08)",
+        url: "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "pue",
+    term: { ja: "PUE（電力使用効率）", en: "PUE (power usage effectiveness)" },
+    definition: {
+      ja: "データセンターの電力効率を表す業界標準の比率。冷却や配電など計算以外に使う電力を、IT機器を動かす電力と比べる。PUEが2.0なら、IT機器が使う1ワットごとに、冷却と配電に1ワットを追加で使っている。1.0に近いほど、電力のほとんどが計算に使われている。",
+      en: "A standard industry ratio for data-centre efficiency that compares the non-computing overhead energy — for cooling, power distribution, and the like — with the energy used to power IT equipment. A PUE of 2.0 means one extra watt goes to cooling and power distribution for every watt of IT power; the closer to 1.0, the more of the energy goes to computing.",
+    },
+    relatedLessonIds: ["ai-and-society-02"],
+    sources: [{ label: "Google Data Centers: Efficiency", url: "https://datacenters.google/efficiency/" }],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "water-withdrawal-and-consumption",
+    term: { ja: "取水量と消費量（水）", en: "Water withdrawal and consumption" },
+    definition: {
+      ja: "水の使用量の2つの数え方。取水量は、川や地下水などから取り出した水の量で、一時的に使って戻す分も含む。消費量は、取水量から排水量を引いた量で、蒸発などで元の水環境に戻らない分。AIの水の数字は、データセンターの冷却に使う水か、発電所で使われる水かによっても大きく変わる。",
+      en: "Two ways to count water use. Withdrawal is freshwater taken from surface or ground sources, including water used temporarily and returned; consumption is withdrawal minus discharge — water that evaporates or otherwise leaves the immediate water environment. Figures for AI's water use also vary greatly depending on whether they count on-site cooling water at data centres or off-site water used to generate electricity.",
+    },
+    relatedLessonIds: ["ai-and-society-02"],
+    sources: [
+      {
+        label: "Li et al.: Making AI Less \"Thirsty\": Uncovering and Addressing the Secret Water Footprint of AI Models (arXiv)",
+        url: "https://arxiv.org/abs/2304.03271",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "algorithmic-bias",
+    term: { ja: "AIのバイアス（アルゴリズムのバイアス）", en: "AI bias (algorithmic bias)" },
+    definition: {
+      ja: "AIシステムの判断や出力に生じる系統的な偏り。NISTは、データが対象の集団を代表していないことなどによる統計的・計算上のバイアスだけでなく、組織の手続きや慣行に由来するシステム的なバイアスと、人の考え方の偏りである人間のバイアスがあるとし、AIシステムのバイアスのリスクをゼロにはできないとしている。",
+      en: "Systematic skew in an AI system's decisions or outputs. NIST describes not only statistical and computational bias, such as data that doesn't represent the population, but also systemic bias rooted in institutions' procedures and practices and human bias in people's thinking — and states that it is not possible to achieve zero risk of bias in an AI system.",
+    },
+    relatedLessonIds: ["ai-and-society-03", "society-03"],
+    sources: [
+      {
+        label: "NIST SP 1270: Towards a Standard for Identifying and Managing Bias in Artificial Intelligence (2022)",
+        url: "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270.pdf",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "false-positive",
+    term: { ja: "偽陽性（誤一致）", en: "False positive" },
+    definition: {
+      ja: "本来は当てはまらないものを、当てはまると誤って判定すること。顔認識では、別人の2枚の写真を同一人物と判定する誤りを指す。逆に、同一人物の写真を一致と判定できない誤りは偽陰性と呼ぶ。どちらの誤りが、どの場面で起きるかによって、結果の重さは大きく変わる。",
+      en: "Wrongly judging something to be a match when it isn't. In face recognition, it means wrongly judging photos of two different people to show the same person; the opposite error — failing to match two photos of the same person — is a false negative. Which error happens, and where, makes a big difference to the consequences.",
+    },
+    relatedLessonIds: ["ai-and-society-03", "generative-media-07"],
+    sources: [
+      {
+        label: "NIST: NIST Study Evaluates Effects of Race, Age, Sex on Face Recognition Software (2019-12-19)",
+        url: "https://www.nist.gov/news-events/news/2019/12/nist-study-evaluates-effects-race-age-sex-face-recognition-software",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "proxy-variable",
+    term: { ja: "代理変数（プロキシ）", en: "Proxy (variable)" },
+    definition: {
+      ja: "直接は観察・測定しにくい変数の代わりに使う変数。AIでは、本当に知りたいもの（例: 病気の重さ）の代わりに測りやすいもの（例: 医療費）を予測させると、社会の不平等がそのまま結果に入り込むことがある。",
+      en: "A variable that stands in for another variable that usually can't be directly observed or measured. In AI, predicting something easy to measure (such as health care costs) in place of what you actually care about (such as how sick someone is) can carry existing inequalities straight into the results.",
+    },
+    relatedLessonIds: ["ai-and-society-03"],
+    sources: [
+      {
+        label: "NIST SP 1270: Towards a Standard for Identifying and Managing Bias in Artificial Intelligence (2022)",
+        url: "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270.pdf",
+      },
+      {
+        label: "Obermeyer et al.: Dissecting racial bias in an algorithm used to manage the health of populations (Science, 2019)",
+        url: "https://escholarship.org/content/qt6h92v832/qt6h92v832.pdf",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "screen-reader",
+    term: { ja: "スクリーンリーダー", en: "Screen reader" },
+    definition: {
+      ja: "パソコンやWebブラウザの画面の内容を処理して、音声の読み上げや点字に変換するソフトウェア。目の見えない人・見えにくい人の多くが使う。画像の内容は、代替テキストなどの説明がなければ伝わらない。",
+      en: "Software that processes content on the desktop and in web browsers and converts it to text-to-speech and braille, used by many blind and low-vision people. What an image shows doesn't come through unless there is a description such as alt text.",
+    },
+    relatedLessonIds: ["ai-and-society-04"],
+    sources: [
+      {
+        label: "W3C WAI: Tools and Techniques — Perception",
+        url: "https://www.w3.org/WAI/people-use-web/tools-techniques/perception/",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "alt-text",
+    term: { ja: "代替テキスト", en: "Alt text (text alternative)" },
+    definition: {
+      ja: "画像が伝える情報や機能を、文字で表したもの。スクリーンリーダーで読み上げられる。W3Cは、どう書くかは画像の使われ方・文脈・内容によって変わるため、作り手が決める必要があるとしている。",
+      en: "Text that conveys the information or function an image represents; screen readers read it out. The W3C says the text alternative needs to be determined by the author, because it depends on the image's usage, context, and content.",
+    },
+    relatedLessonIds: ["ai-and-society-04"],
+    sources: [{ label: "W3C WAI: Images Tutorial", url: "https://www.w3.org/WAI/tutorials/images/" }],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "aac",
+    term: { ja: "AAC（拡大・代替コミュニケーション）", en: "AAC (augmentative and alternative communication)" },
+    definition: {
+      ja: "話すことや言葉の理解の障害を補ったり、その代わりになったりするコミュニケーションの方法。手話やジェスチャー、文字盤、音声を出す機器などを含み、今ある発話を補う場合（拡大）と、発話の代わりに使う場合（代替）がある。打った文字を読み上げる機能や合成音声も、その手段になる。",
+      en: "Ways of supplementing or compensating for impairments in producing or understanding speech and language — including manual signs, gestures, letter boards, and speech-generating devices. It is augmentative when it supplements existing speech and alternative when used in place of speech that is absent or not functional. Features that speak typed text and synthetic voices are among its tools.",
+    },
+    relatedLessonIds: ["ai-and-society-04"],
+    sources: [
+      {
+        label: "ASHA: Augmentative and Alternative Communication (Practice Portal)",
+        url: "https://www.asha.org/practice-portal/professional-issues/augmentative-and-alternative-communication/",
+      },
+      {
+        label: "Apple Newsroom: Apple introduces new features for cognitive accessibility, along with Live Speech, Personal Voice, and Point and Speak in Magnifier (2023-05-16)",
+        url: "https://www.apple.com/newsroom/2023/05/apple-previews-live-speech-personal-voice-and-more-new-accessibility-features/",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "special-fraud",
+    term: { ja: "特殊詐欺", en: "Special fraud (tokushu sagi)" },
+    definition: {
+      ja: "警察庁の統計で使われる用語。被害者に電話をかけるなどして対面しないまま信頼させ、指定した口座への振込みなどの方法で現金などをだまし取る犯罪の総称。2026年からは、SNSなどを通じて関係を深めて信用させる手口（SNS型投資・ロマンス詐欺）も含めて数えている。",
+      en: "A term used in the statistics of Japan's National Police Agency for crimes that win victims' trust without meeting them — for example by phone — and cheat them out of money, such as by having them transfer funds to a designated account. From 2026, the NPA also counts schemes that build trust or a relationship through social media and the like (social-media investment and romance scams) under this term.",
+    },
+    relatedLessonIds: ["ai-and-society-05"],
+    sources: [
+      {
+        label: "警察庁: 令和7年における特殊詐欺及びSNS型投資・ロマンス詐欺の認知・検挙状況等について（確定値）",
+        url: "https://www.npa.go.jp/bureau/criminal/souni/tokusyusagi/hurikomesagi_toukei2025.pdf",
+      },
+      {
+        label: "警察庁: 令和8年上半期における特殊詐欺の認知・検挙状況等について（暫定値）",
+        url: "https://www.npa.go.jp/bureau/criminal/souni/tokusyusagi/hurikomesagi_toukei2026.pdf",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "voice-cloning",
+    term: { ja: "音声クローン", en: "Voice cloning" },
+    definition: {
+      ja: "AIで、特定の人の声をまねた音声を作ること。FBIは、知っている人からの本物の電話や音声メッセージと、AIで作った音声クローンは、ほとんど区別がつかないほど似ることがあると注意を呼びかけている。",
+      en: "Using AI to produce audio that imitates a specific person's voice. The FBI warns that a legitimate call or voice message from someone you know and an AI-generated voice clone can sound nearly identical.",
+    },
+    relatedLessonIds: ["ai-and-society-05", "generative-media-07"],
+    sources: [
+      {
+        label: "FBI IC3: Senior US Officials Impersonated in Malicious Messaging Campaign (2025-05-15)",
+        url: "https://www.ic3.gov/PSA/2025/PSA250515",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "parental-controls",
+    term: { ja: "ペアレンタルコントロール", en: "Parental controls" },
+    definition: {
+      ja: "子どもの安全のために、保護者がネットの利用環境を整えること。代表はフィルタリングで、利用時間の設定なども含む。チャットAIでは、保護者が子どものアカウントと連携して一部の設定を管理し、限られた場面で安全に関する通知を受け取れる機能が提供されている。",
+      en: "Steps parents take to set up a safe online environment for children — filtering is the typical example, along with settings such as time limits. For chat AI, some services let a parent link to a teen's account, manage selected settings, and receive safety notifications in limited situations.",
+    },
+    relatedLessonIds: ["ai-and-society-06"],
+    sources: [
+      {
+        label: "総務省: 知っていますか？「ペアレンタルコントロール」（インターネットトラブル事例集）",
+        url: "https://www.soumu.go.jp/use_the_internet_wisely/trouble/reference/reference04.html",
+      },
+      {
+        label: "OpenAI Help: Managing parental controls in ChatGPT",
+        url: "https://help.openai.com/en/articles/12315553-managing-parental-controls-in-chatgpt",
       },
     ],
     lastVerified: "2026-10-07",

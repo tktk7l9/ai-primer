@@ -18,26 +18,30 @@ export const risks: Lesson = {
 ハルシネーション（AI基礎トラック参照）による**意図しない誤情報**に加え、AIを悪用して偽のニュースやプロパガンダを**意図的に**大量生成するリスクもあります。おすすめ・レコメンドの仕組みが偏った情報を増幅し、世論の分断につながる懸念も指摘されています。
 
 ### バイアス（偏り）
-AIは学習データに含まれる偏りをそのまま引き継ぐことがあります。偏ったデータで訓練されたモデルは、不公平・差別的な結果を生む可能性があり、判断の過程が見えにくい「ブラックボックス」的な性質が、こうした偏りの発見を難しくしています。
+AIは学習データに含まれる偏りをそのまま引き継ぐことがあります。偏ったデータで訓練されたモデルは、不公平・差別的な結果を生む可能性があり、判断の過程が見えにくい「ブラックボックス」的な性質が、こうした偏りの発見を難しくしています。実際に記録された事例と、利用者にできる確かめ方は[AIのバイアスと公平性](/ja/learn/ai-and-society/bias-and-fairness)のレッスンで扱います。
 
 ### プライバシー
 AIの学習には大量のデータが必要で、そこに個人を特定できる情報が含まれていた場合、データ漏えいが法的・倫理的な問題につながる可能性があります。また、セキュリティ対策が不十分なAIシステムが、学習データの一部や個人情報をうっかり出力してしまうリスクも指摘されています。
 
 ### なぜ知っておく必要があるか
-医療・司法・金融など、人の人生に大きく影響する意思決定にAIが使われる場面が増えており、こうした場面での誤りや偏りは見つけにくく、影響も大きくなりがちです。利用者としては、AIの回答を無条件に信頼せず、特に重要な判断の場面では検証・人間による確認を挟む姿勢が欠かせません。`,
+医療・司法・金融など、人の人生に大きく影響する意思決定にAIが使われる場面が増えており、こうした場面での誤りや偏りは見つけにくく、影響も大きくなりがちです。利用者としては、AIの回答を無条件に信頼せず、特に重要な判断の場面では検証・人間による確認を挟む姿勢が欠かせません。
+
+雇用・電力と水・アクセシビリティ・AIを使った詐欺・子どもとAIなど、AIが社会に与える影響は「[AIと社会](/ja/learn/ai-and-society)」トラックで、一次情報の数字とともに扱っています。`,
     en: `## Three challenges behind the convenience
 
 ### Misinformation and disinformation
 Beyond unintentional inaccuracies from hallucination (see the AI Fundamentals track), there's also the risk of AI being deliberately misused to mass-produce fake news or propaganda. Recommendation systems can amplify biased information, raising concerns about deepening social polarization.
 
 ### Bias
-AI can inherit biases present in its training data. A model trained on biased data can produce unfair or discriminatory outcomes, and the "black box" nature of many AI systems — where the decision process is hard to see — makes such biases difficult to detect.
+AI can inherit biases present in its training data. A model trained on biased data can produce unfair or discriminatory outcomes, and the "black box" nature of many AI systems — where the decision process is hard to see — makes such biases difficult to detect. For documented cases and checks you can run yourself, see the [bias and fairness](/en/learn/ai-and-society/bias-and-fairness) lesson.
 
 ### Privacy
 Training AI requires large amounts of data, and when that data includes personally identifiable information, a breach can create legal and ethical harm. Poorly secured AI systems have also been noted to risk leaking fragments of training data or personal details in their outputs.
 
 ### Why this matters
-AI is increasingly used in decisions that significantly affect people's lives — healthcare, criminal justice, finance — where errors or bias can be hard to catch and carry serious consequences. As a user, the key habit is not trusting AI output unconditionally, and building in verification and human review especially for decisions that matter.`,
+AI is increasingly used in decisions that significantly affect people's lives — healthcare, criminal justice, finance — where errors or bias can be hard to catch and carry serious consequences. As a user, the key habit is not trusting AI output unconditionally, and building in verification and human review especially for decisions that matter.
+
+For AI's wider effects on society — jobs, electricity and water, accessibility, AI-enabled scams, and children — see the [AI and Society](/en/learn/ai-and-society) track, which works from figures in primary sources.`,
   },
   quiz: [
     {
