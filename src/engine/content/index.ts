@@ -8,9 +8,10 @@ import { aiAgentsTrack } from "./tracks/ai-agents";
 import { codingAiTrack } from "./tracks/coding-ai";
 import { generativeMediaTrack } from "./tracks/generative-media";
 import { aiAtWorkTrack } from "./tracks/ai-at-work";
+import { aiAndSocietyTrack } from "./tracks/ai-and-society";
 import { societyTrack } from "./tracks/society";
 
-/** All tracks in display order (10, all complete). */
+/** All tracks in display order (11, all complete). */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
@@ -22,6 +23,8 @@ export const TRACKS: readonly Track[] = [
   generativeMediaTrack,
   // Applies the tool tracks above to everyday tasks; society stays last so its checklist closes the course.
   aiAtWorkTrack,
+  // Society-wide effects (jobs, energy, bias, accessibility, scams, children); also kept before society.
+  aiAndSocietyTrack,
   societyTrack,
 ];
 
