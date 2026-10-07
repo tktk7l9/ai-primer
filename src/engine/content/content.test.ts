@@ -144,6 +144,16 @@ describe.each(ALL_LESSONS.map((ref) => [ref.lesson.id, ref] as const))(
         expect(html.length).toBeGreaterThan(0);
       }
     });
+
+    it("bold markers all render (no literal ** left on the page)", () => {
+      // CommonMark cannot close ** right after a full-width bracket, quote, or % when a letter follows
+      // ("**世界保健機関（WHO）**は"), so the asterisks show up as text. Close the bold before the
+      // bracket instead: "**世界保健機関**（WHO）は".
+      for (const locale of locales) {
+        const html = renderMarkdown(lesson.body[locale]).replace(/<code>[\s\S]*?<\/code>/g, "");
+        expect(html, `${lesson.id} (${locale})`).not.toContain("**");
+      }
+    });
   },
 );
 

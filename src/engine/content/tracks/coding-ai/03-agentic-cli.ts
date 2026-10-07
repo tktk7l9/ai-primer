@@ -25,7 +25,7 @@ export const agenticCli: Lesson = {
 
 同じ発想のツールに、OpenAIの **Codex**（CLI・IDE拡張・クラウドで動くエージェント）や **GitHub Copilot CLI** があります。
 
-こうしたエージェント型CLIツールは、GitHub Copilotのエージェント機能や、後述するCursorのようなAIエディタとも役割が重なる部分がありますが、**「ターミナル操作を起点に、コードベース全体を横断して作業する」**という位置づけが共通点です。`,
+こうしたエージェント型CLIツールは、GitHub Copilotのエージェント機能や、後述するCursorのようなAIエディタとも役割が重なる部分がありますが、「**ターミナル操作を起点に、コードベース全体を横断して作業する**」という位置づけが共通点です。`,
     en: `## Terminal-first, autonomous tools
 
 **Claude Code** (Anthropic) is an **agentic** coding tool that reads and edits a codebase, runs commands, and integrates with development tools.

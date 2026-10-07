@@ -14,7 +14,7 @@ export const imageGenerationMechanism: Lesson = {
   body: {
     ja: `## ざらついたノイズから、少しずつ像を浮かび上がらせる
 
-多くのAI画像生成ツール（Midjourney・Stable Diffusionなど）は、**拡散モデル（Diffusion Model）**という仕組みを使っています。
+多くのAI画像生成ツール（Midjourney・Stable Diffusionなど）は、**拡散モデル**（Diffusion Model）という仕組みを使っています。
 
 ### 学習の段階
 きれいな画像に少しずつノイズを加えて壊していき、モデルに「このノイズをどう取り除けば元の画像に近づくか」を学習させます。
