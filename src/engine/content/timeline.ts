@@ -16,7 +16,9 @@ export interface TimelineEvent {
 // All dates and events verified against primary sources or reliable encyclopedias (as of 2026-07-15; entries from 2024-11 onward re-verified or added on 2026-10-06;
 // C2PA, SynthID, Japan's AI copyright/guideline/basic-plan, Gemini Deep Research, and EU AI Act 2025-02 entries added on 2026-10-07;
 // the AI-and-society entries — NIST face recognition 2019, Apple Live Speech 2023, Japan's anti-fraud plan 2024, IEA/ILO/ChatGPT
-// parental controls 2025, and the 2026 labour white paper — added on 2026-10-07).
+// parental controls 2025, and the 2026 labour white paper — added on 2026-10-07; the understanding-AI entries — the RAG, DDPM,
+// MMLU, and latent diffusion papers, Chatbot Arena, SWE-bench, WHO's LMM guidance, Japan's AISI, the Seoul frontier AI safety
+// commitments, and the first International AI Safety Report — added on 2026-10-07).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -130,6 +132,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2020-rag-paper",
+    date: "2020-05-22",
+    precision: "day",
+    title: { ja: "RAG（検索拡張生成）を提案する論文が公開", en: "The Paper Proposing RAG (Retrieval-Augmented Generation) Is Released" },
+    summary: {
+      ja: "Facebook AI Research・ユニバーシティ・カレッジ・ロンドン・ニューヨーク大学の研究者が、Wikipediaの文書をベクトルの索引から検索し、取り出した文書を踏まえて文章を生成する「RAG」を提案する論文を公開した。NeurIPS 2020で発表された。",
+      en: "Researchers from Facebook AI Research, University College London, and New York University released a paper proposing RAG, which retrieves Wikipedia passages from a dense vector index and generates text based on what it retrieved. It was presented at NeurIPS 2020.",
+    },
+    sources: [
+      {
+        label: "Lewis et al.: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (arXiv)",
+        url: "https://arxiv.org/abs/2005.11401",
+      },
+    ],
+  },
+  {
     id: "2020-gpt3",
     date: "2020-06-01",
     precision: "month",
@@ -139,6 +157,39 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "OpenAI released the 175-billion-parameter GPT-3 via API, widely demonstrating the potential of large language models.",
     },
     sources: [{ label: "HISTORY: ChatGPT is released to the public", url: "https://www.history.com/this-day-in-history/november-30/chatgpt-released-openai" }],
+  },
+  {
+    id: "2020-ddpm",
+    date: "2020-06-19",
+    precision: "day",
+    title: { ja: "DDPM — 拡散モデルで高品質な画像生成", en: "DDPM: High-Quality Image Synthesis with Diffusion Models" },
+    summary: {
+      ja: "Jonathan Hoらが論文「Denoising Diffusion Probabilistic Models」を公開し、拡散モデルで高品質な画像を生成できることを示した。2023年のSDXLの論文は、拡散モデルが画像生成に強いことを示した先駆的な研究の1つにこれを挙げている。",
+      en: "Jonathan Ho and colleagues released \"Denoising Diffusion Probabilistic Models,\" presenting high-quality image synthesis with diffusion models. The 2023 SDXL paper cites it as one of the seminal works that showed diffusion models to be powerful generators for image synthesis.",
+    },
+    sources: [
+      { label: "Ho, Jain & Abbeel: Denoising Diffusion Probabilistic Models (arXiv)", url: "https://arxiv.org/abs/2006.11239" },
+      {
+        label: "Podell et al.: SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis (arXiv, 2023)",
+        url: "https://arxiv.org/abs/2307.01952",
+      },
+    ],
+  },
+  {
+    id: "2020-mmlu",
+    date: "2020-09-07",
+    precision: "day",
+    title: { ja: "MMLU（大規模マルチタスク言語理解）の発表", en: "The MMLU Benchmark Is Introduced" },
+    summary: {
+      ja: "Hendrycksらが、初等数学・米国史・コンピュータ科学・法律など57分野の選択式の問題で、モデルの知識と問題解決力を測るテストMMLUを発表した。当時のほとんどのモデルの正答率は、でたらめに選んだ場合とほぼ同じだった。",
+      en: "Hendrycks and colleagues introduced MMLU, a multiple-choice test of models' knowledge and problem-solving ability across 57 subjects including elementary mathematics, US history, computer science, and law. At the time, most models scored near random chance.",
+    },
+    sources: [
+      {
+        label: "Hendrycks et al.: Measuring Massive Multitask Language Understanding (arXiv, 2020-09-07)",
+        url: "https://arxiv.org/abs/2009.03300",
+      },
+    ],
   },
   {
     id: "2021-c2pa",
@@ -166,6 +217,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "GitHub announced a technical preview of Copilot, its AI coding assistant.",
     },
     sources: [{ label: "Wikipedia: GitHub Copilot", url: "https://en.wikipedia.org/wiki/GitHub_Copilot" }],
+  },
+  {
+    id: "2021-latent-diffusion",
+    date: "2021-12-20",
+    precision: "day",
+    title: { ja: "潜在拡散モデルの論文が公開", en: "The Latent Diffusion Models Paper Is Released" },
+    summary: {
+      ja: "Robin Rombachらが、画像を圧縮した潜在空間で拡散モデルを動かし、文章などの条件をクロスアテンションで取り込む「潜在拡散モデル」の論文を公開した（CVPR 2022）。画素のまま扱う拡散モデルより必要な計算を大きく減らした。",
+      en: "Robin Rombach and colleagues released the paper on latent diffusion models, which run diffusion in the latent space of a pretrained autoencoder and take in conditions such as text through cross-attention (CVPR 2022), significantly reducing the computation needed compared with pixel-based diffusion models.",
+    },
+    sources: [
+      {
+        label: "Rombach et al.: High-Resolution Image Synthesis with Latent Diffusion Models (arXiv)",
+        url: "https://arxiv.org/abs/2112.10752",
+      },
+    ],
   },
   {
     id: "2022-instructgpt",
@@ -212,6 +279,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "HISTORY: ChatGPT is released to the public", url: "https://www.history.com/this-day-in-history/november-30/chatgpt-released-openai" }],
   },
   {
+    id: "2023-chatbot-arena",
+    date: "2023-05-03",
+    precision: "day",
+    title: { ja: "Chatbot Arena公開", en: "Chatbot Arena Launches" },
+    summary: {
+      ja: "LMSYSが、名前を伏せた2つのモデルの回答を人が比べて投票し、その結果から順位を付けるChatbot Arenaの最初の結果とリーダーボードを公開した。初回は9モデルを、約4,700票に基づくEloレーティングで並べた。",
+      en: "LMSYS published the first results and leaderboard of Chatbot Arena, where people compare answers from two anonymous models and vote, and the votes are turned into rankings. The first leaderboard rated nine models with Elo ratings based on about 4,700 votes.",
+    },
+    sources: [
+      {
+        label: "LMSYS: Chatbot Arena: Benchmarking LLMs in the Wild with Elo Ratings (2023-05-03)",
+        url: "https://www.lmsys.org/blog/2023-05-03-arena/",
+      },
+    ],
+  },
+  {
     id: "2023-apple-live-speech-personal-voice",
     date: "2023-05-16",
     precision: "day",
@@ -246,6 +329,52 @@ export const TIMELINE: readonly TimelineEvent[] = [
       },
       { label: "Google DeepMind: SynthID", url: "https://deepmind.google/models/synthid/" },
     ],
+  },
+  {
+    id: "2023-swe-bench",
+    date: "2023-10-10",
+    precision: "day",
+    title: { ja: "SWE-bench発表", en: "SWE-bench Is Introduced" },
+    summary: {
+      ja: "研究者らが、12の人気のPythonリポジトリの実際のGitHubのissueとプルリクエストから集めた2,294問で、AIがコードを直して課題を解決できるかを測るSWE-benchを発表した。当時最も成績の良かったClaude 2でも、解けたのは1.96%だった。",
+      en: "Researchers introduced SWE-bench, 2,294 problems drawn from real GitHub issues and pull requests in 12 popular Python repositories, testing whether AI can resolve issues by editing code. The best-performing model at the time, Claude 2, solved just 1.96%.",
+    },
+    sources: [
+      {
+        label: "Jimenez et al.: SWE-bench: Can Language Models Resolve Real-World GitHub Issues? (arXiv, 2023-10-10)",
+        url: "https://arxiv.org/abs/2310.06770",
+      },
+    ],
+  },
+  {
+    id: "2024-who-lmm-guidance",
+    date: "2024-01-18",
+    precision: "day",
+    title: {
+      ja: "WHOが大規模マルチモーダルモデルの倫理とガバナンスの指針を公表",
+      en: "WHO Issues Ethics and Governance Guidance on Large Multi-Modal Models",
+    },
+    summary: {
+      ja: "世界保健機関（WHO）が、健康の分野で生成AI（大規模マルチモーダルモデル）を使うときの倫理とガバナンスについて、政府・テック企業・医療提供者向けに40を超える推奨を示した。症状や治療を調べるといった患者自身の利用も、想定される使い方の一つに挙げている。",
+      en: "The World Health Organization issued over 40 recommendations for governments, technology companies, and health care providers on the ethics and governance of large multi-modal models in health. It lists patient-guided use, such as investigating symptoms and treatment, among the expected applications.",
+    },
+    sources: [
+      {
+        label: "WHO: WHO releases AI ethics and governance guidance for large multi-modal models (2024-01-18)",
+        url: "https://www.who.int/news/item/18-01-2024-who-releases-ai-ethics-and-governance-guidance-for-large-multi-modal-models",
+      },
+    ],
+  },
+  {
+    id: "2024-japan-aisi",
+    date: "2024-02-14",
+    precision: "day",
+    title: { ja: "日本のAIセーフティ・インスティテュート（AISI）発足", en: "Japan Launches Its AI Safety Institute (AISI)" },
+    summary: {
+      ja: "AIの安全性の評価手法や基準の検討・推進を担う機関として、日本のAISIが発足し、情報処理推進機構（IPA）に事務局が置かれた。",
+      en: "Japan launched its AI Safety Institute to work on evaluation methods and standards for AI safety, with its secretariat at the Information-technology Promotion Agency (IPA).",
+    },
+    sources: [{ label: "AIセーフティ・インスティテュート（J-AISI）: AISIについて", url: "https://aisi.go.jp/about/" }],
   },
   {
     id: "2024-claude3",
@@ -298,6 +427,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "OpenAI introduced GPT-4o, a multimodal model that reasons across text, audio, and vision in real time.",
     },
     sources: [{ label: "OpenAI: Hello GPT-4o", url: "https://openai.com/index/hello-gpt-4o/" }],
+  },
+  {
+    id: "2024-frontier-ai-safety-commitments",
+    date: "2024-05-21",
+    precision: "day",
+    title: { ja: "AIソウル・サミットで「フロンティアAI安全性コミットメント」", en: "Frontier AI Safety Commitments at the AI Seoul Summit" },
+    summary: {
+      ja: "英国と韓国の政府が、16の企業・団体がフロンティアAIの安全性に関する自主的な約束に合意したと発表した。深刻なリスクに焦点を当てた安全の枠組みを公表し、リスクを許容できない水準を定め、対策で抑えられなければ開発も公開もしないとした。",
+      en: "The UK and Korean governments announced that 16 companies and organisations had agreed to voluntary frontier AI safety commitments: to publish safety frameworks focused on severe risks, set thresholds at which risks would be intolerable, and, if mitigations cannot keep risks below them, not develop or deploy a model at all.",
+    },
+    sources: [
+      {
+        label: "UK Government (DSIT): Frontier AI Safety Commitments, AI Seoul Summit 2024",
+        url: "https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024",
+      },
+    ],
   },
   {
     id: "2024-japan-anti-fraud-plan",
@@ -391,6 +536,20 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "China's DeepSeek released its R1 reasoning model, claiming low-cost training, and topped the iOS free-app charts within a week.",
     },
     sources: [{ label: "Wikipedia: DeepSeek", url: "https://en.wikipedia.org/wiki/DeepSeek" }],
+  },
+  {
+    id: "2025-international-ai-safety-report",
+    date: "2025-01-29",
+    precision: "day",
+    title: { ja: "初の「国際AI安全性報告書」公表", en: "First International AI Safety Report Published" },
+    summary: {
+      ja: "英国ブレッチリーのAI安全性サミットに参加した国々の委託で、高度なAIの能力・リスク・安全性に関する証拠をまとめた初の国際報告書が公表された。30か国と国連・OECD・EUが専門家諮問パネルに代表を出し、計100人のAI専門家が執筆に関わった。2026年版は2026年2月3日に公表された。",
+      en: "Mandated by the nations at the AI Safety Summit in Bletchley, UK, the first international report synthesizing the evidence on the capabilities, risks, and safety of advanced AI was published. Thirty nations, the UN, the OECD, and the EU each nominated a representative to its Expert Advisory Panel, and 100 AI experts contributed. The 2026 edition followed on February 3, 2026.",
+    },
+    sources: [
+      { label: "arXiv: International AI Safety Report (Bengio et al., 2025-01-29)", url: "https://arxiv.org/abs/2501.17805" },
+      { label: "International AI Safety Report (official site)", url: "https://internationalaisafetyreport.org/" },
+    ],
   },
   {
     id: "2025-eu-ai-act-prohibitions",
