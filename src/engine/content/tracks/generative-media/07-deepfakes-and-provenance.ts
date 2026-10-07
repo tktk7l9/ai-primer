@@ -30,7 +30,7 @@ EUのAI Actも、ディープフェイクにAIで生成・加工したものだ�
 - **感情を揺さぶる・急がせる内容ほど、一呼吸おく**: 怒りや恐怖をかき立て、すぐの拡散や送金を求めるものほど要注意です。
 - **出どころをたどる**: 最初に誰が発信したか、信頼できる報道機関や公式アカウントが伝えているかを確かめる。画像検索で、同じ画像が以前から別の文脈で出回っていないか調べるのも手です。
 - **来歴情報と透かしは手がかりの一つ**: 「付いていない＝偽物」でも「付いている＝真実」でもありません。
-- **声や映像で送金を求められたら、いったん切る**: FBIは、いったん電話を切り、相手を名乗る銀行や組織の連絡先を自分で調べて直接かけ直すこと、本人確認のための**合言葉**を家族で決めておくことを勧めています。`,
+- **声や映像で送金を求められたら、いったん切る**: FBIは、いったん電話を切り、相手を名乗る銀行や組織の連絡先を自分で調べて直接かけ直すこと、本人確認のための**合言葉**を家族で決めておくことを勧めています。日本で被害の大きい手口と相談先は[AIを使った詐欺](/ja/learn/ai-and-society/ai-scams)のレッスンで扱います。`,
     en: `## "I'll know it when I see it" no longer works
 
 Image, video, and audio generation (earlier lessons in this track) has advanced to the point where it can make a real person appear to say things they never said, or imitate a family member's voice on the phone. AI-generated or manipulated content made to pass as real is called a **deepfake**. In a December 2024 public service announcement, the US Federal Bureau of Investigation (FBI) described fraud schemes such as short audio clips in a loved one's voice, faking a crisis to demand immediate money or a ransom, and real-time video calls with people posing as company executives or law enforcement.
@@ -49,7 +49,7 @@ The EU AI Act also requires, among other things, that deepfakes be disclosed as 
 - **Slow down when content is emotional or urgent**: be most careful with anything that stirs anger or fear and pushes you to share or pay right away.
 - **Trace the source**: who posted it first, and are reliable news outlets or official accounts reporting it? A reverse image search can show whether the same image was circulating earlier in a different context.
 - **Treat provenance and watermarks as one clue among several**: missing credentials don't mean fake, and present credentials don't mean true.
-- **If a voice or video asks for money, hang up first**: the FBI advises hanging up, looking up the bank's or organization's contact details yourself and calling them directly, and agreeing on a **secret word or phrase** with your family to verify identity.`,
+- **If a voice or video asks for money, hang up first**: the FBI advises hanging up, looking up the bank's or organization's contact details yourself and calling them directly, and agreeing on a **secret word or phrase** with your family to verify identity. For the scams doing the most damage in Japan and where to get help, see the [AI-enabled scams](/en/learn/ai-and-society/ai-scams) lesson.`,
   },
   quiz: [
     {
