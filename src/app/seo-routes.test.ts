@@ -22,7 +22,9 @@ describe("sitemap", () => {
 
   it("points each page at its counterpart in the other language", () => {
     for (const entry of entries) {
-      const path = entry.url.replace(/^.*\/(ja|en)/, "");
+      // Strip only the leading locale segment. A greedy /^.*\/(ja|en)/ also ate the start of
+      // slugs beginning with "en" or "ja" (e.g. /en/learn/ai-and-society/energy-and-water).
+      const path = new URL(entry.url).pathname.replace(/^\/(ja|en)(?=\/|$)/, "");
       expect(entry.alternates?.languages).toEqual({
         ja: `${SITE_URL}/ja${path}`,
         en: `${SITE_URL}/en${path}`,
