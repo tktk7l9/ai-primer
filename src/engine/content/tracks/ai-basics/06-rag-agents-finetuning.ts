@@ -17,7 +17,7 @@ export const ragAgentsFinetuning: Lesson = {
 事前学習だけのLLMには「学習データより新しい情報を知らない」「モデル自身は外部で行動できない」といった限界があります。これを補う代表的な手法が次の3つです。
 
 ### RAG（検索拡張生成）
-質問に答える前に、外部のデータベースや文書から関連情報を**検索**し、その内容を踏まえて**生成**する2段階の仕組みです。モデル自体の重みは変えず、参照する情報を後から差し替えられるため、社内文書や最新情報への対応に向いています。
+質問に答える前に、外部のデータベースや文書から関連情報を**検索**し、その内容を踏まえて**生成**する2段階の仕組みです。モデル自体の重みは変えず、参照する情報を後から差し替えられるため、社内文書や最新情報への対応に向いています。検索の中身（文章を数値の並びに変える「埋め込み」と、意味の近さで探す検索）と、出典があっても答えがずれる理由は[埋め込みと検索](/ja/learn/understanding-ai/embeddings-and-retrieval)のレッスンで扱います。
 
 ### AIエージェント
 検索・API呼び出し・コード実行などの**ツール**を使い、与えられた目標を達成するためにタスクを分解し自律的に実行し続けるシステムです。都度指示が必要な「アシスタント」と異なり、エージェントは初期の指示のあと自分で計画を立てて動きます。仕組みの詳細はAIエージェントトラックで扱います。
@@ -35,7 +35,7 @@ export const ragAgentsFinetuning: Lesson = {
 A plain pre-trained LLM has limits: it doesn't know anything newer than its training data, and it can't act in the outside world on its own. Three common techniques address this:
 
 ### RAG (Retrieval-Augmented Generation)
-Before answering, the system **retrieves** relevant content from an external database or documents, then **generates** a response grounded in that content. The model's weights don't change — you can swap out what it references, which makes RAG well-suited to internal documents or fast-changing information.
+Before answering, the system **retrieves** relevant content from an external database or documents, then **generates** a response grounded in that content. The model's weights don't change — you can swap out what it references, which makes RAG well-suited to internal documents or fast-changing information. How the retrieval step works — embeddings that turn text into lists of numbers, and search by closeness in meaning — and why answers can drift from their sources even with citations are covered in the [embeddings and retrieval](/en/learn/understanding-ai/embeddings-and-retrieval) lesson.
 
 ### AI agents
 A system that uses tools — search, API calls, running code — to break a goal into subtasks and carry them out autonomously. Unlike an assistant that needs ongoing direction, an agent plans its own steps after an initial prompt. The AI Agents track covers how this works in detail.

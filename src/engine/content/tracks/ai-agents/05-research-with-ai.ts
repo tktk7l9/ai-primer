@@ -32,6 +32,8 @@ OpenAIは公開時に、限界も明記していました。事実を誤った�
 4. 複数の出典を混ぜて、**どれにも書かれていない結論**を作る。
 5. 読んだページに仕込まれた**指示**に影響される（前のレッスンのプロンプトインジェクション）。
 
+検索の段階で何が起きているか（埋め込みとベクトル検索）と、しくみから見た間違いの原因は[埋め込みと検索](/ja/learn/understanding-ai/embeddings-and-retrieval)のレッスンで扱います。
+
 ### 確かめる手順
 1. 結論を支える**重要な主張**（数字・日付・固有名詞・引用）に印をつける。
 2. **出典を開き**、その主張が書かれている箇所を自分の目で見つける。見つからなければ「未確認」として扱う。
@@ -63,6 +65,8 @@ Common failure patterns:
 3. The source is a **copy, an aggregator, or an outdated page** rather than the primary source.
 4. Several sources are blended into **a conclusion none of them states**.
 5. The answer is swayed by **instructions** planted in a page it read (prompt injection, previous lesson).
+
+What happens at the retrieval step (embeddings and vector search), and the mechanism-level reasons it goes wrong, are covered in the [embeddings and retrieval](/en/learn/understanding-ai/embeddings-and-retrieval) lesson.
 
 ### How to check
 1. Mark the **key claims** the conclusion rests on — numbers, dates, names, quotations.

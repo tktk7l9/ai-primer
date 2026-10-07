@@ -18,7 +18,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "LLMが処理する文章の最小単位。単語全体のことも、単語の一部や1文字のこともある。",
       en: "The smallest unit of text an LLM processes — it may be a whole word, part of a word, or even a single character.",
     },
-    relatedLessonIds: ["ai-basics-02", "ai-basics-03"],
+    relatedLessonIds: ["ai-basics-02", "ai-basics-03", "understanding-ai-01"],
     sources: [
       {
         label: "OpenAI Help: What are tokens and how to count them?",
@@ -35,7 +35,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "LLMが1回のやり取りで同時に処理できるトークンの最大数。",
       en: "The maximum number of tokens an LLM can process in a single interaction.",
     },
-    relatedLessonIds: ["ai-basics-03", "ai-agents-03"],
+    relatedLessonIds: ["ai-basics-03", "ai-agents-03", "understanding-ai-01", "understanding-ai-02"],
     sources: [{ label: "IBM: What is a context window?", url: "https://www.ibm.com/think/topics/context-window" }],
     lastVerified: "2026-10-06",
   },
@@ -46,7 +46,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIがもっともらしいが事実に基づかない内容を生成してしまう現象。",
       en: "When an AI generates plausible-sounding but factually incorrect or fabricated content.",
     },
-    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02", "ai-and-society-04", "ai-and-society-06"],
+    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02", "ai-and-society-04", "ai-and-society-06", "understanding-ai-02", "understanding-ai-06"],
     sources: [{ label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" }],
     lastVerified: "2026-10-06",
   },
@@ -68,7 +68,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "外部情報を検索してから、その内容を踏まえて回答を生成する手法。",
       en: "A technique that retrieves external information before generating an answer grounded in it.",
     },
-    relatedLessonIds: ["ai-basics-04", "ai-basics-06"],
+    relatedLessonIds: ["ai-basics-04", "ai-basics-06", "understanding-ai-02"],
     sources: [
       {
         label: "Google Cloud: What is Retrieval-Augmented Generation (RAG)?",
@@ -106,7 +106,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "大量のテキストで訓練され、次に来るトークンを予測することで文章を生成するニューラルネットワーク。",
       en: "A neural network trained on vast amounts of text that generates language by predicting the next token.",
     },
-    relatedLessonIds: ["ai-basics-02", "how-llms-work-02", "ai-at-work-03"],
+    relatedLessonIds: ["ai-basics-02", "how-llms-work-02", "ai-at-work-03", "understanding-ai-06"],
     sources: [{ label: "Wikipedia: Large language model", url: "https://en.wikipedia.org/wiki/Large_language_model" }],
     lastVerified: "2026-10-06",
   },
@@ -128,7 +128,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "文章内のある単語を処理する際、他のどの単語と強く関連づけるべきかをモデル自身が計算する仕組み。",
       en: "The mechanism by which a model computes how strongly each word should relate to every other word in the text.",
     },
-    relatedLessonIds: ["how-llms-work-01"],
+    relatedLessonIds: ["how-llms-work-01", "understanding-ai-03"],
     sources: [{ label: "Wikipedia: Attention Is All You Need", url: "https://en.wikipedia.org/wiki/Attention_Is_All_You_Need" }],
     lastVerified: "2026-10-06",
   },
@@ -139,7 +139,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "人間による回答の順位づけから報酬モデルを学習し、それを使ってモデル自体を調整する手法。",
       en: "A technique that trains a reward model from human rankings of answers, then uses it to adjust the model itself.",
     },
-    relatedLessonIds: ["how-llms-work-03", "ai-and-society-03"],
+    relatedLessonIds: ["how-llms-work-03", "ai-and-society-03", "understanding-ai-05"],
     sources: [{ label: "IBM: What Is RLHF?", url: "https://www.ibm.com/think/topics/rlhf" }],
     lastVerified: "2026-10-06",
   },
@@ -161,7 +161,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "指示文に加えて、入力と望ましい出力の例をいくつか示すプロンプト手法。",
       en: "A prompting technique that pairs an instruction with a few examples of input paired with the desired output.",
     },
-    relatedLessonIds: ["prompting-02"],
+    relatedLessonIds: ["prompting-02", "understanding-ai-04"],
     sources: [{ label: "Prompt Engineering Guide: Few-Shot Prompting", url: "https://www.promptingguide.ai/techniques/fewshot" }],
     lastVerified: "2026-10-06",
   },
@@ -172,7 +172,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "最終的な答えだけでなく、そこに至る中間ステップを順に説明させながら答えさせるプロンプト手法。",
       en: "A prompting technique that has the model lay out intermediate reasoning steps, not just the final answer.",
     },
-    relatedLessonIds: ["prompting-03"],
+    relatedLessonIds: ["prompting-03", "understanding-ai-01"],
     sources: [{ label: "PromptHub: Chain of Thought Prompting Guide", url: "https://www.prompthub.us/blog/chain-of-thought-prompting-guide" }],
     lastVerified: "2026-10-06",
   },
@@ -183,7 +183,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "ランダムノイズから、段階的にノイズを取り除きながら画像などを生成する仕組み。",
       en: "A generative mechanism that starts from random noise and progressively removes it to produce an image or other output.",
     },
-    relatedLessonIds: ["generative-media-01"],
+    relatedLessonIds: ["generative-media-01", "understanding-ai-03"],
     sources: [
       { label: "Britannica: Diffusion model", url: "https://www.britannica.com/technology/diffusion-model" },
       { label: "Wikipedia: Diffusion model", url: "https://en.wikipedia.org/wiki/Diffusion_model" },
@@ -309,7 +309,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "入力やツールで読み込んだ外部コンテンツに含まれる文によって、LLMの挙動が意図せず変えられてしまう脆弱性。外部のWebページや文書経由のものを「間接型」と呼ぶ。",
       en: "A vulnerability where text in the input, or in external content fetched by a tool, alters an LLM's behavior in unintended ways. Cases via web pages or documents are called \"indirect\" injection.",
     },
-    relatedLessonIds: ["ai-agents-04", "ai-at-work-04", "ai-at-work-06"],
+    relatedLessonIds: ["ai-agents-04", "ai-at-work-04", "ai-at-work-06", "understanding-ai-02"],
     sources: [{ label: "OWASP: LLM01:2025 Prompt Injection", url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/" }],
     lastVerified: "2026-10-06",
   },
@@ -320,7 +320,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "学習済みの重み（パラメータ）が配布され、自分の機器で動かせるモデル。学習データやコードまで公開されているとは限らず、OSIの定義では重みだけの公開は「オープンソースAI」に当たらない。",
       en: "A model whose trained weights (parameters) are distributed so you can run it on your own hardware. Training data and code are not necessarily released; under the OSI definition, weights alone do not make it \"open source AI.\"",
     },
-    relatedLessonIds: ["chat-ais-06", "society-05"],
+    relatedLessonIds: ["chat-ais-06", "society-05", "understanding-ai-04"],
     sources: [
       { label: "Open Source Initiative: The Open Source AI Definition 1.0", url: "https://opensource.org/ai/open-source-ai-definition" },
     ],
@@ -709,7 +709,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "学習を終えたAIモデルを使って、予測をしたり文章や画像を生成したりすること。モデルを作る「学習（トレーニング）」と区別される。AIの電力や水の数字を読むときは、推論と学習のどちらを数えたものかが重要になる。",
       en: "Using a trained AI model to make predictions or generate text or images, as distinct from training, which builds the model. When reading figures for AI's electricity or water use, it matters whether they count inference, training, or both.",
     },
-    relatedLessonIds: ["how-llms-work-04", "ai-and-society-02"],
+    relatedLessonIds: ["how-llms-work-04", "ai-and-society-02", "understanding-ai-01"],
     sources: [
       {
         label: "Google Cloud Blog: How much energy does Google's AI use? We did the math (2025-08)",
@@ -896,6 +896,252 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       {
         label: "OpenAI Help: Managing parental controls in ChatGPT",
         url: "https://help.openai.com/en/articles/12315553-managing-parental-controls-in-chatgpt",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "reasoning-model",
+    term: { ja: "推論モデル", en: "Reasoning model" },
+    definition: {
+      ja: "答える前に、内部で推論トークンを生成して考えるように作られたLLM。問題を分解し、いくつかのやり方を比べてから答えるため、複雑な問題解決・コーディング・何段階もの作業に強い。考えた分のトークンも出力トークンとして課金され、待ち時間も延びる。ここでの「推論」はreasoning（考えること）の訳で、学習済みのモデルで出力を作る「推論（インファレンス）」とは別の意味。",
+      en: "An LLM built to think before answering by generating internal reasoning tokens — breaking the problem down and weighing several approaches — which makes it stronger at complex problem solving, coding, and multi-step tasks. The thinking tokens are billed as output tokens and add waiting time. (In Japanese, both this \"reasoning\" and \"inference\" — producing output with a trained model — are often translated as 推論.)",
+    },
+    relatedLessonIds: ["understanding-ai-01"],
+    sources: [{ label: "OpenAI API Docs: Reasoning models", url: "https://developers.openai.com/api/docs/guides/reasoning" }],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "test-time-compute",
+    term: { ja: "テスト時計算（test-time compute）", en: "Test-time compute" },
+    definition: {
+      ja: "学習を終えたモデルが、答えを出す段階で使う計算。答える前に長く考えさせて逐次的に増やす方法と、いくつかの答えを別々に考えさせて多数決などで選ぶ、並列に増やす方法がある。Anthropicは、思考に使えるトークンを増やすと数学の問題の正答率が対数的に上がったと報告している。",
+      en: "The computation a trained model spends at the moment of answering. It can be increased serially, by letting the model think longer before answering, or in parallel, by sampling several independent attempts and picking one, for example by majority vote. Anthropic reported that accuracy on math questions rose logarithmically with the number of thinking tokens allowed.",
+    },
+    relatedLessonIds: ["understanding-ai-01"],
+    sources: [
+      { label: "Anthropic: Claude's extended thinking (2025-02-24)", url: "https://www.anthropic.com/news/visible-extended-thinking" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "embedding",
+    term: { ja: "埋め込み（エンベディング）", en: "Embedding" },
+    definition: {
+      ja: "文章などを、意味をとらえた数字の並び（ベクトル）に変えたもの。2つのベクトルの距離が関連の強さを表し、距離が小さいほど関連が強い。検索・分類・クラスタリング・おすすめなどに使われ、RAGでは質問と意味の近い資料の断片を探すのに使う。",
+      en: "A list of numbers (a vector) that captures the meaning of a piece of text or other data. The distance between two vectors measures how related they are: the smaller the distance, the more related. Embeddings are used for search, classification, clustering, and recommendations; in RAG, they are how the passages closest in meaning to a question are found.",
+    },
+    relatedLessonIds: ["understanding-ai-02"],
+    sources: [
+      { label: "OpenAI Docs: Vector embeddings", url: "https://developers.openai.com/api/docs/guides/embeddings" },
+      { label: "Google AI for Developers: Embeddings", url: "https://ai.google.dev/gemini-api/docs/embeddings" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "vector-search",
+    term: { ja: "ベクトル検索", en: "Vector search" },
+    definition: {
+      ja: "質問と資料をそれぞれ埋め込みに変え、質問のベクトルに近い資料を探す検索。言い換えに強い一方、型番やエラーコードのような文字どおりの一致は取りこぼすことがあり、単語の一致で探すキーワード検索（BM25など）と組み合わせる方法（ハイブリッド検索）もある。資料が多いときは、近似的な方法で速く探すことがある。",
+      en: "Search that turns both the question and the documents into embeddings and finds the documents whose vectors are closest to the question's. It handles paraphrases well but can miss exact matches such as model numbers or error codes, so it can be combined with keyword search such as BM25 (hybrid search). With very many documents, approximate methods may be used to search faster.",
+    },
+    relatedLessonIds: ["understanding-ai-02"],
+    sources: [
+      {
+        label: "Anthropic: Contextual Retrieval in AI Systems (2024-09-19)",
+        url: "https://www.anthropic.com/engineering/contextual-retrieval",
+      },
+      {
+        label: "Lewis et al.: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (NeurIPS 2020)",
+        url: "https://arxiv.org/abs/2005.11401",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "text-encoder",
+    term: { ja: "テキストエンコーダ", en: "Text encoder" },
+    definition: {
+      ja: "画像生成AIなどで、プロンプトの文章を、生成するモデルが参照できる数字の並びに変える部分。Stable Diffusionの系統はCLIP系のエンコーダを使ってきた。GoogleのImagenの論文（2022年）は、テキストエンコーダとして使う言語モデル（T5）を大きくするほうが、画像の拡散モデルを大きくするより、画質と文章との一致の両方を大きく改善したと報告している。",
+      en: "In image generators and similar systems, the component that turns the prompt into a list of numbers the generating model can consult. The Stable Diffusion family has used encoders from the CLIP family. Google's Imagen paper (2022) reported that making the language model used as the text encoder (T5) larger improved both image fidelity and image-text alignment much more than making the image diffusion model larger.",
+    },
+    relatedLessonIds: ["understanding-ai-03"],
+    sources: [
+      {
+        label: "Saharia et al. (Google Research): Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding (Imagen, arXiv 2022)",
+        url: "https://arxiv.org/abs/2205.11487",
+      },
+      {
+        label: "Podell et al.: SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis (arXiv, 2023)",
+        url: "https://arxiv.org/abs/2307.01952",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "latent-diffusion",
+    term: { ja: "潜在拡散モデル", en: "Latent diffusion model" },
+    definition: {
+      ja: "画像をオートエンコーダで小さな潜在表現に圧縮し、その中でノイズを取り除いてから画像に戻す拡散モデル。画素のまま扱う拡散モデルより計算を大きく減らせる。2021年12月に公開された論文（CVPR 2022）が、文章などの条件をクロスアテンションで取り込む仕組みとあわせて示した。SDXLなどStable Diffusionの系統がこの方式を使う。",
+      en: "A diffusion model that compresses an image into a small latent representation with an autoencoder, removes noise there, and then turns it back into an image, cutting computation substantially compared with diffusion models that work directly on pixels. A paper released in December 2021 (CVPR 2022) introduced it together with cross-attention for conditioning on inputs such as text. Stable Diffusion models such as SDXL use this approach.",
+    },
+    relatedLessonIds: ["understanding-ai-03"],
+    sources: [
+      {
+        label: "Rombach et al.: High-Resolution Image Synthesis with Latent Diffusion Models (CVPR 2022)",
+        url: "https://arxiv.org/abs/2112.10752",
+      },
+      {
+        label: "Podell et al.: SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis (arXiv, 2023)",
+        url: "https://arxiv.org/abs/2307.01952",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "classifier-free-guidance",
+    term: { ja: "分類器なしガイダンス", en: "Classifier-free guidance" },
+    definition: {
+      ja: "拡散モデルで、条件（文章など）を与えた予測と与えない予測を1つのネットワークで学習しておき、生成するときに2つを組み合わせて、結果を条件の側へ寄せる手法。強さを変えると、1枚ごとの質と多様性のバランスが変わる。2021年にワークショップで発表され、2022年に論文として公開された。",
+      en: "A diffusion-model technique in which a single network learns to predict both with a condition (such as text) and without one, and the two predictions are combined during generation to pull the result toward the condition. Changing its strength shifts the balance between the quality of each sample and diversity. It was presented at a workshop in 2021 and released as a paper in 2022.",
+    },
+    relatedLessonIds: ["understanding-ai-03"],
+    sources: [
+      {
+        label: "Ho & Salimans: Classifier-Free Diffusion Guidance (arXiv, 2022; NeurIPS 2021 Workshop)",
+        url: "https://arxiv.org/abs/2207.12598",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "benchmark",
+    term: { ja: "ベンチマーク", en: "Benchmark" },
+    definition: {
+      ja: "AIモデルの性能を比べるために、数学・プログラミング・生物学などの問題を集め、採点のしかたをそろえた試験。点数はその試験をその条件で解いた結果で、同じモデルでも問い方を変えると点数が動く。",
+      en: "A test that collects questions — in math, programming, biology, and so on — with a fixed way of scoring them, so AI models can be compared. A score is the result of that test under particular conditions; the same model can score differently when asked in a different way.",
+    },
+    relatedLessonIds: ["understanding-ai-04"],
+    sources: [
+      { label: "Phan et al.: Humanity's Last Exam (arXiv, 2025-01; revised 2026-07)", url: "https://arxiv.org/abs/2501.14249" },
+      {
+        label: "Rein et al.: GPQA: A Graduate-Level Google-Proof Q&A Benchmark (arXiv, 2023-11)",
+        url: "https://arxiv.org/abs/2311.12022",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "benchmark-saturation",
+    term: { ja: "ベンチマークの飽和", en: "Benchmark saturation" },
+    definition: {
+      ja: "多くのモデルが満点近くを取るようになり、そのベンチマークでは性能の差を測れなくなること。Humanity's Last Examの論文は、最新のLLMがMMLUで9割を超える正答率に達し、ベンチマークは短い期間でほぼ0点からほぼ満点まで進みがちだと指摘している。",
+      en: "When most models score close to full marks on a benchmark, so it can no longer tell them apart. The Humanity's Last Exam paper notes that the latest LLMs score over 90% on MMLU, and that benchmarks tend to go from near-zero to near-perfect in a short time.",
+    },
+    relatedLessonIds: ["understanding-ai-04"],
+    sources: [
+      { label: "Phan et al.: Humanity's Last Exam (arXiv, 2025-01; revised 2026-07)", url: "https://arxiv.org/abs/2501.14249" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "benchmark-contamination",
+    term: { ja: "ベンチマークの混入（コンタミネーション）", en: "Benchmark contamination" },
+    definition: {
+      ja: "ベンチマークの問題や正解がモデルの学習データに混ざること。モデルが解き方ではなく答えを覚えてしまい、点数が実力以上に高く出るおそれがある。ネットで公開された問題ほど起きやすく、問題をそのまま公開しないよう求めたり、学習データから除くための目印の文字列（カナリア文字列）を入れたりする対策がとられている。",
+      en: "When a benchmark's questions or answers end up in a model's training data, so the model may remember answers instead of working them out and score higher than its real ability. Questions published online are most at risk; countermeasures include asking people not to post the questions and embedding a marker (\"canary\") string so they can be filtered out of training data.",
+    },
+    relatedLessonIds: ["understanding-ai-04"],
+    sources: [
+      {
+        label: "OpenAI: Why SWE-bench Verified no longer measures frontier coding capabilities (2026-02-23)",
+        url: "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+      },
+      {
+        label: "Rein et al.: GPQA: A Graduate-Level Google-Proof Q&A Benchmark (arXiv, 2023-11)",
+        url: "https://arxiv.org/abs/2311.12022",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "alignment",
+    term: { ja: "アラインメント", en: "Alignment" },
+    definition: {
+      ja: "AIのふるまいを、作り手や社会が意図する目的や価値に沿わせ、役に立ち安全で信頼できるものにすること。人の評価を学習に使うRLHFや、原則のリストとAI自身のフィードバックで調整する方法（Constitutional AI）などがある。",
+      en: "Making an AI model's behaviour reflect human values and goals, so that it is as helpful, safe, and reliable as possible. Methods include RLHF, which trains on human ratings, and Constitutional AI, which uses a list of principles and AI feedback.",
+    },
+    relatedLessonIds: ["understanding-ai-05", "how-llms-work-03"],
+    sources: [
+      { label: "IBM: What is AI alignment?", url: "https://www.ibm.com/think/topics/ai-alignment" },
+      {
+        label: "Bai et al.: Constitutional AI: Harmlessness from AI Feedback (arXiv, 2022-12-15)",
+        url: "https://arxiv.org/abs/2212.08073",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "red-teaming",
+    term: { ja: "レッドチーミング", en: "Red teaming" },
+    definition: {
+      ja: "攻撃者の考え方と手口をまねて、AIシステムの欠陥や弱点を組織的に探すこと。日本のAIセーフティ・インスティテュート（AISI）は、開発者や提供者が施したリスク対策を攻撃者の視点から評価する手法と説明し、2024年9月に手法のガイドを公開した（2025年3月に第1.10版）。",
+      en: "A structured effort to find flaws and vulnerabilities in an AI system by adopting an attacker's mindset and methods. Japan's AI Safety Institute (AISI) describes it as a way for developers and providers to evaluate their risk mitigations from an attacker's perspective, and published a guide to the methodology in September 2024 (version 1.10 in March 2025).",
+    },
+    relatedLessonIds: ["understanding-ai-05"],
+    sources: [
+      {
+        label: "AIセーフティ・インスティテュート（J-AISI）: AIセーフティに関するレッドチーミング手法ガイド（第1.10版、2025-03）",
+        url: "https://aisi.go.jp/output/output_framework/guide_to_red_teaming_methodology_on_ai_safety/",
+      },
+      { label: "OpenAI: GPT-4 System Card (2023-03)", url: "https://cdn.openai.com/papers/gpt-4-system-card.pdf" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "system-card",
+    term: { ja: "システムカード（モデルカード）", en: "System card (model card)" },
+    definition: {
+      ja: "AIモデルの能力、安全性の評価、対策、限界、公開の判断などを、開発者がまとめて公表する文書。モデル単体だけでなく、利用規約・アクセスの制限・悪用の監視など周りの仕組みも扱う。2018年に提案された「モデルカード」（想定した使い方や、集団ごとの評価結果をモデルに添えて示す短い文書）の考え方を受け継いでいる。",
+      en: "A document in which a developer sets out an AI model's capabilities, safety evaluations, mitigations, limitations, and deployment decisions. It covers not only the model but also the surrounding system, such as usage policies, access controls, and monitoring for abuse. It builds on the \"model card\" proposed in 2018: a short document accompanying a model that states its intended use and its evaluation results across groups.",
+    },
+    relatedLessonIds: ["understanding-ai-05"],
+    sources: [
+      { label: "Mitchell et al.: Model Cards for Model Reporting (arXiv, 2018-10-05)", url: "https://arxiv.org/abs/1810.03993" },
+      { label: "OpenAI: GPT-4 System Card (2023-03)", url: "https://cdn.openai.com/papers/gpt-4-system-card.pdf" },
+      { label: "Anthropic: Model system cards", url: "https://www.anthropic.com/system-cards" },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "frontier-safety-framework",
+    term: { ja: "フロンティアAIの安全の枠組み", en: "Frontier AI safety framework" },
+    definition: {
+      ja: "最先端の高性能な汎用AI（フロンティアAI）を開発する企業が公表する、深刻なリスクの評価と管理の方針。リスクを許容できない水準（しきい値）、その水準に近づいたか・超えたかの評価、対策をしても下に抑えられないときの対応（最終的には開発も公開もしない）を定める。2024年5月のAIソウル・サミットで、16の企業・団体が公表を約束した（のちに4団体が加わった）。",
+      en: "A policy published by a developer of frontier AI — highly capable general-purpose models — setting out how it assesses and manages severe risks: thresholds at which risks would be intolerable, how it checks whether a model is approaching or has crossed them, and what it will do if mitigations cannot keep risks below them (in the extreme, not developing or deploying the model at all). At the AI Seoul Summit in May 2024, 16 companies and organisations committed to publishing one (four more joined later).",
+    },
+    relatedLessonIds: ["understanding-ai-05"],
+    sources: [
+      {
+        label: "UK Government (DSIT): Frontier AI Safety Commitments, AI Seoul Summit 2024 (2024-05-21, updated 2025-02-07)",
+        url: "https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024/frontier-ai-safety-commitments-ai-seoul-summit-2024",
+      },
+    ],
+    lastVerified: "2026-10-07",
+  },
+  {
+    id: "ai-safety-institute",
+    term: { ja: "AIセーフティ・インスティテュート（AISI）", en: "AI Safety Institute (AISI)" },
+    definition: {
+      ja: "AIの安全性を評価する手法や基準を研究・推進する政府系の機関。英国や米国での設立に続き、日本では2024年2月14日に発足し、情報処理推進機構（IPA）に事務局を置く。英国の機関は2025年2月14日に「AI Security Institute」へ名称を変え、安全保障や犯罪に関わる深刻なリスクに焦点を絞った。",
+      en: "A government-backed body that researches and promotes methods and standards for evaluating AI safety. Following the UK and the US, Japan launched its institute on February 14, 2024, with its secretariat at the Information-technology Promotion Agency (IPA). On February 14, 2025, the UK renamed its institute the \"AI Security Institute,\" focusing on serious AI risks with security implications, such as crime.",
+    },
+    relatedLessonIds: ["understanding-ai-05"],
+    sources: [
+      { label: "AIセーフティ・インスティテュート（J-AISI）: AISIについて", url: "https://aisi.go.jp/about/" },
+      {
+        label: "GOV.UK: Tackling AI security risks to unleash growth and deliver Plan for Change (2025-02-14)",
+        url: "https://www.gov.uk/government/news/tackling-ai-security-risks-to-unleash-growth-and-deliver-plan-for-change",
       },
     ],
     lastVerified: "2026-10-07",

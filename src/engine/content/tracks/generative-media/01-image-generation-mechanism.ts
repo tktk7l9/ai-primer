@@ -14,7 +14,7 @@ export const imageGenerationMechanism: Lesson = {
   body: {
     ja: `## ざらついたノイズから、少しずつ像を浮かび上がらせる
 
-多くのAI画像生成ツール（Midjourney・Stable Diffusionなど）は、**拡散モデル（Diffusion Model）**という仕組みを使っています。
+多くのAI画像生成ツール（Midjourney・Stable Diffusionなど）は、**拡散モデル**（Diffusion Model）という仕組みを使っています。
 
 ### 学習の段階
 きれいな画像に少しずつノイズを加えて壊していき、モデルに「このノイズをどう取り除けば元の画像に近づくか」を学習させます。
@@ -25,7 +25,7 @@ export const imageGenerationMechanism: Lesson = {
 ### イメージで捉えると
 彫刻家が大理石の塊から少しずつ不要な部分を削り出して像を彫り出す作業に近いたとえがよく使われます。最初は何も見えないノイズの塊から、段階を踏むごとに輪郭がはっきりしていきます。
 
-この仕組みを理解しておくと、次のレッスンで扱う「画像生成AIをうまく使うコツ」の理由も見えやすくなります。`,
+この仕組みを理解しておくと、次のレッスンで扱う「画像生成AIをうまく使うコツ」の理由も見えやすくなります。文章がどのように絵を導くのか、文字や手が苦手だった理由は[画像生成をもっと深く](/ja/learn/understanding-ai/diffusion-models-in-depth)のレッスンで扱います。`,
     en: `## Gradually revealing a picture out of grainy noise
 
 Many AI image tools (Midjourney, Stable Diffusion, and others) use a mechanism called a **diffusion model**.
@@ -39,7 +39,7 @@ The process runs in reverse. Starting from **pure random noise**, the model repe
 ### A useful analogy
 Think of a sculptor chipping away unnecessary marble from a block to reveal a figure. What starts as an undifferentiated block of noise gains clearer outlines with each step.
 
-Understanding this mechanism makes the practical tips in the next lesson easier to see the reasoning behind.`,
+Understanding this mechanism makes the practical tips in the next lesson easier to see the reasoning behind. How the text actually steers the picture, and why lettering and hands used to go wrong, are covered in [image generation in depth](/en/learn/understanding-ai/diffusion-models-in-depth).`,
   },
   quiz: [
     {

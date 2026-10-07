@@ -16,6 +16,7 @@ export const TRACK_IDS = [
   "ai-agents",
   "coding-ai",
   "generative-media",
+  "understanding-ai",
   "ai-at-work",
   "ai-and-society",
   "society",

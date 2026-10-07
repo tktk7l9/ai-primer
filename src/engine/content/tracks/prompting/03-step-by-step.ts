@@ -26,7 +26,9 @@ export const stepByStep: Lesson = {
 - 単純な質問や要約 → 素直に聞くだけで十分なことが多い。
 - 計算・多段階の論理・複数条件の比較 → 「段階を踏んで」と明示すると改善しやすい。
 
-大きなタスクを1回で解かせようとせず、途中経過を出させることで、間違いにも気づきやすくなります（人間側の検証もしやすくなる）。`,
+大きなタスクを1回で解かせようとせず、途中経過を出させることで、間違いにも気づきやすくなります（人間側の検証もしやすくなる）。
+
+なお、答える前に自分で考える過程を作るように作られた「推論モデル」は、頼まなくても問題を分解してから答えます。使いどころと料金・待ち時間は[推論モデル](/ja/learn/understanding-ai/reasoning-models)のレッスンで扱います。`,
     en: `## Don't ask for the answer in one leap
 
 **Chain-of-thought (CoT) prompting** asks an AI to lay out the intermediate reasoning steps that lead to its answer, not just the final answer.
@@ -41,7 +43,9 @@ For complex tasks — arithmetic, logic puzzles with several conditions — writ
 - Simple questions or summaries → asking directly is often enough.
 - Arithmetic, multi-step logic, comparing several conditions → asking it to reason step by step tends to help.
 
-Rather than asking for a big task solved in one shot, surfacing the intermediate steps also makes mistakes easier to catch — for you as much as for the model.`,
+Rather than asking for a big task solved in one shot, surfacing the intermediate steps also makes mistakes easier to catch — for you as much as for the model.
+
+Reasoning models are built to produce their own thinking process before answering, so they break a problem down without being asked. When they are worth the extra cost and waiting time is covered in the [reasoning models](/en/learn/understanding-ai/reasoning-models) lesson.`,
   },
   quiz: [
     {
