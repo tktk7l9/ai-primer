@@ -27,7 +27,7 @@ export const imageGenerationPractice: Lesson = {
 - 気に入った部分だけを再生成したり、特定の領域だけを描き直す機能（インペインティング）を使うと、部分的な修正がしやすい。
 
 ### 品質を左右するその他の要素
-解像度・アスペクト比の指定、複数案を生成して選ぶ、といった基本操作も仕上がりに影響します。ツールごとに使える機能が異なるため、各サービスの公式ガイドを確認するのが近道です。`,
+解像度・アスペクト比の指定、複数案を生成して選ぶ、といった基本操作も仕上がりに影響します。ツールごとに使える機能が異なるため、各サービスの公式ガイドを確認するのが近道です。参考画像を渡すときの注意、自分の作風を学習させる方法、各社の利用ポリシーが禁じていることは、[画像を作る](/ja/learn/creating-with-ai/making-images)のレッスンで扱います。`,
     en: `## Use more than just the text
 
 Getting good results from image generation builds on the "be concrete" idea from the Prompting track, plus a few image-specific tricks.
@@ -43,7 +43,7 @@ Getting good results from image generation builds on the "be concrete" idea from
 - Regenerating just a portion of the image (inpainting) lets you fix specific parts without starting over.
 
 ### Other factors that affect quality
-Resolution and aspect-ratio settings, and generating multiple candidates to choose from, also shape the result. Available features vary by tool, so checking each service's official guide is the fastest path to good results.`,
+Resolution and aspect-ratio settings, and generating multiple candidates to choose from, also shape the result. Available features vary by tool, so checking each service's official guide is the fastest path to good results. What to check when you hand over reference images, how to train on your own style, and what vendors' use policies forbid are covered in the [making images](/en/learn/creating-with-ai/making-images) lesson.`,
   },
   quiz: [
     {

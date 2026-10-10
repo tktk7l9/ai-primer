@@ -23,7 +23,7 @@ export const lifeUseCases: Lesson = {
 献立の提案、旅行の計画のたたき台作り、引っ越しの持ち物リスト作成など、選択肢を整理する用途に向いています。旅行の計画でAIが間違えやすい点と、予約や入国の条件を自分で確かめる方法は、[旅行の計画にAIを使うとき](/ja/learn/ai-in-daily-life/travel-planning)のレッスンで扱います。
 
 ### 創作・趣味
-生成メディアトラックで扱った画像・音楽生成を使い、趣味の創作物のアイデア出しや叩き台作りに活用する。
+生成メディアトラックで扱った画像・音楽生成を使い、趣味の創作物のアイデア出しや叩き台作りに活用する。自分の作風を守る使い方、公募や公開先のAI方針、表示と制作記録の残し方は、[AIと創作](/ja/learn/creating-with-ai)トラックで扱います。
 
 ### 健康・お金の相談の下調べ
 一般的な情報の整理には使えますが、医療・法律・税務など専門的な判断が必要な場面では、AIの回答を鵜呑みにせず専門家に相談することが重要です（AI基礎トラックのハルシネーションのレッスンも参照）。健康・医療の情報を調べるときの注意と、迷ったときの相談先は[健康・医療の情報をAIで調べるとき](/ja/learn/understanding-ai/health-information)のレッスンで扱います。お金・法律・行政手続きの相談でAIに任せてよい範囲と専門家への相談先は、[暮らしでAIを使う](/ja/learn/ai-in-daily-life)トラックで扱います。
@@ -40,7 +40,7 @@ Asking what a word means, having a topic explained more simply, checking the mea
 Suggesting meal ideas, drafting a rough travel itinerary, making a moving checklist — tasks that are really about organizing options. Where AI goes wrong with travel plans, and how to check bookings and entry rules yourself, is covered in the [planning a trip with AI](/en/learn/ai-in-daily-life/travel-planning) lesson.
 
 ### Creative hobbies
-Using image or music generation (Generative Media track) to brainstorm ideas or rough out a hobby project.
+Using image or music generation (Generative Media track) to brainstorm ideas or rough out a hobby project. How to keep your own voice, what contests and platforms allow, and how to label your work and keep records are covered in the [Creating with AI](/en/learn/creating-with-ai) track.
 
 ### Preliminary research on health or money questions
 Fine for organizing general information, but for anything requiring professional judgment — medical, legal, tax — don't take an AI's answer at face value; consult a professional (see also the Hallucination lesson in AI Fundamentals). For what to watch for when looking up health information, and where to turn when unsure, see [looking up health information with AI](/en/learn/understanding-ai/health-information). For how far to trust AI with money, legal, and government questions, and where to find a professional, see the [Using AI in Daily Life](/en/learn/ai-in-daily-life) track.

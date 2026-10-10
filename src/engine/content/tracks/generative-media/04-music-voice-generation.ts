@@ -24,7 +24,7 @@ export const musicVoiceGeneration: Lesson = {
 Sunoは「曲そのもの」を作ることに特化しているのに対し、ElevenLabsは音声全般（読み上げ・クローン・効果音・対話など）を幅広くカバーするプラットフォームという違いがあります。
 
 ### 使う上での注意
-生成した音楽・音声を公開・商用利用する場合、プランごとの利用規約（商用利用の可否・クレジット表記の要否など）を必ず確認してください。次のレッスンで権利面をさらに詳しく扱います。`,
+生成した音楽・音声を公開・商用利用する場合、プランごとの利用規約（商用利用の可否・クレジット表記の要否など）を必ず確認してください。次のレッスンで権利面をさらに詳しく扱います。規約の具体例、JASRACの取り扱い、配信先のルールは[音楽を作る](/ja/learn/creating-with-ai/making-music)のレッスンにまとめています。`,
     en: `## A whole song from one line, a whole voice from one sample
 
 ### Suno — music generation
@@ -37,7 +37,7 @@ Sunoは「曲そのもの」を作ることに特化しているのに対し、E
 Suno specializes in creating the song itself, while ElevenLabs is a broader audio platform covering speech, cloning, sound effects, and conversation.
 
 ### A caution when using them
-If you plan to publish or commercially use generated music or voice, always check the plan's terms of service — whether commercial use is allowed and whether attribution is required. The next lesson covers the rights side in more depth.`,
+If you plan to publish or commercially use generated music or voice, always check the plan's terms of service — whether commercial use is allowed and whether attribution is required. The next lesson covers the rights side in more depth. Concrete examples of terms, JASRAC's handling, and streaming platform rules are collected in the [making music](/en/learn/creating-with-ai/making-music) lesson.`,
   },
   quiz: [
     {
