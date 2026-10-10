@@ -37,7 +37,8 @@ GPT-4oは、テキスト・画像・音声を**1つのモデルでエンドツ�
 - 画面を共有する前に、通知を切り、関係のないアプリやタブを閉じる。
 - 職場や公共の場では、周りの人の声や映り込みに注意する（仕事でAIを使うときの情報の扱いのレッスン参照）。
 - 学習利用と履歴の設定を一度確認し、残す必要のない会話は削除する。
-- 聞き上手なAIに頼りすぎていないか、ときどき振り返る。`,
+- 聞き上手なAIに頼りすぎていないか、ときどき振り返る。
+- スマートフォンに組み込まれたAI機能が、端末内で処理するのか、クラウドや別の会社のAIに送るのかは、[家電・スマホのAI機能の設定](/ja/learn/ai-in-daily-life/device-ai-settings)のレッスンで確かめ方を扱っています。`,
     en: `## Talking instead of typing
 
 The major chat AI apps have a **voice mode**: you speak, and the AI answers out loud. Some, such as ChatGPT's voice feature and Google's Gemini Live, also let you point your camera at something or share your screen while you talk. Features, plans, and supported devices change often, so check each vendor's official help pages before relying on them (products are listed in the [model catalog](/en/models)).
@@ -63,7 +64,8 @@ Voice mode sends more than a text chat does. For each service, check:
 - Before sharing your screen, silence notifications and close unrelated apps and tabs.
 - At work or in public, mind the voices and faces around you (see the lesson on handling information at work).
 - Check the training and history settings once, and delete conversations you don't need to keep.
-- Every so often, ask yourself whether you're leaning too heavily on an AI that is always a good listener.`,
+- Every so often, ask yourself whether you're leaning too heavily on an AI that is always a good listener.
+- Whether the AI features built into your phone process data on the device or send it to the cloud or another company's AI — and how to check — is covered in the [device AI settings](/en/learn/ai-in-daily-life/device-ai-settings) lesson.`,
   },
   quiz: [
     {

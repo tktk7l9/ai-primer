@@ -46,7 +46,7 @@ export const healthInformation: Lesson = {
 - **受け取った説明を理解する**: 診察でもらった説明書や検査結果の言葉の意味を調べ、わからない点は医師・薬剤師に確かめる。
 - **公的な情報への入り口にする**: 公的機関や医療機関のページを探す手伝いをさせ、最後は自分でページを開いて読む。
 
-暮らしの中でのAIの使い方は[生活での活用事例](/ja/learn/society/life-use-cases)のレッスンにもあります。
+暮らしの中でのAIの使い方は[生活での活用事例](/ja/learn/society/life-use-cases)のレッスンにもあります。お金・法律・行政手続きの相談は、[暮らしでAIを使う](/ja/learn/ai-in-daily-life)トラックで扱います。
 
 ### 迷ったら、電話で相談する
 - **#7119（救急安心センター事業）**: 急な病気やけがで「救急車を呼ぶべきか」「今すぐ病院に行くべきか」迷ったときに、医師・看護師・救急救命士などから電話で助言を受けられます。緊急性が高ければ、119番への転送や、119番へのかけ直しの案内などをしてくれます。2026年10月時点で実施しているのは全国42地域で、まだ全国一律ではなく、#7119以外の番号で相談を受けている地域もあります。
@@ -86,7 +86,7 @@ Your symptoms, conditions, and medicines are highly personal information, and as
 - **Understanding what you've been given**: look up the terms in a leaflet or test result you received, and ask your doctor or pharmacist about anything that's still unclear.
 - **A doorway to official information**: have the AI help you find pages from public health bodies or medical institutions, then open and read them yourself.
 
-For more on everyday uses of AI, see [AI in Everyday Life: Use Cases](/en/learn/society/life-use-cases).
+For more on everyday uses of AI, see [AI in Everyday Life: Use Cases](/en/learn/society/life-use-cases). Money, legal, and government questions are covered in the [Using AI in Daily Life](/en/learn/ai-in-daily-life) track.
 
 ### When in doubt, call (in Japan)
 - **#7119 (emergency medical phone consultation)**: when a sudden illness or injury leaves you unsure whether to call an ambulance or go to a hospital right now, doctors, nurses, paramedics, and others can advise you by phone. If the situation is urgent, they transfer the call to 119 or ask you to call 119 yourself. As of October 2026 the service runs in 42 areas of Japan — not yet everywhere — and some areas take these calls on a number other than #7119.
