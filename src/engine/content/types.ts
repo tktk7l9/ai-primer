@@ -18,6 +18,7 @@ export const TRACK_IDS = [
   "generative-media",
   "understanding-ai",
   "ai-at-work",
+  "ai-in-daily-life",
   "ai-and-society",
   "society",
 ] as const;

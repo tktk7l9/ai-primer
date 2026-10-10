@@ -9,10 +9,11 @@ import { codingAiTrack } from "./tracks/coding-ai";
 import { generativeMediaTrack } from "./tracks/generative-media";
 import { understandingAiTrack } from "./tracks/understanding-ai";
 import { aiAtWorkTrack } from "./tracks/ai-at-work";
+import { aiInDailyLifeTrack } from "./tracks/ai-in-daily-life";
 import { aiAndSocietyTrack } from "./tracks/ai-and-society";
 import { societyTrack } from "./tracks/society";
 
-/** All tracks in display order (12, all complete). */
+/** All tracks in display order (13, all complete). */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
@@ -26,6 +27,8 @@ export const TRACKS: readonly Track[] = [
   understandingAiTrack,
   // Applies the tool tracks above to everyday tasks; society stays last so its checklist closes the course.
   aiAtWorkTrack,
+  // Everyday tasks outside work (money, legal, government procedures, travel, language, device settings).
+  aiInDailyLifeTrack,
   // Society-wide effects (jobs, energy, bias, accessibility, scams, children); also kept before society.
   aiAndSocietyTrack,
   societyTrack,
