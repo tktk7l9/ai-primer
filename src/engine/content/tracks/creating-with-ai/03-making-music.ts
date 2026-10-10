@@ -21,20 +21,21 @@ export const makingMusic: Lesson = {
 ### 1. プランで権利と商用条件が変わる
 Sunoの利用規約（2026年8月10日改定・9月3日発効）を例にします。
 - **無料・基本プラン**: 生成物は、適法な**個人的・非商用の目的**にだけ使うと約束する形です。
-- **有料プラン（Pro・Premier）**: Sunoが持つ生成物の権利を利用者に**譲渡**します。ダウンロードした曲は商用にも個人用にも使えますが、ダウンロードできる数はプランごとに月の上限があります。Sunoは、生成物がSunoで作られたものだと公に示す権利を持ち続けます。
+- **有料プラン（Pro・Premier）**: Sunoが持つ生成物の権利を利用者に**譲渡**します。ただし、機械学習の性質上、生成物に著作権が生じることまでは保証しないと明記しています。商用に使えるのは、プランごとに決まった月のダウンロード枠の中で正規にダウンロードした曲で、録音やストリームの取り込みなど、ダウンロード以外の方法で手に入れることは禁止されています。
+- **Sunoによる表示**: 利用者は、生成物がSunoで作られたことを公に示す権利をSunoに与えます。
 - **声**: 自分の声に似せた**ボイスモデル**だけを作れます。他人の声のモデルを作ること、作ろうとすることは明確に禁止されています。
 
-「無料プランで作った曲を動画のBGMにして収益化する」は、この規約では認められません。ほかのサービスでも、無料と有料で生成物の権利や商用条件が違うのは珍しくないので、作る前にプランの条件を確かめます。
+「無料プランで作った曲を動画のBGMにして収益化する」は、この規約では認められません。規約は、Sunoの外で使うときには、その場を運営するプラットフォームの規約も別に適用されるとも書いています（4で扱います）。ほかのサービスでも、無料と有料で生成物の権利や商用条件が違うのは珍しくないので、作る前にプランの条件を確かめます。
 
 ### 2. 規約は、業界との契約で変わる
-大手レコード会社は2024年6月、SunoとUdioを、許諾なく録音物を学習に使ったとして米国の連邦裁判所に提訴しました。その後、和解と提携が進み、サービスの条件も変わっています（[年表](/ja/timeline)参照）。
-- Udioは2025年10月29日、Universal Music Groupとの提携を発表し、**同日からダウンロードを停止**しました。CEOは利用者にとって大きな犠牲だと認めたうえで、プラットフォーム内での利用に切り替えるとしています。
+全米レコード協会（RIAA）の発表によると、大手レコード会社は2024年6月24日、SunoとUdioを、許諾なく録音物を複製して学習に使ったとして、それぞれマサチューセッツ州とニューヨーク州南部の米国連邦地方裁判所に提訴しました。その後、訴えた側のレコード会社とサービスの提携が進み、サービスの条件も変わっています（[年表](/ja/timeline)参照）。
+- Udioは2025年10月29日、Universal Music Groupとの提携を発表し、**同日からダウンロードを停止**しました。CEOは利用者にとって大きな犠牲だと認めたうえで、新しいモデルと製品を準備する移行期間だと説明しています。
 - Sunoは2025年11月25日、Warner Music Groupとの提携を発表しました。ライセンスを受けた音楽で新しいモデルを作ること、**曲のダウンロードには有料アカウントが必要**になり有料プランごとに月のダウンロード数が決まること、オプトインしたWMGのアーティストの名前・肖像・声・楽曲を新しいAI音楽に使えるようにすることを示しました。
 
 教訓は二つです。**作った曲は手元に保存しておく**こと（ダウンロードできなくなることがある）、そして**規約の改定通知を読む**ことです。
 
 ### 3. 日本での権利 — JASRACの線引き
-日本の著作権法では、AIが自律的に作ったものに著作権は生まれず、人間の創作的寄与があるかどうかが問題になります（[日本の著作権法とAI](/ja/learn/generative-media/copyright-in-japan)のレッスン参照）。音楽の著作権管理団体JASRACは2026年6月11日、生成AIと著作権の特設ページを公開し、生成AIを利用した作品の取り扱いを示しました。
+文化庁の「AIと著作権に関する考え方について」は、AIは著作者になれず、人の指示が表現に至らないアイデアにとどまる場合はAI生成物に著作物性は認められないとし、人の創作的寄与があるかを個々の生成物ごとに判断するとしています（[日本の著作権法とAI](/ja/learn/generative-media/copyright-in-japan)のレッスン参照）。音楽の著作権管理団体JASRACは2026年6月11日、生成AIと著作権の特設ページを公開し、生成AIを利用した作品の取り扱いを示しました。
 - シンプルな指示に基づいてAIが自律的に生成した歌詞や楽曲のように、**人間の創作的寄与が認められない作品は管理しない**。
 - 人間の創作的寄与が認められるものは管理の対象になる。
 - 作品を届け出る委託者には、届け出る作品が**人が創作的に寄与した著作物であることを保証する義務**がある。
@@ -45,8 +46,10 @@ Sunoの利用規約（2026年8月10日改定・9月3日発効）を例にしま�
 ### 4. 配信先のルール — Spotifyの例
 Spotifyは2025年9月25日、AIに関する保護策を発表しました。
 - **なりすまし**: 歌声の模倣（ボーカルのなりすまし）は、まねされたアーティストがその利用を許可した場合にだけ認められる。正規のアーティストのプロフィールにAI生成曲や盗んだ曲を載せる不正なアップロードへの対策も強める。
-- **スパムフィルター**: 大量アップロード、重複、検索対策の悪用、再生数と支払いを不正に増やすための極端に短い曲などの手口を使うアップローダーと曲を特定してタグ付けし、推薦しない。過去12か月で7,500万曲を超えるスパム曲を削除したとしています。
-- **AIの開示**: 業界団体DDEXが策定した、音楽のクレジットにAIの関与を記す標準を支持する。ボーカル、演奏、ポストプロダクションのどこにAIがどう関わったかを示せます。
+- **スパムフィルター**: 大量アップロード、重複、検索対策の悪用、人為的に短くした曲の悪用などの手口を使うアップローダーと曲を特定してタグ付けし、推薦しない。過去12か月で7,500万曲を超えるスパム曲を削除したとしています。
+- **AIの開示**: 業界団体DDEXを通じて策定される、音楽のクレジットにAIの関与を記す標準を支持する。ボーカル、演奏、ポストプロダクションのどこにAIがどう関わったかを示せます。Spotifyは、これはAIを責任をもって使うアーティストを罰したり、開示した曲の順位を下げたりするためのものではないとしています。
+
+同じ記事の追記では、アーティストがレーベルや配信代行会社を通じて申告したAIの使い方（ボーカル・歌詞・制作など）を、モバイルアプリの楽曲クレジットに表示するベータ機能を始めたとし、申告に頼る仕組みなので、クレジットがないことはAIが使われていないことを意味しないとも書いています。
 
 実在の歌手の声に似せた曲を公開することは、サービスの規約と配信先のルールの両方に反しうるうえ、日本では声も**パブリシティ権**の保護の対象に含まれると法務省の検討会の報告書が示しています（[資料・画像づくり](/ja/learn/ai-at-work/slides-and-images)のレッスン参照）。自分の声か、同意を得た人の声だけを使います。
 
@@ -64,20 +67,21 @@ That one line of text can produce lyrics, melody, and performance, and that spee
 ### 1. Rights and commercial terms depend on the plan
 Take Suno's Terms of Service (revised August 10, 2026, effective September 3) as an example.
 - **Free and basic tiers**: you agree to use outputs only for lawful **personal, non-commercial purposes**.
-- **Paid tiers (Pro and Premier)**: Suno **assigns** to you its rights in the outputs. Songs you download can be used commercially or personally, with a monthly download limit per tier. Suno keeps the right to tell the public that an output was generated through its service.
+- **Paid tiers (Pro and Premier)**: Suno **assigns** to you its rights in the outputs — while stating that, due to the nature of machine learning, it makes no promise that any copyright will vest in them. Commercial use is limited to songs you have properly downloaded within your tier's monthly download allocation; getting a copy any other way, such as by recording or stream ripping, is prohibited.
+- **Attribution by Suno**: you grant Suno the right to tell the public that an output was generated through its service.
 - **Voices**: you may create a **voice model** resembling only your own voice. Creating, or attempting to create, a voice model of another person is expressly prohibited.
 
-"Make a track on the free plan and use it as background music in a monetized video" is not allowed under these terms. Other services also commonly separate free and paid tiers by output rights and commercial use, so check the plan's conditions before you start.
+"Make a track on the free plan and use it as background music in a monetized video" is not allowed under these terms. The terms also say that any use outside Suno is subject to the rules of the platform where you use it (see section 4). Other services also commonly separate free and paid tiers by output rights and commercial use, so check the plan's conditions before you start.
 
 ### 2. Terms change with industry deals
-In June 2024 the major record companies sued Suno and Udio in US federal courts, alleging that sound recordings had been used for training without permission. Settlements and partnerships followed, and the services' conditions changed with them (see the [timeline](/en/timeline)).
-- On October 29, 2025, Udio announced a partnership with Universal Music Group and **made downloads unavailable from that day**. Its CEO acknowledged this was a significant sacrifice for users, with use shifting to within the platform.
+According to the Recording Industry Association of America (RIAA), on June 24, 2024 the major record companies sued Suno and Udio — in federal district courts in Massachusetts and the Southern District of New York respectively — alleging that sound recordings had been copied without permission to train the services. Partnerships between the services and record companies that had sued them followed, and the services' conditions changed with them (see the [timeline](/en/timeline)).
+- On October 29, 2025, Udio announced a partnership with Universal Music Group and **made downloads unavailable from that day**. Its CEO acknowledged this was a significant sacrifice for users and described a transition period while new models and product experiences are prepared.
 - On November 25, 2025, Suno announced a partnership with Warner Music Group: new models built on licensed music, **a paid account required to download songs** with a set number of downloads per paid tier each month, and the names, images, likenesses, voices, and compositions of WMG artists who opt in becoming available for new AI-generated music.
 
 Two lessons follow. **Keep your own copies** of what you make — downloads can disappear — and **read the notices when terms change**.
 
 ### 3. Rights in Japan: where JASRAC draws the line
-Under Japanese copyright law, what an AI produces on its own is not a copyrighted work; the question is whether a human made a creative contribution (see [Japanese copyright law and AI](/en/learn/generative-media/copyright-in-japan)). On June 11, 2026, JASRAC, Japan's music copyright collecting society, published a dedicated page on generative AI and copyright setting out how it handles works made with generative AI.
+The Agency for Cultural Affairs' "General Understanding on AI and Copyright in Japan" says an AI cannot be an author, that AI output is not a copyrighted work when a person's instructions remain ideas that never reach the level of expression, and that whether a person made a creative contribution is judged output by output (see [Japanese copyright law and AI](/en/learn/generative-media/copyright-in-japan)). On June 11, 2026, JASRAC, Japan's music copyright collecting society, published a dedicated page on generative AI and copyright setting out how it handles works made with generative AI.
 - Works with **no recognizable human creative contribution** — such as lyrics or music generated autonomously by an AI from simple instructions — **are not managed** by JASRAC.
 - Works with a recognizable human creative contribution are managed.
 - A member registering a work has a **duty to guarantee that it is a copyrighted work to which a person contributed creatively**.
@@ -88,8 +92,10 @@ In practice, being able to explain **your own contribution** — you wrote the l
 ### 4. Platform rules: Spotify's example
 On September 25, 2025, Spotify announced a set of AI protections.
 - **Impersonation**: vocal impersonation is only allowed when the impersonated artist has authorized the use. Spotify is also stepping up action against fraudulent uploads that place AI-generated or stolen tracks on legitimate artists' profiles.
-- **Spam filter**: a system that identifies uploaders and tracks using tactics such as mass uploads, duplicates, SEO hacks, and artificially short tracks designed to inflate streams and payments, tags them, and stops recommending them. Spotify says it removed more than 75 million spammy tracks in the previous twelve months.
-- **AI disclosure**: support for the industry standard developed through DDEX for noting AI involvement in music credits — where and how AI played a role, whether vocals, instrumentation, or post-production.
+- **Spam filter**: a system that identifies uploaders and tracks using tactics such as mass uploads, duplicates, SEO hacks, and artificially short track abuse, tags them, and stops recommending them. Spotify says it removed more than 75 million spammy tracks in the previous twelve months.
+- **AI disclosure**: support for the industry standard developed through DDEX for noting AI involvement in music credits — where and how AI played a role, whether vocals, instrumentation, or post-production. Spotify says this is not about punishing artists who use AI responsibly or down-ranking tracks for disclosing how they were made.
+
+An update to the same article says Spotify has launched a beta feature that shows, in Song Credits on mobile, how artists used AI (vocals, lyrics, production, and so on) when they disclose it through their label or distributor — and, because it depends on artist disclosure, that the absence of a credit doesn't mean AI wasn't used.
 
 Publishing a song that imitates a real singer's voice can breach both the service's terms and the platform's rules, and in Japan a report by a Ministry of Justice study group holds that a person's voice is protected by the right of publicity (see the lesson on [making slides and images](/en/learn/ai-at-work/slides-and-images)). Use your own voice, or a voice whose owner has consented.
 
@@ -138,7 +144,19 @@ Publishing a song that imitates a real singer's voice can breach both the servic
   ],
   sources: [
     { label: "Suno: Terms of Service（2026-08-10 改定・2026-09-03 発効）", url: "https://suno.com/terms" },
-    { label: "Suno: Suno and Warner Music Group（2025-11-25）", url: "https://suno.com/blog/wmg-partnership" },
+    {
+      label: "Suno: A new chapter in music creation（2025-11-25・Warner Music Groupとの提携）",
+      url: "https://suno.com/blog/wmg-partnership",
+    },
+    { label: "Udio: A New Era of Music — Udio with Universal Music Group（2025-10-29）", url: "https://www.udio.com/blog/a-new-era" },
+    {
+      label: "RIAA: Record Companies Bring Landmark Cases for Responsible AI Against Suno and Udio（2024-06-24）",
+      url: "https://www.riaa.com/news/record-companies-bring-landmark-cases-for-responsible-ai-againstsuno-and-udio-in-boston-and-new-york-federal-courts-respectively/",
+    },
+    {
+      label: "文化庁: AIと著作権に関する考え方について（文化審議会著作権分科会法制度小委員会・2024年3月15日）",
+      url: "https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/pdf/94037901_01.pdf",
+    },
     {
       label: "JASRAC: 創造のサイクルとの調和がとれたAI利活用の実現に向けて（生成AIと著作権の特設ページ・2026-06-11 公開）",
       url: "https://www.jasrac.or.jp/aboutus/ai.html",
@@ -146,6 +164,10 @@ Publishing a song that imitates a real singer's voice can breach both the servic
     {
       label: "Spotify Newsroom: Spotify Strengthens AI Protections for Artists, Songwriters, and Producers（2025-09-25）",
       url: "https://newsroom.spotify.com/2025-09-25/spotify-strengthens-ai-protections/",
+    },
+    {
+      label: "法務省: 肖像、声等の無断利用による民事責任の在り方に関する検討会（取りまとめ報告書・2026年8月）",
+      url: "https://www.moj.go.jp/MINJI/minji07_00400.html",
     },
   ],
   lastVerified: "2026-10-11",
