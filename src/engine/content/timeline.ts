@@ -18,7 +18,9 @@ export interface TimelineEvent {
 // the AI-and-society entries — NIST face recognition 2019, Apple Live Speech 2023, Japan's anti-fraud plan 2024, IEA/ILO/ChatGPT
 // parental controls 2025, and the 2026 labour white paper — added on 2026-10-07; the understanding-AI entries — the RAG, DDPM,
 // MMLU, and latent diffusion papers, Chatbot Arena, SWE-bench, WHO's LMM guidance, Japan's AISI, the Seoul frontier AI safety
-// commitments, and the first International AI Safety Report — added on 2026-10-07).
+// commitments, and the first International AI Safety Report — added on 2026-10-07; the daily-life entries — NOTICE 2019,
+// Mata v. Avianca 2023, the Justice Ministry's AI guidelines 2023 and 2026, the SEC/NASAA/FINRA alert 2024, Apple Intelligence
+// in Japanese 2025, and the Digital Agency's generative AI guideline 2025 — added on 2026-10-10).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -111,6 +113,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "Google researchers introduced the Transformer architecture, which became the common foundation for nearly every major LLM since.",
     },
     sources: [{ label: "Wikipedia: Attention Is All You Need", url: "https://en.wikipedia.org/wiki/Attention_Is_All_You_Need" }],
+  },
+  {
+    id: "2019-notice-iot",
+    date: "2019-02-20",
+    precision: "day",
+    title: { ja: "IoT機器の調査「NOTICE」開始", en: "Japan Launches NOTICE, Its IoT Security Survey" },
+    summary: {
+      ja: "総務省・NICT・インターネット接続事業者などが連携し、推測されやすい管理用パスワードが設定されたIoT機器を調査して利用者に注意喚起するプロジェクトNOTICEを開始。家庭のルーターやネットワークカメラも対象で、管理用パスワードの変更とファームウェアの更新を呼びかける。",
+      en: "Japan's communications ministry, NICT, and internet service providers launched NOTICE, a project that surveys IoT devices set up with easily guessed administrative passwords and alerts their users. Home routers and network cameras are included; it urges changing administrative passwords and updating firmware.",
+    },
+    sources: [{ label: "NOTICE（総務省・NICT・ICT-ISAC）: みんなで守る、IoT。", url: "https://notice.go.jp/" }],
   },
   {
     id: "2019-nist-face-recognition-demographics",
@@ -314,6 +327,44 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2023-mata-v-avianca",
+    date: "2023-06-22",
+    precision: "day",
+    title: {
+      ja: "実在しない判例の提出で弁護士に制裁（Mata対Avianca事件）",
+      en: "Lawyers Sanctioned for Filing Fake AI-Generated Precedents (Mata v. Avianca)",
+    },
+    summary: {
+      ja: "ニューヨーク南部地区連邦地方裁判所が、ChatGPTが作った実在しない判例を偽の引用つきで提出し、裁判所に存在を疑われたあともそれを支持し続けた弁護士2人と法律事務所に、計5,000ドルの制裁金などを命じた。判決は、信頼できるAIツールを補助に使うこと自体は不適切ではないが、提出書類の正確さを確かめる門番の役割は弁護士にあるとした。",
+      en: "The US District Court for the Southern District of New York imposed sanctions, including a $5,000 penalty, on two lawyers and their firm for submitting non-existent judicial opinions with fake quotes and citations created by ChatGPT, then standing by them after the court questioned their existence. The opinion said there is nothing inherently improper about using a reliable AI tool for assistance, but that existing rules impose a gatekeeping role on attorneys to ensure the accuracy of their filings.",
+    },
+    sources: [
+      {
+        label: "Mata v. Avianca, Inc., No. 22-cv-1461 (PKC) (S.D.N.Y. June 22, 2023): Opinion and Order on Sanctions (CourtListener)",
+        url: "https://storage.courtlistener.com/recap/gov.uscourts.nysd.575368/gov.uscourts.nysd.575368.54.0.pdf",
+      },
+    ],
+  },
+  {
+    id: "2023-moj-ai-contract-review-guideline",
+    date: "2023-08-01",
+    precision: "month",
+    title: {
+      ja: "法務省がAI契約書審査サービスと弁護士法72条のガイドラインを公表",
+      en: "Japan's Justice Ministry Issues a Guideline on AI Contract Review and Article 72",
+    },
+    summary: {
+      ja: "法務省大臣官房司法法制部が「AI等を用いた契約書等関連業務支援サービスの提供と弁護士法第72条との関係について」を公表。非弁行為に当たるかは個別の事実関係で判断されるとしたうえで、「報酬を得る目的」「事件性」「法律事務」の要件ごとに、通常は同条に違反しないと考えられる例を示した。",
+      en: "The Ministry of Justice published a guideline on how services that use AI to help draft, review, and manage contracts relate to Article 72 of the Attorney Act. While stressing that each case turns on its facts, it gave examples that would normally not violate the article for each element: compensation, \"case-ness,\" and legal affairs.",
+    },
+    sources: [
+      {
+        label: "法務省: 弁護士法（その他）— AI等を用いた契約書等関連業務支援サービスの提供と弁護士法第72条との関係について（令和5年8月）",
+        url: "https://www.moj.go.jp/housei/shihouseido/housei10_00134.html",
+      },
+    ],
+  },
+  {
     id: "2023-synthid",
     date: "2023-08-29",
     precision: "day",
@@ -362,6 +413,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
       {
         label: "WHO: WHO releases AI ethics and governance guidance for large multi-modal models (2024-01-18)",
         url: "https://www.who.int/news/item/18-01-2024-who-releases-ai-ethics-and-governance-guidance-for-large-multi-modal-models",
+      },
+    ],
+  },
+  {
+    id: "2024-sec-ai-investment-fraud-alert",
+    date: "2024-01-25",
+    precision: "day",
+    title: { ja: "米SEC・NASAA・FINRAがAIをうたう投資詐欺の注意喚起", en: "US Regulators Warn of AI-Themed Investment Fraud" },
+    summary: {
+      ja: "米国の証券取引委員会（SEC）、北米証券監督官協会（NASAA）、金融取引業規制機構（FINRA）が、AIなどの新技術をうたう投資詐欺の増加を受けて、共同で投資家向けの注意喚起を公表。「当社独自のAI取引システムは負けません！」のような主張をする無登録のプラットフォームや、AIで作った音声・画像・動画によるなりすましに注意を促し、登録の確認を勧めた。",
+      en: "The SEC, NASAA, and FINRA jointly issued an investor alert on the rise of investment fraud invoking AI and other emerging technologies, warning of unregistered platforms making claims like \"Our proprietary AI trading system can't lose!\" and of impersonation using AI-cloned voices, images, and videos, and advising investors to check registration.",
+    },
+    sources: [
+      {
+        label: "FINRA / SEC / NASAA: Investor Alert — Artificial Intelligence (AI) and Investment Fraud (2024-01-25)",
+        url: "https://www.finra.org/investors/insights/artificial-intelligence-and-investment-fraud",
       },
     ],
   },
@@ -565,6 +632,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2025-apple-intelligence-japanese",
+    date: "2025-03-31",
+    precision: "day",
+    title: { ja: "Apple Intelligenceが日本語に対応", en: "Apple Intelligence Arrives in Japanese" },
+    summary: {
+      ja: "iOS 18.4・iPadOS 18.4・macOS Sequoia 15.4のリリースにより、Apple Intelligenceが日本語のほか、フランス語・ドイツ語・イタリア語・ポルトガル語（ブラジル）・スペイン語・韓国語・中国語（簡体字）などに対応。Appleは、生成モデルの多くがデバイス上で実行され、より大きなモデルが必要な要求はPrivate Cloud Computeで処理されると説明した。",
+      en: "With the release of iOS 18.4, iPadOS 18.4, and macOS Sequoia 15.4, Apple Intelligence added Japanese along with French, German, Italian, Portuguese (Brazil), Spanish, Korean, Simplified Chinese, and more. Apple explained that many of its generative models run on device, with requests that need larger models handled by Private Cloud Compute.",
+    },
+    sources: [
+      {
+        label: "Apple Newsroom: Apple Intelligenceの機能が日本語で利用可能に（2025-03-31）",
+        url: "https://www.apple.com/jp/newsroom/2025/03/apple-intelligence-features-are-now-available-in-more-languages/",
+      },
+    ],
+  },
+  {
     id: "2025-iea-energy-and-ai",
     date: "2025-04-10",
     precision: "day",
@@ -594,6 +677,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
       {
         label: "ILO: One in four jobs at risk of being transformed by GenAI, new ILO–NASK Global Index shows",
         url: "https://www.ilo.org/resource/news/one-four-jobs-risk-being-transformed-genai-new-ilo%E2%80%93nask-global-index-shows",
+      },
+    ],
+  },
+  {
+    id: "2025-japan-genai-procurement-guideline",
+    date: "2025-05-27",
+    precision: "day",
+    title: {
+      ja: "デジタル庁が政府の生成AI調達・利活用ガイドラインを決定",
+      en: "Japan Adopts Its Government Guideline on Procuring and Using Generative AI",
+    },
+    summary: {
+      ja: "デジタル社会推進会議幹事会が「行政の進化と革新のための生成AIの調達・利活用に係るガイドライン」（DS-920）を決定。利活用の促進とリスク管理を表裏一体で進めるため、各府省庁にAI統括責任者（CAIO）を置き、ハルシネーションなどのリスクへの対応や出力の正確性の確認を定めた。2026年6月12日に第2.0版へ改定。",
+      en: "Japan's Digital Agency adopted guideline DS-920 on procuring and using generative AI in government, pairing promotion of use with risk management: each ministry appoints a Chief AI Officer, and the guideline sets out how to handle risks such as hallucination and to verify the accuracy of outputs. Version 2.0 followed on June 12, 2026.",
+    },
+    sources: [
+      {
+        label: "デジタル庁: 行政の進化と革新のための生成AIの調達・利活用に係るガイドライン（DS-920、2025-05-27 決定、2026-06-12 改定）",
+        url: "https://www.digital.go.jp/assets/contents/node/information/field_ref_resources/decb64eb-f26e-41cb-8d37-f3dd173108b8/59054b35/20260612_resources_standard_guidelines_guideline_01.pdf",
       },
     ],
   },
@@ -756,6 +858,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     },
     sources: [
       { label: "European Commission: AI Act", url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" },
+    ],
+  },
+  {
+    id: "2026-moj-ai-legal-services-guideline",
+    date: "2026-08-21",
+    precision: "day",
+    title: {
+      ja: "法務省がAI法務業務支援サービスと弁護士法72条の新ガイドラインを公表",
+      en: "Japan's Justice Ministry Issues a New Guideline on AI Legal-Support Services",
+    },
+    summary: {
+      ja: "法務省大臣官房司法法制部が「ビジネス分野におけるAI等法務業務支援サービス提供と弁護士法第72条の関係について」を公表。2023年のガイドラインの枠組みを引き継ぎつつ、対象を契約書関連以外の法務業務支援サービスにも広げ、第72条は人の行為を対象とすること、争いのある案件にもそうでない業務にも使える「価値中立的な」サービスの扱いなどの解釈指針と、提供者への留意・推奨事項を示した。",
+      en: "The Ministry of Justice published a guideline on AI legal-support services in business and Article 72 of the Attorney Act. Building on its 2023 framework, it extended the scope beyond contract work and set out interpretive guidance — that the article targets human conduct, and how to treat \"value-neutral\" services usable both for contested matters and for ordinary work — along with governance recommendations for providers.",
+    },
+    sources: [
+      {
+        label: "法務省大臣官房司法法制部: ビジネス分野におけるＡＩ等法務業務支援サービス提供と弁護士法第７２条の関係について（2026-08-21）",
+        url: "https://www.moj.go.jp/content/001469040.pdf",
+      },
     ],
   },
   {

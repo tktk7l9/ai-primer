@@ -20,13 +20,13 @@ export const lifeUseCases: Lesson = {
 分からない言葉の意味を尋ねる、学習内容をかみ砕いて説明してもらう、外国語の文章の意味を確認するなど。本サイトのようなクイズ形式の学習と組み合わせるのも一つの使い方です。
 
 ### 家事・生活の相談
-献立の提案、旅行の計画のたたき台作り、引っ越しの持ち物リスト作成など、選択肢を整理する用途に向いています。
+献立の提案、旅行の計画のたたき台作り、引っ越しの持ち物リスト作成など、選択肢を整理する用途に向いています。旅行の計画でAIが間違えやすい点と、予約や入国の条件を自分で確かめる方法は、[旅行の計画にAIを使うとき](/ja/learn/ai-in-daily-life/travel-planning)のレッスンで扱います。
 
 ### 創作・趣味
 生成メディアトラックで扱った画像・音楽生成を使い、趣味の創作物のアイデア出しや叩き台作りに活用する。
 
 ### 健康・お金の相談の下調べ
-一般的な情報の整理には使えますが、医療・法律・税務など専門的な判断が必要な場面では、AIの回答を鵜呑みにせず専門家に相談することが重要です（AI基礎トラックのハルシネーションのレッスンも参照）。健康・医療の情報を調べるときの注意と、迷ったときの相談先は[健康・医療の情報をAIで調べるとき](/ja/learn/understanding-ai/health-information)のレッスンで扱います。
+一般的な情報の整理には使えますが、医療・法律・税務など専門的な判断が必要な場面では、AIの回答を鵜呑みにせず専門家に相談することが重要です（AI基礎トラックのハルシネーションのレッスンも参照）。健康・医療の情報を調べるときの注意と、迷ったときの相談先は[健康・医療の情報をAIで調べるとき](/ja/learn/understanding-ai/health-information)のレッスンで扱います。お金・法律・行政手続きの相談でAIに任せてよい範囲と専門家への相談先は、[暮らしでAIを使う](/ja/learn/ai-in-daily-life)トラックで扱います。
 
 **共通する心構え**: 生活での活用でも、「答えをそのまま信じる」のではなく、「選択肢を整理し、たたき台を作ってもらう」道具として使うのが安全な付き合い方です。`,
     en: `## Small everyday helpers
@@ -37,13 +37,13 @@ Chat AI and generative media show up in everyday life in ways like these:
 Asking what a word means, having a topic explained more simply, checking the meaning of a foreign-language passage. Pairing this with quiz-style learning, like this site, is one way to use it.
 
 ### Household and life planning
-Suggesting meal ideas, drafting a rough travel itinerary, making a moving checklist — tasks that are really about organizing options.
+Suggesting meal ideas, drafting a rough travel itinerary, making a moving checklist — tasks that are really about organizing options. Where AI goes wrong with travel plans, and how to check bookings and entry rules yourself, is covered in the [planning a trip with AI](/en/learn/ai-in-daily-life/travel-planning) lesson.
 
 ### Creative hobbies
 Using image or music generation (Generative Media track) to brainstorm ideas or rough out a hobby project.
 
 ### Preliminary research on health or money questions
-Fine for organizing general information, but for anything requiring professional judgment — medical, legal, tax — don't take an AI's answer at face value; consult a professional (see also the Hallucination lesson in AI Fundamentals). For what to watch for when looking up health information, and where to turn when unsure, see [looking up health information with AI](/en/learn/understanding-ai/health-information).
+Fine for organizing general information, but for anything requiring professional judgment — medical, legal, tax — don't take an AI's answer at face value; consult a professional (see also the Hallucination lesson in AI Fundamentals). For what to watch for when looking up health information, and where to turn when unsure, see [looking up health information with AI](/en/learn/understanding-ai/health-information). For how far to trust AI with money, legal, and government questions, and where to find a professional, see the [Using AI in Daily Life](/en/learn/ai-in-daily-life) track.
 
 **A common mindset**: in everyday use too, the safer approach is treating AI as a tool that organizes options and drafts a starting point — not as a source of answers to accept at face value.`,
   },

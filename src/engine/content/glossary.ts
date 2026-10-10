@@ -46,7 +46,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIがもっともらしいが事実に基づかない内容を生成してしまう現象。",
       en: "When an AI generates plausible-sounding but factually incorrect or fabricated content.",
     },
-    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02", "ai-and-society-04", "ai-and-society-06", "understanding-ai-02", "understanding-ai-06"],
+    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02", "ai-and-society-04", "ai-and-society-06", "understanding-ai-02", "understanding-ai-06", "ai-in-daily-life-01", "ai-in-daily-life-02", "ai-in-daily-life-03", "ai-in-daily-life-04", "ai-in-daily-life-05"],
     sources: [{ label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" }],
     lastVerified: "2026-10-06",
   },
@@ -320,7 +320,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "学習済みの重み（パラメータ）が配布され、自分の機器で動かせるモデル。学習データやコードまで公開されているとは限らず、OSIの定義では重みだけの公開は「オープンソースAI」に当たらない。",
       en: "A model whose trained weights (parameters) are distributed so you can run it on your own hardware. Training data and code are not necessarily released; under the OSI definition, weights alone do not make it \"open source AI.\"",
     },
-    relatedLessonIds: ["chat-ais-06", "society-05", "understanding-ai-04"],
+    relatedLessonIds: ["chat-ais-06", "society-05", "understanding-ai-04", "ai-in-daily-life-06"],
     sources: [
       { label: "Open Source Initiative: The Open Source AI Definition 1.0", url: "https://opensource.org/ai/open-source-ai-definition" },
     ],
@@ -445,7 +445,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIの回答を、検索結果や指定した文書など外部の情報源に根拠づけること。回答のどの部分がどの情報源に基づくかを示す引用情報が、回答と一緒に返されることが多い。",
       en: "Tying an AI's answer to external sources such as search results or supplied documents, often returned together with citation data showing which part of the answer rests on which source.",
     },
-    relatedLessonIds: ["ai-agents-05"],
+    relatedLessonIds: ["ai-agents-05", "ai-in-daily-life-04"],
     sources: [
       { label: "Google AI for Developers: Grounding with Google Search", url: "https://ai.google.dev/gemini-api/docs/google-search" },
       { label: "Anthropic Docs: Web search tool", url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool" },
@@ -563,7 +563,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "機械翻訳（生成AIによる翻訳を含む）の出力を、人が確認して修正すること。専門の翻訳者による翻訳と同等の品質を目指す「フルポストエディット」と、スピードを重視して作業の一部を省いたり簡略化したりする「ライトポストエディット」に分けられることがある。",
       en: "Having a person check and correct the output of machine translation, including translation by generative AI. It is sometimes divided into \"full post-editing,\" which aims for quality equal to a professional translator's, and \"light post-editing,\" which puts speed first by skipping or simplifying some of that work.",
     },
-    relatedLessonIds: ["ai-at-work-03"],
+    relatedLessonIds: ["ai-at-work-03", "ai-in-daily-life-05"],
     sources: [
       { label: "AAMT（アジア太平洋機械翻訳協会）: 機械翻訳ポストエディットガイドライン", url: "https://aamt.info/act/posteditguideline" },
     ],
@@ -709,7 +709,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "学習を終えたAIモデルを使って、予測をしたり文章や画像を生成したりすること。モデルを作る「学習（トレーニング）」と区別される。AIの電力や水の数字を読むときは、推論と学習のどちらを数えたものかが重要になる。",
       en: "Using a trained AI model to make predictions or generate text or images, as distinct from training, which builds the model. When reading figures for AI's electricity or water use, it matters whether they count inference, training, or both.",
     },
-    relatedLessonIds: ["how-llms-work-04", "ai-and-society-02", "understanding-ai-01"],
+    relatedLessonIds: ["how-llms-work-04", "ai-and-society-02", "understanding-ai-01", "ai-in-daily-life-06"],
     sources: [
       {
         label: "Google Cloud Blog: How much energy does Google's AI use? We did the math (2025-08)",
@@ -851,7 +851,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "警察庁の統計で使われる用語。被害者に電話をかけるなどして対面しないまま信頼させ、指定した口座への振込みなどの方法で現金などをだまし取る犯罪の総称。2026年からは、SNSなどを通じて関係を深めて信用させる手口（SNS型投資・ロマンス詐欺）も含めて数えている。",
       en: "A term used in the statistics of Japan's National Police Agency for crimes that win victims' trust without meeting them — for example by phone — and cheat them out of money, such as by having them transfer funds to a designated account. From 2026, the NPA also counts schemes that build trust or a relationship through social media and the like (social-media investment and romance scams) under this term.",
     },
-    relatedLessonIds: ["ai-and-society-05"],
+    relatedLessonIds: ["ai-and-society-05", "ai-in-daily-life-01"],
     sources: [
       {
         label: "警察庁: 令和7年における特殊詐欺及びSNS型投資・ロマンス詐欺の認知・検挙状況等について（確定値）",
@@ -871,7 +871,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIで、特定の人の声をまねた音声を作ること。FBIは、知っている人からの本物の電話や音声メッセージと、AIで作った音声クローンは、ほとんど区別がつかないほど似ることがあると注意を呼びかけている。",
       en: "Using AI to produce audio that imitates a specific person's voice. The FBI warns that a legitimate call or voice message from someone you know and an AI-generated voice clone can sound nearly identical.",
     },
-    relatedLessonIds: ["ai-and-society-05", "generative-media-07"],
+    relatedLessonIds: ["ai-and-society-05", "generative-media-07", "ai-in-daily-life-01"],
     sources: [
       {
         label: "FBI IC3: Senior US Officials Impersonated in Malicious Messaging Campaign (2025-05-15)",
@@ -1145,5 +1145,207 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       },
     ],
     lastVerified: "2026-10-07",
+  },
+  // Using AI in Daily Life (money, legal, government procedures, travel, language, device settings).
+  {
+    id: "unregistered-operator",
+    term: { ja: "無登録業者", en: "Unregistered operator" },
+    definition: {
+      ja: "日本の居住者を相手に株・FX・暗号資産などの金融商品取引業や暗号資産交換業を行うのに必要な登録を受けていない業者。所在地が海外でも日本での登録が必要で、金融庁は、登録の有無を「金融事業者一括検索」で名称や電話番号から確かめられるようにし、無登録業者との取引は、投資者を保護する態勢が整っているかを当局が確認できないため高リスクだとしている。",
+      en: "A business that lacks the registration required to conduct financial instruments business — trading in stocks, FX, crypto-assets, and the like — or crypto-asset exchange business with residents of Japan. Registration in Japan is required even for firms located overseas. Japan's Financial Services Agency lets you check registration by name or phone number through its search of licensed financial operators, and warns that dealing with unregistered operators is high risk because the authorities cannot confirm they have investor-protection systems in place.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-01", "ai-and-society-05"],
+    sources: [
+      { label: "金融庁: 無登録業者との取引は要注意！！（2023-06-30、2026-10-07 更新）", url: "https://www.fsa.go.jp/ordinary/chuui/highrisk.html" },
+      { label: "金融庁: 詐欺的な投資勧誘等にご注意ください！（2026-06-24 更新）", url: "https://www.fsa.go.jp/ordinary/chuui/attention.html" },
+    ],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "j-flec",
+    term: { ja: "J-FLEC（金融経済教育推進機構）", en: "J-FLEC (Japan Financial Literacy and Education Corporation)" },
+    definition: {
+      ja: "金融経済教育を推進する機関。特定の金融機関や金融商品に偏らない中立的な立場で助言する「J-FLEC認定アドバイザー」を認定・公表し、家計管理・生活設計・資産形成などについて、認定アドバイザーによる個別相談の無料体験や、相談料の割引クーポンを提供している（2026年10月時点）。アドバイザーの意見はそのアドバイザー個人のもので、J-FLECが特定の商品を勧めることはない。",
+      en: "Japan's body for promoting financial and economic education. It certifies and publishes \"J-FLEC certified advisers,\" who advise from a neutral position not tied to particular financial institutions or products, and offers free trial consultations with them and discount coupons for paid consultations on household budgeting, life planning, and building assets (as of October 2026). An adviser's opinion is their own; J-FLEC does not recommend specific products.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-01"],
+    sources: [{ label: "金融経済教育推進機構（J-FLEC）: 専門家に相談したい", url: "https://www.j-flec.go.jp/public/consult/" }],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "article-72-attorney-act",
+    term: { ja: "弁護士法第72条（非弁行為の禁止）", en: "Article 72 of the Attorney Act (ban on unauthorized legal services)" },
+    definition: {
+      ja: "弁護士または弁護士法人でない者が、報酬を得る目的で、訴訟事件その他一般の法律事件に関して鑑定・代理・仲裁・和解その他の法律事務を取り扱うことや、その周旋を業とすることを禁じる規定。違反は2年以下の拘禁刑または300万円以下の罰金（第77条）。法務省は2023年8月と2026年8月21日に、AIを使った契約書審査や法務業務支援サービスとこの条文の関係についてのガイドラインを公表し、この条文は人の行為を対象とすること、「法律事件」には権利義務をめぐる争いや疑義がある「事件性」が必要であることなどを示した。",
+      en: "The provision that prohibits anyone other than an attorney or a legal professional corporation from handling, as a business and for compensation, legal affairs — expert opinions, representation, arbitration, settlement, and the like — in lawsuits and other legal cases, or brokering them. Violations carry up to two years' imprisonment or a fine of up to 3 million yen (Article 77). In August 2023 and on August 21, 2026, Japan's Ministry of Justice published guidelines on how AI contract-review and legal-support services relate to the article, setting out that it targets human conduct and that a \"legal case\" requires \"case-ness\" — a dispute or doubt over rights and obligations.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-02"],
+    sources: [
+      { label: "e-Gov法令検索: 弁護士法（昭和24年法律第205号）", url: "https://laws.e-gov.go.jp/law/324AC1000000205" },
+      { label: "法務省: 弁護士法（その他）— AI等を用いた法務業務支援サービスと弁護士法第72条に関するガイドライン", url: "https://www.moj.go.jp/housei/shihouseido/housei10_00134.html" },
+    ],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "houterasu",
+    term: { ja: "法テラス（日本司法支援センター）", en: "Houterasu (Japan Legal Support Center)" },
+    definition: {
+      ja: "国が設立した、法的トラブルの総合案内所となる公的な法人。「法テラス・サポートダイヤル」（0570-078374）は、法制度や相談窓口の情報を無料（通話料のみ）で案内する。オペレーターは個別の法律相談や法的判断は行わない。収入と資産が一定の基準以下の人は、民事法律扶助として、弁護士・司法書士による無料の法律相談や費用の立替えを利用できる（刑事事件の相談は対象外）。",
+      en: "A public corporation established by the Japanese government as a one-stop guide for legal trouble. Its support line (0570-078374) provides information on the legal system and consultation desks free of charge apart from call costs; operators do not give individual legal advice or judgments. Under civil legal aid, people whose income and assets fall below set thresholds can get free consultations with lawyers or judicial scriveners and have fees advanced (criminal matters are excluded).",
+    },
+    relatedLessonIds: ["ai-in-daily-life-02"],
+    sources: [
+      { label: "法テラス: お電話でのお問合せ（法テラス・サポートダイヤル）", url: "https://www.houterasu.or.jp/site/soudanmadoguchi-houseido/support-dial.html" },
+      { label: "法テラス: 民事法律扶助業務", url: "https://www.houterasu.or.jp/site/bengoshitou-fujo/" },
+    ],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "consumer-hotline-188",
+    term: { ja: "消費者ホットライン「188」", en: "Consumer Hotline 188" },
+    definition: {
+      ja: "全国共通の3桁の電話番号（「いやや！」）。かけると、最寄りの市区町村や都道府県の消費生活センターなどの相談窓口につながる。契約や買い物のトラブル、もうけ話の勧誘などで迷ったときの相談先として、国民生活センターが案内している。",
+      en: "Japan's nationwide three-digit consumer hotline. Calling it connects you to the nearest consumer affairs center run by your municipality or prefecture. The National Consumer Affairs Center points people to it for trouble with contracts and purchases and for suspicious money-making offers.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-01", "ai-in-daily-life-04", "ai-and-society-05"],
+    sources: [
+      { label: "国民生活センター: 儲け話に関するトラブルにご注意！（2026-05-20 更新）", url: "https://www.kokusen.go.jp/soudan_now/data/moukebanashi.html" },
+      {
+        label: "国民生活センター: 便利な旅行予約サイトでトラブルに！？トラブル防止のための旅行予約サイトのチェックポイント（2025-03-18）",
+        url: "https://www.kokusen.go.jp/news/data/n-20250318_1.html",
+      },
+    ],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "my-number",
+    term: { ja: "マイナンバー（個人番号）", en: "My Number (Individual Number)" },
+    definition: {
+      ja: "社会保障・税・災害対策の分野の行政手続で使われる個人番号。利用範囲は法律でこの3つの行政分野に限られ、番号法は、法律で認められた場合を除き、他人に個人番号の提供を求めることや、他人の個人番号を含む特定個人情報を収集・保管することを禁じている。デジタル庁などは、電話でマイナンバーの提供を求められることはないと注意を呼びかけている。",
+      en: "The individual number used in Japan's administrative procedures for social security, tax, and disaster response. By law its use is limited to those three fields, and the My Number Act prohibits asking others for their number, or collecting and storing information containing others' numbers, except where the law allows. The Digital Agency and other bodies warn that no one will ever ask for your My Number by phone.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-03"],
+    sources: [
+      {
+        label: "デジタル庁ほか: マイナンバー制度に便乗した不正な勧誘や個人情報の取得にご注意ください！（2023-03-31 最終更新）",
+        url: "https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/fb0b3edb-47c6-4eed-abeb-f161194a703f/9f3210b4/20230331_policies_posts_mynumber_security_01.pdf",
+      },
+      {
+        label: "e-Gov法令検索: 行政手続における特定の個人を識別するための番号の利用等に関する法律（番号法）第15条・第20条",
+        url: "https://laws.e-gov.go.jp/law/425AC0000000027",
+      },
+    ],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "tabi-reg",
+    term: { ja: "たびレジ", en: "Tabi-Reg (overseas travel registration)" },
+    definition: {
+      ja: "外務省の海外旅行登録。旅行の予定を登録すると、出発前から旅行の終了まで、旅先の大使館や総領事館からの安全情報を無料で受け取れ、現地で事件や災害などの緊急事態に巻き込まれたときの安否確認や支援にもつながる。",
+      en: "The Japanese Ministry of Foreign Affairs' registration service for overseas trips. Registering your itinerary brings free safety information from the embassy or consulate at your destination, from departure until the end of the trip, and helps the ministry confirm your safety and support you in an emergency such as an incident or disaster.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-04"],
+    sources: [{ label: "外務省: たびレジ（海外旅行登録）", url: "https://www.ezairyu.mofa.go.jp/tabireg/index.html" }],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "electronic-travel-authorization",
+    term: { ja: "電子渡航認証（ESTAなど）", en: "Electronic travel authorization (ESTA and others)" },
+    definition: {
+      ja: "渡航先の国に入国する前にオンラインで申請する渡航の認証で、米国のESTAが代表例。東京都消費生活総合センターは、検索結果の上位に公式サイトに似たデザインの申請代行サイトが表示され、公式の費用より高い金額を請求された相談があるとして、申請の前に大使館のサイトなどで所定の費用と公式サイトのURLを確かめるよう勧めている。",
+      en: "An authorization to travel that must be applied for online before entering the destination country; the US ESTA is the best-known example. The Tokyo Metropolitan Consumer Affairs Center reports cases of travelers charged far more than the official fee by proxy application sites that resemble the official site and appear high in search results, and advises confirming the official fee and URL on the embassy's website before applying.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-04"],
+    sources: [
+      {
+        label: "東京都消費生活総合センター: 海外旅行をするときは、電子渡航認証（ESTA（エスタ）等）の申請代行サイトに注意しましょう（2024年7・8月号）",
+        url: "https://www.shouhiseikatu.metro.tokyo.lg.jp/kurashi/2407_08/soudan.html",
+      },
+    ],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "on-device-processing",
+    term: { ja: "オンデバイス処理（端末内処理）", en: "On-device processing" },
+    definition: {
+      ja: "AIの処理を、クラウドのサーバーに送らず、スマートフォンやパソコンなど手元の端末の中で完結させること。データが端末から出ないためプライバシーの面で有利で、通信がなくても動く。Appleは、Apple Intelligenceのモデルは多くの場合すべて端末上で実行されるとし、Googleは、Pixelの通話メモ機能がGemini Nanoで端末内で処理され、通話の内容は端末に保存されてGoogleと共有されないと説明している。",
+      en: "Running an AI task entirely on the phone, computer, or other device in hand rather than sending it to cloud servers. Because data never leaves the device, it is better for privacy and works without a connection. Apple says that in many cases Apple Intelligence models run entirely on device, and Google explains that the Call Notes feature on Pixel phones is processed on the device with Gemini Nano, with call contents stored on the device and not shared with Google.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-06", "chat-ais-06"],
+    sources: [
+      { label: "Apple: Apple Intelligence & Privacy (2026-09-14)", url: "https://www.apple.com/legal/privacy/data/en/intelligence-engine/" },
+      { label: "Google Phone app Help: Use Call Notes in Phone app", url: "https://support.google.com/phoneapp/answer/15257579" },
+    ],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "private-cloud-compute",
+    term: { ja: "Private Cloud Compute", en: "Private Cloud Compute" },
+    definition: {
+      ja: "Appleが、端末内では処理しきれない複雑な要求を扱うために用意したサーバーの仕組み。Appleの説明では、処理されるデータはAppleが保存もアクセスもできず、要求を満たすためだけに処理されて結果が端末に返され、保持されない。設定の「プライバシーとセキュリティ」にある Apple Intelligence & PCC Report で、どの要求が送られたかの記録（透明性ログ）を有効にできる。",
+      en: "Apple's server-based system for handling requests too complex to process on the device. According to Apple, the data being processed is not stored or made accessible to Apple; it is processed only to fulfill the request, after which the results are returned to the device and are not retained. Users can turn on a transparency log of the requests sent there under Settings > Privacy & Security > Apple Intelligence & PCC Report.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-06"],
+    sources: [{ label: "Apple: Apple Intelligence & Privacy (2026-09-14)", url: "https://www.apple.com/legal/privacy/data/en/intelligence-engine/" }],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "grammatical-error-correction",
+    term: { ja: "文法誤り訂正（GEC）", en: "Grammatical error correction (GEC)" },
+    definition: {
+      ja: "文章の文法的な誤りを自動で直す技術。評価では、元の文をできるだけ変えずに誤りだけを直す「最小限の修正」が原則とされる。2023年の評価では、ChatGPTは訂正後の文をとても流暢にする一方で直しすぎる傾向があり、この原則に従わなかった。",
+      en: "Technology that automatically corrects grammatical errors in text. Evaluations treat \"minimal edits\" — fixing only the errors while changing the original as little as possible — as the principle. A 2023 evaluation found that ChatGPT makes corrected sentences very fluent but tends to over-correct, departing from that principle.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-05"],
+    sources: [
+      {
+        label: "Fang et al.: Is ChatGPT a Highly Fluent Grammatical Error Correction System? A Comprehensive Evaluation (arXiv, 2023-04-04)",
+        url: "https://arxiv.org/abs/2304.01746",
+      },
+    ],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "novelty-effect",
+    term: { ja: "新奇性効果", en: "Novelty effect" },
+    definition: {
+      ja: "新しい道具や技術そのものの目新しさで、学習への意欲や成果が一時的に高まり、慣れるにつれて薄れる現象。チャットボットを使った語学学習の系統的レビュー（2022年）は、技術的な限界や認知負荷と並んで、新奇性効果を課題の一つに挙げている。",
+      en: "A temporary rise in motivation or performance caused by the newness of a tool or technology, which fades as it becomes familiar. A 2022 systematic review of chatbot-supported language learning lists the novelty effect as one of the challenges, alongside technological limitations and cognitive load.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-05"],
+    sources: [
+      {
+        label: "Huang, Hew & Fryer: Chatbots for language learning—Are they really useful? (Journal of Computer Assisted Learning 38(1), 2022; ERIC record)",
+        url: "https://eric.ed.gov/?id=EJ1322754",
+      },
+    ],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "meta-analysis",
+    term: { ja: "メタ分析", en: "Meta-analysis" },
+    definition: {
+      ja: "同じ問いを扱った複数の研究の結果を統計的に統合し、全体としての効果の大きさ（効果量）を推定する研究手法。個々の研究より結論が安定しやすい一方、まとめた研究の質や条件のばらつきの影響を受ける。チャットボットを使った語学学習のメタ分析（2024年オンライン公開）は、28の研究の70の効果量から正の効果（g = 0.484）を報告した。",
+      en: "A research method that statistically combines the results of multiple studies on the same question to estimate the overall size of an effect (the effect size). Conclusions are more stable than from any single study, but they depend on the quality and the varying conditions of the studies pooled. A meta-analysis of chatbot-assisted language learning (published online in 2024) reported a positive effect (g = 0.484) from 70 effect sizes across 28 studies.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-05"],
+    sources: [
+      {
+        label: "Wang, Cheung, Neitzel & Chai: Does Chatting with Chatbots Improve Language Learning Performance? A Meta-Analysis of Chatbot-Assisted Language Learning (Review of Educational Research, online 2024-06-14)",
+        url: "https://doi.org/10.3102/00346543241255621",
+      },
+    ],
+    lastVerified: "2026-10-10",
+  },
+  {
+    id: "notice-project",
+    term: { ja: "NOTICE", en: "NOTICE (Japan's IoT security survey)" },
+    definition: {
+      ja: "総務省・NICT（情報通信研究機構）・ICT-ISACとインターネット接続事業者などが連携し、2019年2月20日から実施しているIoT機器のセキュリティ対策向上のプロジェクト。推測されやすい管理用パスワードが設定されたルーターやネットワークカメラなどを調査し、管理者や利用者に注意喚起を行う。対策として、管理用パスワードを安全性の高いものにすることと、最新のファームウェアへのアップデートを挙げている。",
+      en: "A project run since February 20, 2019 by Japan's Ministry of Internal Affairs and Communications, NICT, ICT-ISAC, internet service providers, and others to improve the security of IoT devices. It surveys routers, network cameras, and similar devices set up with easily guessed administrative passwords and alerts their administrators and users, recommending a strong administrative password and the latest firmware.",
+    },
+    relatedLessonIds: ["ai-in-daily-life-06"],
+    sources: [{ label: "NOTICE（総務省・NICT・ICT-ISAC）: みんなで守る、IoT。", url: "https://notice.go.jp/" }],
+    lastVerified: "2026-10-10",
   },
 ];
