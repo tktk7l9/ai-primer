@@ -23,6 +23,8 @@ ChatGPT・Claude・Gemini・Grok などのチャットAIから、コーディン
   HTML の応答ごとに `script-src` の `'unsafe-inline'` を毎リクエストの nonce に差し替える
   （`src/lib/csp-nonce.ts`）+ セキュリティヘッダー一式
 - Cloudflare Web Analytics のビーコンはハイドレーション後に追加（HTML に外部スクリプトを書かない）
+- 全ページをビルド時に生成し、Worker は再描画せず静的アセットのキャッシュから返す
+  （`open-next.config.ts` の `staticAssetsIncrementalCache` + キャッシュインターセプト）
 - 手書き i18n（`[locale]` セグメント + `Localized<T>` 型で両言語必須を強制）
 - Markdown → HTML はビルド時サーバー変換（remark/rehype、クライアントJS最小）
 - vitest: engine/i18n/lib 層 100% カバレッジゲート（CI強制）
@@ -42,15 +44,14 @@ npm run build
 
 - npm audit: 本番依存は 0 件。開発用依存の braces（修正版なし・GHSA-vfj7-8cjw-p6xm）だけを、理由と期限つきの例外リスト（`audit-allowlist.json`）で許容し、CI の `scripts/audit-gate.mjs` で検査
 - gitleaks: 0 leaks
-- テスト: 957件・カバレッジ: engine/i18n/lib 層 100%（thresholds ゲート）
-- Lighthouse（本番URL計測・2026-09-14 / Cloudflare Workers・3回計測の中央値）:
-  mobile 100/100/100/100・desktop 100/100/100/100
-- Mozilla Observatory（本番URL計測・2026-09-14 / Cloudflare Workers）: B（score 75・10/12 tests passed）
-  ※ 落ちている2項目はどちらも意図した代償で、他10項目は通っている。性能は移行前と同値を維持している。
-    - `content-security-policy` −20: 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）による。
-      A+（score 115・10/10）から B+（80・11/12）へ落ちた分。Next 16 の proxy が Node 専用で
-      OpenNext が Node middleware 非対応のため、nonce を残すと Workers へ移行できなかった。
-    - `subresource-integrity` −5: Cloudflare Web Analytics のビーコン導入による。それまで外部
-      スクリプトが1本も無く素通りで通っていた項目。**SRI は足さない** — `beacon.min.js` は
-      バージョンの付かない URL を Cloudflare が差し替える運用なので、`integrity` を固定すると
-      次の更新でビーコンだけ黙って止まる。
+- テスト: 1000件・カバレッジ: engine/i18n/lib 層 100%（thresholds ゲート）
+- Lighthouse（本番URL `/ja` 計測・2026-10-11 / Cloudflare Workers・Lighthouse 13.5・3回計測の中央値）:
+  mobile 96/100/100/100・desktop 100/100/100/100
+  ※ mobile の LCP は約 2.7 秒（低速 4G の模擬）。サーバー応答は 40〜80ms でキャッシュから返っており、
+    残りは CSS の読み込みと描画の待ち。2026-09-14 時点は mobile も 100 だった
+- Mozilla Observatory（本番URL計測・2026-10-11 / Cloudflare Workers）: A+（score 125・12/12 tests passed）
+  ※ 2026-09-14 の B（75・10/12）から戻した。`content-security-policy` は Worker が HTML ごとに付ける
+    nonce で `'unsafe-inline'` をなくし（#68）、`subresource-integrity` は Cloudflare Web Analytics の
+    ビーコンを HTML から外してハイドレーション後に読み込むことで解消した。**ビーコンに SRI は足さない**
+    — `beacon.min.js` はバージョンの付かない URL を Cloudflare が差し替える運用なので、`integrity` を
+    固定すると次の更新でビーコンだけ黙って止まる。
