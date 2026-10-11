@@ -35,6 +35,7 @@ export const safeUsageChecklist: Lesson = {
 ### 回答を受け取ったとき
 - [ ] 重要な事実・数値・引用は、自分で出典を確認する（ハルシネーションのレッスン参照）。
 - [ ] 出典つきの回答やディープリサーチのレポートでも、出典を開いて該当箇所を確かめる（AIで調べ物をするレッスン参照）。
+- [ ] 「AIが科学で成果」というニュースは、査読や第三者の評価を経たか、何と比べたか、限界が書かれているかを確かめる（[研究と論文のAIルール](/ja/learn/ai-and-science/research-and-publishing)のレッスン参照）。
 - [ ] AIが作った要約・翻訳・集計は、数字・固有名詞・担当者・期限を元の発言や資料と照らし合わせてから使う（[仕事でAIを使う](/ja/learn/ai-at-work)トラック参照）。
 - [ ] 医療・法律・税務など専門判断が必要な内容は、専門家に相談する。
 - [ ] 体調や薬のことは、AIの答えだけで決めない。迷ったら医師・薬剤師や#7119などの電話相談に相談し、命に関わりそうなら119番に電話する（[健康・医療の情報をAIで調べるとき](/ja/learn/understanding-ai/health-information)のレッスン参照）。
@@ -90,6 +91,7 @@ Here's a checklist for everyday use, drawing on every track in this course.
 ### Reading the answer
 - [ ] Verify important facts, numbers, and citations against real sources yourself (see the Hallucination lesson).
 - [ ] Even when an answer or a deep research report cites sources, open them and find the passage (see the lesson on researching with AI).
+- [ ] For news that "AI achieved a scientific breakthrough," check whether it was peer reviewed or evaluated by others, what it was compared with, and whether its limits are stated (see the [AI rules in research and publishing](/en/learn/ai-and-science/research-and-publishing) lesson).
 - [ ] Before using an AI-made summary, translation, or calculation, check its numbers, names, owners, and deadlines against what was said or the source material (see the [Using AI at Work](/en/learn/ai-at-work) track).
 - [ ] For anything requiring professional judgment — medical, legal, tax — consult an actual professional.
 - [ ] Don't let an AI's answer decide health or medicine questions for you. If you're unsure, ask a doctor or pharmacist or call a phone service such as #7119 in Japan, and call 119 if a life may be at risk (see [looking up health information with AI](/en/learn/understanding-ai/health-information)).
