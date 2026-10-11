@@ -42,6 +42,13 @@ export default defineConfig({
           functions: 100,
           lines: 100,
         },
+        // Security headers: the static CSP and the Worker's per-request nonce (csp-nonce.ts).
+        "src/lib/**/*.ts": {
+          statements: 100,
+          branches: 100,
+          functions: 100,
+          lines: 100,
+        },
         "src/{components,app}/**/*.{ts,tsx}": {
           statements: 95,
           branches: 94,
