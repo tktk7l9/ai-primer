@@ -1348,4 +1348,257 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     sources: [{ label: "NOTICE（総務省・NICT・ICT-ISAC）: みんなで守る、IoT。", url: "https://notice.go.jp/" }],
     lastVerified: "2026-10-10",
   },
+  {
+    id: "ai-generated-vs-ai-assisted",
+    term: { ja: "AI生成とAI支援（KDPの区分）", en: "AI-generated vs. AI-assisted (KDP's distinction)" },
+    definition: {
+      ja: "Amazon Kindle ダイレクト・パブリッシング（KDP）のコンテンツガイドラインが使う区分。AIツールで本文・画像・翻訳そのものを作ったものは、あとで大幅に編集してもAI生成に当たり、新しい本の出版時や既存の本の改訂時にAmazonへの申告が必要。自分で作った内容をAIで編集・推敲・誤りの確認などをしたもの、AIでアイデア出しをしても本文や画像は最終的に自分で作ったものはAI支援で、申告は不要。どちらも、知的財産権を含むガイドラインに従う責任は著者にある。米国の作家団体Authors Guildによると、この申告の方針は2023年9月7日に発表された。",
+      en: "The distinction used by Amazon Kindle Direct Publishing's content guidelines. Text, images, or translations created by an AI tool are AI-generated even after substantial edits, and must be disclosed to Amazon when a book is published or republished. Content you created yourself and then edited, refined, or error-checked with AI — or wrote yourself after brainstorming ideas with AI — is AI-assisted and need not be disclosed. In both cases the author remains responsible for complying with the guidelines, including intellectual property rights. According to the Authors Guild, the disclosure policy was announced on September 7, 2023.",
+    },
+    relatedLessonIds: ["creating-with-ai-01"],
+    sources: [
+      {
+        label: "Amazon KDP: Content Guidelines — Artificial intelligence (AI) content",
+        url: "https://kdp.amazon.com/en_US/help/topic/G200672390",
+      },
+      {
+        label: "The Authors Guild: Amazon's New Disclosure Policy for AI-Generated Book Content Is a Welcome First Step (2023-09-07)",
+        url: "https://authorsguild.org/news/amazons-new-disclosure-policy-for-ai-generated-book-content-is-a-welcome-first-step/",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "creative-homogenization",
+    term: { ja: "創作の均質化", en: "Creative homogenization" },
+    definition: {
+      ja: "生成AIのアイデアを使って作られた作品が、個々には評価が上がる一方で、作品どうしが互いに似てくる現象。2024年にScience Advances誌に掲載されたDoshiとHauserの実験では、大規模言語モデルが出した物語のアイデアを使えた書き手の短い物語は、特にもともと創造性の低い書き手で「より創造的で、よく書けていて、楽しめる」と評価されやすくなった一方、人だけで書いた物語より互いに似ていた。著者らはこれを、書き手一人ひとりは得をするのに、全体として生まれる新しい作品の幅は狭くなる、社会的ジレンマに似た構図だと述べている。",
+      en: "The tendency of works made with generative AI's ideas to be rated better individually while becoming more similar to one another. In Doshi and Hauser's experiment published in Science Advances in 2024, short stories by writers who could get story ideas from a large language model were rated as more creative, better written, and more enjoyable — especially for less creative writers — yet were more similar to each other than stories written by people alone. The authors say this resembles a social dilemma: each writer is better off, but collectively a narrower range of new work is produced.",
+    },
+    relatedLessonIds: ["creating-with-ai-01"],
+    sources: [
+      {
+        label: "Doshi & Hauser (2024): Generative AI enhances individual creativity but reduces the collective diversity of novel content（Science Advances 10(28), eadn5290）",
+        url: "https://doi.org/10.1126/sciadv.adn5290",
+      },
+      {
+        label: "Doshi & Hauser: 同論文のプレプリント（arXiv 2312.00506）",
+        url: "https://arxiv.org/abs/2312.00506",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "lora",
+    term: { ja: "LoRA（低ランク適応）", en: "LoRA (Low-Rank Adaptation)" },
+    definition: {
+      ja: "2021年にHuらが提案した、大きな学習済みモデルを効率よく追加学習する手法。学習済みの重みを固定したまま、各層に学習可能な低ランクの行列を差し込んで、それだけを学習するので、学習するパラメータの数を大きく減らせる。画像生成のライブラリDiffusersの解説は、学習が速くメモリ効率もよく、できあがる重みも数百MB程度と小さいので保存や共有がしやすいと説明している。文化庁の「AIと著作権に関する考え方について」も、学習済みの生成AIに小規模なデータセットで追加的な学習を行い、そのデータセットに強い影響を受けた生成物を作れるようにする技術の例としてLoRAを挙げている。",
+      en: "A technique proposed by Hu et al. in 2021 for adapting a large pre-trained model efficiently: the pre-trained weights are frozen and small trainable low-rank matrices are injected into each layer, so only those are trained, sharply reducing the number of trainable parameters. The documentation of Diffusers, an image-generation library, explains that this makes training faster and more memory-efficient and produces small weights — a few hundred MB — that are easy to store and share. Japan's Agency for Cultural Affairs, in its General Understanding on AI and Copyright, names LoRA as an example of techniques that train an existing generative AI further on a small dataset so it can produce output strongly influenced by that dataset.",
+    },
+    relatedLessonIds: ["creating-with-ai-02"],
+    sources: [
+      {
+        label: "Hu et al. (2021): LoRA: Low-Rank Adaptation of Large Language Models (arXiv 2106.09685)",
+        url: "https://arxiv.org/abs/2106.09685",
+      },
+      { label: "Hugging Face Diffusers Docs: LoRA（training）", url: "https://huggingface.co/docs/diffusers/training/lora" },
+      {
+        label: "文化庁: AIと著作権に関する考え方について（文化審議会著作権分科会法制度小委員会・2024年3月15日）",
+        url: "https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/pdf/94037901_01.pdf",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "inpainting",
+    term: { ja: "インペインティング", en: "Inpainting" },
+    definition: {
+      ja: "画像の一部だけを指定して描き直す機能。消したい物を取り除いたり、指定した範囲に新しい要素を描き加えたりできる。OpenAIの開発者向けドキュメント（2026年10月時点）では、編集する部分をマスクで示せるが、マスクはあくまで指示のための目安で、その形を正確には追わないことがあると説明されている。",
+      en: "Redrawing only a selected part of an image — removing an object, or adding a new element within a chosen region. OpenAI's developer documentation (as of October 2026) explains that you can provide a mask to indicate which part to edit, but that the model uses the mask as guidance and may not follow its exact shape precisely.",
+    },
+    relatedLessonIds: ["generative-media-02", "creating-with-ai-02"],
+    sources: [
+      { label: "OpenAI Docs: Image generation", url: "https://developers.openai.com/api/docs/guides/image-generation" },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "ai-music-credits-ddex",
+    term: { ja: "AIクレジット（DDEX標準）", en: "AI credits (the DDEX standard)" },
+    definition: {
+      ja: "デジタル音楽の流通で使うメタデータ（作品・録音・権利などの情報）の標準を作る非営利の会員組織DDEXを通じて策定される、楽曲のクレジットにAIの関与を記すための業界標準。ボーカル、演奏、ポストプロダクションのどこにAIがどう関わったかを、アーティストや権利者がレーベルや配信代行会社を通じて示せる。Spotifyは2025年9月25日、この標準の策定に協力し、支持すると発表した。",
+      en: "An industry standard for noting AI involvement in a track's credits, developed through DDEX — a not-for-profit membership organisation that creates metadata standards (information about works, recordings, rights, and so on) for the digital music value chain. Through their labels and distributors, artists and rights holders can indicate where and how AI played a role — vocals, instrumentation, or post-production. On September 25, 2025, Spotify announced that it was helping develop the standard and would support it.",
+    },
+    relatedLessonIds: ["creating-with-ai-03"],
+    sources: [
+      {
+        label: "Spotify Newsroom: Spotify Strengthens AI Protections for Artists, Songwriters, and Producers（2025-09-25）",
+        url: "https://newsroom.spotify.com/2025-09-25/spotify-strengthens-ai-protections/",
+      },
+      { label: "DDEX: About DDEX", url: "https://ddex.net/about-ddex/" },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "likeness-detection",
+    term: { ja: "類似性検出（YouTube）", en: "Likeness detection (YouTube)" },
+    definition: {
+      ja: "YouTubeが提供する、AIで生成・改変されたと思われる自分の顔が映った動画を、クリエイターがYouTube上で見つけるための機能。2026年10月時点のヘルプによると試験運用版で、一部の国では使えない。18歳以上のチャンネルの所有者か管理者が、政府機関発行の身分証明書と短い自撮り動画で本人確認をすると使え、YouTube Studioの［コンテンツ検出］→［類似性］に一致の可能性がある動画が表示される。見つけた動画には、プライバシー侵害としての削除申請、著作権侵害による削除通知、アーカイブのいずれかを選べる。現時点で検出の対象は顔で、声への拡大には2026年中の対応を目指して取り組んでいるとしている。2025年9月に全パートナープログラム参加者への展開が発表され、10月から順次提供された。",
+      en: "A YouTube feature that helps creators find videos on YouTube in which their face appears to be altered or generated by AI. As of October 2026, it is an experimental feature not available in some countries. A channel owner or manager over 18 can enroll after verifying with a government-issued ID and a short selfie video; potential matches appear in YouTube Studio under Content detection → Likeness, where the creator can submit a privacy-based removal request, submit a copyright removal request, or move the video to the archive. For now it looks for faces; YouTube says it is working to extend detection to voices in 2026. Rollout to all YouTube Partner Program creators was announced in September 2025 and began in October.",
+    },
+    relatedLessonIds: ["creating-with-ai-04"],
+    sources: [
+      { label: "YouTube Help: Likeness detection on YouTube", url: "https://support.google.com/youtube/answer/16440338?hl=en" },
+      {
+        label: "YouTube Official Blog: Powering the Future: YouTube's New AI & Creator Tools（2025-09-16）",
+        url: "https://blog.youtube/news-and-events/made-on-youtube-2025/",
+      },
+      {
+        label: "YouTube Official Blog: YouTube Creator News: October's Biggest Updates（2025-11-03）",
+        url: "https://blog.youtube/news-and-events/youtube-updates-october-2025/",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "genai-content-disclosure",
+    term: { ja: "生成AIコンテンツの開示（YouTube）", en: "Disclosure of GenAI content (YouTube)" },
+    definition: {
+      ja: "YouTubeで、写真のようにリアルなコンテンツをAIで生成したり大幅に改変したりしたときに、投稿者が投稿時に行う開示。2024年3月18日に「改変・合成コンテンツ」の開示として導入され、2026年10月時点のヘルプでは「生成AIコンテンツの使用に関する開示」として、YouTube Studioの［属性］→［AIの使用］で申告する。実在の人物が言っていないことを言ったように見せる、実際の出来事や場所の映像を改変する、起きていないシーンをリアルに生成する、動画の中心となる音楽をAIで作る場合が対象で、明らかに非現実的な内容、美顔フィルタや色の調整、字幕の作成、台本やサムネイルの作成などの制作支援、自分の声のクローンによるナレーションは対象外。ヘルプは、開示しても視聴者が制限されたり収益化の資格に影響したりはしないとしている。",
+      en: "On YouTube, the disclosure creators make at upload when they use AI to generate photorealistic content or meaningfully alter it. Introduced on March 18, 2024 as disclosure of \"altered or synthetic content,\" it appears in the help page as of October 2026 as \"Disclosing use of GenAI content,\" made under Attributes → \"AI use\" in YouTube Studio. It covers making a real person appear to say something they didn't, altering footage of real events or places, generating realistic scenes that didn't occur, and creating music that's the main focus of the video with AI; clearly unrealistic content, beauty filters and color adjustment, caption creation, production help such as creating a script or thumbnail, and cloning your own voice for voice-overs are out of scope. The help page says disclosing won't limit a video's audience or affect its eligibility to earn money.",
+    },
+    relatedLessonIds: ["creating-with-ai-04"],
+    sources: [
+      {
+        label: "YouTube Help: Disclosing use of GenAI content（日本語版「生成 AI コンテンツの使用に関する開示」）",
+        url: "https://support.google.com/youtube/answer/14328491?hl=en",
+      },
+      {
+        label: "YouTube Official Blog: How we're helping creators disclose altered or synthetic content（2024-03-18）",
+        url: "https://blog.youtube/news-and-events/disclosing-ai-generated-content/",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "vibe-coding",
+    term: { ja: "バイブコーディング", en: "Vibe coding" },
+    definition: {
+      ja: "自然言語で指示して人工知能にコンピュータのコードを書かせること。Collins英語辞典が2025年11月6日に、2025年の「今年の言葉」に選んだ。欲しいものを言葉で伝え、動いたら次へ進む作り方で、趣味のゲームや動く作品を一人で作る入口になる一方、自分で読めないコードが増えると、不具合のたびにAI任せになる。",
+      en: "The use of artificial intelligence prompted by natural language to write computer code — the definition under which Collins Dictionary named it Word of the Year 2025 on November 6, 2025. You say what you want, see it run, and move on. It is an entry point for building hobby games and interactive pieces alone, with the caveat that code you can't read yourself leaves every bug to the AI.",
+    },
+    relatedLessonIds: ["creating-with-ai-05"],
+    sources: [
+      {
+        label: "Collins Dictionary Language Blog: Collins' Word of the Year 2025（2025-11-06）",
+        url: "https://blog.collinsdictionary.com/language-lovers/collins-word-of-the-year-2025-ai-meets-authenticity-as-society-shifts/",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "creative-coding",
+    term: { ja: "クリエイティブコーディング", en: "Creative coding" },
+    definition: {
+      ja: "プログラミングを、機能の実装ではなく表現の手段として使うこと。ジェネラティブアート、インタラクティブな作品、音や映像の生成などを含む。代表的な道具のp5.jsは、自らを「コードを学び、アートを作るためのやさしい道具」で、包摂的なコミュニティが作る無料・オープンソースのJavaScriptライブラリだと説明し、アーティスト・デザイナー・初心者・教育者を歓迎している。Processing Foundationが支えるProcessing系のエコシステムの一つ。",
+      en: "Using programming as a medium of expression rather than to implement features — generative art, interactive pieces, generated sound and visuals. p5.js, one of the best-known tools, describes itself as a friendly tool for learning to code and make art, a free and open-source JavaScript library built by an inclusive community that welcomes artists, designers, beginners, and educators; it is part of the Processing ecosystem supported by the Processing Foundation.",
+    },
+    relatedLessonIds: ["creating-with-ai-05"],
+    sources: [{ label: "p5.js: About", url: "https://p5js.org/about/" }],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "pre-generated-and-live-generated-ai-content",
+    term: { ja: "事前生成とライブ生成のAIコンテンツ（Steam）", en: "Pre-generated and live-generated AI content (Steam)" },
+    definition: {
+      ja: "Steamworksのドキュメントが、コンテンツ調査（Content Survey）でのAI利用の申告に使う区分。開発環境に組み込まれたAIツールによる効率化は焦点ではなく、対象はゲームと一緒に出荷されてプレイヤーが触れるコンテンツだとしている。事前生成は、開発中にAIツールの助けを借りて作られ、ゲームと一緒に出荷されてプレイヤーが触れるあらゆるコンテンツ。ライブ生成は、ゲームの実行中にAIツールの助けを借りて作られるコンテンツで、違法なコンテンツを生成しないためのガードレールの説明が求められ、成人向けの性的コンテンツのライブ生成は現時点では出荷したくないとされている。どちらも、配信契約に基づく、違法・権利侵害のコンテンツを含めないという約束の対象になる。",
+      en: "The two categories the Steamworks documentation uses for disclosing AI use in the Content Survey, which says efficiency gains from AI-powered development tools are not its focus — the concern is content that ships with the game and is consumed by players. Pre-generated: any kind of content that ships with the game and is consumed by players that was created with the help of AI tools during development. Live-generated: any kind of content created with the help of AI tools while the game is running; developers must describe the guardrails that keep it from generating illegal content, and Valve says it does not want to ship live-generated adult-only sexual content at this time. Both remain subject to the distribution agreement's promise not to include illegal or infringing content.",
+    },
+    relatedLessonIds: ["creating-with-ai-05"],
+    sources: [
+      {
+        label: "Steamworks Documentation: Content Survey（AI Content）",
+        url: "https://partner.steamgames.com/doc/gettingstarted/contentsurvey",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "ai-generated-work-setting",
+    term: { ja: "AI生成作品設定（pixiv）", en: "AI-generated work setting (pixiv)" },
+    definition: {
+      ja: "pixivが2022年10月31日にリリースした、投稿時に作品がAI生成作品であることを示す設定。同時に、閲覧者がAI生成作品の表示を減らせる設定も提供され、AI生成作品だけのランキングも11月から提供するとされた。2026年10月時点のガイドラインは、制作過程のすべて、もしくはほとんどをAIで生成した作品にこのチェックを必須としている。2023年5月31日の改定では、特定の第三者の画風などを徒に繰り返しまねた作品の投稿も禁止事項に加わり、2026年3月18日の改定では、作品の内容と一致しないAI生成作品設定を付ける行為（AI生成を非AIと申告することも、その逆も）が禁止事項に明記された。",
+      en: "A setting pixiv released on October 31, 2022 that marks a work as AI-generated at upload, alongside a viewer setting to see fewer AI-generated works, with a separate ranking for them announced to follow from November. Its guidelines, as of October 2026, require the check for works whose creation process was entirely or mostly generated by AI. A revision on May 31, 2023 also prohibited posts that needlessly and repeatedly imitate a specific third party's art style, and the revision of March 18, 2026 explicitly lists setting the flag in a way that does not match the work — declaring AI output as not AI-generated, or the reverse — among prohibited acts.",
+    },
+    relatedLessonIds: ["creating-with-ai-06"],
+    sources: [
+      { label: "pixiv: AI生成作品の取り扱いに関する機能をリリースしました（2022-10-31）", url: "https://www.pixiv.net/info.php?id=8733" },
+      {
+        label: "pixiv: AI技術等に関する、サービス共通利用規約、pixivガイドライン改定のお知らせ（2023-05-31）",
+        url: "https://www.pixiv.net/info.php?id=9641",
+      },
+      {
+        label: "pixiv: pixivにおける新しい検索設定の追加と、ガイドライン改定の予定について（2026-02-18）",
+        url: "https://www.pixiv.net/info.php?id=13316",
+      },
+      { label: "pixiv: pixivガイドライン（2026-03-18 改定）", url: "https://www.pixiv.net/terms/?page=guideline" },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "ai-content-label",
+    term: { ja: "AIコンテンツ表示（SNS）", en: "AI content label (social media)" },
+    definition: {
+      ja: "SNSや動画サイトが、AIで作られた・改変された画像や動画に付ける表示。Metaは2024年4月5日に「Made with AI」表示の方針を発表し、業界標準のAI画像の指標の検出と投稿者の自己申告を根拠に付けるとした。同年7月1日に名称を「AI info」に改め、9月12日には、AIツールで修整・編集しただけと検出した内容では表示を投稿のメニューに移すと発表した。Metaは、ほかのポリシーに違反しない限りそのコンテンツを削除せず、表示と文脈を付けて残すとしている。TikTokも2024年5月から、コンテンツクレデンシャルを読み取って自動で表示を付けている。",
+      en: "A label that social networks and video sites attach to images and videos made or altered with AI. Meta announced its \"Made with AI\" label on April 5, 2024, applied on the basis of industry-standard AI image indicators or the poster's self-disclosure; it renamed the label \"AI info\" on July 1 of that year, and on September 12 announced that for content it detects was only modified or edited by AI tools, the label would move into the post's menu. Meta says it keeps such content, with labels and context, unless it violates other policies. TikTok has likewise auto-labeled content by reading Content Credentials since May 2024.",
+    },
+    relatedLessonIds: ["creating-with-ai-06"],
+    sources: [
+      {
+        label: "Meta: Our Approach to Labeling AI-Generated Content and Manipulated Media（2024-04-05、2024-07-01・2024-09-12 追記）",
+        url: "https://about.fb.com/news/2024/04/metas-approach-to-labeling-ai-generated-content-and-manipulated-media/",
+      },
+      {
+        label: "TikTok Newsroom: Partnering with our industry to advance AI transparency and literacy（2024-05-09）",
+        url: "https://newsroom.tiktok.com/en-us/partnering-with-our-industry-to-advance-ai-transparency-and-literacy",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "inauthentic-content",
+    term: { ja: "量産型のコンテンツ（YouTubeの収益化ポリシー）", en: "Inauthentic content (YouTube monetization policy)" },
+    definition: {
+      ja: "YouTubeパートナープログラムの収益化ポリシーで、2025年7月15日に「繰り返しの多いコンテンツ」から改称されたポリシーの名称（英語ではinauthentic content）。繰り返しの多いコンテンツだけでなく、大量生産されたコンテンツも対象だと明確にした。2026年10月時点のヘルプは「一般的、または繰り返しの多いコンテンツ」の例として、動画ごとの違いがほとんどない似た動画、画像のスライドショーやテンプレート化されたストーリー、クリエイターならではの洞察や視点を加えず汎用的なテンプレートで作られ大量生産されたような印象を与えるAI生成コンテンツを挙げている。中身が実質的に異なり、創造的・教育的な価値を届けている動画は、決まったイントロやキャラクターがあっても、AIを使っていても収益化できる。",
+      en: "The name given on July 15, 2025 to the YouTube Partner Program monetization policy formerly called \"repetitious content\" (in Japanese, 量産型のコンテンツ), clarifying that it covers mass-produced as well as repetitive content. As of October 2026, the help page's examples of \"generic or repetitive content\" include similar videos with minimal variation, image slideshows and templated storylines, and AI-generated content made with generic or unoriginal templates that gives the impression of mass production without adding the creator's own insights or perspective. Videos whose substance is materially varied and delivers creative, educational, or other value can be monetized — even with a consistent intro, recurring characters, or the use of AI.",
+    },
+    relatedLessonIds: ["creating-with-ai-06"],
+    sources: [
+      {
+        label: "YouTube Help: YouTube channel monetization policies（日本語版「YouTube のチャンネル収益化ポリシー」）",
+        url: "https://support.google.com/youtube/answer/1311392?hl=en",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "ai-training-opt-out",
+    term: { ja: "AI学習の拒否意向（note）", en: "AI training opt-out (note)" },
+    definition: {
+      ja: "投稿先のサービスで、自分の作品を生成AIの学習に使わせない意向を示す設定。noteは2025年2月13日、アカウント設定の「生成AIの学習に拒否意向を示す」で生成AI事業者に意向を示せるようにしたが、すべての事業者が必ず従うことを保証するものではないと明記している。2025年6月17日に発表したAI学習対価還元プログラムは、テキストを提携するAI事業者に提供して対価を還元するもので、参加は初期設定でオン（すでに拒否意向をオンにしていた場合はオフ）で、設定で参加しないよう変更できる。",
+      en: "A setting on a publishing platform that expresses the wish not to have your work used to train generative AI. On February 13, 2025, note added an account setting to indicate refusal of generative AI training to generative AI companies, stating that it does not guarantee every company will comply. In its AI Training Compensation Program announced on June 17, 2025 — which provides text to partner AI companies and returns compensation to creators — participation is on by default (off for those who had already turned on the refusal setting) and can be switched off in settings.",
+    },
+    relatedLessonIds: ["creating-with-ai-06"],
+    sources: [
+      {
+        label: "note公式: 自分の作品をAIに学習させたくない方に。意向を設定できるようになりました（2025-02-13）",
+        url: "https://note.com/info/n/n21b09699c67d",
+      },
+      {
+        label: "note公式: AI学習の対価還元プログラムがスタート！あらたな収益の仕組みでより創作を続けやすく（2025-06-17）",
+        url: "https://note.com/info/n/n49bbcbdefe1a",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
 ];

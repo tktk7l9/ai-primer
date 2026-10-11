@@ -57,6 +57,9 @@ export const safeUsageChecklist: Lesson = {
 ### 画像・音楽などを生成するとき
 - [ ] 公開・商用利用する前に、サービスの利用規約と著作権の基本（米国と日本の考え方）を確認する（生成メディアトラック参照）。
 - [ ] 画像を公開するときは代替テキストを書き添え、動画の自動字幕は見直してから公開する（[AIとアクセシビリティ](/ja/learn/ai-and-society/accessibility)のレッスン参照）。
+- [ ] 公募・配信先・投稿先のAI方針（利用の可否・申告の方法・表示）を先に読み、求められる設定や開示を正直に付ける（[作品を公開するとき](/ja/learn/creating-with-ai/publishing-your-work)のレッスン参照）。
+- [ ] 実在の人の顔や声を使うなら本人の同意を取り、本物と間違えられそうな画像・動画・音声にはAIで作ったことを示す（[動画を作る](/ja/learn/creating-with-ai/making-video)のレッスン参照）。
+- [ ] 使ったツール・プラン・プロンプト・設定・下書きなどの制作記録を残す（[文章を書く相棒としてのAI](/ja/learn/creating-with-ai/writing-with-ai)のレッスン参照）。
 
 ### 画像・動画・音声を受け取ったとき
 - [ ] 感情を揺さぶる・急がせる内容ほど、出どころと来歴情報を確かめる（ディープフェイクのレッスン参照）。
@@ -109,6 +112,9 @@ Here's a checklist for everyday use, drawing on every track in this course.
 ### When generating images or music
 - [ ] Before publishing or commercial use, check the service's terms and the basics of copyright in the US and Japan (see Generating Images, Video, and Music).
 - [ ] When you publish images, add alt text, and review automatic captions on your videos before they go out (see the [AI and accessibility](/en/learn/ai-and-society/accessibility) lesson).
+- [ ] Read the AI policy of the contest, distributor, or platform first — whether AI is allowed, how to declare it, what label is required — and set the required flags and disclosures honestly (see the [publishing your work](/en/learn/creating-with-ai/publishing-your-work) lesson).
+- [ ] Get consent before using a real person's face or voice, and say it was made with AI whenever an image, video, or audio could be mistaken for real (see the [making video](/en/learn/creating-with-ai/making-video) lesson).
+- [ ] Keep process records — the tool, plan, prompts, settings, and drafts (see the [writing with AI](/en/learn/creating-with-ai/writing-with-ai) lesson).
 
 ### When you receive images, video, or audio
 - [ ] The more emotional or urgent the content, the more carefully you check its source and provenance (see the deepfakes lesson).
