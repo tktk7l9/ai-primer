@@ -39,7 +39,7 @@ Sunoの利用規約（2026年8月10日改定・9月3日発効）を例にしま�
 - シンプルな指示に基づいてAIが自律的に生成した歌詞や楽曲のように、**人間の創作的寄与が認められない作品は管理しない**。
 - 人間の創作的寄与が認められるものは管理の対象になる。
 - 作品を届け出る委託者には、届け出る作品が**人が創作的に寄与した著作物であることを保証する義務**がある。
-- 基本的な考え方（2023年7月5日の理事会決議）として、創造のサイクルとの調和、フリーライド防止の必要性、国際的なルールの調和、クリエイターの懸念への対応の4点を掲げ、著作権法第30条の4を改正して、クリエイターが自分の作品を学習素材として使わせるかどうかを判断できる機会を確保するよう求めています。
+- 基本的な考え方（2023年7月5日の理事会決議）として、創造のサイクルとの調和、フリーライド防止の必要性、国際的なルールの調和、クリエイターの懸念への対応の4点を掲げています。そのうえで、著作権法第30条の4の改正も含めた抜本的な対応を求め、少なくとも、作品を学習素材として使わせるかどうかをクリエイターなどの権利者が判断できる機会を設けるべきだとしています。
 
 つまり、作詞は自分でした、メロディをAIの出力から大きく作り替えた、といった**自分の寄与**が何かを説明できるようにしておくことが、権利を主張する前提になります。
 
@@ -85,7 +85,7 @@ The Agency for Cultural Affairs' "General Understanding on AI and Copyright in J
 - Works with **no recognizable human creative contribution** — such as lyrics or music generated autonomously by an AI from simple instructions — **are not managed** by JASRAC.
 - Works with a recognizable human creative contribution are managed.
 - A member registering a work has a **duty to guarantee that it is a copyrighted work to which a person contributed creatively**.
-- Its basic position (a board resolution of July 5, 2023) rests on four points — harmony with the creative cycle, the need to prevent free-riding, international harmonization of rules, and responding to creators' concerns — and it calls for amending Article 30-4 of the Copyright Act so that creators can decide whether their works are used as training material.
+- Its basic position (a board resolution of July 5, 2023) rests on four points — harmony with the creative cycle, the need to prevent free-riding, international harmonization of rules, and responding to creators' concerns. Beyond that, it calls for sweeping measures that include amending Article 30-4 of the Copyright Act, saying that at the very least creators and other rights holders should have the chance to decide whether their works are used as training material.
 
 In practice, being able to explain **your own contribution** — you wrote the lyrics, you substantially reworked the melody the AI produced — is the precondition for claiming any rights.
 
