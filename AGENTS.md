@@ -36,7 +36,14 @@ An AI literacy tutorial in the style of nextjs.org/learn. Fully bilingual ja/en,
   2026-10-11.
   Pages may be static. Calling `headers()` forces dynamic rendering, so do not call it
   in pages that should be cached.
-  ld+json is a data block and outside script-src (it gets the nonce anyway; harmless).
+  Only inline JavaScript gets the nonce: `<script src>`, an SVG `<script href>` and data blocks
+  such as ld+json (outside script-src, never executed) are left unstamped.
+  **Trust boundary:** HTMLRewriter cannot tell Next's inline scripts from injected ones, so any
+  inline `<script>` that reaches the server-rendered HTML gets the nonce. The nonce is safe only
+  while the server never emits untrusted HTML. `src/lib/trust-boundary.test.tsx` enforces it:
+  `dangerouslySetInnerHTML` is allowed only in the files on its allowlist (JSON-LD with every `<`
+  escaped, the trusted-Markdown lesson body), each with a reason and a hostile-input test. A new
+  sink goes on that list with both, or it fails CI.
 - **i18n is a `[locale]` segment + `Localized<T> = Record<"ja"|"en", T>`** (the resume pattern).
   No locale detection in middleware. Missing translations surface as type errors — do not escape with `Partial`.
 - **Content is pure data** (one lesson = one file under `src/engine/content/tracks/`). Bodies are Markdown strings,
