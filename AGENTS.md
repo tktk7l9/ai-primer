@@ -44,6 +44,17 @@ An AI literacy tutorial in the style of nextjs.org/learn. Fully bilingual ja/en,
   `dangerouslySetInnerHTML` is allowed only in the files on its allowlist (JSON-LD with every `<`
   escaped, the trusted-Markdown lesson body), each with a reason and a hostile-input test. A new
   sink goes on that list with both, or it fails CI.
+- **Prerendered pages are served from the build output, not re-rendered**: `open-next.config.ts`
+  sets `staticAssetsIncrementalCache` + `enableCacheInterception` (`src/lib/open-next-config.test.ts`
+  keeps both). With the default (no cache) every request re-rendered its page on the Worker
+  (`x-nextjs-cache: MISS`, ~25-50 ms CPU), and a lesson page's next/link prefetch burst hit the
+  Workers CPU limit (error 1102). Healthy responses carry `x-opennext-cache: HIT`; the HTML still
+  goes through `worker.ts`, so the nonce stays per request. Every page must stay SSG
+  (`generateStaticParams`, no request-time APIs); a page that turns dynamic quietly goes back to
+  rendering per request. Check the `next build` route table (● / ○, not ƒ) after route changes.
+  The root `not-found.tsx` is prerendered once (in Japanese), so unmatched paths under a locale
+  are caught by `[locale]/[...rest]` and get the localized 404 rendered per request instead
+  (otherwise `/en/...` 404s hydrate English over Japanese markup, React error 418).
 - **i18n is a `[locale]` segment + `Localized<T> = Record<"ja"|"en", T>`** (the resume pattern).
   No locale detection in middleware. Missing translations surface as type errors — do not escape with `Partial`.
 - **Content is pure data** (one lesson = one file under `src/engine/content/tracks/`). Bodies are Markdown strings,
