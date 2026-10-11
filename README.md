@@ -19,10 +19,13 @@ ChatGPT・Claude・Gemini・Grok などのチャットAIから、コーディン
 ## 技術構成
 
 - Next.js 16 (App Router, TypeScript) / React 19
-- 静的ヘッダーの CSP（`src/lib/csp.ts` が正本・next.config.ts が配る）+ セキュリティヘッダー一式
+- CSP: next.config.ts の静的ヘッダー（`src/lib/csp.ts` が正本）を土台に、Worker（`worker.ts`）が
+  HTML の応答ごとに `script-src` の `'unsafe-inline'` を毎リクエストの nonce に差し替える
+  （`src/lib/csp-nonce.ts`）+ セキュリティヘッダー一式
+- Cloudflare Web Analytics のビーコンはハイドレーション後に追加（HTML に外部スクリプトを書かない）
 - 手書き i18n（`[locale]` セグメント + `Localized<T>` 型で両言語必須を強制）
 - Markdown → HTML はビルド時サーバー変換（remark/rehype、クライアントJS最小）
-- vitest: engine/i18n 層 100% カバレッジゲート（CI強制）
+- vitest: engine/i18n/lib 層 100% カバレッジゲート（CI強制）
 
 ## 開発
 
@@ -39,7 +42,7 @@ npm run build
 
 - npm audit: 本番依存は 0 件。開発用依存の braces（修正版なし・GHSA-vfj7-8cjw-p6xm）だけを、理由と期限つきの例外リスト（`audit-allowlist.json`）で許容し、CI の `scripts/audit-gate.mjs` で検査
 - gitleaks: 0 leaks
-- テスト: 923件・カバレッジ: engine/i18n 層 100%（thresholds ゲート）
+- テスト: 957件・カバレッジ: engine/i18n/lib 層 100%（thresholds ゲート）
 - Lighthouse（本番URL計測・2026-09-14 / Cloudflare Workers・3回計測の中央値）:
   mobile 100/100/100/100・desktop 100/100/100/100
 - Mozilla Observatory（本番URL計測・2026-09-14 / Cloudflare Workers）: B（score 75・10/12 tests passed）

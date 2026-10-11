@@ -14,17 +14,29 @@ An AI literacy tutorial in the style of nextjs.org/learn. Fully bilingual ja/en,
 
 ## Architectural backbone
 
-- **CSP uses static headers in next.config.ts** (the source of truth is `src/lib/csp.ts`).
-  `script-src` is `'self' 'unsafe-inline'`. **Never add `'strict-dynamic'`** —
-  under CSP Level 3, strict-dynamic makes both `'self'` and `'unsafe-inline'` ignored,
-  and with no nonce or hash in this setup every script stops (`src/lib/csp.test.ts` blocks it).
-  Migrated from per-request nonces on 2026-09-12. The reason: Next 16's proxy is
-  Node-runtime only and OpenNext (Cloudflare Workers) does not support Node middleware,
-  so the app could not move to Workers otherwise. The cost is losing inline-XSS protection
-  and Observatory A+ (a deliberate decision).
+- **CSP: static baseline in next.config.ts, per-request nonce in the Worker** (source of truth:
+  `src/lib/csp.ts`; Worker side: `worker.ts` + `src/lib/csp-nonce.ts`). The static header has
+  `script-src 'self' 'unsafe-inline'`. `wrangler.jsonc` `main` is `worker.ts`, which wraps
+  `.open-next/worker.js` and, for every `text/html` response, replaces that `'unsafe-inline'` with
+  a fresh `'nonce-…'` and stamps the nonce on each inline `<script>` via HTMLRewriter (streaming).
+  The header is replaced, never appended: exactly one CSP per response (two CSPs are both
+  enforced). This is what clears the Observatory `content-security-policy` deduction (the
+  measured score is in README).
+  Every page must go through the Worker: `public/` holds no HTML, because Workers Assets serves
+  those files before the Worker runs.
+  **Never point `main` back at `.open-next/worker.js`**: the site keeps working and the CSP
+  silently falls back to `'unsafe-inline'` (`src/lib/worker-entry.test.ts` blocks it).
+  **Never add `'strict-dynamic'`**: the nonce is only on inline scripts, so it would make `'self'`
+  (the `/_next/static` chunks) and the `static.cloudflareinsights.com` host source (the beacon)
+  be ignored and stop them (`src/lib/csp.test.ts` / `csp-nonce.test.ts` block it).
+  `next dev` / `next start` (CI Lighthouse) do not run the Worker and keep the static header.
+  History: the per-request nonce used to come from `src/proxy.ts`; Next 16's proxy is
+  Node-runtime only and OpenNext (Cloudflare Workers) does not support Node middleware, so it was
+  dropped on 2026-09-12 (Observatory fell to B) until the Worker wrapper brought it back on
+  2026-10-11.
   Pages may be static. Calling `headers()` forces dynamic rendering, so do not call it
   in pages that should be cached.
-  Inline `<script>` needs no nonce (ld+json is a data block and outside script-src).
+  ld+json is a data block and outside script-src (it gets the nonce anyway; harmless).
 - **i18n is a `[locale]` segment + `Localized<T> = Record<"ja"|"en", T>`** (the resume pattern).
   No locale detection in middleware. Missing translations surface as type errors — do not escape with `Partial`.
 - **Content is pure data** (one lesson = one file under `src/engine/content/tracks/`). Bodies are Markdown strings,
@@ -34,7 +46,8 @@ An AI literacy tutorial in the style of nextjs.org/learn. Fully bilingual ja/en,
 
 ## Testing policy
 
-- `src/engine/**` and `src/i18n/**` require **100% coverage** (gated by thresholds in vitest.config.ts, enforced in CI).
+- `src/engine/**`, `src/i18n/**` and `src/lib/**` (the CSP and the Worker's nonce) require **100% coverage**
+  (gated by thresholds in vitest.config.ts, enforced in CI).
 - `content.test.ts` checks content integrity across the board (unique ids, non-empty ja/en, quiz answers in range, sources ≥ 1,
   valid lastVerified, glossaryRefs resolve). Keep the design where new lessons are picked up by the tests automatically.
 - The React UI layer (`src/components/**`, `src/app/**`) has its own floor in vitest.config.ts
@@ -62,12 +75,13 @@ An AI literacy tutorial in the style of nextjs.org/learn. Fully bilingual ja/en,
 ## Before publishing
 
 - Starts private. Publish only via publish-check (gitleaks 0 / `node scripts/audit-gate.mjs` passes, i.e. no advisory outside `audit-allowlist.json` / no PII).
-  Observatory **dropped from A+ (115) to B (75, 10/12)** (measured on the Workers
-  production URL on 2026-09-14). Both failing items are accepted costs, so this score is not a
-  publishing blocker — `content-security-policy` −20 is the `'unsafe-inline'` from the CSP migration,
-  and `subresource-integrity` −5 is the Cloudflare Web Analytics beacon. **Never add SRI to
-  the beacon**: Cloudflare swaps `beacon.min.js` behind an unversioned URL, so pinning
-  `integrity` silently stops just the beacon on the next update.
+  Observatory history: A+ (115) → B (75, 10/12) on 2026-09-14 (Workers production URL), when the
+  nonce was dropped (`content-security-policy` −20) and the Cloudflare Web Analytics beacon was
+  added as a `<script src>` (`subresource-integrity` −5). On 2026-10-11 the Worker nonce and the
+  beacon appended after hydration removed both deductions (see the CSP bullet above; the
+  measured score is in README). **Never add SRI to the beacon**: Cloudflare swaps `beacon.min.js` behind
+  an unversioned URL, so pinning `integrity` silently stops just the beacon on the next update.
+  Keep it out of the HTML instead (`src/components/analytics.tsx` appends it after hydration).
   Lighthouse holds 100/100/100/100 on both mobile and desktop.
 - CI runs `node scripts/audit-gate.mjs` instead of a bare `npm audit`. It fails on any advisory not listed in
   `audit-allowlist.json`. An entry needs a reason and an `expires` date (keep it about a month out), and
