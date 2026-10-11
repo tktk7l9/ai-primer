@@ -11,10 +11,11 @@ import { understandingAiTrack } from "./tracks/understanding-ai";
 import { aiAtWorkTrack } from "./tracks/ai-at-work";
 import { aiInDailyLifeTrack } from "./tracks/ai-in-daily-life";
 import { creatingWithAiTrack } from "./tracks/creating-with-ai";
+import { aiAndScienceTrack } from "./tracks/ai-and-science";
 import { aiAndSocietyTrack } from "./tracks/ai-and-society";
 import { societyTrack } from "./tracks/society";
 
-/** All tracks in display order (14, all complete). */
+/** All tracks in display order (15, all complete). */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
@@ -32,6 +33,8 @@ export const TRACKS: readonly Track[] = [
   aiInDailyLifeTrack,
   // Hobby creation (writing, images, music, video, games, publishing); applies the media and coding tracks.
   creatingWithAiTrack,
+  // The science behind AI and the science AI helps with (prizes, proteins, weather, mathematics, medicine, publishing rules).
+  aiAndScienceTrack,
   // Society-wide effects (jobs, energy, bias, accessibility, scams, children); also kept before society.
   aiAndSocietyTrack,
   societyTrack,

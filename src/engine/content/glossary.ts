@@ -1601,4 +1601,189 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     ],
     lastVerified: "2026-10-11",
   },
+  {
+    id: "hopfield-network",
+    term: { ja: "ホップフィールド・ネットワーク", en: "Hopfield network" },
+    definition: {
+      ja: "ジョン・ホップフィールドが考案した、パターンを保存して再構成する連想記憶の人工ニューラルネットワーク。原子のスピンを持つ物質の物理を使い、ネットワーク全体をエネルギーで表す。保存した画像のエネルギーが低くなるように結合を学習し、ゆがんだり欠けたりした画像が入力されると、エネルギーが下がる方向にノードの値を更新して、保存した画像のうち最も近いものにたどり着く。2024年のノーベル物理学賞の対象になった。",
+      en: "An artificial neural network devised by John Hopfield that works as an associative memory, storing and reconstructing patterns. It draws on the physics of materials whose atoms have spin, describing the whole network in terms of energy: connections are trained so that stored images have low energy, and when a distorted or incomplete image is fed in, the nodes are updated so the energy falls until the network arrives at the stored image most like it. It was part of the work recognized by the 2024 Nobel Prize in Physics.",
+    },
+    relatedLessonIds: ["ai-and-science-01"],
+    sources: [
+      { label: "NobelPrize.org: Press release — The Nobel Prize in Physics 2024（2024-10-08）", url: "https://www.nobelprize.org/prizes/physics/2024/press-release/" },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "boltzmann-machine",
+    term: { ja: "ボルツマンマシン", en: "Boltzmann machine" },
+    definition: {
+      ja: "ジェフリー・ヒントンが、ホップフィールド・ネットワークを土台に統計物理学の道具を使って作った人工ニューラルネットワーク。ある種類のデータに特徴的な要素を自ら見つけて学び、画像の分類や、学んだパターンと同じ種類の新しい例の生成に使える。2024年のノーベル物理学賞の対象になった。",
+      en: "An artificial neural network that Geoffrey Hinton built on the Hopfield network using tools from statistical physics. It learns by itself to recognize the characteristic elements of a given type of data and can be used to classify images or create new examples of the kind of pattern it was trained on. It was part of the work recognized by the 2024 Nobel Prize in Physics.",
+    },
+    relatedLessonIds: ["ai-and-science-01"],
+    sources: [
+      { label: "NobelPrize.org: Press release — The Nobel Prize in Physics 2024（2024-10-08）", url: "https://www.nobelprize.org/prizes/physics/2024/press-release/" },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "protein-structure-prediction",
+    term: { ja: "タンパク質の構造予測", en: "Protein structure prediction" },
+    definition: {
+      ja: "アミノ酸の並び（配列）から、タンパク質が折りたたまれてできる立体構造を予測すること。立体構造は働きを決めるが、実験で決めるには手間がかかる。1961年にアンフィンセンが、立体構造は配列で決まると結論づけて以来の課題で、2020年にAIモデルAlphaFold2が多くの場合にX線結晶構造解析にほぼ並ぶ精度を示した。2024年のノーベル化学賞の半分が、この業績でデミス・ハサビスとジョン・ジャンパーに贈られた。",
+      en: "Predicting the three-dimensional structure a protein folds into from its amino acid sequence. The structure decides what a protein does, but determining it experimentally takes great effort. The challenge dates back to Anfinsen's 1961 conclusion that structure is governed by sequence; in 2020 the AI model AlphaFold2 in most cases performed almost as well as X-ray crystallography. Half of the 2024 Nobel Prize in Chemistry went to Demis Hassabis and John Jumper for this work.",
+    },
+    relatedLessonIds: ["ai-and-science-01", "ai-and-science-02"],
+    sources: [
+      { label: "NobelPrize.org: Press release — The Nobel Prize in Chemistry 2024（2024-10-09）", url: "https://www.nobelprize.org/prizes/chemistry/2024/press-release/" },
+      { label: "NobelPrize.org: Popular information — The Nobel Prize in Chemistry 2024", url: "https://www.nobelprize.org/prizes/chemistry/2024/popular-information/" },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "casp",
+    term: { ja: "CASP（タンパク質構造予測の精密評価）", en: "CASP (Critical Assessment of Protein Structure Prediction)" },
+    definition: {
+      ja: "1994年に始まった、タンパク質の構造予測の精度を競う取り組み。2年に1度、構造が決まったばかりで公表されていないタンパク質の配列を参加者に渡し、伏せておいた実際の構造と予測を比べる。2020年の第14回で、AlphaFold2が多くの場合にX線結晶構造解析にほぼ並ぶ精度を示した。",
+      en: "A competition started in 1994 to assess the accuracy of protein structure prediction. Every other year, participants get the sequences of proteins whose structures have just been determined but kept secret, and their predictions are compared with the hidden structures. At the 14th CASP in 2020, AlphaFold2 in most cases performed almost as well as X-ray crystallography.",
+    },
+    relatedLessonIds: ["ai-and-science-02"],
+    sources: [
+      { label: "NobelPrize.org: Popular information — The Nobel Prize in Chemistry 2024", url: "https://www.nobelprize.org/prizes/chemistry/2024/popular-information/" },
+      { label: "Protein Structure Prediction Center（CASP）", url: "https://predictioncenter.org/" },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "plddt",
+    term: { ja: "pLDDT（AlphaFoldの信頼度）", en: "pLDDT (AlphaFold's confidence score)" },
+    definition: {
+      ja: "AlphaFoldが予測の各アミノ酸に付ける、局所的な信頼度の指標（predicted local distance difference test）。0〜100で、EMBL-EBIの解説では、90を超えると主鎖も側鎖も高い精度で予測されていることが多く、70を超えると主鎖はおおむね正しく、50を下回る部分は、決まった形を持たない領域か情報が足りない領域とされる。部分どうしの位置関係の信頼度は測らない。AlphaFold 3が決まった形のない領域に作ってしまう構造（ハルシネーション）を見分ける主な手がかりにもなる。",
+      en: "AlphaFold's per-residue measure of local confidence (predicted local distance difference test), scaled from 0 to 100. According to EMBL-EBI's guide, above 90 typically means both backbone and side chains are predicted with high accuracy, above 70 usually means a correct backbone, and below 50 marks regions that are disordered or lacked information. It does not measure confidence in the relative positions of domains. It is also the main marker for the spurious structure (hallucination) AlphaFold 3 can predict in disordered regions.",
+    },
+    relatedLessonIds: ["ai-and-science-02"],
+    sources: [
+      {
+        label: "EMBL-EBI Training: AlphaFold — pLDDT: Understanding local confidence",
+        url: "https://www.ebi.ac.uk/training/online/courses/alphafold/inputs-and-outputs/evaluating-alphafolds-predicted-structures-using-confidence-scores/plddt-understanding-local-confidence/",
+      },
+      {
+        label: "EMBL-EBI Training: AlphaFold — What AlphaFold 3 struggles with",
+        url: "https://www.ebi.ac.uk/training/online/courses/alphafold/alphafold-3-and-alphafold-server/introducing-alphafold-3/what-alphafold-3-struggles-with/",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "numerical-weather-prediction",
+    term: { ja: "数値予報", en: "Numerical weather prediction" },
+    definition: {
+      ja: "観測から今の大気の状態を推定し、物理法則を計算して先の大気の状態を求める天気予報の方法。欧州中期予報センター（ECMWF）の物理ベースの予報システムIFSなどがあり、Google DeepMindは、従来の手法で10日先まで予報するにはスーパーコンピュータで何時間もの計算が要ると説明している。機械学習の予報モデルも、数値予報で補って作った再解析データで学んだり、数値予報と同じ初期値から予報したりしている。",
+      en: "A weather forecasting method that estimates the current state of the atmosphere from observations and computes its future state from the laws of physics, as in ECMWF's physics-based Integrated Forecasting System (IFS). Google DeepMind explains that a 10-day forecast this way can take hours on a supercomputer. Machine-learning forecast models still learn from reanalysis data filled in by numerical weather prediction, or forecast from the same initial conditions.",
+    },
+    relatedLessonIds: ["ai-and-science-03"],
+    sources: [
+      {
+        label: "Google DeepMind: GraphCast — AI model for faster and more accurate global weather forecasting（2023-11-14）",
+        url: "https://deepmind.google/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/",
+      },
+      {
+        label: "ECMWF: ECMWF's AI forecasts become operational（2025-02-25）",
+        url: "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "reanalysis",
+    term: { ja: "再解析データ", en: "Reanalysis data" },
+    definition: {
+      ja: "衛星画像・レーダー・観測所などの過去の観測を、観測が足りないところは従来の数値予報で補って再構成した、地球全体の過去の天気の記録。欧州中期予報センター（ECMWF）のERA5が代表例で、Google DeepMindの天気予報モデルGraphCastは、その約40年分で学習した。",
+      en: "A reconstructed record of global historical weather, built from past observations such as satellite images, radar, and weather stations, with traditional numerical weather prediction filling in the blanks where observations are incomplete. ECMWF's ERA5 is a leading example; Google DeepMind's GraphCast weather model was trained on about four decades of it.",
+    },
+    relatedLessonIds: ["ai-and-science-03"],
+    sources: [
+      {
+        label: "Google DeepMind: GraphCast — AI model for faster and more accurate global weather forecasting（2023-11-14）",
+        url: "https://deepmind.google/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "ensemble-forecast",
+    term: { ja: "アンサンブル予報", en: "Ensemble forecast" },
+    definition: {
+      ja: "条件を少しずつ変えた多数の予報を同時に出し、起こりうる天気の幅をまとめて示す方法。欧州中期予報センター（ECMWF）は30年以上前にこの手法を開発・導入したとし、2025年2月に運用を始めた機械学習の予報AIFSも、1つの予報を出す最初の版から、50通りの予報を出すアンサンブルへ広げる計画を示している。",
+      en: "Running many forecasts at once with slight variations to show the full range of possible weather. ECMWF says it developed and implemented the technique more than thirty years ago, and its machine-learning forecast AIFS, made operational in February 2025 as a single deterministic forecast, is being extended to an ensemble of 50 forecasts.",
+    },
+    relatedLessonIds: ["ai-and-science-03"],
+    sources: [
+      {
+        label: "ECMWF: ECMWF's AI forecasts become operational（2025-02-25）",
+        url: "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "proof-assistant",
+    term: { ja: "証明支援系（proof assistant）", en: "Proof assistant" },
+    definition: {
+      ja: "数学の主張と証明を形式言語で書き、その正しさを計算機で形式的に検証できるようにするソフトウェア。代表例のLeanは、オープンソースのプログラミング言語でもある。Google DeepMindのAlphaProofはLeanで証明するよう自分を訓練するシステムで、同社は、形式的に検証できることが形式言語の決定的な利点だとする一方、人が書いた形式言語のデータが少ないことが機械学習での制約になってきたと説明している。",
+      en: "Software for writing mathematical statements and proofs in a formal language so that their correctness can be formally verified by computer. Lean, a leading example, is also an open-source programming language. Google DeepMind's AlphaProof trains itself to prove statements in Lean; the company describes formal verification as the critical advantage of formal languages, while noting that the scarcity of human-written formal data has constrained their use in machine learning.",
+    },
+    relatedLessonIds: ["ai-and-science-04"],
+    sources: [
+      { label: "Lean Programming Language", url: "https://lean-lang.org/" },
+      {
+        label: "Google DeepMind: AI achieves silver-medal standard solving International Mathematical Olympiad problems（2024-07-25）",
+        url: "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "samd",
+    term: { ja: "プログラム医療機器（SaMD）", en: "Medical device program (SaMD)" },
+    definition: {
+      ja: "病気の診断や治療などを目的とする単体のプログラム（ソフトウェア）で、医療機器として規制されるもの。日本では2014年11月25日施行の医薬品医療機器等法で規制の対象になり、PMDAによると、医療機器としての目的を持ち、意図したとおりに動かなかった場合に生命や健康に影響を与えるおそれがあるプログラムが該当する。英語ではSoftware as a Medical Deviceと呼ばれる。2018年12月に内視鏡の画像診断を支援するソフトウェアが承認されて以降、2025年8月末までにAIを活用したものが55品目承認された（PMDAの説明）。",
+      en: "A standalone program (software) intended for diagnosing or treating disease and regulated as a medical device, known in English as Software as a Medical Device. In Japan it came under the Act on Pharmaceuticals and Medical Devices, in force since November 25, 2014; according to PMDA, it covers programs with a medical-device purpose that could affect life or health if they do not work as intended. Since an endoscopic image diagnosis support program was approved in December 2018, 55 AI-based ones had been approved by the end of August 2025, PMDA reported.",
+    },
+    relatedLessonIds: ["ai-and-science-05"],
+    sources: [
+      { label: "PMDA: プログラム医療機器", url: "https://www.pmda.go.jp/review-services/drug-reviews/about-reviews/devices/0048.html" },
+      {
+        label: "厚生労働省: 第23回 医療機器・体外診断薬の承認審査や安全対策等に関する定期意見交換会 議事録（2025年9月26日）",
+        url: "https://www.mhlw.go.jp/stf/newpage_65484.html",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
+  {
+    id: "peer-review",
+    term: { ja: "査読", en: "Peer review" },
+    definition: {
+      ja: "学術誌に投稿された原稿を、通常は編集部の外の専門家が批判的に評価すること（ICMJEの定義）。投稿された原稿は著者の機密の財産として扱われるため、ICMJEは、守秘が確保できないAIに原稿をアップロードすることは学術誌が明示的に認めない限り許されない場合があるとし、Springer Natureも原稿を安全でない公開のAIに上げることを認めていない。日本学術振興会は、科研費の審査での生成AIの使用を禁止している。",
+      en: "The critical assessment of manuscripts submitted to journals by experts who are usually not part of the editorial staff (ICMJE's definition). Because submitted manuscripts are the authors' confidential property, ICMJE says uploading one to AI where confidentiality can't be assured may be prohibited unless the journal explicitly permits it, and Springer Nature does not allow manuscript content in unsecured or public AI tools. Japan's JSPS prohibits generative AI in KAKENHI grant review.",
+    },
+    relatedLessonIds: ["ai-and-science-06"],
+    sources: [
+      {
+        label: "ICMJE: Recommendations — Responsibilities in the Submission and Peer-Review Process",
+        url: "https://www.icmje.org/recommendations/browse/roles-and-responsibilities/responsibilities-in-the-submission-and-peer-peview-process.html",
+      },
+      {
+        label: "ICMJE: Recommendations — Use of AI by Reviewers",
+        url: "https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-reviewers.html",
+      },
+      { label: "Nature Portfolio: Editorial policies — Artificial Intelligence (AI)", url: "https://www.nature.com/nature-portfolio/editorial-policies/ai" },
+      {
+        label: "日本学術振興会: 令和８(2026)年度公募について（資料２・2025年7月）",
+        url: "https://www.jsps.go.jp/file/storage/kaken_g_3685/r7_siryou2.pdf",
+      },
+    ],
+    lastVerified: "2026-10-11",
+  },
 ];

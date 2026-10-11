@@ -35,7 +35,7 @@ export const readingBenchmarks: Lesson = {
 4. **混入や問題の誤りが指摘されていないか**: ネットで公開されている問題ほど、学習データに混ざるおそれがある。
 5. **差は大きいか**: 数ポイントの差は、問い方を変えるだけでも動く。
 
-点数は入口です。最後は、自分の仕事の課題で試して比べるのが確かです（[用途別の選び方](/ja/learn/chat-ais/choosing)参照）。開発元が公表する安全性の評価（システムカード）の読み方は[AIの安全性の取り組み](/ja/learn/understanding-ai/ai-safety-practices)、健康・医療の情報を調べるときの注意は[健康・医療の情報をAIで調べるとき](/ja/learn/understanding-ai/health-information)で扱います。何を数えた数字かを確かめる習慣は、[AIの電力と水](/ja/learn/ai-and-society/energy-and-water)のレッスンとも共通です。`,
+点数は入口です。最後は、自分の仕事の課題で試して比べるのが確かです（[用途別の選び方](/ja/learn/chat-ais/choosing)参照）。開発元が公表する安全性の評価（システムカード）の読み方は[AIの安全性の取り組み](/ja/learn/understanding-ai/ai-safety-practices)、健康・医療の情報を調べるときの注意は[健康・医療の情報をAIで調べるとき](/ja/learn/understanding-ai/health-information)で扱います。何を数えた数字かを確かめる習慣は、[AIの電力と水](/ja/learn/ai-and-society/energy-and-water)のレッスンとも共通です。誰が採点したかで成績の意味が変わる例は、[数学とAI](/ja/learn/ai-and-science/mathematics)のレッスンで扱います。`,
     en: `## A score is the result of one test, taken under one set of conditions
 
 New AI launches usually come with a table of benchmark scores or a leaderboard rank. A **benchmark** is a test that collects questions — in math, programming, biology, and so on — and fixes how they are scored, so that models can be compared. But a score is only the result of that test, taken under those conditions. Find out what a test measures, and how it was run, before you read the number.
@@ -59,7 +59,7 @@ New AI launches usually come with a table of benchmark scores or a leaderboard r
 4. **Has anyone reported contamination or flawed questions?** Questions that are published online are the most likely to leak into training data.
 5. **Is the gap big?** A few points can move just from changing how the question is asked.
 
-A score is a starting point. In the end, the surest test is to try the AI on your own tasks and compare (see [Choosing by Use Case](/en/learn/chat-ais/choosing)). How to read the safety evaluations developers publish (system cards) is covered in [How AI Developers Work on Safety](/en/learn/understanding-ai/ai-safety-practices), and what to watch for when looking up health information in [Looking Up Health Information with AI](/en/learn/understanding-ai/health-information). The habit of asking what a number actually counts is the same one used in the [AI's electricity and water](/en/learn/ai-and-society/energy-and-water) lesson.`,
+A score is a starting point. In the end, the surest test is to try the AI on your own tasks and compare (see [Choosing by Use Case](/en/learn/chat-ais/choosing)). How to read the safety evaluations developers publish (system cards) is covered in [How AI Developers Work on Safety](/en/learn/understanding-ai/ai-safety-practices), and what to watch for when looking up health information in [Looking Up Health Information with AI](/en/learn/understanding-ai/health-information). The habit of asking what a number actually counts is the same one used in the [AI's electricity and water](/en/learn/ai-and-society/energy-and-water) lesson. An example of how a score's meaning depends on who graded it is in the [mathematics and AI](/en/learn/ai-and-science/mathematics) lesson.`,
   },
   quiz: [
     {

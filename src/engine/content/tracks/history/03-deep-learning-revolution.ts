@@ -23,7 +23,7 @@ AlexNetのエラー率は15.3%で、2位（26.2%）に10ポイント近い差を
 - **ドロップアウト** という手法で過学習を抑制。
 - 大量のデータと計算資源（GPU）を活かした8層のネットワーク。
 
-この成功は「手作りの特徴量設計」から「データから自動で特徴を学ぶ」への転換点となり、以降のVGG・GoogLeNet・ResNetといったモデル、そして現在の生成AIブームにまで続く深層学習時代の出発点になりました。`,
+この成功は「手作りの特徴量設計」から「データから自動で特徴を学ぶ」への転換点となり、以降のVGG・GoogLeNet・ResNetといったモデル、そして現在の生成AIブームにまで続く深層学習時代の出発点になりました。ヒントンは2024年に、人工ニューラルネットワークによる機械学習の基礎を作った研究で、ジョン・ホップフィールドとともにノーベル物理学賞を受けています（[2024年のノーベル賞](/ja/learn/ai-and-science/nobel-prizes-2024)のレッスン参照）。`,
     en: `## A landslide win
 
 In 2012, a convolutional neural network called **AlexNet** won the **ILSVRC** (ImageNet Large Scale Visual Recognition Challenge), the leading image-recognition competition.
@@ -35,7 +35,7 @@ AlexNet's error rate was 15.3%, beating the runner-up's 26.2% by nearly 10 perce
 - **Dropout**, a technique that curbed overfitting.
 - An 8-layer network that took advantage of large datasets and GPU compute.
 
-This win marked a shift from hand-engineered features to features learned automatically from data — a turning point that led to VGG, GoogLeNet, ResNet, and ultimately the deep learning era that underlies today's generative AI boom.`,
+This win marked a shift from hand-engineered features to features learned automatically from data — a turning point that led to VGG, GoogLeNet, ResNet, and ultimately the deep learning era that underlies today's generative AI boom. In 2024, Hinton shared the Nobel Prize in Physics with John Hopfield for foundational work that enables machine learning with artificial neural networks (see [the 2024 Nobel Prizes](/en/learn/ai-and-science/nobel-prizes-2024)).`,
   },
   quiz: [
     {

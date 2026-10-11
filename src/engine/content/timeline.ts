@@ -23,7 +23,10 @@ export interface TimelineEvent {
 // in Japanese 2025, and the Digital Agency's generative AI guideline 2025 — added on 2026-10-10; the creating-with-AI entries —
 // pixiv's AI-generated setting 2022 and 2026 guideline, Clarkesworld 2023, KDP disclosure 2023, YouTube's disclosure 2024,
 // the labels' suits against Suno and Udio 2024, itch.io tagging 2024, Spotify's AI protections 2025, the Udio–UMG and Suno–WMG
-// partnerships 2025, Collins' "vibe coding" 2025, and JASRAC's generative AI page 2026 — added on 2026-10-11).
+// partnerships 2025, Collins' "vibe coding" 2025, and JASRAC's generative AI page 2026 — added on 2026-10-11; the AI-and-science
+// entries — Japan's AI endoscopy program approval and the health ministry's AI diagnosis notice 2018, AlphaFold2 at CASP14 2020,
+// GraphCast 2023, AlphaGeometry, AlphaFold 3, the IMO silver result, and the physics and chemistry Nobel Prizes 2024, ECMWF's
+// operational AIFS and the officially graded IMO gold result 2025 — added on 2026-10-11).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -118,6 +121,38 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "Wikipedia: Attention Is All You Need", url: "https://en.wikipedia.org/wiki/Attention_Is_All_You_Need" }],
   },
   {
+    id: "2018-japan-ai-endoscopy-program-approval",
+    date: "2018-12-01",
+    precision: "month",
+    title: { ja: "内視鏡の画像診断を支援するAIソフトウェアが承認（日本）", en: "Japan Approves an AI Program That Supports Endoscopic Diagnosis" },
+    summary: {
+      ja: "内視鏡の画像診断を支援するソフトウェアが、プログラム医療機器として承認された。2025年9月26日の厚生労働省の定期意見交換会でPMDAは、この承認以降に承認されたAIを活用したプログラム医療機器を、2025年8月末時点で55品目と説明している。",
+      en: "A program that supports endoscopic image diagnosis was approved as a medical device program. At a health ministry meeting on September 26, 2025, PMDA counted 55 AI-based medical device programs approved from this approval through the end of August 2025.",
+    },
+    sources: [
+      {
+        label: "厚生労働省: 第23回 医療機器・体外診断薬の承認審査や安全対策等に関する定期意見交換会 議事録（2025年9月26日）",
+        url: "https://www.mhlw.go.jp/stf/newpage_65484.html",
+      },
+    ],
+  },
+  {
+    id: "2018-mhlw-ai-diagnosis-notice",
+    date: "2018-12-19",
+    precision: "day",
+    title: { ja: "厚生労働省、AIで診断支援をしても判断の主体は医師と通知", en: "Japan's Health Ministry: With AI Diagnosis Support, the Doctor Still Decides" },
+    summary: {
+      ja: "厚生労働省が、AIを用いた診断・治療支援のプログラムを利用して診療する場合も、診断・治療を行う主体は医師で、医師が最終的な判断の責任を負い、医師法第17条の医業として行われると通知した。",
+      en: "The Ministry of Health, Labour and Welfare notified that when doctors practice with AI programs that support diagnosis and treatment, the doctor remains the one who diagnoses and treats, bears final responsibility for the judgment, and is practicing medicine under Article 17 of the Medical Practitioners Act.",
+    },
+    sources: [
+      {
+        label: "厚生労働省: 人工知能（AI）を用いた診断、治療等の支援を行うプログラムの利用と医師法第17条の規定との関係について（医政医発1219第1号）",
+        url: "https://www.mhlw.go.jp/content/10601000/000468150.pdf",
+      },
+    ],
+  },
+  {
     id: "2019-notice-iot",
     date: "2019-02-20",
     precision: "day",
@@ -205,6 +240,20 @@ export const TIMELINE: readonly TimelineEvent[] = [
         label: "Hendrycks et al.: Measuring Massive Multitask Language Understanding (arXiv, 2020-09-07)",
         url: "https://arxiv.org/abs/2009.03300",
       },
+    ],
+  },
+  {
+    id: "2020-alphafold2-casp14",
+    date: "2020-12-04",
+    precision: "day",
+    title: { ja: "CASP14でAlphaFold2が実験に迫る精度を示す", en: "AlphaFold2 Approaches Experimental Accuracy at CASP14" },
+    summary: {
+      ja: "タンパク質の構造予測の競技会CASPの第14回で、Google DeepMindのAlphaFold2が、多くの場合にX線結晶構造解析にほぼ並ぶ精度を示した。ノーベル財団の解説によると、CASPの創設者の一人ジョン・モールトは12月4日に競技を締めくくり、「次は何か」と問いかけた。",
+      en: "At the 14th CASP protein structure prediction contest, Google DeepMind's AlphaFold2 in most cases performed almost as well as X-ray crystallography. According to the Nobel Foundation, CASP co-founder John Moult concluded the competition on December 4 by asking, \"what now?\"",
+    },
+    sources: [
+      { label: "NobelPrize.org: Popular information — The Nobel Prize in Chemistry 2024", url: "https://www.nobelprize.org/prizes/chemistry/2024/popular-information/" },
+      { label: "Protein Structure Prediction Center（CASP）", url: "https://predictioncenter.org/" },
     ],
   },
   {
@@ -451,6 +500,38 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2023-graphcast",
+    date: "2023-11-14",
+    precision: "day",
+    title: { ja: "機械学習の天気予報モデルGraphCastがScience誌に掲載", en: "GraphCast Machine-Learning Weather Model Published in Science" },
+    summary: {
+      ja: "Google DeepMindが、ECMWFの再解析データERA5の約40年分で学習した天気予報モデルGraphCastを発表。10日先までの予報を1台のTPU v4で1分かからずに出し、評価した1,380の変数と予報時間の組み合わせの90%以上でECMWFのHRESより正確だったとした。",
+      en: "Google DeepMind introduced GraphCast, a weather model trained on about four decades of ECMWF's ERA5 reanalysis data. It makes a 10-day forecast in under a minute on a single TPU v4 and was more accurate than ECMWF's HRES on more than 90% of the 1,380 variable and lead-time combinations evaluated.",
+    },
+    sources: [
+      {
+        label: "Google DeepMind: GraphCast — AI model for faster and more accurate global weather forecasting（2023-11-14）",
+        url: "https://deepmind.google/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/",
+      },
+    ],
+  },
+  {
+    id: "2024-alphageometry",
+    date: "2024-01-17",
+    precision: "day",
+    title: { ja: "幾何の問題を解くAlphaGeometryがNature誌に掲載", en: "AlphaGeometry, a Geometry-Solving AI, Published in Nature" },
+    summary: {
+      ja: "Google DeepMindが、言語モデルと記号的な演繹エンジンを組み合わせたAlphaGeometryを発表。過去のオリンピックの幾何問題30問のうち25問を制限時間内に解き、それまでの最高は10問、人間の金メダリストの平均は25.9問だったとした。",
+      en: "Google DeepMind introduced AlphaGeometry, combining a language model with a symbolic deduction engine. It solved 25 of 30 Olympiad geometry problems within the time limit, against 10 for the previous state of the art and an average of 25.9 for human gold medalists.",
+    },
+    sources: [
+      {
+        label: "Google DeepMind: AlphaGeometry — An Olympiad-level AI system for geometry（2024-01-17）",
+        url: "https://deepmind.google/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/",
+      },
+    ],
+  },
+  {
     id: "2024-who-lmm-guidance",
     date: "2024-01-18",
     precision: "day",
@@ -554,6 +635,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-alphafold3",
+    date: "2024-05-08",
+    precision: "day",
+    title: { ja: "AlphaFold 3発表 — DNA・RNA・小分子との結合も予測", en: "AlphaFold 3 Predicts Interactions with DNA, RNA, and Small Molecules" },
+    summary: {
+      ja: "Google DeepMindとIsomorphic Labsが、タンパク質に加えてDNA、RNA、リガンドなどの構造と結合を予測するAlphaFold 3を発表し、非営利の研究向けに無料のAlphaFold Serverを公開した。同年11月には学術目的でのコードと重みの提供を始めた。",
+      en: "Google DeepMind and Isomorphic Labs announced AlphaFold 3, which predicts the structures and interactions of DNA, RNA, ligands, and more alongside proteins, and launched the free AlphaFold Server for non-commercial research. In November that year they released code and weights for academic use.",
+    },
+    sources: [
+      {
+        label: "Google: AlphaFold 3 predicts the structure and interactions of all of life's molecules（2024-05-08、2024-11-11 追記）",
+        url: "https://blog.google/innovation-and-ai/products/google-deepmind-isomorphic-alphafold-3-ai-model/",
+      },
+    ],
+  },
+  {
     id: "2024-gpt4o",
     date: "2024-05-13",
     precision: "day",
@@ -631,6 +728,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-imo-silver-alphaproof",
+    date: "2024-07-25",
+    precision: "day",
+    title: { ja: "AIが数学オリンピックで銀メダル相当", en: "AI Reaches Silver-Medal Standard at the Math Olympiad" },
+    summary: {
+      ja: "Google DeepMindのAlphaProofとAlphaGeometry 2が、国際数学オリンピック2024の6問中4問を解き、42点満点中28点で銀メダル相当と発表。問題は人が形式言語に翻訳して与え、解くのに最長3日かかった。",
+      en: "Google DeepMind's AlphaProof and AlphaGeometry 2 solved four of six problems from the 2024 International Mathematical Olympiad, scoring 28 of 42 — silver-medal standard. The problems were translated into formal language by hand, and solving took up to three days.",
+    },
+    sources: [
+      {
+        label: "Google DeepMind: AI achieves silver-medal standard solving International Mathematical Olympiad problems（2024-07-25）",
+        url: "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/",
+      },
+    ],
+  },
+  {
     id: "2024-eu-ai-act",
     date: "2024-08-01",
     precision: "day",
@@ -653,6 +766,32 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "OpenAI released o1-preview and o1-mini, models designed to spend more time reasoning before answering — stronger on complex math, science, and coding problems.",
     },
     sources: [{ label: "OpenAI: Introducing OpenAI o1", url: "https://openai.com/index/introducing-openai-o1-preview/" }],
+  },
+  {
+    id: "2024-nobel-physics",
+    date: "2024-10-08",
+    precision: "day",
+    title: { ja: "ノーベル物理学賞にホップフィールドとヒントン", en: "Hopfield and Hinton Win the Nobel Prize in Physics" },
+    summary: {
+      ja: "スウェーデン王立科学アカデミーが、ジョン・ホップフィールドとジェフリー・ヒントンに、人工ニューラルネットワークによる機械学習を可能にした基礎的な発見と発明で、2024年のノーベル物理学賞を贈ると発表した。",
+      en: "The Royal Swedish Academy of Sciences awarded the 2024 Nobel Prize in Physics to John J. Hopfield and Geoffrey Hinton for foundational discoveries and inventions that enable machine learning with artificial neural networks.",
+    },
+    sources: [
+      { label: "NobelPrize.org: Press release — The Nobel Prize in Physics 2024（2024-10-08）", url: "https://www.nobelprize.org/prizes/physics/2024/press-release/" },
+    ],
+  },
+  {
+    id: "2024-nobel-chemistry",
+    date: "2024-10-09",
+    precision: "day",
+    title: { ja: "ノーベル化学賞にタンパク質の設計と構造予測", en: "Protein Design and Structure Prediction Win the Nobel Prize in Chemistry" },
+    summary: {
+      ja: "2024年のノーベル化学賞は、半分が計算によるタンパク質設計のデイヴィッド・ベイカーに、もう半分がAlphaFold2によるタンパク質の構造予測のデミス・ハサビスとジョン・ジャンパーに贈られた。",
+      en: "Half of the 2024 Nobel Prize in Chemistry went to David Baker for computational protein design, and half jointly to Demis Hassabis and John Jumper for protein structure prediction with AlphaFold2.",
+    },
+    sources: [
+      { label: "NobelPrize.org: Press release — The Nobel Prize in Chemistry 2024（2024-10-09）", url: "https://www.nobelprize.org/prizes/chemistry/2024/press-release/" },
+    ],
   },
   {
     id: "2024-itchio-generative-ai-disclosure",
@@ -734,6 +873,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2025-ecmwf-aifs-operational",
+    date: "2025-02-25",
+    precision: "day",
+    title: { ja: "ECMWFが機械学習の天気予報AIFSの運用を開始", en: "ECMWF Puts Its Machine-Learning Forecast AIFS into Operation" },
+    summary: {
+      ja: "欧州中期予報センターが、機械学習の予報システムAIFSの運用を始め、物理ベースのIFSと並べて動かした。熱帯低気圧の進路など多くの指標で物理モデルを上回り（最大20%）、予報のエネルギー使用量はおよそ1,000分の1とした。初期値はIFSと同じものを使う。",
+      en: "The European Centre for Medium-Range Weather Forecasts took its machine-learning forecasting system AIFS into operation alongside its physics-based IFS, reporting gains of up to 20% on many measures such as tropical cyclone tracks and roughly 1,000 times less energy per forecast. It starts from the same initial conditions as the IFS.",
+    },
+    sources: [
+      {
+        label: "ECMWF: ECMWF's AI forecasts become operational（2025-02-25）",
+        url: "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
+      },
+    ],
+  },
+  {
     id: "2025-apple-intelligence-japanese",
     date: "2025-03-31",
     precision: "day",
@@ -798,6 +953,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
       {
         label: "デジタル庁: 行政の進化と革新のための生成AIの調達・利活用に係るガイドライン（DS-920、2025-05-27 決定、2026-06-12 改定）",
         url: "https://www.digital.go.jp/assets/contents/node/information/field_ref_resources/decb64eb-f26e-41cb-8d37-f3dd173108b8/59054b35/20260612_resources_standard_guidelines_guideline_01.pdf",
+      },
+    ],
+  },
+  {
+    id: "2025-imo-gold-gemini-deep-think",
+    date: "2025-07-21",
+    precision: "day",
+    title: { ja: "AIが数学オリンピックで金メダル相当 — 公式の採点で", en: "AI Reaches Gold-Medal Standard at the Math Olympiad, Officially Graded" },
+    summary: {
+      ja: "Google DeepMindが、Gemini Deep Thinkの高度な版が国際数学オリンピック2025の6問中5問を完答し、35点で金メダル相当と発表。IMOのコーディネーターが生徒と同じ基準で採点・認定し、問題文から自然言語で4時間半の制限時間内に証明を書いたとした。",
+      en: "Google DeepMind announced that an advanced version of Gemini Deep Think solved five of six problems at the 2025 International Mathematical Olympiad, scoring 35 points — gold-medal standard — graded and certified by IMO coordinators using the same criteria as for students, with proofs written in natural language within the 4.5-hour limit.",
+    },
+    sources: [
+      {
+        label: "Google DeepMind: Advanced version of Gemini with Deep Think officially achieves gold-medal standard at the International Mathematical Olympiad（2025-07-21）",
+        url: "https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/",
       },
     ],
   },
