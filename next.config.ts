@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 import { contentSecurityPolicy } from "./src/lib/csp";
 
 // src/lib/csp.ts is the source of truth for the CSP. src/proxy.ts used to issue a per-request
-// CSP with a nonce, but middleware was removed in favor of static headers.
+// CSP with a nonce, but middleware was removed in favor of static headers. In production the
+// Worker entry (worker.ts) replaces script-src 'unsafe-inline' with a per-request nonce on every
+// HTML response (src/lib/csp-nonce.ts).
 const securityHeaders = [
   {
     key: "Content-Security-Policy",

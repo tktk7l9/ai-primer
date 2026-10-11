@@ -4,21 +4,23 @@ import { contentSecurityPolicy } from "./csp";
 describe("contentSecurityPolicy", () => {
   const prod = contentSecurityPolicy();
 
-  it("has no nonce (middleware was removed, so nothing issues one)", () => {
+  it("has no nonce (worker.ts adds one per HTML response, src/lib/csp-nonce.ts)", () => {
     expect(prod).not.toContain("nonce-");
   });
 
   it("does not contain 'strict-dynamic'", () => {
     // Under CSP Level 3, 'strict-dynamic' makes the allowlist and 'self' / 'unsafe-inline'
-    // ignored. Adding it to this setup with no nonce or hash removes the root of trust,
-    // and every script on the page stops. If you add it, provide a nonce or hash at the same time.
+    // ignored. The Worker stamps its nonce on inline scripts only, so with strict-dynamic every
+    // Next chunk (<script src>, allowed by 'self') and the analytics beacon (allowed by its host)
+    // would stop, and next dev / next start, which have no nonce at all, would run no script.
     expect(prod).not.toContain("strict-dynamic");
     // Forbidden in dev too, so a change that breaks only dev is not missed.
     expect(contentSecurityPolicy({ dev: true })).not.toContain("strict-dynamic");
   });
 
-  it("states in script-src that inline scripts are allowed", () => {
-    // Needed because Next's bootstrap (self.__next_f.push) is an inline script.
+  it("states in script-src that inline scripts are allowed (the Worker swaps it for a nonce)", () => {
+    // Needed by next dev / next start because Next's bootstrap (self.__next_f.push) is an
+    // inline script; in production worker.ts replaces exactly this token on every HTML response.
     // Pin it including the trailing ;. Otherwise a looser value appended after it,
     // like "'unsafe-inline' https: *", would still pass.
     expect(prod).toContain("script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com;");

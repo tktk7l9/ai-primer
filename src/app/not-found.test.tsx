@@ -40,10 +40,12 @@ describe("root routes", () => {
     expect(screen.queryByRole("banner")).not.toBeInTheDocument();
   });
 
-  it("renders the document in Japanese and loads the analytics beacon as a module", () => {
+  it("renders the document in Japanese without any script in the server HTML", () => {
     const html = renderToStaticMarkup(<RootLayout>{<p>child</p>}</RootLayout>);
     expect(html).toMatch(/^<html lang="ja">/);
     expect(html).toContain("<p>child</p>");
-    expect(html).toMatch(/<script type="module" src="https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js"/);
+    // The analytics beacon is appended after hydration (src/components/analytics.tsx): an external
+    // <script src> in the markup without `integrity` costs the Observatory SRI test.
+    expect(html).not.toContain("<script");
   });
 });
