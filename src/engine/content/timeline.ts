@@ -45,7 +45,8 @@ export interface TimelineEvent {
 // 2025, and the discussion paper's version 1.1 and the FSB's draft sound practices 2026 — also added on 2026-10-13; the AI-and-sports
 // entries — gymnastics judging support 2019 and its extension to all apparatus 2023, FIFA's semi-automated offside 2022, the
 // J.League's 3D offside lines and Wimbledon's AI commentary 2023, the online abuse study 2024, and MLB's ABS Challenge 2025 — also
-// added on 2026-10-13).
+// added on 2026-10-13; the AI-and-nature entries — Google's humpback whale call detector 2018, AI Bird and NOAA's humpback song
+// study 2021, the NACS-J and Nikon camera-trap app 2022, and the new Perch release 2025 — also added on 2026-10-13).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -232,6 +233,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
         label: "内閣府（防災担当）: 災害に係る住家の被害認定基準運用指針（2026年6月）",
         url: "https://www.bousai.go.jp/taisaku/pdf/r605shishin_all.pdf",
       },
+    ],
+  },
+  {
+    id: "2018-humpback-whale-call-detection",
+    date: "2018-10-29",
+    precision: "day",
+    title: { ja: "Google、ザトウクジラの声を見つけるAIを発表", en: "Google Unveils AI That Detects Humpback Whale Calls" },
+    summary: {
+      ja: "GoogleがNOAAの太平洋諸島水産科学センターと協力し、太平洋の複数の地点で録音された15年分の水中の音から、ザトウクジラの声を見つけるAIを開発したと発表した。音をスペクトログラムという図にして、画像を見分けるモデルで判定した。",
+      en: "Google announced that, in partnership with NOAA's Pacific Islands Fisheries Science Center, it had developed AI to identify humpback whale calls in 15 years of underwater recordings from a number of locations in the Pacific. It turned sound into pictures called spectrograms and classified them with an image recognition model.",
+    },
+    sources: [
+      { label: "Google Research: Acoustic Detection of Humpback Whales Using a Convolutional Neural Network（2018-10-29）", url: "https://research.google/blog/acoustic-detection-of-humpback-whales-using-a-convolutional-neural-network/" },
     ],
   },
   {
@@ -490,6 +504,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2021-jwa-ai-bird",
+    date: "2021-01-19",
+    precision: "day",
+    title: { ja: "日本気象協会、希少なワシを見分ける「AI Bird」を開発", en: "Japan Weather Association Develops \"AI Bird\" to Identify Rare Eagles" },
+    summary: {
+      ja: "4Kカメラで撮った映像から、国内希少野生動物のオジロワシとオオワシをAIで見分けるシステムを発表した。飛ぶ野生の鳥の映像からAIで種類を見分けるしくみは国内初で、風車に鳥がぶつかるバードストライクの防止に役立てる。北海道苫前町での野外実験の再現率は94%だった。",
+      en: "The Japan Weather Association announced a system that uses AI to identify white-tailed eagles and Steller's sea eagles — nationally endangered species — in 4K video, the first system in Japan to identify wild birds in flight by species with AI. It is meant to help prevent bird strikes on wind turbines. In a field test in Tomamae, Hokkaido, its recall was 94%.",
+    },
+    sources: [
+      { label: "日本気象協会: AI鳥類識別システム「AI Bird」を開発（2021-01-19）", url: "https://www.jwa.or.jp/news/2021/01/12092/" },
+    ],
+  },
+  {
     id: "2021-c2pa",
     date: "2021-02-01",
     precision: "month",
@@ -503,6 +530,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
         label: "C2PA: C2PA Releases Specification of World's First Industry Standard for Content Provenance",
         url: "https://c2pa.org/c2pa-releases-specification-of-worlds-first-industry-standard-for-content-provenance/",
       },
+    ],
+  },
+  {
+    id: "2021-noaa-humpback-song-study",
+    date: "2021-05-18",
+    precision: "day",
+    title: { ja: "NOAA、ザトウクジラの歌をAIで探した研究を紹介", en: "NOAA Highlights a Study That Used AI to Find Humpback Whale Song" },
+    summary: {
+      ja: "NOAAの国立環境情報センターが、NOAAとGoogleが畳み込みニューラルネットワークで、北太平洋の13か所で14年間に集めた18万7,000時間を超える録音からザトウクジラの歌を探した研究を紹介した。ハワイの主要な島々での歌の減少をとらえ、モデルと録音のデータも公開された。",
+      en: "NOAA's National Centers for Environmental Information highlighted a study in which NOAA and Google used a convolutional neural network to search more than 187,000 hours of recordings, collected over 14 years at 13 sites in the North Pacific, for humpback whale song. It captured a decline in song around the Main Hawaiian Islands, and the model and the recordings were made public.",
+    },
+    sources: [
+      { label: "NOAA NCEI: Using AI to Listen and Learn about Humpback Whales（2021-05-18）", url: "https://www.ncei.noaa.gov/news/using-ai-listen-and-learn-about-humpback-whales" },
     ],
   },
   {
@@ -595,6 +635,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
         label: "FIFA: Semi-automated offside technology to be used at FIFA World Cup 2022（2022-07-01）",
         url: "https://inside.fifa.com/innovation/media-releases/semi-automated-offside-technology-to-be-used-at-fifa-world-cup-2022-tm",
       },
+    ],
+  },
+  {
+    id: "2022-nacsj-nikon-camera-trap-app",
+    date: "2022-07-13",
+    precision: "day",
+    title: { ja: "日本自然保護協会とニコン、センサーカメラの写真から動物を見つけるアプリを発表", en: "NACS-J and Nikon Announce an App That Finds Animals in Sensor-Camera Photos" },
+    summary: {
+      ja: "群馬県みなかみ町「赤谷の森」の動物の写真で開発した。2021年4月からの実証実験で、「動物が写っていない」と判別した写真の検出精度は99.6%となり、3万枚の写真の確認と整理にかかる作業が1週間から2日に短くなった。",
+      en: "Developed with photos of animals in the Akaya Forest in Minakami, Gunma Prefecture, the app reached 99.6% detection accuracy for photos it judged to contain no animal in a trial from April 2021, cutting the work of checking and sorting 30,000 photos from a week to two days.",
+    },
+    sources: [
+      { label: "日本自然保護協会: AIを使った動物画像の自動検出アプリでモニタリング調査の大幅な労力削減が実現（2022-07-13）", url: "https://www.nacsj.or.jp/media/2022/07/31218/" },
     ],
   },
   {
@@ -1865,6 +1918,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "OpenAI introduced GPT-5, with a jump in capability across coding, math, writing, and visual perception over prior models.",
     },
     sources: [{ label: "OpenAI: Introducing GPT-5", url: "https://openai.com/index/introducing-gpt-5/" }],
+  },
+  {
+    id: "2025-perch-new-version",
+    date: "2025-08-07",
+    precision: "day",
+    title: { ja: "Google DeepMind、生物音響のAIモデルPerchの新しい版を公開", en: "Google DeepMind Releases a New Version of Its Bioacoustics Model Perch" },
+    summary: {
+      ja: "鳥に加えて哺乳類、両生類、人がたてる音なども含む、前の版のほぼ2倍のデータで学習した新しいPerchを、オープンなモデルとして公開した。2023年の最初の版は25万回を超えてダウンロードされ、ハワイ大学の研究室はPerchを使って、絶滅のおそれがあるハワイミツスイの声を50倍近く速く見つけられた。",
+      en: "Google DeepMind released a new Perch as an open model, trained on nearly twice as much data as before, including mammals, amphibians, and human-made noise as well as birds. The first version, launched in 2023, had been downloaded more than 250,000 times, and a University of Hawaiʻi lab used Perch to find the calls of endangered Hawaiian honeycreepers nearly 50 times faster.",
+    },
+    sources: [
+      { label: "Google DeepMind: How AI is helping advance the science of bioacoustics to save endangered species（2025-08-07）", url: "https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/" },
+    ],
   },
   {
     id: "2025-darpa-aixcc-final",

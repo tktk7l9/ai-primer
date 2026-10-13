@@ -19,7 +19,7 @@ Google DeepMindによると、科学者は生態系の健康を守るため、�
 Google DeepMindは2025年8月7日、生物の音を分析するAIモデル**Perch**の新しい版を公開しました。
 - 最初の版は2023年に公開され、25万回を超えてダウンロードされた。コーネル大学鳥類学研究所の鳥の声の解析ツールBirdNET Analyzerにも、Perchの検索の仕組みが組み込まれている。
 - 新しい版は、哺乳類、両生類、人がたてる音なども含め、Xeno-CantoやiNaturalistなど公開されたデータから、前の版のほぼ2倍のデータで学習した。オープンなモデルとして公開されている。
-- ハワイ大学の研究室は、絶滅のおそれがあるハワイミツスイの声を、ふだんの方法より50倍近く速く見つけられた。
+- ハワイ大学の研究室は、Perchを使って、絶滅のおそれがあるハワイミツスイの声を、ふだんの方法より50倍近く速く見つけられた。Google DeepMindは、新しい版がこうした取組みをさらに速めると期待している。
 - 1つの音の例から似た音をデータの中から探し、地元の専門家が「当たり」「外れ」を付けていくことで、1時間かからずに新しい分類器を作れるという。
 
 ## 日本の例 — 風車とワシの共存
@@ -38,7 +38,7 @@ According to Google DeepMind, scientists protecting the health of ecosystems use
 On August 7, 2025, Google DeepMind released a new version of **Perch**, its AI model for analyzing the sounds of living things.
 - The first version, launched in 2023, has been downloaded more than 250,000 times, and Perch's search technology is now part of the Cornell Lab of Ornithology's widely used BirdNET Analyzer.
 - The new version was trained on nearly twice as much data, including mammals, amphibians, and human-made noise, from public sources such as Xeno-Canto and iNaturalist. It is released as an open model.
-- A University of Hawaiʻi lab used it to find the calls of endangered Hawaiian honeycreepers nearly 50 times faster than its usual methods.
+- A University of Hawaiʻi lab used Perch to find the calls of endangered Hawaiian honeycreepers nearly 50 times faster than its usual methods; Google DeepMind expects the new model to accelerate such efforts further.
 - Given one example of a sound, it finds similar sounds in a dataset, and a local expert marks results as relevant or not, making it possible to build a new classifier in under an hour.
 
 ## An example from Japan: wind turbines and eagles

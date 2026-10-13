@@ -13,7 +13,7 @@ export const photoIdentification: Lesson = {
   },
   body: {
     ja: `## AIが出すのは「候補」
-市民が生きものの観察記録を投稿し合うiNaturalistでは、写真を投稿すると、コンピュータビジョン（画像認識）のAIが種の候補を示します。iNaturalistのヘルプによると、ある種をAIの学習に入れるには、次の条件が要ります。
+市民が生きものの観察記録を投稿し合うiNaturalistでは、写真を投稿すると、コンピュータビジョン（画像認識）のAIが種の候補を示します。iNaturalistのヘルプによると、ある種をAIの学習に入れるには、次の条件が要ります（学習の手順の改善に合わせて、条件は変わることがあるとしています）。
 - その種の写真が100枚以上、観察記録が60件以上ある（1つの観察記録から使う写真は5枚まで）。
 - 観察記録は「研究用」でなくてもよいが、みんなの同定が一致したものを優先する。
 - 学習に使わない写真の一部をテストと検証に使う。これらには、みんなの同定が付いている必要がある。
@@ -33,7 +33,7 @@ AIは、人が確かめた写真から学び、そのAIが次の観察者に候�
 - **候補はあくまで候補**: 学習に入るには一定数の写真と記録が必要なので、記録の少ない生きものは、AIの候補に出てこないことがあります。名前を決めるのは、写真を見た人々の同定です。
 - **編集した写真を記録にしない**: AIで加工した画像は、生きものの記録としては使えません（画像の真偽については[ディープフェイクと来歴情報](/ja/learn/generative-media/deepfakes-and-provenance)のレッスン参照）。`,
     en: `## What the AI offers is a "suggestion"
-On iNaturalist, where people share observations of living things, uploading a photo brings up species suggestions from a computer vision (image recognition) AI. According to iNaturalist's help pages, a species can be included in the AI's training when:
+On iNaturalist, where people share observations of living things, uploading a photo brings up species suggestions from a computer vision (image recognition) AI. According to iNaturalist's help pages, a species can be included in the AI's training when the following conditions are met (iNaturalist notes that these may change as it keeps improving the training process):
 - There are at least 100 photos and 60 observations of it (with no more than 5 photos used from any one observation).
 - Observations need not be Research Grade, but those with a matching Community ID are prioritized.
 - Some photos not used in training are used to test and validate the model; these must have a Community ID.
