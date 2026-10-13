@@ -29,7 +29,9 @@ export interface TimelineEvent {
 // operational AIFS and the officially graded IMO gold result 2025 — added on 2026-10-11; the self-driving-and-robots entries —
 // Japan's Level 3 rules and Honda's Level 3 type designation 2020, Level 4 drone flights 2022, the Level 4 permit system and
 // delivery-robot rules, the Eiheiji service, RT-2, and the Cruise suspension 2023, the UK Automated Vehicles Act and GM's
-// exit from robotaxis 2024, and Gemini Robotics 2025 — added on 2026-10-13).
+// exit from robotaxis 2024, and Gemini Robotics 2025 — added on 2026-10-13; the AI-and-security entries — many-shot
+// jailbreaking and Big Sleep 2024, GTIG's two misuse reports, Constitutional Classifiers, NIST AI 100-2 E2025, the AIxCC final,
+// Anthropic's two threat reports, and the 250-document poisoning study 2025, and IPA's 10 major threats 2026 — also added on 2026-10-13).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -708,6 +710,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-many-shot-jailbreaking",
+    date: "2024-04-02",
+    precision: "day",
+    title: { ja: "Anthropicが「メニーショット・ジェイルブレイク」を公表", en: "Anthropic Publishes Research on Many-Shot Jailbreaking" },
+    summary: {
+      ja: "1つのプロンプトに偽の対話を大量に並べて、安全対策をすり抜けさせる手口の研究を公表した。広がったコンテキストウィンドウを逆手に取るもので、公表前に他のAI開発者にも知らせ、自社では対策を入れた。",
+      en: "Anthropic published research on a technique that gets a model past its safeguards by packing a single prompt with many fake dialogues, exploiting ever-larger context windows. It briefed other AI developers before publishing and put mitigations in place.",
+    },
+    sources: [
+      { label: "Anthropic: Many-shot jailbreaking（2024-04-02）", url: "https://www.anthropic.com/research/many-shot-jailbreaking" },
+    ],
+  },
+  {
     id: "2024-japan-ai-guidelines",
     date: "2024-04-19",
     precision: "day",
@@ -894,6 +909,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-big-sleep-sqlite",
+    date: "2024-11-01",
+    precision: "day",
+    title: { ja: "AIエージェント「Big Sleep」がSQLiteの未知の脆弱性を発見", en: "Google's Big Sleep Agent Finds an Unknown Vulnerability in SQLite" },
+    summary: {
+      ja: "GoogleのProject ZeroとGoogle DeepMindが、AIエージェントが広く使われるデータベースエンジンSQLiteに悪用できる脆弱性を見つけたと発表した。正式版に入る前に修正された。チームは、広く使われる実際のソフトウェアで、AIエージェントが悪用できる未知のメモリ安全性の問題を見つけた初めての公開例だと考えている。",
+      en: "Google Project Zero and Google DeepMind announced that their AI agent had found an exploitable vulnerability in SQLite, a widely used database engine; it was fixed before reaching an official release. The team believes it is the first public example of an AI agent finding a previously unknown, exploitable memory-safety issue in widely used real-world software.",
+    },
+    sources: [
+      { label: "Google Project Zero: From Naptime to Big Sleep（2024-11-01）", url: "https://projectzero.google/2024/10/from-naptime-to-big-sleep.html" },
+    ],
+  },
+  {
     id: "2024-itchio-generative-ai-disclosure",
     date: "2024-11-20",
     precision: "day",
@@ -971,6 +999,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2025-gtig-adversarial-misuse",
+    date: "2025-01-30",
+    precision: "day",
+    title: { ja: "Google、攻撃者による生成AIの悪用を分析", en: "Google Analyzes Attackers' Misuse of Generative AI" },
+    summary: {
+      ja: "GoogleのThreat Intelligence Group（GTIG）が、国家の支援を受けた攻撃者によるGeminiの使い方を分析した。下調べやコードの不具合の解決、文章作成で生産性は上がっているが、新しい能力を生んでいる兆しはないとまとめた。",
+      en: "Google Threat Intelligence Group (GTIG) analyzed how government-backed attackers used Gemini, concluding that it made them more productive at research, troubleshooting code, and creating content, but showed no signs of giving them novel capabilities.",
+    },
+    sources: [
+      { label: "Google Threat Intelligence Group: Adversarial Misuse of Generative AI（2025-01-30）", url: "https://cloud.google.com/blog/topics/threat-intelligence/adversarial-misuse-generative-ai" },
+    ],
+  },
+  {
     id: "2025-eu-ai-act-prohibitions",
     date: "2025-02-02",
     precision: "day",
@@ -981,6 +1022,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     },
     sources: [
       { label: "European Commission: AI Act", url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" },
+    ],
+  },
+  {
+    id: "2025-constitutional-classifiers",
+    date: "2025-02-03",
+    precision: "day",
+    title: { ja: "Anthropic、ジェイルブレイク対策「Constitutional Classifiers」を発表", en: "Anthropic Announces Constitutional Classifiers Against Jailbreaks" },
+    summary: {
+      ja: "入力と出力を見張る分類器で、自動評価ではジェイルブレイクの成功率を86%から4.4%に下げたと発表した。2月3日から10日までの公開デモでは、6日目と7日目に4人が全問を突破し、そのうち1人の方法が万能のジェイルブレイクと判断された。",
+      en: "Anthropic announced classifiers that screen inputs and outputs, reporting that in automated tests they cut the jailbreak success rate from 86% to 4.4%. In a public demo from February 3 to 10, four participants passed every level on the sixth and seventh days, and one of their methods was judged a universal jailbreak.",
+    },
+    sources: [
+      { label: "Anthropic: Constitutional Classifiers: Defending against universal jailbreaks（2025-02-03）", url: "https://www.anthropic.com/research/constitutional-classifiers" },
     ],
   },
   {
@@ -997,6 +1051,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
         label: "ECMWF: ECMWF's AI forecasts become operational（2025-02-25）",
         url: "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
       },
+    ],
+  },
+  {
+    id: "2025-nist-aml-taxonomy",
+    date: "2025-03-01",
+    precision: "month",
+    title: { ja: "NIST、機械学習への攻撃と対策の用語集（2025年版）を公表", en: "NIST Publishes the 2025 Edition of Its Adversarial Machine Learning Taxonomy" },
+    summary: {
+      ja: "米国立標準技術研究所が報告書AI 100-2 E2025を公表した。機械学習への攻撃を学習の段階と運用の段階に分け、攻撃者の狙い（可用性・完全性・プライバシー、生成AIでは悪用の手助け）とともに、共通の用語を整理した。",
+      en: "The US National Institute of Standards and Technology published AI 100-2 E2025, which separates attacks on machine learning into training-stage and deployment-stage attacks and sets out common terms, along with attacker goals: availability, integrity, privacy, and, for generative AI, misuse enablement.",
+    },
+    sources: [
+      { label: "NIST: AI 100-2 E2025 Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations（2025年3月）", url: "https://csrc.nist.gov/pubs/ai/100/2/e2025/final" },
     ],
   },
   {
@@ -1117,6 +1184,32 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "OpenAI: Introducing GPT-5", url: "https://openai.com/index/introducing-gpt-5/" }],
   },
   {
+    id: "2025-darpa-aixcc-final",
+    date: "2025-08-08",
+    precision: "day",
+    title: { ja: "DARPAのAI Cyber Challenge決勝、Team Atlantaが優勝", en: "Team Atlanta Wins the Final of DARPA's AI Cyber Challenge" },
+    summary: {
+      ja: "AIで脆弱性を見つけて直す自動のシステムを2年かけて競った大会の結果が発表された。決勝では、63の課題で人工的に仕込まれた脆弱性を54件見つけて43件を修正し、実在する脆弱性も18件見つけた。7チームのうち4チームのシステムがオープンソースで公開された。",
+      en: "Results were announced for a two-year competition of automated systems that use AI to find and fix vulnerabilities. In the final, the systems found 54 vulnerabilities artificially inserted in 63 challenges, patched 43 of them, and also found 18 real vulnerabilities. Four of the seven teams' systems were released as open source.",
+    },
+    sources: [
+      { label: "DARPA: AI Cyber Challenge marks pivotal inflection point for cyber defense（2025-08-08）", url: "https://www.darpa.mil/news/2025/aixcc-results" },
+    ],
+  },
+  {
+    id: "2025-anthropic-agentic-extortion-report",
+    date: "2025-08-27",
+    precision: "day",
+    title: { ja: "Anthropic、AIエージェントを使った恐喝などの悪用事例を報告", en: "Anthropic Reports AI Agents Being Used for Extortion" },
+    summary: {
+      ja: "犯罪者がAIのコーディングツールで偵察から侵入までを自動化し、少なくとも17の組織からデータを盗んで恐喝した事例などを報告した。AIが攻撃の助言だけでなく、実行にも使われるようになったとした。",
+      en: "Anthropic reported cases including a criminal who used an AI coding tool to automate everything from reconnaissance to breaking into networks, stealing data from at least 17 organizations for extortion. It said AI was now being used not just to advise on attacks but to carry them out.",
+    },
+    sources: [
+      { label: "Anthropic: Detecting and countering misuse of AI: August 2025（2025-08-27）", url: "https://www.anthropic.com/news/detecting-countering-misuse-aug-2025" },
+    ],
+  },
+  {
     id: "2025-japan-ai-act",
     date: "2025-09-01",
     precision: "day",
@@ -1157,6 +1250,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     },
     sources: [
       { label: "OpenAI: Introducing parental controls", url: "https://openai.com/index/introducing-parental-controls/" },
+    ],
+  },
+  {
+    id: "2025-poisoning-250-documents",
+    date: "2025-10-09",
+    precision: "day",
+    title: { ja: "約250件の文書でLLMにバックドアを仕込めるという研究", en: "Study Finds About 250 Documents Can Backdoor an LLM" },
+    summary: {
+      ja: "Anthropic、英国のAIセキュリティ研究所、アラン・チューリング研究所が、6億〜130億パラメータのどのモデルにも、約250件の悪意ある文書で単純なバックドアを仕込めたと発表した。成功を左右したのは学習データに占める割合ではなく件数だった。より大きなモデルや、より有害な振る舞いでも同じかはわかっていない。",
+      en: "Anthropic, the UK AI Security Institute, and the Alan Turing Institute reported that about 250 malicious documents were enough to plant a simple backdoor in models from 600 million to 13 billion parameters. What mattered was the number of documents, not their share of the training data; whether this holds for larger models or more harmful behaviors is unknown.",
+    },
+    sources: [
+      { label: "Anthropic: A small number of samples can poison LLMs of any size（2025-10-09）", url: "https://www.anthropic.com/research/small-samples-poison" },
     ],
   },
   {
@@ -1204,6 +1310,32 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2025-gtig-ai-enabled-malware",
+    date: "2025-11-06",
+    precision: "day",
+    title: { ja: "Google、実行中にAIを使うマルウェアを初めて確認したと報告", en: "Google Reports Identifying Malware That Uses AI While It Runs" },
+    summary: {
+      ja: "GTIGが、実行中にLLMに問い合わせて命令や自分のコードを作らせるマルウェア（PROMPTFLUX、PROMPTSTEALなど）を初めて確認したと報告した。攻撃者が学生や研究者を装ってAIの安全対策をすり抜けようとする例や、攻撃用のAIツールを売る闇市場の成熟も挙げた。",
+      en: "GTIG reported identifying, for the first time, malware such as PROMPTFLUX and PROMPTSTEAL that queries an LLM during execution to generate commands or its own code. It also described attackers posing as students or researchers to get past AI safeguards, and a maturing underground market for AI attack tools.",
+    },
+    sources: [
+      { label: "Google Threat Intelligence Group: GTIG AI Threat Tracker: Advances in Threat Actor Usage of AI Tools（2025-11-06）", url: "https://cloud.google.com/blog/topics/threat-intelligence/threat-actor-usage-of-ai-tools" },
+    ],
+  },
+  {
+    id: "2025-ai-orchestrated-espionage",
+    date: "2025-11-13",
+    precision: "day",
+    title: { ja: "Anthropic、作業の大半をAIが行ったサイバー諜報活動を報告", en: "Anthropic Reports a Cyber Espionage Campaign Largely Run by AI" },
+    summary: {
+      ja: "同社が中国の国家支援グループと高い確度で判断する攻撃者が、AIのコーディングツールで約30の組織への侵入を試み、少数で成功したと報告した。作業の80〜90%をAIが行い、人間は重要な判断の場面でだけ関わったという。同社は、人間の大きな介入なしに実行された大規模なサイバー攻撃の、初めて記録された例だと考えている。",
+      en: "Anthropic reported that a group it assessed with high confidence to be Chinese state-sponsored used an AI coding tool to try to break into about 30 organizations, succeeding in a small number. AI did 80–90% of the work, with humans stepping in only at key decision points. The company believes it is the first documented case of a large-scale cyberattack executed without substantial human intervention.",
+    },
+    sources: [
+      { label: "Anthropic: Disrupting the first reported AI-orchestrated cyber espionage campaign（2025-11-13）", url: "https://www.anthropic.com/news/disrupting-AI-espionage" },
+    ],
+  },
+  {
     id: "2025-gemini3",
     date: "2025-11-18",
     precision: "day",
@@ -1248,6 +1380,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "Japan's Cabinet adopted the first Artificial Intelligence Basic Plan under the AI Act; a second-term plan followed on July 14, 2026.",
     },
     sources: [{ label: "内閣府: 人工知能基本計画", url: "https://www8.cao.go.jp/cstp/ai/ai_plan/ai_plan.html" }],
+  },
+  {
+    id: "2026-ipa-10-threats-ai",
+    date: "2026-01-29",
+    precision: "day",
+    title: { ja: "IPA「情報セキュリティ10大脅威 2026」でAIのリスクが初選出", en: "AI Risks Enter IPA's List of 10 Major Information Security Threats" },
+    summary: {
+      ja: "情報処理推進機構が、組織向けの3位に「AIの利用をめぐるサイバーリスク」を初めて選んだ。AIへの理解不足による情報漏えいや権利侵害、生成結果のうのみ、AIの悪用による攻撃の容易化と巧妙化などを挙げている。",
+      en: "Japan's Innovation Platform Agency (IPA) placed \"cyber risks surrounding the use of AI\" at number 3 on its list for organizations — the first time it was selected — citing leaks and rights infringement from a poor understanding of AI, uncritical acceptance of AI output, and attacks made easier and more sophisticated by the misuse of AI.",
+    },
+    sources: [
+      { label: "IPA: プレス発表「情報セキュリティ10大脅威 2026」を決定（2026-01-29）", url: "https://www.ipa.go.jp/pressrelease/2025/press20260129.html" },
+    ],
   },
   {
     id: "2026-spacex-xai",

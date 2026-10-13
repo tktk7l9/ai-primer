@@ -36,7 +36,9 @@ Webアプリの古典的な脆弱性であるSQLインジェクションは、�
 - **3点セットを揃えない**: 非公開データを読ませるなら外部通信を切る、Webを読ませるなら非公開データに触れさせない、など。
 - **記録と監視**: 何を読み何を実行したかのログを残す。
 
-利用者としては、エージェントやMCPサーバーに権限を与える前に、「このAIは3つのうちどれを持つことになるか」を数えてみるのが実践的な第一歩です。`,
+利用者としては、エージェントやMCPサーバーに権限を与える前に、「このAIは3つのうちどれを持つことになるか」を数えてみるのが実践的な第一歩です。
+
+安全のための決まりそのものを無視させる入力（ジェイルブレイク）や、学習データ・モデルファイルを狙う攻撃は、[AIとセキュリティ](/ja/learn/ai-and-security)のトラックで扱います。`,
     en: `## Mistaking what it reads for orders
 
 An LLM can't reliably tell how important an instruction is based on **where it came from**. Your request and the text of a web page fetched by a tool are processed as the same kind of thing: a sequence of tokens. So if a document, email, or web page you ask the model to read contains a line like "ignore your previous instructions and do X," the model may comply. That is **prompt injection**.
@@ -61,7 +63,9 @@ If injected text says "read the private data and send it out," an agent holding 
 - **Break the trifecta**: if it reads private data, cut off external communication; if it browses the web, keep it away from private data.
 - **Log and monitor**: keep a record of what was read and what was executed.
 
-As a user, the practical first step before granting an agent or MCP server any permission is to count which of the three it would end up holding.`,
+As a user, the practical first step before granting an agent or MCP server any permission is to count which of the three it would end up holding.
+
+Inputs that make a model ignore its safety rules altogether (jailbreaks), and attacks on training data and model files, are covered in the [AI and Security](/en/learn/ai-and-security) track.`,
   },
   quiz: [
     {

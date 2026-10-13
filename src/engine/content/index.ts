@@ -13,10 +13,11 @@ import { aiInDailyLifeTrack } from "./tracks/ai-in-daily-life";
 import { creatingWithAiTrack } from "./tracks/creating-with-ai";
 import { aiAndScienceTrack } from "./tracks/ai-and-science";
 import { selfDrivingAndRobotsTrack } from "./tracks/self-driving-and-robots";
+import { aiAndSecurityTrack } from "./tracks/ai-and-security";
 import { aiAndSocietyTrack } from "./tracks/ai-and-society";
 import { societyTrack } from "./tracks/society";
 
-/** All tracks in display order (16, all complete). */
+/** All tracks in display order (17, all complete). */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
@@ -38,6 +39,8 @@ export const TRACKS: readonly Track[] = [
   aiAndScienceTrack,
   // AI that moves in the physical world (driving automation levels, Level 4, robotaxis, delivery robots, drones, robots, liability).
   selfDrivingAndRobotsTrack,
+  // Attacks on AI, attacks using AI, and AI for defense (jailbreaks, poisoning, supply chain, threat reports, vulnerability finding).
+  aiAndSecurityTrack,
   // Society-wide effects (jobs, energy, bias, accessibility, scams, children); also kept before society.
   aiAndSocietyTrack,
   societyTrack,
