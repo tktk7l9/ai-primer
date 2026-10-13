@@ -21,6 +21,7 @@ AIも間違えます（ハルシネーションのレッスン参照）。特に
 - セキュリティに関わる処理（認証・権限チェック・入力値の検証など）
 - ライセンスが不明なコードの丸ごとコピー
 - エッジケースの考慮漏れ
+- AIが挙げたパッケージの名前（実在しないパッケージを挙げることがある。[AIのサプライチェーン](/ja/learn/ai-and-security/supply-chain)のレッスン参照）
 
 ### 2. 秘密情報をAIに渡さない
 APIキー・パスワード・個人情報などを含むファイルやログを、そのままAIに読み込ませたり、公開リポジトリのコンテキストとして使わせたりしない。エージェント型ツールは広い範囲のファイルを自動で読むことがあるため、\`.gitignore\`や除外設定を適切に行う。
@@ -41,6 +42,7 @@ AI makes mistakes too (see the Hallucination lesson). Watch especially for:
 - Security-sensitive logic (authentication, permission checks, input validation)
 - Copying code wholesale with unclear licensing
 - Missed edge cases
+- Package names the AI suggests (it sometimes names packages that don't exist; see [the AI supply chain](/en/learn/ai-and-security/supply-chain))
 
 ### 2. Never hand it your secrets
 Don't let an AI read files or logs containing API keys, passwords, or personal data — and don't let that content become context for a public repository. Agentic tools can read a wide range of files automatically, so set up \`.gitignore\` and exclusions properly.

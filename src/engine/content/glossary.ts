@@ -309,7 +309,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "入力やツールで読み込んだ外部コンテンツに含まれる文によって、LLMの挙動が意図せず変えられてしまう脆弱性。外部のWebページや文書経由のものを「間接型」と呼ぶ。",
       en: "A vulnerability where text in the input, or in external content fetched by a tool, alters an LLM's behavior in unintended ways. Cases via web pages or documents are called \"indirect\" injection.",
     },
-    relatedLessonIds: ["ai-agents-04", "ai-at-work-04", "ai-at-work-06", "understanding-ai-02"],
+    relatedLessonIds: ["ai-agents-04", "ai-at-work-04", "ai-at-work-06", "understanding-ai-02", "ai-and-security-01", "ai-and-security-02"],
     sources: [{ label: "OWASP: LLM01:2025 Prompt Injection", url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/" }],
     lastVerified: "2026-10-06",
   },
@@ -320,7 +320,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "学習済みの重み（パラメータ）が配布され、自分の機器で動かせるモデル。学習データやコードまで公開されているとは限らず、OSIの定義では重みだけの公開は「オープンソースAI」に当たらない。",
       en: "A model whose trained weights (parameters) are distributed so you can run it on your own hardware. Training data and code are not necessarily released; under the OSI definition, weights alone do not make it \"open source AI.\"",
     },
-    relatedLessonIds: ["chat-ais-06", "society-05", "understanding-ai-04", "ai-in-daily-life-06"],
+    relatedLessonIds: ["chat-ais-06", "society-05", "understanding-ai-04", "ai-in-daily-life-06", "ai-and-security-04"],
     sources: [
       { label: "Open Source Initiative: The Open Source AI Definition 1.0", url: "https://opensource.org/ai/open-source-ai-definition" },
     ],
@@ -333,7 +333,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "IT部門の正式な承認や監督なしに、従業員がAIツールを利用すること。情報漏えいや法令違反につながるリスクとして問題視される。",
       en: "Employees using AI tools without the formal approval or oversight of the IT department — flagged as a risk for data leaks and regulatory noncompliance.",
     },
-    relatedLessonIds: ["society-05", "ai-at-work-01"],
+    relatedLessonIds: ["society-05", "ai-at-work-01", "ai-and-security-01"],
     sources: [{ label: "IBM: What is shadow AI?", url: "https://www.ibm.com/think/topics/shadow-ai" }],
     lastVerified: "2026-10-06",
   },
@@ -1088,7 +1088,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "攻撃者の考え方と手口をまねて、AIシステムの欠陥や弱点を組織的に探すこと。日本のAIセーフティ・インスティテュート（AISI）は、開発者や提供者が施したリスク対策を攻撃者の視点から評価する手法と説明し、2024年9月に手法のガイドを公開した（2025年3月に第1.10版）。",
       en: "A structured effort to find flaws and vulnerabilities in an AI system by adopting an attacker's mindset and methods. Japan's AI Safety Institute (AISI) describes it as a way for developers and providers to evaluate their risk mitigations from an attacker's perspective, and published a guide to the methodology in September 2024 (version 1.10 in March 2025).",
     },
-    relatedLessonIds: ["understanding-ai-05"],
+    relatedLessonIds: ["understanding-ai-05", "ai-and-security-02"],
     sources: [
       {
         label: "AIセーフティ・インスティテュート（J-AISI）: AIセーフティに関するレッドチーミング手法ガイド（第1.10版、2025-03）",
@@ -1395,7 +1395,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "2021年にHuらが提案した、大きな学習済みモデルを効率よく追加学習する手法。学習済みの重みを固定したまま、各層に学習可能な低ランクの行列を差し込んで、それだけを学習するので、学習するパラメータの数を大きく減らせる。画像生成のライブラリDiffusersの解説は、学習が速くメモリ効率もよく、できあがる重みも数百MB程度と小さいので保存や共有がしやすいと説明している。文化庁の「AIと著作権に関する考え方について」も、学習済みの生成AIに小規模なデータセットで追加的な学習を行い、そのデータセットに強い影響を受けた生成物を作れるようにする技術の例としてLoRAを挙げている。",
       en: "A technique proposed by Hu et al. in 2021 for adapting a large pre-trained model efficiently: the pre-trained weights are frozen and small trainable low-rank matrices are injected into each layer, so only those are trained, sharply reducing the number of trainable parameters. The documentation of Diffusers, an image-generation library, explains that this makes training faster and more memory-efficient and produces small weights — a few hundred MB — that are easy to store and share. Japan's Agency for Cultural Affairs, in its General Understanding on AI and Copyright, names LoRA as an example of techniques that train an existing generative AI further on a small dataset so it can produce output strongly influenced by that dataset.",
     },
-    relatedLessonIds: ["creating-with-ai-02"],
+    relatedLessonIds: ["creating-with-ai-02", "ai-and-security-04"],
     sources: [
       {
         label: "Hu et al. (2021): LoRA: Low-Rank Adaptation of Large Language Models (arXiv 2106.09685)",
@@ -1968,6 +1968,189 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       { label: "legislation.gov.uk: Automated Vehicles Act 2024, section 46（Meaning of \"user-in-charge\"）", url: "https://www.legislation.gov.uk/ukpga/2024/10/section/46" },
       { label: "legislation.gov.uk: Automated Vehicles Act 2024, section 47（User-in-charge not liable for manner of driving）", url: "https://www.legislation.gov.uk/ukpga/2024/10/section/47" },
       { label: "legislation.gov.uk: Automated Vehicles Act 2024（Introduction・2024-05-20）", url: "https://www.legislation.gov.uk/ukpga/2024/10/introduction/enacted" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "jailbreak",
+    term: { ja: "ジェイルブレイク（脱獄）", en: "Jailbreak" },
+    definition: {
+      ja: "生成AIの安全対策（危険な依頼を断るしくみなど）をすり抜けさせ、本来は断るはずの内容を出力させようとする入力。NISTは、モデルの出力にかけられた制限を回避するための直接的なプロンプト攻撃と定義し、OWASPは、プロンプトインジェクションの一種で、安全のための決まりを丸ごと無視させるものと位置づける。",
+      en: "An input designed to get a generative AI model past its safeguards (such as refusing dangerous requests) so that it produces what it would normally refuse. NIST defines it as a direct prompting attack intended to circumvent restrictions placed on model outputs; OWASP describes it as a form of prompt injection that makes the model disregard its safety protocols entirely.",
+    },
+    relatedLessonIds: ["ai-and-security-02", "ai-and-security-05"],
+    sources: [
+      {
+        label: "NIST: AI 100-2 E2025 Adversarial Machine Learning（PDF、2025年3月）",
+        url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf",
+      },
+      { label: "OWASP: LLM01:2025 Prompt Injection", url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "data-poisoning",
+    term: { ja: "データポイズニング", en: "Data poisoning" },
+    definition: {
+      ja: "AIの学習に使うデータに細工して、モデルに脆弱性、バックドア、偏りを持ち込む攻撃。OWASPの「LLMアプリケーション向けTop 10（2025年版）」のLLM04「データとモデルのポイズニング」に当たり、事前学習、ファインチューニング、埋め込みのどの段階のデータも狙われうる。",
+      en: "An attack that tampers with the data used to train an AI model in order to introduce vulnerabilities, backdoors, or biases. It falls under LLM04, \"Data and Model Poisoning,\" in OWASP's Top 10 for LLM Applications (2025), and data at any stage — pre-training, fine-tuning, or embedding — can be targeted.",
+    },
+    relatedLessonIds: ["ai-and-security-03"],
+    sources: [
+      {
+        label: "OWASP: LLM04:2025 Data and Model Poisoning",
+        url: "https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/",
+      },
+      {
+        label: "NIST: AI 100-2 E2025 Adversarial Machine Learning（PDF、2025年3月）",
+        url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "backdoor",
+    term: { ja: "バックドア（AIモデル）", en: "Backdoor (in an AI model)" },
+    definition: {
+      ja: "特定の合図（トリガー）が入力に含まれたときだけ隠れた振る舞いをするように、モデルに仕込まれたしかけ。ふだんは正常に振る舞うので、テストで見つけにくい。Anthropicなどの2025年の研究では、約250件の悪意ある文書を学習データに混ぜるだけで、6億〜130億パラメータのモデルに、意味のない文章を出させる単純なバックドアを仕込めた。",
+      en: "A hidden behavior planted in a model so that it activates only when a specific trigger appears in the input. Because the model otherwise behaves normally, backdoors are hard to find through testing. In a 2025 study by Anthropic and others, mixing about 250 malicious documents into the training data was enough to plant a simple backdoor that makes models of 600 million to 13 billion parameters produce gibberish.",
+    },
+    relatedLessonIds: ["ai-and-security-03"],
+    sources: [
+      {
+        label: "Anthropic: A small number of samples can poison LLMs of any size（2025-10-09）",
+        url: "https://www.anthropic.com/research/small-samples-poison",
+      },
+      {
+        label: "OWASP: LLM04:2025 Data and Model Poisoning",
+        url: "https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "adversarial-machine-learning",
+    term: { ja: "敵対的機械学習（AML）", en: "Adversarial machine learning (AML)" },
+    definition: {
+      ja: "機械学習を使うシステムへの攻撃と、その対策を扱う分野。米国立標準技術研究所（NIST）は2025年3月の報告書（AI 100-2 E2025）で、攻撃を学習の段階のもの（ポイズニング）と運用の段階のもの（回避攻撃、プライバシーへの攻撃など）に分け、共通の用語を整理した。",
+      en: "The field that studies attacks on systems that use machine learning, and defenses against them. In a March 2025 report (AI 100-2 E2025), the US National Institute of Standards and Technology (NIST) set out common terminology, separating attacks at the training stage (poisoning) from attacks at the deployment stage (such as evasion and privacy attacks).",
+    },
+    relatedLessonIds: ["ai-and-security-01", "ai-and-security-03"],
+    sources: [
+      {
+        label: "NIST: AI 100-2 E2025 Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations（2025年3月）",
+        url: "https://csrc.nist.gov/pubs/ai/100/2/e2025/final",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "ai-supply-chain",
+    term: { ja: "AIのサプライチェーン", en: "AI supply chain" },
+    definition: {
+      ja: "AIを使うアプリができあがるまでに取り込む、外部の部品の連なり。ライブラリなどのソフトウェアに加えて、学習済みモデル、データ、LoRAアダプターなども含まれ、どこかが改ざんされるとアプリ全体が危うくなる。OWASPの「LLMアプリケーション向けTop 10（2025年版）」のLLM03。",
+      en: "The chain of outside components an AI application is built from. Besides software such as libraries, it includes pre-trained models, data, and add-ons such as LoRA adapters, and tampering anywhere along it puts the whole application at risk. It is LLM03 in OWASP's Top 10 for LLM Applications (2025).",
+    },
+    relatedLessonIds: ["ai-and-security-04"],
+    sources: [{ label: "OWASP: LLM03:2025 Supply Chain", url: "https://genai.owasp.org/llmrisk/llm032025-supply-chain/" }],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "safetensors",
+    term: { ja: "safetensors", en: "safetensors" },
+    definition: {
+      ja: "モデルの重みなどのテンソル（数値の配列）を保存するファイル形式。読み込むと任意のコードが実行されうるpickle形式に代わるものとして、Hugging Faceが、テンソルを安全に保存するためのシンプルで速い形式として提供している。",
+      en: "A file format for storing tensors (arrays of numbers), such as model weights. Hugging Face provides it as a simple, fast format for storing tensors safely, as an alternative to the pickle format, which can run arbitrary code when a file is loaded.",
+    },
+    relatedLessonIds: ["ai-and-security-04"],
+    sources: [
+      { label: "Hugging Face: Safetensors", url: "https://huggingface.co/docs/safetensors/index" },
+      { label: "Hugging Face: Pickle Scanning", url: "https://huggingface.co/docs/hub/security-pickle" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "package-hallucination",
+    term: { ja: "パッケージハルシネーション", en: "Package hallucination" },
+    definition: {
+      ja: "コードを書くAIが、実在しないパッケージ（ライブラリ）の名前を挙げてしまうこと。攻撃者がその名前で悪意あるパッケージを登録すると、AIの答えのままインストールした人が被害を受ける。16のLLMを調べた研究（2024年公開）では、挙げられたパッケージのうち実在しないものが、平均で商用モデルは5.2%以上、オープンソースのモデルは21.7%だった。",
+      en: "When AI that writes code names packages (libraries) that do not exist. If an attacker registers a malicious package under such a name, people who install it on the AI's word can be harmed. A study of 16 LLMs (published in 2024) found that, on average, at least 5.2% of the packages named by commercial models and 21.7% of those named by open-source models did not exist.",
+    },
+    relatedLessonIds: ["ai-and-security-04", "coding-ai-05"],
+    sources: [
+      {
+        label: "Spracklen et al.: We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs（arXiv:2406.10279）",
+        url: "https://arxiv.org/abs/2406.10279",
+      },
+      {
+        label: "IPA: 「情報セキュリティ10大脅威 2026」解説書［組織編］（2026年3月）",
+        url: "https://www.ipa.go.jp/security/10threats/omgdg50000008fi8-att/kaisetsu_2026_soshiki.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "ai-enabled-malware",
+    term: { ja: "AIを組み込んだマルウェア", en: "AI-enabled malware" },
+    definition: {
+      ja: "動いている最中にLLMに問い合わせ、実行する命令や自分のコードをその場で作らせるマルウェア。悪意ある処理をあらかじめ書き込んでおかないので、検知を逃れやすくなるおそれがある。GoogleのThreat Intelligence Group（GTIG）は2025年11月、PROMPTFLUXやPROMPTSTEALなどを初めて確認したと報告した。",
+      en: "Malware that queries an LLM while it runs, having it generate the commands to execute or its own code on the fly. Because the malicious functions are not hard-coded in advance, it may evade detection more easily. In November 2025, Google Threat Intelligence Group (GTIG) reported identifying such malware, including PROMPTFLUX and PROMPTSTEAL, for the first time.",
+    },
+    relatedLessonIds: ["ai-and-security-05"],
+    sources: [
+      {
+        label: "Google Threat Intelligence Group: GTIG AI Threat Tracker: Advances in Threat Actor Usage of AI Tools（2025-11-06）",
+        url: "https://cloud.google.com/blog/topics/threat-intelligence/threat-actor-usage-of-ai-tools",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "fuzzing",
+    term: { ja: "ファジング", en: "Fuzzing" },
+    definition: {
+      ja: "想定外の入力や形の崩れた入力をプログラムに自動で与え、不具合や脆弱性、予期しない振る舞いを見つける試験の手法。1989年にウィスコンシン大学マディソン校で生まれた。AIエージェントで脆弱性を探すBig Sleepのチームは、現時点では対象に合わせて作ったファジングの道具も、少なくとも同じくらい効果的だろうとしている。",
+      en: "A testing technique that automatically feeds a program unexpected, malformed, or semi-malformed inputs to find bugs, vulnerabilities, or unexpected behavior. It was developed at the University of Wisconsin–Madison in 1989. The team behind Big Sleep, an AI agent that hunts for vulnerabilities, says that for now a fuzzer built for the target is likely to be at least as effective.",
+    },
+    relatedLessonIds: ["ai-and-security-06"],
+    sources: [
+      { label: "OWASP: Fuzzing", url: "https://community.owasp.org/Fuzzing" },
+      {
+        label: "Google Project Zero: From Naptime to Big Sleep（2024-11-01）",
+        url: "https://projectzero.google/2024/10/from-naptime-to-big-sleep.html",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "zero-day",
+    term: { ja: "ゼロデイ脆弱性", en: "Zero-day vulnerability" },
+    definition: {
+      ja: "修正（セキュリティ更新）がまだ提供されていない脆弱性。提供元が修正を出すと「既知の（nデイの）脆弱性」になり、それを悪用する攻撃は、更新していないシステムを探す。英国のNCSCは、脆弱性の公表から悪用までの時間はすでに数日に縮み、AIでさらに縮むことはほぼ確実だとみている。",
+      en: "A vulnerability for which no security fix is available yet. Once the vendor issues a fix, it becomes a \"known\" (n-day) vulnerability, and attacks exploiting it look for systems that have not been updated. The UK's NCSC says the time between disclosure and exploitation has already shrunk to days and that AI will almost certainly shrink it further.",
+    },
+    relatedLessonIds: ["ai-and-security-05", "ai-and-security-06"],
+    sources: [
+      {
+        label: "NCSC: Impact of AI on cyber threat from now to 2027（2025-05-07）",
+        url: "https://www.ncsc.gov.uk/report/impact-ai-cyber-threat-now-2027",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "cyber-reasoning-system",
+    term: { ja: "サイバー推論システム（CRS）", en: "Cyber reasoning system (CRS)" },
+    definition: {
+      ja: "ソフトウェアの脆弱性を自動で見つけ、本当に脆弱性であることを示し、修正パッチまで作るシステム。DARPAのAI Cyber Challenge（AIxCC、2025年8月に結果発表）では、各チームがAIを使ったこの種のシステムを作って競い、7チームのうち4チームのシステムがオープンソースで公開された。",
+      en: "A system that automatically finds vulnerabilities in software, proves them, and generates patches. In DARPA's AI Cyber Challenge (AIxCC; results announced in August 2025), teams competed with AI-driven systems of this kind, and four of the seven teams' systems were released as open source.",
+    },
+    relatedLessonIds: ["ai-and-security-06"],
+    sources: [
+      {
+        label: "DARPA: AI Cyber Challenge marks pivotal inflection point for cyber defense（2025-08-08）",
+        url: "https://www.darpa.mil/news/2025/aixcc-results",
+      },
     ],
     lastVerified: "2026-10-13",
   },
