@@ -18,7 +18,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "LLMが処理する文章の最小単位。単語全体のことも、単語の一部や1文字のこともある。",
       en: "The smallest unit of text an LLM processes — it may be a whole word, part of a word, or even a single character.",
     },
-    relatedLessonIds: ["ai-basics-02", "ai-basics-03", "understanding-ai-01"],
+    relatedLessonIds: ["ai-basics-02", "ai-basics-03", "understanding-ai-01", "ai-and-japanese-02"],
     sources: [
       {
         label: "OpenAI Help: What are tokens and how to count them?",
@@ -35,7 +35,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "LLMが1回のやり取りで同時に処理できるトークンの最大数。",
       en: "The maximum number of tokens an LLM can process in a single interaction.",
     },
-    relatedLessonIds: ["ai-basics-03", "ai-agents-03", "understanding-ai-01", "understanding-ai-02"],
+    relatedLessonIds: ["ai-basics-03", "ai-agents-03", "understanding-ai-01", "understanding-ai-02", "ai-and-japanese-02"],
     sources: [{ label: "IBM: What is a context window?", url: "https://www.ibm.com/think/topics/context-window" }],
     lastVerified: "2026-10-06",
   },
@@ -320,7 +320,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "学習済みの重み（パラメータ）が配布され、自分の機器で動かせるモデル。学習データやコードまで公開されているとは限らず、OSIの定義では重みだけの公開は「オープンソースAI」に当たらない。",
       en: "A model whose trained weights (parameters) are distributed so you can run it on your own hardware. Training data and code are not necessarily released; under the OSI definition, weights alone do not make it \"open source AI.\"",
     },
-    relatedLessonIds: ["chat-ais-06", "society-05", "understanding-ai-04", "ai-in-daily-life-06", "ai-and-security-04"],
+    relatedLessonIds: ["chat-ais-06", "society-05", "understanding-ai-04", "ai-in-daily-life-06", "ai-and-security-04", "ai-and-japanese-04"],
     sources: [
       { label: "Open Source Initiative: The Open Source AI Definition 1.0", url: "https://opensource.org/ai/open-source-ai-definition" },
     ],
@@ -552,7 +552,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "製品・アプリケーション・文書の内容を、特定の対象市場（ロケール）の言語・文化・その他の要件に合わせて作り変えること。翻訳だけでなく、数字や日付・時刻の書式、通貨、法的な要件の違いなども対象になる。",
       en: "Adapting a product, application, or document content to meet the language, cultural, and other requirements of a specific target market (a locale). Beyond translation, it covers number, date, and time formats, currency, differing legal requirements, and more.",
     },
-    relatedLessonIds: ["ai-at-work-03"],
+    relatedLessonIds: ["ai-at-work-03", "ai-and-japanese-06"],
     sources: [{ label: "W3C: Localization vs. Internationalization", url: "https://www.w3.org/International/questions/qa-i18n" }],
     lastVerified: "2026-10-07",
   },
@@ -752,7 +752,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIシステムの判断や出力に生じる系統的な偏り。NISTは、データが対象の集団を代表していないことなどによる統計的・計算上のバイアスだけでなく、組織の手続きや慣行に由来するシステム的なバイアスと、人の考え方の偏りである人間のバイアスがあるとし、AIシステムのバイアスのリスクをゼロにはできないとしている。",
       en: "Systematic skew in an AI system's decisions or outputs. NIST describes not only statistical and computational bias, such as data that doesn't represent the population, but also systemic bias rooted in institutions' procedures and practices and human bias in people's thinking — and states that it is not possible to achieve zero risk of bias in an AI system.",
     },
-    relatedLessonIds: ["ai-and-society-03", "society-03"],
+    relatedLessonIds: ["ai-and-society-03", "society-03", "ai-and-japanese-05"],
     sources: [
       {
         label: "NIST SP 1270: Towards a Standard for Identifying and Managing Bias in Artificial Intelligence (2022)",
@@ -1021,7 +1021,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIモデルの性能を比べるために、数学・プログラミング・生物学などの問題を集め、採点のしかたをそろえた試験。点数はその試験をその条件で解いた結果で、同じモデルでも問い方を変えると点数が動く。",
       en: "A test that collects questions — in math, programming, biology, and so on — with a fixed way of scoring them, so AI models can be compared. A score is the result of that test under particular conditions; the same model can score differently when asked in a different way.",
     },
-    relatedLessonIds: ["understanding-ai-04"],
+    relatedLessonIds: ["understanding-ai-04", "ai-and-japanese-03"],
     sources: [
       { label: "Phan et al.: Humanity's Last Exam (arXiv, 2025-01; revised 2026-07)", url: "https://arxiv.org/abs/2501.14249" },
       {
@@ -2150,6 +2150,170 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       {
         label: "DARPA: AI Cyber Challenge marks pivotal inflection point for cyber defense（2025-08-08）",
         url: "https://www.darpa.mil/news/2025/aixcc-results",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "tokenizer",
+    term: { ja: "トークナイザー", en: "Tokenizer" },
+    definition: {
+      ja: "文章をトークンに分けて、番号の列に変えるしくみ。どの文字や単語を1つのトークンにするか（語彙）はモデルによって違うため、同じ文章でもトークン数が変わる。語彙にない文字を、文字の符号（UTF-8）のバイトに分けて表すものもあり、漢字1文字が3つのトークンになることがある。",
+      en: "The mechanism that splits text into tokens and turns them into a sequence of numbers. Which characters and words become a single token (the vocabulary) differs by model, so the same text can produce different token counts. Some tokenizers represent characters missing from their vocabulary as the bytes of their UTF-8 encoding, so a single kanji can become three tokens.",
+    },
+    relatedLessonIds: ["ai-and-japanese-02", "ai-basics-02"],
+    sources: [
+      {
+        label: "Petrov et al.: Language Model Tokenizers Introduce Unfairness Between Languages（NeurIPS 2023、arXiv:2305.15425）",
+        url: "https://arxiv.org/pdf/2305.15425",
+      },
+      {
+        label: "Fujii et al.: Continual Pre-Training for Cross-Lingual LLM Adaptation: Enhancing Japanese Language Capabilities（arXiv:2404.17790）",
+        url: "https://arxiv.org/pdf/2404.17790",
+      },
+      { label: "Anthropic: Token counting（Claude Platform Docs）", url: "https://platform.claude.com/docs/en/build-with-claude/token-counting" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "tokenization-premium",
+    term: { ja: "トークン数の言語差（トークナイゼーション・プレミアム）", en: "Tokenization premium" },
+    definition: {
+      ja: "同じ内容の文章を別の言語で書いたとき、トークン数が基準の言語の何倍になるかを表す値。Petrovらの研究（2023年）では、Wikipediaの同じ文を200の言語に訳したデータで、言語によって最大15倍の差があり、日本語は英語に対して、ChatGPTとGPT-4が使うトークナイザーで2.30倍だった。料金、処理時間、渡せる文脈の量に響く。",
+      en: "How many times as many tokens the same content takes in one language as in a reference language. In a 2023 study by Petrov and colleagues using the same Wikipedia sentences translated into 200 languages, the gap reached 15 times for some languages, and Japanese took 2.30 times as many tokens as English with the tokenizer used by ChatGPT and GPT-4. It affects cost, processing time, and how much context fits.",
+    },
+    relatedLessonIds: ["ai-and-japanese-02"],
+    sources: [
+      {
+        label: "Petrov et al.: Language Model Tokenizers Introduce Unfairness Between Languages（NeurIPS 2023、arXiv:2305.15425）",
+        url: "https://arxiv.org/pdf/2305.15425",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "vocabulary-expansion",
+    term: { ja: "語彙拡張", en: "Vocabulary expansion" },
+    definition: {
+      ja: "学習済みのLLMのトークナイザーに、後から文字や単語を足すこと。日本語の文字や単語を足すと、日本語の文章を少ないトークンで表せる。Swallowの研究（2024年）では、Llama 2の語彙に日本語のサブワードを11,176個足し、日本語のコーパスのトークン数が56.2%減った。",
+      en: "Adding characters or words to the tokenizer of an already-trained LLM. Adding Japanese characters and words lets Japanese text be represented with fewer tokens. In the Swallow study (2024), adding 11,176 Japanese subwords to Llama 2's vocabulary cut the token count of a Japanese corpus by 56.2%.",
+    },
+    relatedLessonIds: ["ai-and-japanese-02", "ai-and-japanese-04"],
+    sources: [
+      {
+        label: "Fujii et al.: Continual Pre-Training for Cross-Lingual LLM Adaptation: Enhancing Japanese Language Capabilities（arXiv:2404.17790）",
+        url: "https://arxiv.org/pdf/2404.17790",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "continual-pretraining",
+    term: { ja: "継続事前学習", en: "Continual pre-training" },
+    definition: {
+      ja: "学習を終えたモデルに、別の言語や分野の大量の文章を追加で事前学習させること。英語で学習したモデルの力を生かせるので、一から学習するより費用を抑えられる。日本のSwallowは、海外で公開されたオープンなモデルに日本語の文章を追加で学習させて、日本語の力を高めている。",
+      en: "Further pre-training an already-trained model on large amounts of text in another language or domain. Because it builds on what an English-trained model already knows, it costs less than training from scratch. Japan's Swallow strengthens the Japanese ability of open models released overseas in this way.",
+    },
+    relatedLessonIds: ["ai-and-japanese-04"],
+    sources: [
+      {
+        label: "Fujii et al.: Continual Pre-Training for Cross-Lingual LLM Adaptation: Enhancing Japanese Language Capabilities（arXiv:2404.17790）",
+        url: "https://arxiv.org/pdf/2404.17790",
+      },
+      { label: "Swallow LLM", url: "https://swallow-llm.github.io/index.ja.html" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "common-crawl",
+    term: { ja: "Common Crawl", en: "Common Crawl" },
+    definition: {
+      ja: "Webを巡回して集めたページを、毎月のアーカイブとして公開しているデータ。GPT-3（2020年）の学習データは、大部分がこのデータに由来する。2026年10月13日時点で最新の巡回（CC-MAIN-2026-39）では、ページの主な言語は英語が41.9%、日本語が5.2%だった。",
+      en: "Data that publishes web pages collected by crawling as monthly archives. Most of GPT-3's training data (2020) came from it. In the latest crawl as of October 13, 2026 (CC-MAIN-2026-39), the primary language of pages was English for 41.9% and Japanese for 5.2%.",
+    },
+    relatedLessonIds: ["ai-and-japanese-01"],
+    sources: [
+      {
+        label: "Common Crawl: Statistics of Common Crawl Monthly Archives — Distribution of Languages（CC-MAIN-2026-39）",
+        url: "https://commoncrawl.github.io/cc-crawl-statistics/plots/languages",
+      },
+      { label: "Brown et al.: Language Models are Few-Shot Learners（GPT-3、arXiv:2005.14165）", url: "https://arxiv.org/pdf/2005.14165" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "jglue",
+    term: { ja: "JGLUE", en: "JGLUE" },
+    definition: {
+      ja: "日本語の言語理解の力を測るベンチマーク。英語のGLUE、中国語のCLUE、フランス語のFLUEのようなベンチマークが日本語にはなかったため、翻訳を使わずに一から作られた（2022年、LRECで発表）。",
+      en: "A benchmark for measuring language understanding in Japanese. Because Japanese lacked a benchmark like GLUE for English, CLUE for Chinese, or FLUE for French, it was built from scratch without translation (presented at LREC in 2022).",
+    },
+    relatedLessonIds: ["ai-and-japanese-03"],
+    sources: [
+      {
+        label: "Kurihara et al.: JGLUE: Japanese General Language Understanding Evaluation（LREC 2022）",
+        url: "https://aclanthology.org/2022.lrec-1.317/",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "llm-jp",
+    term: { ja: "LLM-jp", en: "LLM-jp" },
+    definition: {
+      ja: "国立情報学研究所が2023年5月に立ち上げた、オープンで日本語に強いLLMを作るプロジェクトと、研究者のコミュニティ。モデル・データ・ツール・技術資料を、議論の過程や失敗も含めて公開している。現在は同研究所の大規模言語モデル研究開発センターが主宰する。",
+      en: "A project and research community launched by Japan's National Institute of Informatics in May 2023 to build open LLMs that are strong in Japanese. It publishes models, data, tools, and technical documents, including the discussions along the way and the failures. It is now led by the institute's Research and Development Center for Large Language Models.",
+    },
+    relatedLessonIds: ["ai-and-japanese-04", "ai-and-japanese-03"],
+    sources: [
+      { label: "国立情報学研究所 大規模言語モデル研究開発センター: Summary", url: "https://llmc.nii.ac.jp/overview/" },
+      { label: "LLM-jp", url: "https://llm-jp.nii.ac.jp/" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "geniac",
+    term: { ja: "GENIAC", en: "GENIAC" },
+    definition: {
+      ja: "経済産業省とNEDOが主導する、国内のAI開発力の強化と社会実装の加速をめざすプロジェクト（Generative AI Accelerator Challenge）。基盤モデルの開発に必要な計算資源の調達、データセットの構築、知見の共有を支援し、開発者と利用企業などをつなぐ。",
+      en: "A project led by Japan's Ministry of Economy, Trade and Industry and NEDO to strengthen AI development in Japan and speed up its real-world use (Generative AI Accelerator Challenge). It supports the procurement of compute needed to develop foundation models, dataset building, and knowledge sharing, and connects developers with the companies that use their models.",
+    },
+    relatedLessonIds: ["ai-and-japanese-04"],
+    sources: [{ label: "経済産業省: GENIAC（Generative AI Accelerator Challenge）", url: "https://geniac.meti.go.jp/" }],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "plain-japanese",
+    term: { ja: "やさしい日本語", en: "Plain Japanese (yasashii nihongo)" },
+    definition: {
+      ja: "難しい言葉を言い換えるなど、相手に配慮したわかりやすい日本語。出入国在留管理庁と文化庁のガイドライン（2020年8月）は、日本人にわかりやすくする、外国人にもわかりやすくする、わかりやすさを確かめる、の3つのステップで書き言葉を作る方法を示している。",
+      en: "Easy-to-understand Japanese written with the reader in mind, such as by rephrasing difficult words. Guidelines from Japan's Immigration Services Agency and Agency for Cultural Affairs (August 2020) describe writing it in three steps: make it clear for Japanese readers, make it clear for non-Japanese readers too, and check that it is understood.",
+    },
+    relatedLessonIds: ["ai-and-japanese-06"],
+    sources: [
+      {
+        label: "出入国在留管理庁: 在留支援のためのやさしい日本語ガイドライン",
+        url: "https://www.moj.go.jp/isa/support/portal/plainjapanese_guideline.html",
+      },
+      {
+        label: "出入国在留管理庁・文化庁: 在留支援のためのやさしい日本語ガイドラインの概要（PDF）",
+        url: "https://www.moj.go.jp/isa/content/930006071.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "cultural-bias",
+    term: { ja: "文化の偏り（AI）", en: "Cultural bias (in AI)" },
+    definition: {
+      ja: "AIの答えが、学習データに多い言語や文化の価値観に寄ること。Caoらの研究（2023年）では、ChatGPTは米国の文脈ではよく合う答えをした一方、ほかの文化には合わせにくく、英語で尋ねると答えが米国の文化に寄った。",
+      en: "When an AI's answers lean toward the values of the languages and cultures most present in its training data. In a 2023 study by Cao and colleagues, ChatGPT aligned closely with American culture in American contexts but adapted less well to other cultures, and English prompts pulled its answers toward American culture.",
+    },
+    relatedLessonIds: ["ai-and-japanese-05"],
+    sources: [
+      {
+        label: "Cao et al.: Assessing Cross-Cultural Alignment between ChatGPT and Human Societies: An Empirical Study（C3NLP@EACL 2023、arXiv:2303.17466）",
+        url: "https://arxiv.org/abs/2303.17466",
       },
     ],
     lastVerified: "2026-10-13",

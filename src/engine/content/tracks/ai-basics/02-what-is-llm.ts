@@ -16,13 +16,13 @@ export const whatIsLlm: Lesson = {
 
 **大規模言語モデル（LLM）** は、大量のテキストから「次に来る単語の断片（**トークン**）」を予測するよう訓練されたニューラルネットワークです。
 
-- 文章はまず**トークン**という単位に分割されます（日本語では1文字〜数文字程度）。
+- 文章はまず**トークン**という単位に分割されます。日本語では、数文字が1つのトークンになることもあれば、漢字1文字が複数のトークンに分かれることもあります（[トークンと日本語](/ja/learn/ai-and-japanese/tokens-and-japanese)のレッスン参照）。
 - モデルの内部にある膨大な調整可能な数値を**パラメータ**と呼びます。`,
     en: `## Predicting text, one small piece at a time
 
 A **large language model (LLM)** is a neural network trained on vast amounts of text to predict the next fragment of a word — a **token**.
 
-- Text is first split into **tokens** (roughly a few characters each).
+- Text is first split into **tokens** (roughly a few characters each in English; in Japanese, a single kanji can be split into several tokens — see [tokens and Japanese](/en/learn/ai-and-japanese/tokens-and-japanese)).
 - The model's enormous set of tunable numbers are its **parameters**.`,
   },
   quiz: [
@@ -44,6 +44,10 @@ A **large language model (LLM)** is a neural network trained on vast amounts of 
     {
       label: "OpenAI Help: What are tokens and how to count them?",
       url: "https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them",
+    },
+    {
+      label: "Petrov et al.: Language Model Tokenizers Introduce Unfairness Between Languages（NeurIPS 2023、arXiv:2305.15425）",
+      url: "https://arxiv.org/pdf/2305.15425",
     },
   ],
   lastVerified: "2026-10-06",

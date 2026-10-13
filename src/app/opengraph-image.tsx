@@ -48,7 +48,7 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", gap: 14 }}>
-          {["17 TRACKS", "100 LESSONS", "JA / EN", "SOURCED"].map((t) => (
+          {["18 TRACKS", "106 LESSONS", "JA / EN", "SOURCED"].map((t) => (
             <div
               key={t}
               style={{

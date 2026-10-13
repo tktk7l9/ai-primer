@@ -32,6 +32,7 @@ export const safeUsageChecklist: Lesson = {
 ### プロンプトを書くとき
 - [ ] 役割・文脈・タスク・出力形式を具体的にする（プロンプト術トラック参照）。
 - [ ] 複雑なタスクは「段階を踏んで」と明示するか、小さく分解する。
+- [ ] 日本語で使うときは、答える言語・文体（です・ます調など）・読み手をはっきり書く（[日本語でAIを使いこなす](/ja/learn/ai-and-japanese/using-ai-in-japanese)のレッスン参照）。
 
 ### 回答を受け取ったとき
 - [ ] 重要な事実・数値・引用は、自分で出典を確認する（ハルシネーションのレッスン参照）。
@@ -90,6 +91,7 @@ Here's a checklist for everyday use, drawing on every track in this course.
 ### Writing your prompt
 - [ ] Make role, context, task, and format concrete (see Prompting Techniques).
 - [ ] For complex tasks, ask it to reason step by step, or break the task into smaller pieces.
+- [ ] When working in Japanese, state the response language, the style (such as the polite です・ます form), and the audience (see the [using AI well in Japanese](/en/learn/ai-and-japanese/using-ai-in-japanese) lesson).
 
 ### Reading the answer
 - [ ] Verify important facts, numbers, and citations against real sources yourself (see the Hallucination lesson).
