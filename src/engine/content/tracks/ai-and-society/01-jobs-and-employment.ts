@@ -39,7 +39,7 @@ export const jobsAndEmployment: Lesson = {
 4. **因果か、相関か**: 「AIのせいで減った」とまで言っているか。
 
 ### 自分の仕事について考える
-仕事を作業の単位に分けてみると、AIに任せられそうな作業と、判断・人とのやりとり・身体を使う作業が見えてきます。AIで速くなる作業は実際に試してみて（[仕事でAIを使う](/ja/learn/ai-at-work)トラック参照）、AIの出力を確かめる力や、仕事全体を組み立てる力に時間を回すのが現実的です。学び方は[AIで学ぶ](/ja/learn/society/learning-with-ai)のレッスンも参考にしてください。`,
+仕事を作業の単位に分けてみると、AIに任せられそうな作業と、判断・人とのやりとり・身体を使う作業が見えてきます。AIで速くなる作業は実際に試してみて（[仕事でAIを使う](/ja/learn/ai-at-work)トラック参照）、AIの出力を確かめる力や、仕事全体を組み立てる力に時間を回すのが現実的です。学び方は[AIで学ぶ](/ja/learn/society/learning-with-ai)のレッスンも参考にしてください。働き手が足りない農業・建設・物流・介護などの現場で、AIや機械に何が期待されているかは、[現場で働くAI](/ja/learn/ai-in-industry)のトラックで扱います。`,
     en: `## The headline number and the report behind it
 
 "AI will wipe out X% of jobs" is a familiar headline. But open the underlying report and, more often than not, it counts the share of jobs **exposed** to AI — not the share of jobs that have disappeared.
@@ -67,7 +67,7 @@ Studies slice the data differently, and their results can be read in more than o
 4. **Cause or correlation?** Does the study actually claim AI caused the change?
 
 ### Thinking about your own work
-Break your job into tasks and you will see which ones AI might take on, and which depend on judgment, working with people, or physical work. Try AI on the tasks it speeds up (see the [Using AI at Work](/en/learn/ai-at-work) track), and put the time saved into checking AI's output and shaping the work as a whole. For how to learn alongside AI, see the [learning with AI](/en/learn/society/learning-with-ai) lesson.`,
+Break your job into tasks and you will see which ones AI might take on, and which depend on judgment, working with people, or physical work. Try AI on the tasks it speeds up (see the [Using AI at Work](/en/learn/ai-at-work) track), and put the time saved into checking AI's output and shaping the work as a whole. For how to learn alongside AI, see the [learning with AI](/en/learn/society/learning-with-ai) lesson. What is expected of AI and machines in short-staffed fields such as farming, construction, logistics, and care is covered in the [AI on the Front Lines](/en/learn/ai-in-industry) track.`,
   },
   quiz: [
     {

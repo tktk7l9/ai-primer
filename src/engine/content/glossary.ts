@@ -768,7 +768,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "本来は当てはまらないものを、当てはまると誤って判定すること。顔認識では、別人の2枚の写真を同一人物と判定する誤りを指す。逆に、同一人物の写真を一致と判定できない誤りは偽陰性と呼ぶ。どちらの誤りが、どの場面で起きるかによって、結果の重さは大きく変わる。",
       en: "Wrongly judging something to be a match when it isn't. In face recognition, it means wrongly judging photos of two different people to show the same person; the opposite error — failing to match two photos of the same person — is a false negative. Which error happens, and where, makes a big difference to the consequences.",
     },
-    relatedLessonIds: ["ai-and-society-03", "generative-media-07"],
+    relatedLessonIds: ["ai-and-society-03", "generative-media-07", "ai-in-industry-04"],
     sources: [
       {
         label: "NIST: NIST Study Evaluates Effects of Race, Age, Sex on Face Recognition Software (2019-12-19)",
@@ -1894,7 +1894,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "人のいる地域の上空（第三者上空）を、補助者を置かずに目視外で無人航空機を飛ばすこと。改正航空法により2022年12月5日から、機体認証、操縦ライセンス（無人航空機操縦者技能証明）、運航のルールの制度が始まって可能になった。第一種機体認証を受けた機体を、一等の技能証明を持つ人が、飛行の許可・承認を受けて飛ばす。国土交通省は2023年3月17日、日本郵便に初めての許可・承認を出した。",
       en: "Flying an unmanned aircraft beyond visual line of sight over populated areas (over third parties) without assistants. It became possible on December 5, 2022, when the amended Civil Aeronautics Act launched aircraft certification, pilot certification, and operating rules. It requires a Type 1 certified aircraft flown by a first-class certificate holder with flight permission and approval; MLIT granted the first permission to Japan Post on March 17, 2023.",
     },
-    relatedLessonIds: ["self-driving-and-robots-04"],
+    relatedLessonIds: ["self-driving-and-robots-04", "ai-in-industry-05"],
     sources: [
       { label: "国土交通省: 無人航空機レベル4飛行ポータルサイト", url: "https://www.mlit.go.jp/koku/level4/" },
       {
@@ -1931,7 +1931,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "工場などで使われるロボット。国際ロボット連盟（IFR）のWorld Robotics 2025によると、2024年に世界で54万2,000台が新たに設置され（10年前の2倍超）、稼働台数は466万4,000台。日本は設置台数で世界2位の市場で、2024年の設置は4万4,500台、稼働台数は45万500台。",
       en: "Robots used in factories and similar settings. According to the International Federation of Robotics' World Robotics 2025, 542,000 were installed worldwide in 2024 (more than double ten years earlier) and 4,664,000 were in operation. Japan is the second-largest market by installations, with 44,500 installed in 2024 and 450,500 in operation.",
     },
-    relatedLessonIds: ["self-driving-and-robots-05"],
+    relatedLessonIds: ["self-driving-and-robots-05", "ai-in-industry-01"],
     sources: [
       {
         label: "IFR: Global Robot Demand in Factories Doubles Over 10 Years（World Robotics 2025・2025-09-25）",
@@ -2314,6 +2314,140 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       {
         label: "Cao et al.: Assessing Cross-Cultural Alignment between ChatGPT and Human Societies: An Empirical Study（C3NLP@EACL 2023、arXiv:2303.17466）",
         url: "https://arxiv.org/abs/2303.17466",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "vertical-ai",
+    term: { ja: "バーティカルAI", en: "Vertical AI" },
+    definition: {
+      ja: "産業や行政の現場で使える、領域に特化したAI。日本の人工知能基本計画（2026年7月14日閣議決定）は、暗黙知を含めた各現場の経験や知識をデータとして集めるものと位置づけ、フィジカルAIとあわせてAI戦略の重点に置いている。",
+      en: "Domain-specific AI for use on the front lines of industry and government. Japan's Artificial Intelligence Basic Plan (adopted July 14, 2026) describes it as gathering each workplace's experience and knowledge, including tacit knowledge, as data, and makes it a focus of the AI strategy together with physical AI.",
+    },
+    relatedLessonIds: ["ai-in-industry-01"],
+    sources: [{ label: "内閣府: 人工知能基本計画（2026年7月14日閣議決定）", url: "https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_20260714.pdf" }],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "physical-ai",
+    term: { ja: "フィジカルAI", en: "Physical AI" },
+    definition: {
+      ja: "現実の空間で価値を生むAI。日本の人工知能基本計画は、データやAIによる判断を機械や装置を通じて現実の世界で実行するものとしている。情報通信白書（令和8年版）が引く科学技術振興機構CRDSの提案は「センサやアクチュエーターなどの物理的な機構を通じて環境と相互作用し、得られた入力と動作の結果に基づいて知能を獲得・発達させる、身体性を備えた人工知能」とし、課題に巧緻性・頑健性・協調性を挙げる。",
+      en: "AI that creates value in real-world space. Japan's Artificial Intelligence Basic Plan describes it as carrying out decisions based on data and AI judgment in the real world through machines and equipment. A CRDS proposal cited in the 2026 White Paper on Information and Communications calls it \"embodied artificial intelligence that interacts with its environment through physical mechanisms such as sensors and actuators, and acquires and develops intelligence based on its inputs and the results of its actions,\" and lists dexterity, robustness, and cooperation as its challenges.",
+    },
+    relatedLessonIds: ["ai-in-industry-01", "self-driving-and-robots-05"],
+    sources: [
+      { label: "内閣府: 人工知能基本計画（2026年7月14日閣議決定）", url: "https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_20260714.pdf" },
+      { label: "総務省: 令和8年版 情報通信白書 — フィジカルAI（概要）", url: "https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r08/html/nd122210.html" },
+      {
+        label: "総務省: 令和8年版 情報通信白書 — フィジカルAI（社会実装における期待と課題）",
+        url: "https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r08/html/nd122220.html",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "smart-agriculture-technology",
+    term: { ja: "スマート農業技術", en: "Smart agriculture technology" },
+    definition: {
+      ja: "ロボット・AI・IoTなどの情報通信技術を使って、農業の生産性を高める技術。農薬などを散布するドローン、田畑を自動で走るロボットトラクター、離れた田んぼの水を管理するシステム、データから生育や病害虫を予測する仕組みなど。日本では2024年10月1日にスマート農業技術活用促進法が施行された。",
+      en: "Technology that uses robots, AI, IoT, and other information and communications technologies to raise farm productivity, such as drones that spray pesticides, robot tractors that drive themselves in fields, systems for managing water in distant paddies, and systems that predict growth and pests from data. Japan's Smart Agriculture Technology Utilization Promotion Act took effect on October 1, 2024.",
+    },
+    relatedLessonIds: ["ai-in-industry-02"],
+    sources: [
+      {
+        label: "農林水産省: 令和6年度 食料・農業・農村白書 — 特集3 スマート農業技術の活用と今後の展望",
+        url: "https://www.maff.go.jp/j/wpaper/w_maff/r6/r6_h/trend/part1/chap0/c0_1_03.html",
+      },
+      { label: "農林水産省: スマート農業技術活用促進法について", url: "https://www.maff.go.jp/j/kanbo/smart/houritsu.html" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "i-construction",
+    term: { ja: "i-Construction 2.0", en: "i-Construction 2.0" },
+    definition: {
+      ja: "国土交通省が2024年4月16日に策定した、建設現場のオートメーション化の取り組み。2040年度までに建設現場の省人化を少なくとも3割、すなわち生産性を1.5倍にすることを目指し、施工・データ連携・施工管理のオートメーション化を3本の柱とする。AIなどで作った施工計画に基づき、1人のオペレーターが複数の建設機械を管理する姿を描く。",
+      en: "An initiative adopted by Japan's Ministry of Land, Infrastructure, Transport and Tourism on April 16, 2024, to automate construction sites. It aims to cut the labor needed on sites by at least 30% — raising productivity 1.5 times — by fiscal 2040, on three pillars: automating construction work, data integration, and construction management. It envisions one operator managing several machines according to plans generated with AI and other tools.",
+    },
+    relatedLessonIds: ["ai-in-industry-03"],
+    sources: [
+      { label: "国土交通省: 「i-Construction 2.0」を策定しました（2024-04-16）", url: "https://www.mlit.go.jp/report/press/kanbo08_hh_001085.html" },
+      { label: "国土交通省: i-Construction 2.0 ～建設現場のオートメーション化～（2024年4月）", url: "https://www.mlit.go.jp/tec/constplan/content/001738240.pdf" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "inspection-support-technology",
+    term: { ja: "点検支援技術", en: "Inspection-support technology" },
+    definition: {
+      ja: "橋やトンネル、舗装などの点検を助ける技術。画像による計測（ドローンや画像のAIなど）、非破壊検査、計測・モニタリングなどがある。国土交通省は、国が定めた標準項目に対する性能値を開発者に求め、検証した結果を「点検支援技術性能カタログ」にまとめ（2024年4月時点で321技術）、直轄国道の点検では活用を原則にしている。",
+      en: "Technology that helps inspect bridges, tunnels, pavement, and other structures, including image-based measurement (drones, image AI, and the like), non-destructive testing, and measurement and monitoring. Japan's Ministry of Land, Infrastructure, Transport and Tourism asks developers for performance values against standard items it defines, compiles verified results in a performance catalog (321 technologies as of April 2024), and has made their use the rule for inspecting the national roads it manages.",
+    },
+    relatedLessonIds: ["ai-in-industry-04"],
+    sources: [
+      { label: "国土交通省: 点検支援技術性能カタログを拡充（2024-04-12）", url: "https://www.mlit.go.jp/report/press/content/001737836.pdf" },
+      { label: "国土交通省: 道路橋定期点検要領（2019年2月）", url: "https://www.mlit.go.jp/road/sisaku/yobohozen/tenken/yobo4_1.pdf" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "precision-and-recall",
+    term: { ja: "適合率と再現率", en: "Precision and recall" },
+    definition: {
+      ja: "AIの検出の成績を表す2つの割合。再現率は、本当にあるもののうち正しく検出できた割合（低いと見逃しが多い）。適合率は、検出したもののうち本当に正しかった割合（低いと誤検出が多い）。片方だけでは成績は分からず、見逃しと誤検出のどちらが困るかは使い方で違う。",
+      en: "Two rates that describe how well an AI detects things. Recall is the share of real cases that were correctly detected (low recall means many misses). Precision is the share of detections that were actually correct (low precision means many false alarms). Neither tells the whole story alone, and whether misses or false alarms matter more depends on how the system is used.",
+    },
+    relatedLessonIds: ["ai-in-industry-04"],
+    sources: [
+      {
+        label: "国土交通省: 点検支援技術性能カタログ BR010035「デジタル画像とAIを用いた橋梁点検サポートシステム」",
+        url: "https://www.mlit.go.jp/road/sisaku/inspection-support/pdf/c/BR010035.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "logistics-2024-problem",
+    term: { ja: "物流の2024年問題", en: "Logistics \"2024 problem\"" },
+    definition: {
+      ja: "2024年4月から、自動車の運転業務の時間外労働に年960時間（休日労働を含まない）の上限がかかり、運転手の拘束時間の基準も厳しくなったことで、何も対策をしなければ物流が滞ると心配された問題。国の試算では、具体的な対応をしなければ輸送能力が2024年度に約14%、2030年度に約34%不足する可能性がある。",
+      en: "The concern that Japan's logistics would stall without countermeasures after April 2024, when a cap of 960 hours a year (excluding work on days off) on overtime for driving work took effect and standards for drivers' working-and-break time were tightened. A government estimate says that without concrete action, carrying capacity could fall about 14% short in fiscal 2024 and about 34% short in fiscal 2030.",
+    },
+    relatedLessonIds: ["ai-in-industry-05"],
+    sources: [{ label: "国土交通省: 物流の2024年問題について", url: "https://www.mlit.go.jp/policy/shingikai/content/001620626.pdf" }],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "care-technology",
+    term: { ja: "介護テクノロジー", en: "Care technology" },
+    definition: {
+      ja: "介護ロボットやICTなど、介護サービスの質の向上、職員の負担の軽減、高齢者の自立の支援に使うテクノロジー。厚生労働省と経済産業省は2024年6月28日に重点分野を改訂して「介護テクノロジー利用の重点分野」（9分野16項目）とし、見守り機器や介護業務支援、認知症ケア支援などを挙げている。",
+      en: "Technology such as care robots and ICT used to improve the quality of care services, reduce the burden on staff, and support older people's independence. On June 28, 2024, Japan's Ministry of Health, Labour and Welfare and Ministry of Economy, Trade and Industry revised their priority areas as the \"priority areas for the use of care technology\" (9 areas, 16 items), including monitoring devices, care work support, and dementia care support.",
+    },
+    relatedLessonIds: ["ai-in-industry-06"],
+    sources: [
+      {
+        label: "厚生労働省: 「ロボット技術の介護利用における重点分野」を改訂しました（2024-06-28）",
+        url: "https://www.mhlw.go.jp/stf/juutenbunya_r6kaitei_00001.html",
+      },
+      { label: "厚生労働省: （参考）介護テクノロジー利用の重点分野定義", url: "https://www.mhlw.go.jp/content/12300000/001268136.pdf" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "care-productivity",
+    term: { ja: "介護現場の生産性向上", en: "Productivity in care" },
+    definition: {
+      ja: "厚生労働省の考え方では、介護ロボットなどのテクノロジーを使って業務を改善・効率化し、職員の負担を減らすとともに、生まれた時間を直接の介護ケアに充て、利用者と職員が接する時間を増やすなど、サービスの質の向上にもつなげること。人を減らすことだけを目的にしない。",
+      en: "In the Ministry of Health, Labour and Welfare's view, using care robots and other technology to improve and streamline work and reduce the burden on staff, while putting the time freed up into direct care — more time between residents and staff, for example — and so improving the quality of the service, rather than aiming only to cut staff.",
+    },
+    relatedLessonIds: ["ai-in-industry-06"],
+    sources: [
+      {
+        label: "厚生労働省: テクノロジー等を活用した介護現場における生産性向上の重要性とその施策について（2026年3月2日）",
+        url: "https://www.mhlw.go.jp/content/12300000/001678242.pdf",
       },
     ],
     lastVerified: "2026-10-13",

@@ -15,10 +15,11 @@ import { aiAndScienceTrack } from "./tracks/ai-and-science";
 import { selfDrivingAndRobotsTrack } from "./tracks/self-driving-and-robots";
 import { aiAndSecurityTrack } from "./tracks/ai-and-security";
 import { aiAndJapaneseTrack } from "./tracks/ai-and-japanese";
+import { aiInIndustryTrack } from "./tracks/ai-in-industry";
 import { aiAndSocietyTrack } from "./tracks/ai-and-society";
 import { societyTrack } from "./tracks/society";
 
-/** All tracks in display order (18, all complete). */
+/** All tracks in display order (19, all complete). */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
@@ -44,6 +45,8 @@ export const TRACKS: readonly Track[] = [
   aiAndSecurityTrack,
   // AI in Japanese (training data, tokens, measuring Japanese ability, projects in Japan, cultural bias, practical habits).
   aiAndJapaneseTrack,
+  // AI on Japan's front lines as the workforce shrinks (farming, construction, inspection, logistics, care).
+  aiInIndustryTrack,
   // Society-wide effects (jobs, energy, bias, accessibility, scams, children); also kept before society.
   aiAndSocietyTrack,
   societyTrack,

@@ -27,7 +27,7 @@ export const robotsAndAi: Lesson = {
 - **研究と製品は別**: 研究の発表は、すぐに買える製品になるという意味ではありません。
 
 ### 物理の世界の安全
-Google DeepMindは、ロボットの安全を、衝突を避ける、接触する力の大きさを抑える、移動するロボットの動的な安定を保つといった、ロボット工学の古典的な安全策（低いレベルの制御）と、ある行動がその場で安全かを理解する高いレベルの判断の両方で考えるとしています。後者のために、ロボットの行動の安全を評価するデータセット（ASIMOV）を公開し、自然言語で書いた規則（「ロボット憲法」）でロボットのふるまいを導く研究も進めています。同社は、ロボットと周りの人の物理的な安全は、ロボット工学で長年の根本的な関心事だとしています。画面の中のAIと違い、ロボットの間違いは物や人に直接届きます（人のいる場所を動く機械のルールは[歩道の配送ロボットと、空のドローン](/ja/learn/self-driving-and-robots/delivery-robots-and-drones)のレッスン参照）。`,
+Google DeepMindは、ロボットの安全を、衝突を避ける、接触する力の大きさを抑える、移動するロボットの動的な安定を保つといった、ロボット工学の古典的な安全策（低いレベルの制御）と、ある行動がその場で安全かを理解する高いレベルの判断の両方で考えるとしています。後者のために、ロボットの行動の安全を評価するデータセット（ASIMOV）を公開し、自然言語で書いた規則（「ロボット憲法」）でロボットのふるまいを導く研究も進めています。同社は、ロボットと周りの人の物理的な安全は、ロボット工学で長年の根本的な関心事だとしています。画面の中のAIと違い、ロボットの間違いは物や人に直接届きます（人のいる場所を動く機械のルールは[歩道の配送ロボットと、空のドローン](/ja/learn/self-driving-and-robots/delivery-robots-and-drones)のレッスン参照）。日本の国の計画が「フィジカルAI」と呼ぶものと、農業・建設・物流・介護の現場での使われ方は、[現場で働くAI](/ja/learn/ai-in-industry)のトラックで扱います。`,
     en: `## Robots already at work
 
 According to the International Federation of Robotics' (IFR) World Robotics 2025, 542,000 industrial robots were installed worldwide in 2024 — more than double the number ten years earlier — and 4,664,000 were in operation. Japan is the world's second-largest market by installations, with 44,500 installed in 2024 (down 4%) and an operational stock of 450,500.
@@ -43,7 +43,7 @@ Research now aims to connect the knowledge of large AI models to robot movement.
 - **Research is not a product**: a research announcement doesn't mean you can buy it.
 
 ### Safety in the physical world
-Google DeepMind says it approaches robot safety at two levels: the classic safety measures of robotics — avoiding collisions, limiting the magnitude of contact forces, and keeping mobile robots dynamically stable (low-level control) — and higher-level understanding of whether an action is safe in context. For the latter it released a dataset for evaluating the safety of robot actions (ASIMOV) and is researching rules written in natural language (a "robot constitution") to steer a robot's behavior. The company calls the physical safety of robots and the people around them a longstanding, foundational concern of robotics. Unlike AI on a screen, a robot's mistakes reach objects and people directly (rules for machines that move among people are covered in [delivery robots and drones](/en/learn/self-driving-and-robots/delivery-robots-and-drones)).`,
+Google DeepMind says it approaches robot safety at two levels: the classic safety measures of robotics — avoiding collisions, limiting the magnitude of contact forces, and keeping mobile robots dynamically stable (low-level control) — and higher-level understanding of whether an action is safe in context. For the latter it released a dataset for evaluating the safety of robot actions (ASIMOV) and is researching rules written in natural language (a "robot constitution") to steer a robot's behavior. The company calls the physical safety of robots and the people around them a longstanding, foundational concern of robotics. Unlike AI on a screen, a robot's mistakes reach objects and people directly (rules for machines that move among people are covered in [delivery robots and drones](/en/learn/self-driving-and-robots/delivery-robots-and-drones)). What Japan's national plan calls "physical AI," and how AI and machines are being used in farming, construction, logistics, and care, are covered in the [AI on the Front Lines](/en/learn/ai-in-industry) track.`,
   },
   quiz: [
     {

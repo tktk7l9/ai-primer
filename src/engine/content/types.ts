@@ -24,6 +24,7 @@ export const TRACK_IDS = [
   "self-driving-and-robots",
   "ai-and-security",
   "ai-and-japanese",
+  "ai-in-industry",
   "ai-and-society",
   "society",
 ] as const;
