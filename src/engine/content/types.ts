@@ -28,6 +28,7 @@ export const TRACK_IDS = [
   "ai-and-disasters",
   "ai-and-historical-records",
   "ai-in-finance",
+  "ai-and-sports",
   "ai-and-society",
   "society",
 ] as const;

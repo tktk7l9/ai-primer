@@ -42,7 +42,10 @@ export interface TimelineEvent {
 // Minna de Honkoku 2017 and its AI relaunch 2019, Japan Search 2020, the miwo app 2021, NDL full-text search 2022, the Digital
 // Archive Strategy 2025, and NDLOCR-Lite 2026 — also added on 2026-10-13; the AI-in-finance entries — the FSA model risk
 // principles 2021, the FSB AI report 2024, the FSA AI discussion paper, shared AML AI scoring, and the BOJ generative AI survey
-// 2025, and the discussion paper's version 1.1 and the FSB's draft sound practices 2026 — also added on 2026-10-13).
+// 2025, and the discussion paper's version 1.1 and the FSB's draft sound practices 2026 — also added on 2026-10-13; the AI-and-sports
+// entries — gymnastics judging support 2019 and its extension to all apparatus 2023, FIFA's semi-automated offside 2022, the
+// J.League's 3D offside lines and Wimbledon's AI commentary 2023, the online abuse study 2024, and MLB's ABS Challenge 2025 — also
+// added on 2026-10-13).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -326,6 +329,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2019-gymnastics-judging-support",
+    date: "2019-10-04",
+    precision: "day",
+    title: {
+      ja: "体操の世界選手権で、AIを使う採点支援システムを正式導入",
+      en: "Gymnastics World Championships Officially Adopt an AI Judging Support System",
+    },
+    summary: {
+      ja: "国際体操連盟と富士通が共同で開発した、3DセンサーとAIを使う採点支援システムが、第49回世界体操競技選手権大会のあん馬、つり輪、男子跳馬、女子跳馬の4種目で正式に導入された。審判の採点に疑念があるときや申し立てがあったときの演技の検証に使われた。",
+      en: "A judging support system using 3D sensors and AI, jointly developed by the International Gymnastics Federation and Fujitsu, was officially introduced on four apparatus — pommel horse, rings, men's vault, and women's vault — at the 49th World Gymnastics Championships, to verify routines when scores were in doubt or a team filed an inquiry.",
+    },
+    sources: [
+      {
+        label: "富士通: 「第49回世界体操競技選手権大会」で富士通の採点支援システムを正式導入（2019-10-02）",
+        url: "https://info.archives.global.fujitsu/jp/news/2019/10/2-1.html",
+      },
+    ],
+  },
+  {
     id: "2019-nist-face-recognition-demographics",
     date: "2019-12-19",
     precision: "day",
@@ -557,6 +579,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2022-semi-automated-offside",
+    date: "2022-07-01",
+    precision: "day",
+    title: {
+      ja: "FIFA、ワールドカップで半自動オフサイドテクノロジーの使用を発表",
+      en: "FIFA Announces Semi-Automated Offside Technology for the World Cup",
+    },
+    summary: {
+      ja: "2022年のワールドカップ（カタール大会）で、12台のカメラとボールの中のセンサーの追跡データにAIを適用し、オフサイドの可能性を映像室の審判員に自動で警告するしくみを使うと発表した。審判員が確かめてから主審に伝え、判定に使ったデータから3Dアニメーションを作って観客に示す。",
+      en: "FIFA announced that the 2022 World Cup in Qatar would use a system that applies AI to tracking data from 12 cameras and a sensor inside the ball to automatically alert video match officials to possible offsides. Officials check the alert before informing the referee, and the same data becomes a 3D animation for spectators.",
+    },
+    sources: [
+      {
+        label: "FIFA: Semi-automated offside technology to be used at FIFA World Cup 2022（2022-07-01）",
+        url: "https://inside.fifa.com/innovation/media-releases/semi-automated-offside-technology-to-be-used-at-fifa-world-cup-2022-tm",
+      },
+    ],
+  },
+  {
     id: "2022-stable-diffusion",
     date: "2022-08-22",
     precision: "day",
@@ -625,6 +666,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
       {
         label: "カレントアウェアネス・ポータル（国立国会図書館）: デジタルコレクションの全文検索対象資料が300万点を突破（2025-01-07）",
         url: "https://current.ndl.go.jp/car/238190",
+      },
+    ],
+  },
+  {
+    id: "2023-jleague-3d-offside-lines",
+    date: "2023-02-01",
+    precision: "month",
+    title: { ja: "Jリーグ、VARの3Dオフサイドラインを導入", en: "J.League Adopts 3D Offside Lines for VAR" },
+    summary: {
+      ja: "2023年シーズンから、J1の全試合などの320試合で、VARのオフサイドの確認に3Dラインを使うことになった。2Dラインより正確になる一方、作業の工程が増えて判定までの時間は長くなると見込まれ、公開されたシミュレーションでは確定までにおよそ1分30秒かかった。",
+      en: "From the 2023 season, VAR offside checks in 320 matches, including all J1 matches, were to use 3D lines. They were expected to be more accurate than 2D lines but to take longer because of extra steps; in a simulation shown to the press, confirming an offside took about 1 minute 30 seconds.",
+    },
+    sources: [
+      {
+        label: "Jリーグ: 「3Dオフサイドライン導入」でより正確な判定の実現へ「第1回JFAレフェリーブリーフィング」レポート（2023-02-01）",
+        url: "https://www.jleague.jp/news/article/24545/",
       },
     ],
   },
@@ -756,6 +813,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2023-wimbledon-ai-commentary",
+    date: "2023-06-21",
+    precision: "day",
+    title: {
+      ja: "IBMとウィンブルドン、ハイライト動画に生成AIの解説を導入",
+      en: "IBM and Wimbledon Bring Generative AI Commentary to Highlight Videos",
+    },
+    summary: {
+      ja: "IBMの生成AI（watsonx）で、2023年のウィンブルドンのすべてのハイライト動画に音声の解説と字幕をつけると発表した。人の実況があるショーコート以外の試合にも解説を届ける一歩と位置づけられた。",
+      en: "IBM and the All England Club announced that IBM's generative AI (watsonx) would add audio commentary and captions to all highlight videos at Wimbledon 2023, as a step toward commentary for matches outside the Show Courts, which already have human commentary.",
+    },
+    sources: [
+      {
+        label: "IBM: IBM Brings Generative AI Commentary and AI Draw Analysis to the Wimbledon Digital Experience（2023-06-21）",
+        url: "https://newsroom.ibm.com/2023-06-21-IBM-Brings-Generative-AI-Commentary-and-AI-Draw-Analysis-to-the-Wimbledon-Digital-Experience",
+      },
+    ],
+  },
+  {
     id: "2023-mata-v-avianca",
     date: "2023-06-22",
     precision: "day",
@@ -870,6 +946,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
       {
         label: "The Authors Guild: Amazon's New Disclosure Policy for AI-Generated Book Content Is a Welcome First Step (2023-09-07)",
         url: "https://authorsguild.org/news/amazons-new-disclosure-policy-for-ai-generated-book-content-is-a-welcome-first-step/",
+      },
+    ],
+  },
+  {
+    id: "2023-gymnastics-jss-all-apparatus",
+    date: "2023-09-30",
+    precision: "day",
+    title: {
+      ja: "体操の採点支援システム、全10種目で利用開始",
+      en: "Gymnastics Judging Support System Extends to All 10 Apparatus",
+    },
+    summary: {
+      ja: "第52回世界体操競技選手権大会で、国際体操連盟と富士通の採点支援システムが全10種目に適用された。センサー方式をカメラ映像の画像分析に置き換え、AIが技を自動で判定して、関節の角度などの数値で審判の正確な判定を支援する。",
+      en: "At the 52nd World Gymnastics Championships, the International Gymnastics Federation and Fujitsu's judging support system was applied to all 10 apparatus. Sensors were replaced with image analysis of camera footage, and AI identifies skills automatically, supporting judges with numbers such as joint angles.",
+    },
+    sources: [
+      {
+        label: "富士通: 国際体操連盟、富士通のJudging Support Systemを全10種目で利用開始（2023-10-05）",
+        url: "https://info.archives.global.fujitsu/jp/news/2023/10/5-1.html",
       },
     ],
   },
@@ -1368,6 +1463,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-world-athletics-online-abuse",
+    date: "2024-10-31",
+    precision: "day",
+    title: {
+      ja: "世界陸連、パリ五輪での選手へのSNSの中傷の調査を公表",
+      en: "World Athletics Publishes Its Study of Online Abuse at the Paris Olympics",
+    },
+    summary: {
+      ja: "AIのサービスThreat Matrixで1,917人の選手などのSNSを監視し、355,873件の投稿・コメントからAIが34,040件を人の確認に回して、809件が中傷と確認された。128件をプラットフォームに報告した。",
+      en: "Using the AI service Threat Matrix to monitor the social media of 1,917 athletes and officials, the AI flagged 34,040 of 355,873 posts and comments for human review, and 809 were verified as abusive; 128 were reported to the platforms.",
+    },
+    sources: [
+      {
+        label: "World Athletics: World Athletics publishes findings of study into online abuse of athletes covering Paris Olympic Games（2024-10-31）",
+        url: "https://worldathletics.org/news/press-releases/study-online-abuse-athletes-paris-2024-olympic-games",
+      },
+    ],
+  },
+  {
     id: "2024-big-sleep-sqlite",
     date: "2024-11-01",
     precision: "day",
@@ -1805,6 +1919,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
       {
         label: "日本銀行: 金融機関における生成AIの利用状況とリスク管理 ―2025年度アンケート調査結果から―（2025年9月）",
         url: "https://www.boj.or.jp/research/brp/fsr/data/fsrb250930.pdf",
+      },
+    ],
+  },
+  {
+    id: "2025-mlb-abs-challenge",
+    date: "2025-09-23",
+    precision: "day",
+    title: {
+      ja: "MLB、2026年からのABSチャレンジシステムの採用を発表",
+      en: "MLB Approves the ABS Challenge System from 2026",
+    },
+    summary: {
+      ja: "12台のホークアイのカメラで投球の位置を追跡し、投手・捕手・打者が球審の判定に異議を申し立てたときに確かめる制度。すべての投球を技術で判定する方式よりも、選手がチャレンジ方式を強く好んだことが決め手の一つになった。",
+      en: "Under the system, 12 Hawk-Eye cameras track each pitch, and a pitch is checked when the pitcher, catcher, or batter challenges the plate umpire's call. Players' strong preference for the challenge format over having technology call every pitch was a key factor.",
+    },
+    sources: [
+      {
+        label: "MLB: MLB announces ABS Challenge System coming to the Major Leagues beginning in the 2026 season（2025-09-23）",
+        url: "https://www.mlb.com/press-release/press-release-mlb-announces-abs-challenge-system-coming-to-the-major-leagues-beginning-in-the-2026-season",
       },
     ],
   },
