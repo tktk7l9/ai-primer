@@ -68,7 +68,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "外部情報を検索してから、その内容を踏まえて回答を生成する手法。",
       en: "A technique that retrieves external information before generating an answer grounded in it.",
     },
-    relatedLessonIds: ["ai-basics-04", "ai-basics-06", "understanding-ai-02"],
+    relatedLessonIds: ["ai-basics-04", "ai-basics-06", "understanding-ai-02", "ai-and-disasters-06"],
     sources: [
       {
         label: "Google Cloud: What is Retrieval-Augmented Generation (RAG)?",
@@ -398,7 +398,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "実在する人物・物・場所・出来事などに似せてAIで生成・加工した画像・音声・動画で、本物や真実であるかのように誤って見えるもの（EU AI Actの定義による）。",
       en: "AI-generated or manipulated image, audio, or video content that resembles existing persons, objects, places, entities, or events and would falsely appear to a person to be authentic or truthful (the EU AI Act's definition).",
     },
-    relatedLessonIds: ["generative-media-07", "society-07", "ai-at-work-05", "ai-and-society-05"],
+    relatedLessonIds: ["generative-media-07", "society-07", "ai-at-work-05", "ai-and-society-05", "ai-and-disasters-04"],
     sources: [
       { label: "AI Act Service Desk: Article 3 (Definitions)", url: "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-3" },
       {
@@ -1682,7 +1682,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "観測から今の大気の状態を推定し、物理法則を計算して先の大気の状態を求める天気予報の方法。欧州中期予報センター（ECMWF）の物理ベースの予報システムIFSなどがあり、Google DeepMindは、従来の手法で10日先まで予報するにはスーパーコンピュータで何時間もの計算が要ると説明している。機械学習の予報モデルも、数値予報で補って作った再解析データで学んだり、数値予報と同じ初期値から予報したりしている。",
       en: "A weather forecasting method that estimates the current state of the atmosphere from observations and computes its future state from the laws of physics, as in ECMWF's physics-based Integrated Forecasting System (IFS). Google DeepMind explains that a 10-day forecast this way can take hours on a supercomputer. Machine-learning forecast models still learn from reanalysis data filled in by numerical weather prediction, or forecast from the same initial conditions.",
     },
-    relatedLessonIds: ["ai-and-science-03"],
+    relatedLessonIds: ["ai-and-science-03", "ai-and-disasters-01"],
     sources: [
       {
         label: "Google DeepMind: GraphCast — AI model for faster and more accurate global weather forecasting（2023-11-14）",
@@ -1718,7 +1718,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "条件を少しずつ変えた多数の予報を同時に出し、起こりうる天気の幅をまとめて示す方法。欧州中期予報センター（ECMWF）は30年以上前にこの手法を開発・導入したとし、2025年2月に運用を始めた機械学習の予報AIFSも、1つの予報を出す最初の版から、50通りの予報を出すアンサンブルへ広げる計画を示している。",
       en: "Running many forecasts at once with slight variations to show the full range of possible weather. ECMWF says it developed and implemented the technique more than thirty years ago, and its machine-learning forecast AIFS, made operational in February 2025 as a single deterministic forecast, is being extended to an ensemble of 50 forecasts.",
     },
-    relatedLessonIds: ["ai-and-science-03"],
+    relatedLessonIds: ["ai-and-science-03", "ai-and-disasters-01"],
     sources: [
       {
         label: "ECMWF: ECMWF's AI forecasts become operational（2025-02-25）",
@@ -2399,7 +2399,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIの検出の成績を表す2つの割合。再現率は、本当にあるもののうち正しく検出できた割合（低いと見逃しが多い）。適合率は、検出したもののうち本当に正しかった割合（低いと誤検出が多い）。片方だけでは成績は分からず、見逃しと誤検出のどちらが困るかは使い方で違う。",
       en: "Two rates that describe how well an AI detects things. Recall is the share of real cases that were correctly detected (low recall means many misses). Precision is the share of detections that were actually correct (low precision means many false alarms). Neither tells the whole story alone, and whether misses or false alarms matter more depends on how the system is used.",
     },
-    relatedLessonIds: ["ai-in-industry-04"],
+    relatedLessonIds: ["ai-in-industry-04", "ai-and-disasters-02"],
     sources: [
       {
         label: "国土交通省: 点検支援技術性能カタログ BR010035「デジタル画像とAIを用いた橋梁点検サポートシステム」",
@@ -2448,6 +2448,193 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       {
         label: "厚生労働省: テクノロジー等を活用した介護現場における生産性向上の重要性とその施策について（2026年3月2日）",
         url: "https://www.mhlw.go.jp/content/12300000/001678242.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "forecast-guidance",
+    term: { ja: "ガイダンス（天気予報）", en: "Forecast guidance" },
+    definition: {
+      ja: "天気、最高気温、雨量などの予報要素を直接示す予測資料。気象庁は、数値予報のデータや観測・解析データを使い、統計的な手法で作る。作成手法の一つにニューラルネットワークもある。気象庁と理化学研究所の共同研究は、解像度や予報時間の異なる複数のモデルに基づくガイダンスをAIで組み合わせる「統合型ガイダンス」（仮称）を開発した。",
+      en: "Forecast material that directly gives forecast elements such as weather, maximum temperature, and rainfall. The Japan Meteorological Agency builds it with statistical methods from numerical prediction data and observation and analysis data; neural networks are one of the methods. JMA's joint research with RIKEN developed an \"integrated guidance\" (working name) that uses AI to combine guidance based on several models with different resolutions and forecast ranges.",
+    },
+    relatedLessonIds: ["ai-and-disasters-01"],
+    sources: [
+      { label: "気象庁: 予報用語 — 予報の基礎資料に関する用語", url: "https://www.jma.go.jp/jma/kishou/know/yougo_hp/shiryo.html" },
+      {
+        label: "気象庁: 気象観測・予測へのAI技術の活用に向けた共同研究の成果について（2023-06-30）",
+        url: "https://www.jma.go.jp/jma/press/2306/30b/20230630_ai.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "ungauged-basin",
+    term: { ja: "観測所のない流域", en: "Ungauged watershed" },
+    definition: {
+      ja: "川の流量を測る観測所がない流域。従来の水文モデルは流域ごとの長い観測記録に合わせて調整する必要があるため、こうした流域では洪水の予測が難しかった。Googleの研究は、世界の観測所のデータで1つのモデルを学ばせ、観測所のない流域に当てはめる方法を示した。",
+      en: "A river basin with no gauge measuring its flow. Because conventional hydrological models must be calibrated to long records for each watershed, flood forecasting was hard in such basins. Google's research showed a way to train one model on gauge data from around the world and apply it to ungauged basins.",
+    },
+    relatedLessonIds: ["ai-and-disasters-02"],
+    sources: [
+      {
+        label: "arXiv: Nearing et al., AI Increases Global Access to Reliable Flood Forecasts（arXiv:2307.16104）",
+        url: "https://arxiv.org/abs/2307.16104",
+      },
+      {
+        label: "Google Research: Using AI to expand global access to reliable flood forecasts（2024-03-20）",
+        url: "https://research.google/blog/using-ai-to-expand-global-access-to-reliable-flood-forecasts/",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "return-period",
+    term: { ja: "再現期間（リターンピリオド）", en: "Return period" },
+    definition: {
+      ja: "洪水などの大きさを、平均して何年に1回起きる程度かで表したもの。たとえば再現期間2年の出水は、平均して2年に1回は超えると見込まれる流量の出水。数字が大きいほど、まれで大きな現象になる。",
+      en: "A way of describing how large an event such as a flood is, by how often it is expected on average. A 2-year return period flow, for example, is one expected to be exceeded on average once every two years. The bigger the number, the rarer and larger the event.",
+    },
+    relatedLessonIds: ["ai-and-disasters-02"],
+    sources: [
+      {
+        label: "Google Research: Using AI to expand global access to reliable flood forecasts（2024-03-20）",
+        url: "https://research.google/blog/using-ai-to-expand-global-access-to-reliable-flood-forecasts/",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "kikikuru",
+    term: { ja: "キキクル", en: "KiKiKuru" },
+    definition: {
+      ja: "気象庁が、土砂災害・浸水害・洪水災害の危険度の高まりを地図上に示す情報。雨水の動きを模式化した3つの指数（土壌雨量指数・表面雨量指数・流域雨量指数）に基づく。洪水キキクルは、3時間先までの流域雨量指数の予測値を使い、中小河川の洪水災害の危険度を5段階に色分けして示す。危険度の高まりを知らせる通知サービスもある。",
+      en: "Japan Meteorological Agency maps that show the rising danger of landslides, inundation, and river floods. They are based on three indices that model how rainwater behaves (soil water, surface water, and runoff). The flood map uses runoff-index forecasts up to three hours ahead to show the danger of floods on small and medium rivers in five color-coded levels, and a notification service alerts users as danger rises.",
+    },
+    relatedLessonIds: ["ai-and-disasters-02", "ai-and-disasters-06"],
+    sources: [
+      { label: "気象庁: キキクル", url: "https://www.jma.go.jp/jma/kishou/know/bosai/riskmap.html" },
+      { label: "気象庁: 洪水キキクル", url: "https://www.jma.go.jp/jma/kishou/know/bosai/riskmap_flood.html" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "disaana",
+    term: { ja: "DISAANA（対災害SNS情報分析システム）", en: "DISAANA" },
+    definition: {
+      ja: "情報通信研究機構（NICT）が開発した、災害に関するSNSの投稿を分析するシステム。2015年4月8日にリアルタイム版を試験公開した。日本語のツイートの10%のランダムサンプルを分析し、質問応答とエリア検索で答えの候補を示す。2016年の熊本地震では、内閣官房のツイッター分析班が使った。",
+      en: "A system developed by Japan's National Institute of Information and Communications Technology (NICT) to analyze disaster-related social media posts; its real-time version went into trial release on April 8, 2015. It analyzes a 10% random sample of Japanese tweets and offers candidate answers through question answering and area search. After the 2016 Kumamoto earthquakes, the Cabinet Secretariat's Twitter analysis team used it.",
+    },
+    relatedLessonIds: ["ai-and-disasters-03"],
+    sources: [
+      {
+        label: "NICT: 大規模災害時の膨大な被災報告を人工知能で瞬時に整理・要約 ～災害状況要約システム「D-SUMM」を試験公開～（2016-10-18）",
+        url: "https://www.nict.go.jp/press/2016/10/18-1.html",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "d-summ",
+    term: { ja: "D-SUMM（災害状況要約システム）", en: "D-SUMM" },
+    definition: {
+      ja: "NICTが2016年10月18日に試験公開した、SNSの被災報告を要約するシステム。意味の似た報告をまとめ、タイプとエリアごとに整理し、重大な報告の多いエリアから順に示す。報告と矛盾する投稿がある可能性も示す。2024年の能登半島地震の分析では、発災後24時間の救助を求める報告1,091件のうち104件がデマと推定された（推定は誤りうるとNICTは注意している）。",
+      en: "A system NICT released for trial on October 18, 2016, that summarizes damage reports on social media. It groups reports with similar meanings, organizes them by type and area, lists the areas with the most serious reports first, and flags reports that other posts may contradict. In its analysis of the 2024 Noto Peninsula earthquake, 104 of 1,091 rescue reports in the first 24 hours were estimated to be false rumors (estimates NICT warns may be wrong).",
+    },
+    relatedLessonIds: ["ai-and-disasters-03", "ai-and-disasters-04"],
+    sources: [
+      {
+        label: "NICT: 大規模災害時の膨大な被災報告を人工知能で瞬時に整理・要約 ～災害状況要約システム「D-SUMM」を試験公開～（2016-10-18）",
+        url: "https://www.nict.go.jp/press/2016/10/18-1.html",
+      },
+      {
+        label: "総務省: 令和6年版 情報通信白書 コラム「災害時における偽・誤情報への対応」",
+        url: "https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r06/html/nd122c00.html",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "community-notes",
+    term: { ja: "コミュニティノート", en: "Community Notes" },
+    definition: {
+      ja: "誤解を招くおそれのあるXの投稿に、利用者が協力して背景情報を付ける機能。総務省の情報通信白書は、2021年以降、Xでより正確な情報を得られるようにする目的で作られた機能と説明している。2024年の能登半島地震に関連して多くのノートが作られ、作成に初めて参加した人の数が最大を記録した。",
+      en: "A feature on X where users work together to add context to posts that may mislead. Japan's white paper on information and communications describes it as a feature created from 2021 onward to help people get more accurate information on X. Many notes were written about the 2024 Noto Peninsula earthquake, and the number of people writing a note for the first time hit a record high.",
+    },
+    relatedLessonIds: ["ai-and-disasters-04"],
+    sources: [
+      {
+        label: "総務省: 令和6年版 情報通信白書 コラム「災害時における偽・誤情報への対応」",
+        url: "https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r06/html/nd122c00.html",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "disaster-victim-certificate",
+    term: { ja: "罹災証明書", en: "Disaster victim certificate" },
+    definition: {
+      ja: "災害による住家の被害の程度を証明する書類で、被災者への支援策を決める判断材料の一つとして使われる。2013年に改正された災害対策基本法で、市町村長は、被災者から申請があれば遅滞なく住家の被害などを調べて交付しなければならないとされた。熊本地震では、熊本県内で213,924件（2016年度）が交付された。",
+      en: "A document certifying how badly a home was damaged in a disaster, used as one basis for deciding on support for survivors. Under Japan's Disaster Countermeasures Basic Act as amended in 2013, a municipal mayor who receives an application from a victim must assess the damage to the home without delay and issue one. After the Kumamoto earthquakes, 213,924 were issued in Kumamoto Prefecture (fiscal 2016).",
+    },
+    relatedLessonIds: ["ai-and-disasters-05"],
+    sources: [
+      {
+        label: "内閣府（防災担当）: 災害に係る住家の被害認定基準運用指針（2026年6月）",
+        url: "https://www.bousai.go.jp/taisaku/pdf/r605shishin_all.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "housing-damage-assessment",
+    term: { ja: "住家の被害認定", en: "Housing damage assessment" },
+    definition: {
+      ja: "災害で住家が受けた被害の程度を、市町村が調べて判定すること。内閣府の運用指針に沿って、全壊、大規模半壊、中規模半壊、半壊、準半壊、準半壊に至らない（一部損壊）に区分する。2018年の見直しで、写真から一見して倒壊が分かる住家を「全壊」と認定できるようになり、ドローンの3次元データで区域の住家をまとめて判定する方法もある。",
+      en: "A municipality's assessment of how badly a home was damaged in a disaster. Under the Cabinet Office's operational guidelines, damage is classified as total destruction, large-scale half destruction, medium-scale half destruction, half destruction, quasi-half destruction, or partial damage. Since a 2018 revision, homes that photos show at a glance to have collapsed can be certified as totally destroyed, and there is also a method for assessing a whole zone of homes from 3D drone data.",
+    },
+    relatedLessonIds: ["ai-and-disasters-05"],
+    sources: [
+      {
+        label: "内閣府（防災担当）: 災害に係る住家の被害認定基準運用指針（2026年6月）",
+        url: "https://www.bousai.go.jp/taisaku/pdf/r605shishin_all.pdf",
+      },
+      {
+        label: "内閣府（防災担当）: 住家被害認定業務実施体制の手引き 第7章 平常時からの備え",
+        url: "https://www.bousai.go.jp/taisaku/pdf/r605saigai_tebiki_7.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "mrag",
+    term: { ja: "マルチモーダル検索拡張生成（MRAG）", en: "Multimodal retrieval-augmented generation (MRAG)" },
+    definition: {
+      ja: "学習済みのデータだけでなく、外部の情報（テキスト・画像・音声など）も使って文章などを生成する技術。文部科学省の計画（2025年1月）は、誤情報を検出する機能で精査した情報を使う防災に特化したMRAGと生成AIを組み合わせ、被災者支援に使う基盤を開発するとしている。",
+      en: "A technique that generates text and other output using not only trained-in data but also external information such as text, images, and audio. A Japanese education ministry plan (January 2025) aims to build a platform for supporting disaster survivors that combines generative AI with a disaster-specific MRAG drawing on information screened by a misinformation-detection function.",
+    },
+    relatedLessonIds: ["ai-and-disasters-06"],
+    sources: [
+      {
+        label: "文部科学省: BRIDGE 令和6年度補正予算 研究開発等計画「個人情報・公的情報等を安全に活用可能な被災者支援AIサービス開発基盤」（2025年1月）",
+        url: "https://www8.cao.go.jp/cstp/bridge/keikaku/r6-h02_bridge_r6.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "sip4d",
+    term: { ja: "SIP4D（基盤的防災情報流通ネットワーク）", en: "SIP4D (Shared Information Platform for Disaster Management)" },
+    definition: {
+      ja: "府省庁・都道府県・指定公共機関などの災害情報システムをつなぐ、基盤的な防災情報の流通ネットワーク。防災科学技術研究所が内閣府の戦略的イノベーション創造プログラム（SIP）で開発し、内閣府（防災担当）が2024年4月に運用を始めた新総合防災情報システム（SOBO-WEB）に実装されている。",
+      en: "A foundational network for sharing disaster information that connects the disaster information systems of ministries, prefectures, designated public institutions, and others. The National Research Institute for Earth Science and Disaster Resilience developed it under the Cabinet Office's Cross-ministerial Strategic Innovation Promotion Program (SIP), and it is built into SOBO-WEB, the new comprehensive disaster information system the Cabinet Office (Disaster Management) began operating in April 2024.",
+    },
+    relatedLessonIds: ["ai-and-disasters-06"],
+    sources: [
+      {
+        label: "文部科学省: BRIDGE 令和6年度補正予算 研究開発等計画「個人情報・公的情報等を安全に活用可能な被災者支援AIサービス開発基盤」（2025年1月）",
+        url: "https://www8.cao.go.jp/cstp/bridge/keikaku/r6-h02_bridge_r6.pdf",
       },
     ],
     lastVerified: "2026-10-13",

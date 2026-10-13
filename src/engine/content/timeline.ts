@@ -35,7 +35,10 @@ export interface TimelineEvent {
 // the AI-and-Japanese entries — the plain Japanese guidelines 2020, JGLUE 2022, LLM-jp, the tokenizer-unfairness study, and Llama 2
 // 2023, the Swallow study, Fugaku-LLM, and JBBQ 2024, and LLM-jp-4.1 2026 — also added on 2026-10-13; the AI-in-industry
 // entries — the bridge inspection guidelines 2019, the logistics policy package 2023, the truck overtime cap, i-Construction 2.0,
-// the care technology priority areas, the care worker estimate, and the smart agriculture act 2024 — also added on 2026-10-13).
+// the care technology priority areas, the care worker estimate, and the smart agriculture act 2024 — also added on 2026-10-13;
+// the AI-and-disasters entries — DISAANA 2015, D-SUMM 2016, photo-based housing damage assessment 2018, the JMA–RIKEN joint
+// research 2019 and its results 2023, the Noto earthquake misinformation response and Google's two flood forecasting milestones
+// 2024, and the survivor-support AI plan 2025 — also added on 2026-10-13).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -108,6 +111,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "Pinecone: AlexNet and ImageNet", url: "https://www.pinecone.io/learn/series/image-search/imagenet/" }],
   },
   {
+    id: "2015-disaana-trial",
+    date: "2015-04-08",
+    precision: "day",
+    title: { ja: "NICTが対災害SNS情報分析システムDISAANAを試験公開", en: "NICT Opens a Trial of DISAANA, Its Disaster Social Media Analyzer" },
+    summary: {
+      ja: "情報通信研究機構（NICT）が、日本語のツイートの10%のランダムサンプルをリアルタイムに分析し、災害に関する質問に答えの候補を示すDISAANAのリアルタイム版を試験公開した。2016年の熊本地震では内閣官房のツイッター分析班が使い、熊本県の災害対策本部に分析結果が提供された。",
+      en: "Japan's National Institute of Information and Communications Technology (NICT) began a trial of the real-time version of DISAANA, which analyzes a 10% random sample of Japanese tweets in real time and offers candidate answers to disaster-related questions. After the 2016 Kumamoto earthquakes, the Cabinet Secretariat's Twitter analysis team used it and passed results to Kumamoto Prefecture's disaster response headquarters.",
+    },
+    sources: [
+      {
+        label: "NICT: 大規模災害時の膨大な被災報告を人工知能で瞬時に整理・要約 ～災害状況要約システム「D-SUMM」を試験公開～（2016-10-18）",
+        url: "https://www.nict.go.jp/press/2016/10/18-1.html",
+      },
+    ],
+  },
+  {
     id: "2016-alphago",
     date: "2016-03-09",
     precision: "day",
@@ -119,6 +138,26 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "Wikipedia: AlphaGo versus Lee Sedol", url: "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol" }],
   },
   {
+    id: "2016-d-summ-trial",
+    date: "2016-10-18",
+    precision: "day",
+    title: { ja: "NICTが災害状況要約システムD-SUMMを試験公開", en: "NICT Opens a Trial of D-SUMM, Which Summarizes Disaster Reports" },
+    summary: {
+      ja: "NICTが、X（当時Twitter）の被災報告から意味の似た報告をまとめ、タイプとエリアごとに整理して要約するD-SUMMを試験公開した。報告と矛盾する投稿がある可能性も示す。総務省の情報通信白書によると、試験公開は2023年度末まで続いた。",
+      en: "NICT began a trial of D-SUMM, which groups similar damage reports on X (then Twitter), organizes them by type and area, and summarizes them, also flagging reports that other posts may contradict. According to Japan's white paper on information and communications, the trial ran until the end of fiscal 2023.",
+    },
+    sources: [
+      {
+        label: "NICT: 大規模災害時の膨大な被災報告を人工知能で瞬時に整理・要約 ～災害状況要約システム「D-SUMM」を試験公開～（2016-10-18）",
+        url: "https://www.nict.go.jp/press/2016/10/18-1.html",
+      },
+      {
+        label: "総務省: 令和6年版 情報通信白書 コラム「災害時における偽・誤情報への対応」",
+        url: "https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r06/html/nd122c00.html",
+      },
+    ],
+  },
+  {
     id: "2017-transformer",
     date: "2017-06-12",
     precision: "day",
@@ -128,6 +167,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "Google researchers introduced the Transformer architecture, which became the common foundation for nearly every major LLM since.",
     },
     sources: [{ label: "Wikipedia: Attention Is All You Need", url: "https://en.wikipedia.org/wiki/Attention_Is_All_You_Need" }],
+  },
+  {
+    id: "2018-photo-based-damage-assessment",
+    date: "2018-03-01",
+    precision: "month",
+    title: {
+      ja: "住家の被害認定で、写真を活用した「全壊」の判定が可能に",
+      en: "Japan's Housing Damage Guidelines Allow Photo-Based \"Total Destruction\" Judgments",
+    },
+    summary: {
+      ja: "内閣府が住家の被害認定の運用指針を見直し、写真を活用した判定方法を加えた。発災前後の航空写真やドローンの映像などから一見して倒壊が分かる住家は、写真で「全壊」と認定できる。写真で判定できなければ現地で調べる。",
+      en: "Japan's Cabinet Office revised its operational guidelines for assessing housing damage, adding a method that uses photos: homes that aerial photos from before and after a disaster, drone footage, or similar images show at a glance to have collapsed can be certified as totally destroyed. If photos are not enough, the home is assessed on site.",
+    },
+    sources: [
+      {
+        label: "内閣府（防災担当）: 災害に係る住家の被害認定基準運用指針（2026年6月）",
+        url: "https://www.bousai.go.jp/taisaku/pdf/r605shishin_all.pdf",
+      },
+    ],
   },
   {
     id: "2018-japan-ai-endoscopy-program-approval",
@@ -158,6 +216,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
       {
         label: "厚生労働省: 人工知能（AI）を用いた診断、治療等の支援を行うプログラムの利用と医師法第17条の規定との関係について（医政医発1219第1号）",
         url: "https://www.mhlw.go.jp/content/10601000/000468150.pdf",
+      },
+    ],
+  },
+  {
+    id: "2019-jma-riken-ai-research",
+    date: "2019-01-23",
+    precision: "day",
+    title: {
+      ja: "気象庁と理研AIPが、気象観測・予測へのAI活用の共同研究を開始",
+      en: "JMA and RIKEN AIP Begin Joint Research on AI for Weather Observation and Prediction",
+    },
+    summary: {
+      ja: "気象庁が理化学研究所 革新知能統合研究センターと、防災気象情報の根幹を支える観測と予測の精度を大きく上げることを目指す共同研究を始めた（2023年3月31日まで）。成果は2023年6月30日に公表された。",
+      en: "The Japan Meteorological Agency began joint research with the RIKEN Center for Advanced Intelligence Project aimed at greatly improving the accuracy of the observations and predictions that underpin its weather information for disaster prevention (through March 31, 2023). The results were announced on June 30, 2023.",
+    },
+    sources: [
+      {
+        label: "気象庁: 気象観測・予測へのAI技術の活用に向けた共同研究の成果について（2023-06-30）",
+        url: "https://www.jma.go.jp/jma/press/2306/30b/20230630_ai.pdf",
       },
     ],
   },
@@ -576,6 +653,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2023-jma-ai-research-results",
+    date: "2023-06-30",
+    precision: "day",
+    title: {
+      ja: "気象庁と理研AIP、AIによる降水量予測の改善などの成果を公表",
+      en: "JMA and RIKEN AIP Report Results Including AI-Improved Rainfall Forecasts",
+    },
+    summary: {
+      ja: "共同研究の成果として、複数の数値予報モデルに基づくガイダンスをAIで組み合わせる「統合型ガイダンス」（仮称）による降水量予測の改善、深層学習で全国1kmメッシュの現在の気温を推定する技術、水蒸気ライダーのノイズ除去、衛星画像を使う台風の急発達予測のプロトタイプを公表した。気象庁は実用化を目指して技術開発を進めるとした。",
+      en: "The joint research reported results including better rainfall forecasts from an \"integrated guidance\" (working name) that uses AI to combine guidance based on several numerical prediction models, a deep-learning technique for estimating current temperatures on a 1 km mesh across Japan, noise removal for water vapor lidar data, and a prototype that uses satellite images to predict rapid typhoon intensification. JMA said it would continue development toward practical use.",
+    },
+    sources: [
+      {
+        label: "気象庁: 気象観測・予測へのAI技術の活用に向けた共同研究の成果について（2023-06-30）",
+        url: "https://www.jma.go.jp/jma/press/2306/30b/20230630_ai.pdf",
+      },
+    ],
+  },
+  {
     id: "2023-llama2",
     date: "2023-07-18",
     precision: "day",
@@ -699,6 +795,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-noto-earthquake-misinformation",
+    date: "2024-01-02",
+    precision: "day",
+    title: {
+      ja: "能登半島地震の偽・誤情報に、総務省がSNS事業者へ対応を要請",
+      en: "After the Noto Peninsula Earthquake, Japan's Communications Ministry Asks Platforms to Act on False Information",
+    },
+    summary: {
+      ja: "能登半島地震の翌日、総務省がSNSの公式アカウントで偽・誤情報への注意を呼びかけ、主要なSNSなどの事業者4社に利用規約などに沿った適正な対応を求めた。Xによると、地震を「人工地震」とする言葉を含む投稿は約10万件にのぼった。",
+      en: "The day after the Noto Peninsula earthquake, Japan's Ministry of Internal Affairs and Communications warned about false information on its official social media accounts and asked four major platforms to respond appropriately under their terms of use. According to X, posts containing words calling it a \"man-made earthquake\" numbered about 100,000.",
+    },
+    sources: [
+      {
+        label: "総務省: 令和6年版 情報通信白書 コラム「災害時における偽・誤情報への対応」",
+        url: "https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r06/html/nd122c00.html",
+      },
+    ],
+  },
+  {
     id: "2024-alphageometry",
     date: "2024-01-17",
     precision: "day",
@@ -801,6 +916,29 @@ export const TIMELINE: readonly TimelineEvent[] = [
       {
         label: "YouTube Official Blog: How we're helping creators disclose altered or synthetic content（2024-03-18）",
         url: "https://blog.youtube/news-and-events/disclosing-ai-generated-content/",
+      },
+    ],
+  },
+  {
+    id: "2024-flood-forecasting-ungauged",
+    date: "2024-03-20",
+    precision: "day",
+    title: {
+      ja: "Google、観測所のない流域の洪水予測の研究をNature誌で発表",
+      en: "Google Publishes Research in Nature on Flood Forecasting for Ungauged Watersheds",
+    },
+    summary: {
+      ja: "世界の観測所のデータで1つのLSTMモデルを学ばせ、観測所のない流域に当てはめる研究。5日先までの予測の信頼性が、既存の代表的な全球洪水予測システムGloFASの当日の予測と平均で同等以上だったとした。洪水予報サービスFlood Hubでは、80か国超で最大7日先までの予測を出していた。",
+      en: "The research trained one LSTM model on gauge data from around the world and applied it to watersheds without gauges. Its forecasts up to five days ahead were, on average, as reliable as or more reliable than the same-day forecasts of GloFAS, the leading existing global flood forecasting system. Google's Flood Hub service was providing forecasts up to seven days ahead in more than 80 countries.",
+    },
+    sources: [
+      {
+        label: "Google Research: Using AI to expand global access to reliable flood forecasts（2024-03-20）",
+        url: "https://research.google/blog/using-ai-to-expand-global-access-to-reliable-flood-forecasts/",
+      },
+      {
+        label: "arXiv: Nearing et al., AI Increases Global Access to Reliable Flood Forecasts（arXiv:2307.16104）",
+        url: "https://arxiv.org/abs/2307.16104",
       },
     ],
   },
@@ -1121,6 +1259,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-flood-forecasting-100-countries",
+    date: "2024-11-11",
+    precision: "day",
+    title: {
+      ja: "Googleの洪水予測モデルが改良、Flood Hubは100か国超に",
+      en: "Google Improves Its Flood Forecasting Model; Flood Hub Reaches Over 100 Countries",
+    },
+    summary: {
+      ja: "改良したモデルは7日先の予測で以前の5日先と同じ精度になり、学習に使う観測所を5,680か所から15,980か所に増やした。Flood Hubで情報を届ける国は80か国から100か国超、人数は4億6,000万人から7億人に。品質を検証できていない予測地点は、専門家・研究者向けとして分けて示した。",
+      en: "The improved model is as accurate seven days ahead as the previous one was five days ahead, and the gauges used for training rose from 5,680 to 15,980. Flood Hub's reach grew from 80 to over 100 countries and from 460 million to 700 million people. Forecast points whose quality could not be verified are offered separately for experts and researchers.",
+    },
+    sources: [
+      {
+        label: "Google Research: An improved flood forecasting AI model, trained and evaluated globally（2024-11-11）",
+        url: "https://research.google/blog/a-flood-forecasting-ai-model-trained-and-evaluated-globally/",
+      },
+    ],
+  },
+  {
     id: "2024-itchio-generative-ai-disclosure",
     date: "2024-11-20",
     precision: "day",
@@ -1170,6 +1327,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
         url: "https://blog.google/products-and-platforms/products/gemini/google-gemini-deep-research/",
       },
       { label: "OpenAI: Introducing deep research", url: "https://openai.com/index/introducing-deep-research/" },
+    ],
+  },
+  {
+    id: "2025-survivor-support-ai-plan",
+    date: "2025-01-01",
+    precision: "month",
+    title: {
+      ja: "被災者支援に生成AIを使う基盤の開発計画（文部科学省）",
+      en: "Japan's Education Ministry Plans a Platform for Generative AI in Survivor Support",
+    },
+    summary: {
+      ja: "能登半島地震の経験から、防災科学技術研究所を中心に、誤情報を取り除いた防災の情報を使う防災MRAGと生成AIを組み合わせ、個人情報を守りながら被災者一人ひとりに合わせた支援に使う基盤を開発する計画。2024〜2025年度にプロトタイプの開発と安全性の検証を目指す。",
+      en: "Drawing on the Noto Peninsula earthquake, the plan has the National Research Institute for Earth Science and Disaster Resilience lead development of a platform that combines generative AI with a disaster MRAG built on information screened for misinformation, to support each survivor individually while protecting personal information. It targets a prototype and safety verification in fiscal 2024-2025.",
+    },
+    sources: [
+      {
+        label: "文部科学省: BRIDGE 令和6年度補正予算 研究開発等計画「個人情報・公的情報等を安全に活用可能な被災者支援AIサービス開発基盤」（2025年1月）",
+        url: "https://www8.cao.go.jp/cstp/bridge/keikaku/r6-h02_bridge_r6.pdf",
+      },
     ],
   },
   {
