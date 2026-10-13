@@ -18,10 +18,11 @@ import { aiAndJapaneseTrack } from "./tracks/ai-and-japanese";
 import { aiInIndustryTrack } from "./tracks/ai-in-industry";
 import { aiAndDisastersTrack } from "./tracks/ai-and-disasters";
 import { aiAndHistoricalRecordsTrack } from "./tracks/ai-and-historical-records";
+import { aiInFinanceTrack } from "./tracks/ai-in-finance";
 import { aiAndSocietyTrack } from "./tracks/ai-and-society";
 import { societyTrack } from "./tracks/society";
 
-/** All tracks in display order (21, all complete). */
+/** All tracks in display order (22, all complete). */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
@@ -53,6 +54,8 @@ export const TRACKS: readonly Track[] = [
   aiAndDisastersTrack,
   // Historical records and AI (digital archives, OCR and full-text search, kuzushiji, crowdsourced transcription, colorization, reuse).
   aiAndHistoricalRecordsTrack,
+  // AI in finance (adoption, fraud and AML, lending, customer-facing use, model risk, financial stability).
+  aiInFinanceTrack,
   // Society-wide effects (jobs, energy, bias, accessibility, scams, children); also kept before society.
   aiAndSocietyTrack,
   societyTrack,

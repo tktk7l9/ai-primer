@@ -40,7 +40,9 @@ export interface TimelineEvent {
 // research 2019 and its results 2023, the Noto earthquake misinformation response and Google's two flood forecasting milestones
 // 2024, and the survivor-support AI plan 2025 — also added on 2026-10-13; the historical-records entries — MOJIZO 2016,
 // Minna de Honkoku 2017 and its AI relaunch 2019, Japan Search 2020, the miwo app 2021, NDL full-text search 2022, the Digital
-// Archive Strategy 2025, and NDLOCR-Lite 2026 — also added on 2026-10-13).
+// Archive Strategy 2025, and NDLOCR-Lite 2026 — also added on 2026-10-13; the AI-in-finance entries — the FSA model risk
+// principles 2021, the FSB AI report 2024, the FSA AI discussion paper, shared AML AI scoring, and the BOJ generative AI survey
+// 2025, and the discussion paper's version 1.1 and the FSB's draft sound practices 2026 — also added on 2026-10-13).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -502,6 +504,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "Japan's Center for Open Data in the Humanities (CODH) released miwo, an app that uses AI to recognize kuzushiji photographed with a smartphone and convert it to modern characters. Since v1.1 in October 2022 it has used a new AI model, RURI. CODH warns that results can contain errors and asks users to check them themselves.",
     },
     sources: [{ label: "CODH: みを（miwo）とは？", url: "https://codh.rois.ac.jp/miwo/about/" }],
+  },
+  {
+    id: "2021-fsa-model-risk-principles",
+    date: "2021-11-12",
+    precision: "day",
+    title: { ja: "金融庁が「モデル・リスク管理に関する原則」を公表", en: "Japan's FSA Publishes Principles for Model Risk Management" },
+    summary: {
+      ja: "推定値や予測値、スコアなどを出す「モデル」の誤りや不適切な使用による悪影響をモデル・リスクとして管理するための8つの原則。モデルは引当、マネロン対策、不正検知、アルゴリズム取引などにも広がり、機械学習や人工知能の手法を使うものも多いとした。本邦のG-SIBsやD-SIBsなどが対象。",
+      en: "Eight principles for managing model risk: adverse effects from errors in, or misuse of, models that output estimates, predictions, scores, and the like. The FSA noted that models have spread to provisioning, anti-money laundering, fraud detection, algorithmic trading, and more, many using machine learning and AI techniques. They apply to Japan's G-SIBs, D-SIBs, and certain others.",
+    },
+    sources: [{ label: "金融庁: モデル・リスク管理に関する原則（2021年11月12日）", url: "https://www.fsa.go.jp/common/law/ginkou/pdf_02.pdf" }],
   },
   {
     id: "2021-latent-diffusion",
@@ -1387,6 +1400,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-fsb-ai-financial-stability",
+    date: "2024-11-14",
+    precision: "day",
+    title: {
+      ja: "金融安定理事会（FSB）、AIが金融の安定に与える影響の報告書を公表",
+      en: "The FSB Reports on AI's Implications for Financial Stability",
+    },
+    summary: {
+      ja: "外部の事業者への依存と集中、市場の連動、サイバー、モデル・リスクとデータの質・ガバナンスを、システミック・リスクを高めうるAIの弱点として挙げ、各国の当局に監視の強化や政策の枠組みの点検を求めた。G20に提出された。",
+      en: "The report named dependence on and concentration of outside providers, market correlations, cyber, and model risk, data quality, and governance as AI-related vulnerabilities that could increase systemic risk, and called on authorities to step up monitoring and review their policy frameworks. It was submitted to the G20.",
+    },
+    sources: [
+      {
+        label: "FSB: The Financial Stability Implications of Artificial Intelligence（2024-11-14）",
+        url: "https://www.fsb.org/2024/11/the-financial-stability-implications-of-artificial-intelligence/",
+      },
+    ],
+  },
+  {
     id: "2024-itchio-generative-ai-disclosure",
     date: "2024-11-20",
     precision: "day",
@@ -1551,6 +1583,23 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2025-fsa-ai-discussion-paper",
+    date: "2025-03-01",
+    precision: "month",
+    title: { ja: "金融庁が「AIディスカッションペーパー」を公表", en: "Japan's FSA Publishes Its AI Discussion Paper" },
+    summary: {
+      ja: "130社が回答した調査で9割以上が従来型のAIか生成AIを使っていたとし、説明可能性、公平性、ハルシネーション、金融犯罪への悪用などの課題を整理した。金融機関は、技術革新に取り残される「チャレンジしないリスク」を強く意識すべきだとした。2026年3月3日に第1.1版に改訂。",
+      en: "Reporting that over 90% of 130 responding firms used conventional or generative AI, the FSA organized issues such as explainability, fairness, hallucination, and misuse for financial crime, and said institutions should be keenly aware of the \"risk of not taking on the challenge\" of being left behind. It was revised to version 1.1 on March 3, 2026.",
+    },
+    sources: [
+      {
+        label: "金融庁: AIディスカッションペーパー（第1.0版）～金融分野におけるAIの健全な利活用の促進に向けた初期的な論点整理～（2025年3月）",
+        url: "https://www.fsa.go.jp/news/r6/sonota/20250304/aidp_summary.pdf",
+      },
+      { label: "金融庁: AIディスカッションペーパー（第1.1版）の公表について（2026-03-03）", url: "https://www.fsa.go.jp/news/r7/sonota/20260303/aidp.html" },
+    ],
+  },
+  {
     id: "2025-gemini-robotics",
     date: "2025-03-12",
     precision: "day",
@@ -1575,6 +1624,26 @@ export const TIMELINE: readonly TimelineEvent[] = [
         label: "Apple Newsroom: Apple Intelligenceの機能が日本語で利用可能に（2025-03-31）",
         url: "https://www.apple.com/jp/newsroom/2025/03/apple-intelligence-features-are-now-available-in-more-languages/",
       },
+    ],
+  },
+  {
+    id: "2025-caml-ai-scoring",
+    date: "2025-04-01",
+    precision: "day",
+    title: {
+      ja: "銀行界のマネロン対策共同機構が、AIスコアリングを開始",
+      en: "Japan's Banking Industry Launches Shared AI Scoring Against Money Laundering",
+    },
+    summary: {
+      ja: "全国銀行協会の子会社のマネー・ローンダリング対策共同機構が、各金融機関の取引モニタリングなどが検知したアラートのリスクの度合いをAIで評価し、根拠とともに返すサービスを始めた。大量のアラートや誤検知への対応の効率化と、疑わしい取引の届出の判定業務の高度化を支援する。",
+      en: "The Cooperation Agency for Anti-Money Laundering, a subsidiary of the Japanese Bankers Association, began a service that uses AI to score the risk of alerts raised by each institution's transaction monitoring and other systems and returns the scores with their grounds, helping handle large numbers of alerts and false positives and supporting decisions on reporting suspicious transactions.",
+    },
+    sources: [
+      {
+        label: "マネー・ローンダリング対策共同機構: AIスコアリングサービスの提供開始について（2025-04-01）",
+        url: "https://www.caml.co.jp/article/general/a111",
+      },
+      { label: "マネー・ローンダリング対策共同機構: AIスコアリングサービスとは", url: "https://www.caml.co.jp/ai.html" },
     ],
   },
   {
@@ -1719,6 +1788,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "Japan's Act on the Promotion of Research, Development and Utilization of AI-Related Technologies took full effect, establishing an AI Strategy Headquarters and starting a national AI basic plan — a promotion-first law rather than a regulatory one.",
     },
     sources: [{ label: "内閣府: ＡＩ法 全面施行", url: "https://www.cao.go.jp/press/new_wave/20251003.html" }],
+  },
+  {
+    id: "2025-boj-genai-survey",
+    date: "2025-09-01",
+    precision: "month",
+    title: {
+      ja: "日本銀行、金融機関の生成AIの利用状況の調査（2025年度）を公表",
+      en: "The Bank of Japan Publishes Its Fiscal 2025 Survey of Generative AI Use at Financial Institutions",
+    },
+    summary: {
+      ja: "153の金融機関のうち、生成AIをすでに利用している先は約5割（前回は31.0%）、試行中を含めると7割強、検討中を含めると9割強だった。利用状況のモニタリングやサードパーティ・リスクへの対策などは、5割程度の先が「改善の余地がある」か「検討中」と答えた。",
+      en: "Of 153 financial institutions, about half (31.0% in the previous round) were already using generative AI, over 70% including trials and over 90% including those considering it. On monitoring use and countering third-party risk, among other items, around half answered \"room for improvement\" or \"under consideration.\"",
+    },
+    sources: [
+      {
+        label: "日本銀行: 金融機関における生成AIの利用状況とリスク管理 ―2025年度アンケート調査結果から―（2025年9月）",
+        url: "https://www.boj.or.jp/research/brp/fsr/data/fsrb250930.pdf",
+      },
+    ],
   },
   {
     id: "2025-spotify-ai-protections",
@@ -1920,6 +2008,26 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "NDLラボ: NDLOCR-Liteの公開について（2026-02-24）", url: "https://lab.ndl.go.jp/news/2025/2026-02-24/" }],
   },
   {
+    id: "2026-fsa-ai-discussion-paper-1-1",
+    date: "2026-03-03",
+    precision: "day",
+    title: {
+      ja: "金融庁、AIディスカッションペーパーを第1.1版に改訂",
+      en: "Japan's FSA Revises Its AI Discussion Paper to Version 1.1",
+    },
+    summary: {
+      ja: "2025年6月から12月に開いた「金融庁 AI官民フォーラム」の知見をもとに改訂した。顧客向けのサービスで生成AIのリスクを減らす取組みを、設計と事前検証、顧客への説明・注意喚起、検証・モニタリング、ガバナンスの4つの局面に整理した。",
+      en: "Revised based on what was learned at the FSA AI Public-Private Forum held from June to December 2025, it organized ways to reduce generative AI's risks in customer-facing services into four phases: design and advance testing, explanation and warnings to customers, verification and monitoring, and governance.",
+    },
+    sources: [
+      { label: "金融庁: AIディスカッションペーパー（第1.1版）の公表について（2026-03-03）", url: "https://www.fsa.go.jp/news/r7/sonota/20260303/aidp.html" },
+      {
+        label: "金融庁: AIディスカッションペーパー第1.1版 改訂の概要（2026年3月）",
+        url: "https://www.fsa.go.jp/news/r7/sonota/20260303/aidp_version1.1_summary.pdf",
+      },
+    ],
+  },
+  {
     id: "2026-pixiv-guideline-ai-settings",
     date: "2026-03-18",
     precision: "day",
@@ -1965,6 +2073,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [
       { label: "Anthropic: Models overview", url: "https://platform.claude.com/docs/en/about-claude/models/overview" },
       { label: "Anthropic Docs: Model deprecations", url: "https://platform.claude.com/docs/en/about-claude/model-deprecations" },
+    ],
+  },
+  {
+    id: "2026-fsb-ai-sound-practices",
+    date: "2026-06-10",
+    precision: "day",
+    title: {
+      ja: "FSB、金融機関のAI導入の「健全な実務」案を公表",
+      en: "The FSB Proposes Sound Practices for Financial Institutions' AI Adoption",
+    },
+    summary: {
+      ja: "金融安定理事会（FSB）が、あらゆる種類の金融機関がAIを責任をもって導入・利用するための「健全な実務」の案を公表し、2026年7月22日まで意見を募った。金融機関と金融の安定に関わる、AIに特有の側面とリスクに焦点を当てている。",
+      en: "The Financial Stability Board (FSB) published proposed sound practices for financial institutions of all types to adopt and use AI responsibly, inviting comments until July 22, 2026. They focus on AI-specific aspects and risks relevant to financial institutions and financial stability.",
+    },
+    sources: [
+      {
+        label: "FSB: Sound Practices for Responsible Adoption of Artificial Intelligence (AI) — Consultation report（2026-06-10）",
+        url: "https://www.fsb.org/uploads/P100626.pdf",
+      },
     ],
   },
   {
