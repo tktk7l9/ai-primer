@@ -15,7 +15,7 @@ export const risks: Lesson = {
     ja: `## 便利さの裏にある3つの課題
 
 ### 誤情報・偽情報
-ハルシネーション（AI基礎トラック参照）による**意図しない誤情報**に加え、AIを悪用して偽のニュースやプロパガンダを**意図的に**大量生成するリスクもあります。おすすめ・レコメンドの仕組みが偏った情報を増幅し、世論の分断につながる懸念も指摘されています。
+ハルシネーション（AI基礎トラック参照）による**意図しない誤情報**に加え、AIを悪用して偽のニュースやプロパガンダを**意図的に**大量生成するリスクもあります。おすすめ・レコメンドの仕組みが偏った情報を増幅し、世論の分断につながる懸念も指摘されています。災害のときに実際に何が広がったかは[災害時の偽情報とAI](/ja/learn/ai-and-disasters/disaster-misinformation)のレッスンで扱います。
 
 ### バイアス（偏り）
 AIは学習データに含まれる偏りをそのまま引き継ぐことがあります。偏ったデータで訓練されたモデルは、不公平・差別的な結果を生む可能性があり、判断の過程が見えにくい「ブラックボックス」的な性質が、こうした偏りの発見を難しくしています。実際に記録された事例と、利用者にできる確かめ方は[AIのバイアスと公平性](/ja/learn/ai-and-society/bias-and-fairness)のレッスンで扱います。
@@ -30,7 +30,7 @@ AIの学習には大量のデータが必要で、そこに個人を特定でき
     en: `## Three challenges behind the convenience
 
 ### Misinformation and disinformation
-Beyond unintentional inaccuracies from hallucination (see the AI Fundamentals track), there's also the risk of AI being deliberately misused to mass-produce fake news or propaganda. Recommendation systems can amplify biased information, raising concerns about deepening social polarization.
+Beyond unintentional inaccuracies from hallucination (see the AI Fundamentals track), there's also the risk of AI being deliberately misused to mass-produce fake news or propaganda. Recommendation systems can amplify biased information, raising concerns about deepening social polarization. What actually spread during a disaster is covered in the [disaster misinformation and AI](/en/learn/ai-and-disasters/disaster-misinformation) lesson.
 
 ### Bias
 AI can inherit biases present in its training data. A model trained on biased data can produce unfair or discriminatory outcomes, and the "black box" nature of many AI systems — where the decision process is hard to see — makes such biases difficult to detect. For documented cases and checks you can run yourself, see the [bias and fairness](/en/learn/ai-and-society/bias-and-fairness) lesson.

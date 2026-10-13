@@ -36,7 +36,7 @@ ECMWFは、AIFSとIFSを補い合うものと位置づけ、データ駆動の�
 ### ニュースを読むときの視点
 - **何と比べたか**: 「従来より正確」は、どの予報と、どの変数・予報時間で比べたかで意味が変わります（[ベンチマークの読み方](/ja/learn/understanding-ai/reading-benchmarks)のレッスン参照）。
 - **観測がなければ始まらない**: AIのモデルも、観測から作る初期値や、数値予報で補った再解析データの上に立っています。
-- **研究の発表と、身近な予報は別**: 研究機関が発表したモデルが、すぐに手元の天気予報アプリで使われるとは限りません。どの予報が何に基づくかは、提供元の説明で確かめます。`,
+- **研究の発表と、身近な予報は別**: 研究機関が発表したモデルが、すぐに手元の天気予報アプリで使われるとは限りません。どの予報が何に基づくかは、提供元の説明で確かめます。日本の気象庁が大雨の予測でAIをどう使っているかは[大雨の予測とAI](/ja/learn/ai-and-disasters/forecasting-heavy-rain)のレッスンで扱います。`,
     en: `## From computing the weather to learning it?
 
 ### Numerical weather prediction: solving physics on supercomputers
@@ -61,7 +61,7 @@ ECMWF describes the AIFS and the IFS as complementary and lists hybrids of data-
 ### What to look for in the news
 - **Compared with what?** "More accurate than before" means different things depending on which forecast it was compared with, on which variables and lead times (see [how to read AI benchmarks](/en/learn/understanding-ai/reading-benchmarks)).
 - **No observations, no forecast**: AI models still stand on initial conditions built from observations, and on reanalysis data filled in by numerical weather prediction.
-- **A research model is not your weather app**: a model announced by a research center is not necessarily what your local forecast uses. Check the provider's own explanation of what its forecast is based on.`,
+- **A research model is not your weather app**: a model announced by a research center is not necessarily what your local forecast uses. Check the provider's own explanation of what its forecast is based on. How Japan's Meteorological Agency uses AI in forecasting heavy rain is covered in the [forecasting heavy rain with AI](/en/learn/ai-and-disasters/forecasting-heavy-rain) lesson.`,
   },
   quiz: [
     {
