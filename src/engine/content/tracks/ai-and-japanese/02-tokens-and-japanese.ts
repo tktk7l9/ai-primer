@@ -111,11 +111,11 @@ Adding Japanese characters and words to the vocabulary lets a model represent Ja
   sources: [
     {
       label: "Petrov et al.: Language Model Tokenizers Introduce Unfairness Between Languages（NeurIPS 2023、arXiv:2305.15425）",
-      url: "https://arxiv.org/abs/2305.15425",
+      url: "https://arxiv.org/pdf/2305.15425",
     },
     {
       label: "Fujii et al.: Continual Pre-Training for Cross-Lingual LLM Adaptation: Enhancing Japanese Language Capabilities（Swallow、arXiv:2404.17790）",
-      url: "https://arxiv.org/abs/2404.17790",
+      url: "https://arxiv.org/pdf/2404.17790",
     },
     { label: "Anthropic: Token counting（Claude Platform Docs）", url: "https://platform.claude.com/docs/en/build-with-claude/token-counting" },
   ],

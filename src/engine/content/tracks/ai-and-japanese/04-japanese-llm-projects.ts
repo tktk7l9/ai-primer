@@ -112,7 +112,7 @@ Rather than being made in Japan in itself, these points make comparison easier:
     { label: "Swallow LLM", url: "https://swallow-llm.github.io/index.ja.html" },
     {
       label: "Fujii et al.: Continual Pre-Training for Cross-Lingual LLM Adaptation: Enhancing Japanese Language Capabilities（arXiv:2404.17790）",
-      url: "https://arxiv.org/abs/2404.17790",
+      url: "https://arxiv.org/pdf/2404.17790",
     },
     {
       label: "理化学研究所: スーパーコンピュータ「富岳」で学習した大規模言語モデル「Fugaku-LLM」を公開（2024-05-10）",

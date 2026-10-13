@@ -31,7 +31,9 @@ export interface TimelineEvent {
 // delivery-robot rules, the Eiheiji service, RT-2, and the Cruise suspension 2023, the UK Automated Vehicles Act and GM's
 // exit from robotaxis 2024, and Gemini Robotics 2025 — added on 2026-10-13; the AI-and-security entries — many-shot
 // jailbreaking and Big Sleep 2024, GTIG's two misuse reports, Constitutional Classifiers, NIST AI 100-2 E2025, the AIxCC final,
-// Anthropic's two threat reports, and the 250-document poisoning study 2025, and IPA's 10 major threats 2026 — also added on 2026-10-13).
+// Anthropic's two threat reports, and the 250-document poisoning study 2025, and IPA's 10 major threats 2026 — also added on 2026-10-13;
+// the AI-and-Japanese entries — the plain Japanese guidelines 2020, JGLUE 2022, LLM-jp, the tokenizer-unfairness study, and Llama 2
+// 2023, the Swallow study, Fugaku-LLM, and JBBQ 2024, and LLM-jp-4.1 2026 — also added on 2026-10-13).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -243,6 +245,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2020-plain-japanese-guidelines",
+    date: "2020-08-01",
+    precision: "month",
+    title: { ja: "「在留支援のためのやさしい日本語ガイドライン」公表", en: "Japan Publishes Plain Japanese Guidelines for Supporting Foreign Residents" },
+    summary: {
+      ja: "出入国在留管理庁と文化庁が、難しい言葉を言い換えるなど相手に配慮したわかりやすい日本語（やさしい日本語）の書き言葉のガイドラインを公表した。日本人にわかりやすくする、外国人にもわかりやすくする、わかりやすさを確かめる、の3つのステップを示している。",
+      en: "Japan's Immigration Services Agency and Agency for Cultural Affairs published guidelines for writing plain Japanese — easy-to-understand Japanese written with the reader in mind, such as by rephrasing difficult words — in three steps: make it clear for Japanese readers, make it clear for non-Japanese readers too, and check that it is understood.",
+    },
+    sources: [
+      { label: "出入国在留管理庁: 在留支援のためのやさしい日本語ガイドライン", url: "https://www.moj.go.jp/isa/support/portal/plainjapanese_guideline.html" },
+    ],
+  },
+  {
     id: "2020-mmlu",
     date: "2020-09-07",
     precision: "day",
@@ -338,6 +353,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "IBM: What Is RLHF?", url: "https://www.ibm.com/think/topics/rlhf" }],
   },
   {
+    id: "2022-jglue",
+    date: "2022-06-01",
+    precision: "month",
+    title: { ja: "日本語のベンチマーク「JGLUE」を発表", en: "JGLUE, a Japanese Language Benchmark, Is Presented" },
+    summary: {
+      ja: "日本語の言語理解の力を測るベンチマークJGLUEが、国際会議LRECで発表された。英語のテストを訳すのではなく、日本語で一から作られた。",
+      en: "JGLUE, a benchmark for measuring language understanding in Japanese, was presented at the LREC conference. Rather than translating an English test, it was built from scratch in Japanese.",
+    },
+    sources: [
+      { label: "Kurihara et al.: JGLUE: Japanese General Language Understanding Evaluation（LREC 2022）", url: "https://aclanthology.org/2022.lrec-1.317/" },
+    ],
+  },
+  {
     id: "2022-stable-diffusion",
     date: "2022-08-22",
     precision: "day",
@@ -429,6 +457,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2023-llm-jp",
+    date: "2023-05-01",
+    precision: "month",
+    title: { ja: "国立情報学研究所がLLM-jpを立ち上げ", en: "Japan's National Institute of Informatics Launches LLM-jp" },
+    summary: {
+      ja: "趣旨に賛同すれば誰でも参加できる、オープンで日本語に強いLLMを作るプロジェクトとして始まった。モデル・データ・ツール・技術資料を、議論の過程や失敗も含めて公開している。",
+      en: "LLM-jp began as a project, open to anyone who shares its aims, to build open LLMs that are strong in Japanese. It publishes models, data, tools, and technical documents, including the discussions along the way and the failures.",
+    },
+    sources: [
+      { label: "国立情報学研究所 大規模言語モデル研究開発センター: Summary", url: "https://llmc.nii.ac.jp/overview/" },
+    ],
+  },
+  {
     id: "2023-chatbot-arena",
     date: "2023-05-03",
     precision: "day",
@@ -464,6 +505,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2023-tokenizer-unfairness",
+    date: "2023-05-17",
+    precision: "day",
+    title: { ja: "言語によるトークン数の差を調べた研究が公開", en: "Study Shows Tokenizers Treat Languages Unequally" },
+    summary: {
+      ja: "同じ内容でも、言語によってトークン数が最大15倍違うことを示した研究（Petrovら、NeurIPS 2023で発表）が公開された。日本語は英語に対し、ChatGPTとGPT-4のトークナイザーで2.30倍だった。",
+      en: "A study by Petrov and colleagues (later presented at NeurIPS 2023) showed that the same content can take up to 15 times as many tokens in some languages as in others. Japanese took 2.30 times as many tokens as English with the tokenizer used by ChatGPT and GPT-4.",
+    },
+    sources: [
+      { label: "Petrov et al.: Language Model Tokenizers Introduce Unfairness Between Languages（arXiv:2305.15425）", url: "https://arxiv.org/pdf/2305.15425" },
+    ],
+  },
+  {
     id: "2023-eiheiji-level4-service",
     date: "2023-05-21",
     precision: "day",
@@ -491,6 +545,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
         label: "Mata v. Avianca, Inc., No. 22-cv-1461 (PKC) (S.D.N.Y. June 22, 2023): Opinion and Order on Sanctions (CourtListener)",
         url: "https://storage.courtlistener.com/recap/gov.uscourts.nysd.575368/gov.uscourts.nysd.575368.54.0.pdf",
       },
+    ],
+  },
+  {
+    id: "2023-llama2",
+    date: "2023-07-18",
+    precision: "day",
+    title: { ja: "MetaがLlama 2を公開", en: "Meta Releases Llama 2" },
+    summary: {
+      ja: "Metaが、商用利用もできるオープンなモデルLlama 2を論文とともに公開した。論文の表では、事前学習データの文書のうち英語が89.70%、日本語は0.10%で、英語以外での性能は不安定だとしていた。",
+      en: "Meta released Llama 2, an open model that also allows commercial use, together with a paper. A table in the paper showed 89.70% of pre-training documents in English and 0.10% in Japanese, and the paper called its performance in other languages fragile.",
+    },
+    sources: [
+      { label: "Touvron et al.: Llama 2: Open Foundation and Fine-Tuned Chat Models（arXiv:2307.09288）", url: "https://arxiv.org/pdf/2307.09288" },
     ],
   },
   {
@@ -736,6 +803,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-swallow-continual-pretraining",
+    date: "2024-04-27",
+    precision: "day",
+    title: { ja: "日本語を追加で学ばせるSwallowの研究を公開", en: "Swallow Study on Teaching Japanese to an English-Trained Model" },
+    summary: {
+      ja: "Llama 2の語彙に日本語を足し、日本語の文章で追加の事前学習をしたSwallowの研究が公開された。日本語の課題の成績が大きく上がり、語彙を足したことで日本語のコーパスのトークン数は56.2%減った。",
+      en: "A study on Swallow, which added Japanese to Llama 2's vocabulary and continued pre-training it on Japanese text, was published. Japanese task scores rose sharply, and the added vocabulary cut the token count of a Japanese corpus by 56.2%.",
+    },
+    sources: [
+      { label: "Fujii et al.: Continual Pre-Training for Cross-Lingual LLM Adaptation: Enhancing Japanese Language Capabilities（arXiv:2404.17790）", url: "https://arxiv.org/pdf/2404.17790" },
+    ],
+  },
+  {
     id: "2024-alphafold3",
     date: "2024-05-08",
     precision: "day",
@@ -749,6 +829,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
         label: "Google: AlphaFold 3 predicts the structure and interactions of all of life's molecules（2024-05-08、2024-11-11 追記）",
         url: "https://blog.google/innovation-and-ai/products/google-deepmind-isomorphic-alphafold-3-ai-model/",
       },
+    ],
+  },
+  {
+    id: "2024-fugaku-llm",
+    date: "2024-05-10",
+    precision: "day",
+    title: { ja: "「富岳」で学習したFugaku-LLMを公開", en: "Fugaku-LLM, Trained on the Fugaku Supercomputer, Is Released" },
+    summary: {
+      ja: "東京工業大学、東北大学、富士通、理化学研究所などのチームが、スーパーコンピュータ「富岳」のCPUで学習した130億パラメータの大規模言語モデルを公開した。ライセンスに従えば研究にも商業目的にも使える。",
+      en: "A team from Tokyo Institute of Technology, Tohoku University, Fujitsu, RIKEN, and others released a 13-billion-parameter large language model trained on the CPUs of the Fugaku supercomputer. It can be used for research and commercial purposes under its license.",
+    },
+    sources: [
+      { label: "理化学研究所: スーパーコンピュータ「富岳」で学習した大規模言語モデル「Fugaku-LLM」を公開（2024-05-10）", url: "https://www.riken.jp/pr/news/2024/20240510_2/" },
     ],
   },
   {
@@ -790,6 +883,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
         label: "UK Government (DSIT): Frontier AI Safety Commitments, AI Seoul Summit 2024",
         url: "https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024",
       },
+    ],
+  },
+  {
+    id: "2024-jbbq",
+    date: "2024-06-04",
+    precision: "day",
+    title: { ja: "日本語の社会的な偏りを測るJBBQを公開", en: "JBBQ, a Benchmark for Social Bias in Japanese, Is Published" },
+    summary: {
+      ja: "英語のBBQをもとに、日本語の質問応答で社会的な偏りを測るデータセットが公開された。日本語のオープンなLLMでは、パラメータの多いモデルほど正答率が上がったが、偏りのスコアも上がった。",
+      en: "A dataset for measuring social bias in Japanese question answering, built from the English benchmark BBQ, was published. Among open Japanese LLMs, larger models answered more accurately, but their bias scores also rose.",
+    },
+    sources: [
+      { label: "Yanaka et al.: JBBQ: Japanese Bias Benchmark for Analyzing Social Biases in Large Language Models（arXiv:2406.02050）", url: "https://arxiv.org/abs/2406.02050" },
     ],
   },
   {
@@ -1540,6 +1646,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
       { label: "OpenAI: GPT-6 Astra", url: "https://openai.com/index/gpt-6-astra/" },
       { label: "OpenAI Docs: Models", url: "https://developers.openai.com/api/docs/models" },
       { label: "Wikipedia: GPT-6 Astra", url: "https://en.wikipedia.org/wiki/GPT-6_Astra" },
+    ],
+  },
+  {
+    id: "2026-llm-jp-4-1",
+    date: "2026-09-28",
+    precision: "day",
+    title: { ja: "国立情報学研究所が「LLM-jp-4.1」を公開", en: "Japan's National Institute of Informatics Releases LLM-jp-4.1" },
+    summary: {
+      ja: "国立情報学研究所の大規模言語モデル研究開発センターが、オープンで日本語に強いLLM-jp-4.1シリーズを、学習に使ったデータとあわせてApache License 2.0で公開した。2026年4月から公開してきたLLM-jp-4シリーズの事後学習を改善したもの。",
+      en: "The Research and Development Center for Large Language Models at Japan's National Institute of Informatics released the LLM-jp-4.1 series, open models strong in Japanese, together with their training data under the Apache License 2.0. It improves the post-training of the LLM-jp-4 series released from April 2026.",
+    },
+    sources: [
+      { label: "LLM-jp: 大規模言語モデル「LLM-jp-4.1」シリーズを公開（2026-09-28）", url: "https://llm-jp.nii.ac.jp/news/llm-jp-4-1/" },
     ],
   },
   {
