@@ -33,7 +33,9 @@ export interface TimelineEvent {
 // jailbreaking and Big Sleep 2024, GTIG's two misuse reports, Constitutional Classifiers, NIST AI 100-2 E2025, the AIxCC final,
 // Anthropic's two threat reports, and the 250-document poisoning study 2025, and IPA's 10 major threats 2026 — also added on 2026-10-13;
 // the AI-and-Japanese entries — the plain Japanese guidelines 2020, JGLUE 2022, LLM-jp, the tokenizer-unfairness study, and Llama 2
-// 2023, the Swallow study, Fugaku-LLM, and JBBQ 2024, and LLM-jp-4.1 2026 — also added on 2026-10-13).
+// 2023, the Swallow study, Fugaku-LLM, and JBBQ 2024, and LLM-jp-4.1 2026 — also added on 2026-10-13; the AI-in-industry
+// entries — the bridge inspection guidelines 2019, the logistics policy package 2023, the truck overtime cap, i-Construction 2.0,
+// the care technology priority areas, the care worker estimate, and the smart agriculture act 2024 — also added on 2026-10-13).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -157,6 +159,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
         label: "厚生労働省: 人工知能（AI）を用いた診断、治療等の支援を行うプログラムの利用と医師法第17条の規定との関係について（医政医発1219第1号）",
         url: "https://www.mhlw.go.jp/content/10601000/000468150.pdf",
       },
+    ],
+  },
+  {
+    id: "2019-bridge-inspection-guidelines",
+    date: "2019-02-01",
+    precision: "month",
+    title: { ja: "道路橋の定期点検要領を改定、近接目視と同等の方法も可能に", en: "Japan's Bridge Inspection Guidelines Allow Methods Equivalent to Close Visual Inspection" },
+    summary: {
+      ja: "国土交通省の道路橋定期点検要領は、5年に1回の定期点検と近接目視を基本としつつ、点検する人が近接目視と同等の診断ができる情報を得られると判断した方法による状態の把握も認めた。ドローンや画像のAIなどの点検支援技術を使う道が開けた。",
+      en: "Japan's road bridge periodic inspection guidelines kept inspections every five years with close visual inspection as the basis, but also allowed inspectors to assess condition by any method they judge to give information for an equivalent diagnosis — opening the way for inspection-support technologies such as drones and image AI.",
+    },
+    sources: [
+      { label: "国土交通省: 道路橋定期点検要領（2019年2月）", url: "https://www.mlit.go.jp/road/sisaku/yobohozen/tenken/yobo4_1.pdf" },
     ],
   },
   {
@@ -529,6 +544,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "国土交通省: 国内初！運転者を配置しないレベル４での自動運転移動サービスの開始について（2023年5月12日）", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html" }],
   },
   {
+    id: "2023-logistics-policy-package",
+    date: "2023-06-02",
+    precision: "day",
+    title: { ja: "「物流革新に向けた政策パッケージ」を決定", en: "Japan Adopts a Policy Package for Logistics Innovation" },
+    summary: {
+      ja: "政府の関係閣僚会議が、商慣行の見直し、物流の効率化、荷主・消費者の行動変容を柱とする政策パッケージを決めた。自動倉庫や無人の荷役機器の導入、自動運転トラックのためのレーン、ドローン航路、AIを使った配船計画などを盛り込んだ。",
+      en: "A ministerial council adopted a policy package built on reviewing business practices, making logistics more efficient, and changing the behavior of shippers and consumers. It included automated warehouses and unmanned loading equipment, lanes for automated trucks, drone routes, and AI-generated ship allocation plans.",
+    },
+    sources: [
+      { label: "内閣官房: 物流革新に向けた政策パッケージ（2023年6月2日）", url: "https://www.cas.go.jp/jp/seisaku/buturyu_kakushin/pdf/seisaku_package.pdf" },
+    ],
+  },
+  {
     id: "2023-mata-v-avianca",
     date: "2023-06-22",
     precision: "day",
@@ -777,6 +805,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-truck-driver-overtime-cap",
+    date: "2024-04-01",
+    precision: "month",
+    title: { ja: "トラックドライバーの時間外労働に年960時間の上限（物流の2024年問題）", en: "A 960-Hour Annual Overtime Cap for Truck Drivers (the Logistics \"2024 Problem\")" },
+    summary: {
+      ja: "働き方改革関連法に基づき、自動車の運転業務の時間外労働に年960時間（休日労働を含まない）の上限がかかった。国の試算では、具体的な対応をしなければ輸送能力が2024年度に約14%、2030年度に約34%不足する可能性がある。",
+      en: "Under Japan's work-style reform legislation, a cap of 960 hours a year (excluding work on days off) on overtime for driving work took effect. A government estimate says that without concrete action, carrying capacity could fall about 14% short in fiscal 2024 and about 34% short in fiscal 2030.",
+    },
+    sources: [
+      { label: "国土交通省: 物流の2024年問題について", url: "https://www.mlit.go.jp/policy/shingikai/content/001620626.pdf" },
+    ],
+  },
+  {
     id: "2024-many-shot-jailbreaking",
     date: "2024-04-02",
     precision: "day",
@@ -787,6 +828,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
     },
     sources: [
       { label: "Anthropic: Many-shot jailbreaking（2024-04-02）", url: "https://www.anthropic.com/research/many-shot-jailbreaking" },
+    ],
+  },
+  {
+    id: "2024-i-construction-2",
+    date: "2024-04-16",
+    precision: "day",
+    title: { ja: "国土交通省が「i-Construction 2.0」を策定", en: "Japan's MLIT Adopts i-Construction 2.0" },
+    summary: {
+      ja: "2040年度までに建設現場の省人化を少なくとも3割（生産性1.5倍）にすることを目指し、施工・データ連携・施工管理のオートメーション化を3本の柱とした。AIなどで作った施工計画に基づき、1人のオペレーターが複数の建設機械を管理する姿を描く。",
+      en: "Aiming to cut the labor needed on construction sites by at least 30% (1.5 times the productivity) by fiscal 2040, it set three pillars — automating construction work, data integration, and construction management — envisioning one operator managing several machines according to plans generated with AI and other tools.",
+    },
+    sources: [
+      { label: "国土交通省: 「i-Construction 2.0」を策定しました（2024-04-16）", url: "https://www.mlit.go.jp/report/press/kanbo08_hh_001085.html" },
     ],
   },
   {
@@ -949,6 +1003,32 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2024-care-technology-priority-areas",
+    date: "2024-06-28",
+    precision: "day",
+    title: { ja: "「介護テクノロジー利用の重点分野」に改訂", en: "Japan Revises Its Priority Areas as \"Care Technology\"" },
+    summary: {
+      ja: "厚生労働省と経済産業省が、介護ロボットの重点分野を改訂して名前を「介護テクノロジー利用の重点分野」に変え、機能訓練支援、食事・栄養管理支援、認知症生活支援・認知症ケア支援を加えて9分野16項目とした（2025年4月から運用）。",
+      en: "Japan's health and industry ministries revised their priority areas for care robots, renamed them the \"priority areas for the use of care technology,\" and added functional training support, meal and nutrition management support, and dementia care support, for 9 areas and 16 items (in operation from April 2025).",
+    },
+    sources: [
+      { label: "厚生労働省: 「ロボット技術の介護利用における重点分野」を改訂しました（2024-06-28）", url: "https://www.mhlw.go.jp/stf/juutenbunya_r6kaitei_00001.html" },
+    ],
+  },
+  {
+    id: "2024-care-worker-demand",
+    date: "2024-07-12",
+    precision: "day",
+    title: { ja: "介護職員は2040年度に約272万人必要との推計", en: "Japan Estimates It Will Need About 2.72 Million Care Workers in Fiscal 2040" },
+    summary: {
+      ja: "厚生労働省が、都道府県の推計を集めた介護職員の必要数を公表した。2026年度に約240万人、2040年度に約272万人で、2022年度の約215万人よりそれぞれ約25万人、約57万人多い。",
+      en: "Japan's Ministry of Health, Labour and Welfare published the number of care workers needed, based on prefectures' estimates: about 2.40 million in fiscal 2026 and about 2.72 million in fiscal 2040, about 250,000 and 570,000 more than the roughly 2.15 million of fiscal 2022.",
+    },
+    sources: [
+      { label: "厚生労働省: 第9期介護保険事業計画に基づく介護職員の必要数について（2024-07-12）", url: "https://www.mhlw.go.jp/stf/newpage_41379.html" },
+    ],
+  },
+  {
     id: "2024-imo-silver-alphaproof",
     date: "2024-07-25",
     precision: "day",
@@ -987,6 +1067,19 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "OpenAI released o1-preview and o1-mini, models designed to spend more time reasoning before answering — stronger on complex math, science, and coding problems.",
     },
     sources: [{ label: "OpenAI: Introducing OpenAI o1", url: "https://openai.com/index/introducing-openai-o1-preview/" }],
+  },
+  {
+    id: "2024-smart-agriculture-act",
+    date: "2024-10-01",
+    precision: "day",
+    title: { ja: "スマート農業技術活用促進法が施行", en: "Japan's Smart Agriculture Technology Promotion Act Takes Effect" },
+    summary: {
+      ja: "2024年6月に成立した法律が施行された。スマート農業技術の活用とあわせて生産の方式を変える計画と、技術の開発・普及の計画の2つの認定制度を設け、認定を受けた農業者や事業者が金融などの支援を受けられるようにした。",
+      en: "A law passed in June 2024 took effect, creating two certification schemes — for plans that use smart agriculture technology while changing production methods, and for plans to develop and spread such technology — so certified farmers and businesses can receive financial and other support.",
+    },
+    sources: [
+      { label: "農林水産省: スマート農業技術活用促進法について", url: "https://www.maff.go.jp/j/kanbo/smart/houritsu.html" },
+    ],
   },
   {
     id: "2024-nobel-physics",
