@@ -15,7 +15,7 @@ export const protectingLocations: Lesson = {
     ja: `## 詳しい場所は載せない
 環境省は、絶滅のおそれのある種をまとめたレッドデータブックに、それぞれの種の分布域の情報を載せています。ただし、詳しい生息・生育の場所を公開すると、人による乱獲などのおそれがあるため、詳しい位置の情報は載せていません。環境省は、絶滅危惧種にとって「捕獲・採集」は大きな減少の要因だとして、一人一人が「むやみにとらない」意識を持つことが大切だとしています。
 
-一方、生きものの記録を集める側の道具は便利になりました。環境省の資料（2018年）によると、市民の参加で全国の生きものの情報を集める「いきものログ」のアプリは、GPS機能のある端末で撮った写真から、撮影場所の緯度・経度を読み取って記録できます。写真には、場所の情報が付いていることがあるのです。
+一方、記録する道具は、観察した場所を正確に残せます。環境省の資料（2018年）では、市民の参加で全国の生きものの情報を集める「いきものログ」のアプリについて、GPS機能のある端末で撮った写真から、撮影場所の緯度・経度を読み取って記録できると紹介しています。写真には、場所の情報が付いていることがあるのです。
 
 ## iNaturalistの2つのしくみ
 iNaturalistに投稿された観察記録は公開されますが、位置の情報を制限するしくみが2つあります。
@@ -41,7 +41,7 @@ iNaturalist自身が、このしくみは完全ではないと書いています
     en: `## Precise places are left out
 Japan's Ministry of the Environment publishes information on the distribution range of each species in its Red Data Book of threatened species. But because publishing precise habitats could lead to overcollection by people, it does not include detailed location information. The ministry says capture and collection are a major cause of decline for threatened species, and that it is important for everyone to keep in mind not to take them needlessly.
 
-Meanwhile, the tools for collecting records of living things have become more convenient. According to a ministry document (2018), the app for "Ikimono Log," which collects information on living things nationwide with citizen participation, can read the latitude and longitude of where a photo was taken from photos shot on GPS-equipped devices. Photos can carry location information.
+Meanwhile, recording tools can capture exactly where an observation was made. A ministry document (2018) explains that the app for "Ikimono Log," which collects information on living things nationwide with citizen participation, can read the latitude and longitude of where a photo was taken from photos shot on GPS-equipped devices. Photos can carry location information.
 
 ## iNaturalist's two mechanisms
 Observations posted to iNaturalist are public, but there are two ways to restrict their location information.
