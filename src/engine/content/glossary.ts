@@ -57,7 +57,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "テキスト・画像・音声など複数種のデータを1つのモデルで処理・関連づけられること。",
       en: "The ability of a single model to process and relate multiple data types — text, images, audio, and more.",
     },
-    relatedLessonIds: ["ai-basics-05", "chat-ais-07", "ai-and-society-04"],
+    relatedLessonIds: ["ai-basics-05", "chat-ais-07", "ai-and-society-04", "ai-and-sports-04"],
     sources: [{ label: "IBM: What is Multimodal AI?", url: "https://www.ibm.com/think/topics/multimodal-ai" }],
     lastVerified: "2026-10-06",
   },
@@ -106,7 +106,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "大量のテキストで訓練され、次に来るトークンを予測することで文章を生成するニューラルネットワーク。",
       en: "A neural network trained on vast amounts of text that generates language by predicting the next token.",
     },
-    relatedLessonIds: ["ai-basics-02", "how-llms-work-02", "ai-at-work-03", "understanding-ai-06"],
+    relatedLessonIds: ["ai-basics-02", "how-llms-work-02", "ai-at-work-03", "understanding-ai-06", "ai-and-sports-04"],
     sources: [{ label: "Wikipedia: Large language model", url: "https://en.wikipedia.org/wiki/Large_language_model" }],
     lastVerified: "2026-10-06",
   },
@@ -608,7 +608,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "自動化されたシステムの動作・監督・意思決定に、人が能動的に関わる仕組み。AIエージェントの安全対策としては、影響の大きい操作の前に人の承認を求める形で使われる。",
       en: "A system or process in which a human actively participates in the operation, supervision, or decision-making of an automated system. As a safeguard for AI agents, it takes the form of requiring a person to approve high-impact actions before they are taken.",
     },
-    relatedLessonIds: ["ai-at-work-06", "ai-agents-01", "ai-agents-04", "ai-in-finance-04"],
+    relatedLessonIds: ["ai-at-work-06", "ai-agents-01", "ai-agents-04", "ai-in-finance-04", "ai-and-sports-05", "ai-and-sports-06"],
     sources: [
       { label: "IBM: What Is Human In The Loop (HITL)?", url: "https://www.ibm.com/think/topics/human-in-the-loop" },
       { label: "OWASP: LLM06:2025 Excessive Agency", url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/" },
@@ -768,7 +768,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "本来は当てはまらないものを、当てはまると誤って判定すること。顔認識では、別人の2枚の写真を同一人物と判定する誤りを指す。逆に、同一人物の写真を一致と判定できない誤りは偽陰性と呼ぶ。どちらの誤りが、どの場面で起きるかによって、結果の重さは大きく変わる。",
       en: "Wrongly judging something to be a match when it isn't. In face recognition, it means wrongly judging photos of two different people to show the same person; the opposite error — failing to match two photos of the same person — is a false negative. Which error happens, and where, makes a big difference to the consequences.",
     },
-    relatedLessonIds: ["ai-and-society-03", "generative-media-07", "ai-in-industry-04", "ai-in-finance-02"],
+    relatedLessonIds: ["ai-and-society-03", "generative-media-07", "ai-in-industry-04", "ai-in-finance-02", "ai-and-sports-05"],
     sources: [
       {
         label: "NIST: NIST Study Evaluates Effects of Race, Age, Sex on Face Recognition Software (2019-12-19)",
@@ -2916,6 +2916,130 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       {
         label: "FSB: Sound Practices for Responsible Adoption of Artificial Intelligence (AI) — Consultation report（2026-06-10）",
         url: "https://www.fsb.org/uploads/P100626.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "var",
+    term: { ja: "VAR（ビデオ・アシスタント・レフェリー）", en: "VAR (video assistant referee)" },
+    definition: {
+      ja: "映像を見て主審を助けるサッカーの審判員。競技規則では、主審がVARから援助を得られるのは、得点かどうか、ペナルティーキックかどうか、退場、警告や退場を命じる競技者の取り違えなどについての「はっきりとした、明白な間違い」か「見逃された重大な事象」の場合に限られる。Jリーグは2023年から、VARのオフサイドの確認に3Dラインを使っている。",
+      en: "A soccer match official who helps the referee by reviewing video. Under the Laws of the Game, the referee may be assisted by the VAR only for a \"clear and obvious error\" or a \"serious missed incident\" concerning goals, penalty kicks, sending-offs, mistaken identity when cautioning or sending off, and the like. Since 2023, Japan's J.League has used 3D lines for VAR offside checks.",
+    },
+    relatedLessonIds: ["ai-and-sports-01"],
+    sources: [
+      {
+        label: "日本サッカー協会: 2026/27年サッカー競技規則 変更の概要と詳細",
+        url: "https://www.jfa.jp/documents/pdf/soccer/law_soccer_260528_01.pdf",
+      },
+      {
+        label: "Jリーグ: 「3Dオフサイドライン導入」でより正確な判定の実現へ「第1回JFAレフェリーブリーフィング」レポート（2023-02-01）",
+        url: "https://www.jleague.jp/news/article/24545/",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "semi-automated-offside",
+    term: { ja: "半自動オフサイドテクノロジー（SAOT）", en: "Semi-automated offside technology (SAOT)" },
+    definition: {
+      ja: "オフサイドの位置の情報を、ただちにVARに、最新のものでは副審にも直接送る技術（2026/27年の競技規則の用語集）。FIFAが2022年のワールドカップで使ったしくみは、12台のカメラとボールの中のセンサーの追跡データにAIを適用して警告を出し、映像室の審判員が確かめてから主審に伝える。判定の責任は主審と副審にある。",
+      en: "Technology that immediately sends information about offside positions to the VAR — and, in the latest versions, directly to the assistant referees (as defined in the 2026/27 Laws of the Game glossary). The system FIFA used at the 2022 World Cup applies AI to tracking data from 12 cameras and a sensor inside the ball to raise an alert, which the video match officials check before informing the referee. Responsibility for the decision stays with the referees.",
+    },
+    relatedLessonIds: ["ai-and-sports-01", "ai-and-sports-06"],
+    sources: [
+      {
+        label: "日本サッカー協会: 2026/27年サッカー競技規則 変更の概要と詳細",
+        url: "https://www.jfa.jp/documents/pdf/soccer/law_soccer_260528_01.pdf",
+      },
+      {
+        label: "FIFA: Semi-automated offside technology to be used at FIFA World Cup 2022（2022-07-01）",
+        url: "https://inside.fifa.com/innovation/media-releases/semi-automated-offside-technology-to-be-used-at-fifa-world-cup-2022-tm",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "judging-support-system",
+    term: { ja: "採点支援システム（JSS）", en: "Judging Support System (JSS)" },
+    definition: {
+      ja: "国際体操連盟と富士通が共同で開発した、体操の採点を支えるシステム。競技者の動作をセンシングして数値データとして分析し、AIが技を自動で判定して結果を画面に示し、関節の角度などの数値も表示して、同じ基準による正確な判定を支援する。2019年に4種目で正式に導入され、2023年9月30日からは全10種目で使われている。",
+      en: "A system jointly developed by the International Gymnastics Federation and Fujitsu to support gymnastics judging. It senses athletes' movements and analyzes them as numerical data, has AI identify skills automatically and display the results, and shows numbers such as joint angles, supporting accurate judging by the same standard. It was officially introduced on four apparatus in 2019 and has been used on all 10 apparatus since September 30, 2023.",
+    },
+    relatedLessonIds: ["ai-and-sports-02", "ai-and-sports-06"],
+    sources: [
+      {
+        label: "富士通: 「第49回世界体操競技選手権大会」で富士通の採点支援システムを正式導入（2019-10-02）",
+        url: "https://info.archives.global.fujitsu/jp/news/2019/10/2-1.html",
+      },
+      {
+        label: "富士通: 国際体操連盟、富士通のJudging Support Systemを全10種目で利用開始（2023-10-05）",
+        url: "https://info.archives.global.fujitsu/jp/news/2023/10/5-1.html",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "sports-integrity",
+    term: { ja: "スポーツインテグリティ", en: "Sports integrity" },
+    definition: {
+      ja: "スポーツが様々な脅威によって欠けるところなく、価値ある高潔な状態であること（富士通の説明）。国際体操連盟と富士通は、採点の公平性や透明性を確保してスポーツインテグリティを高める取組みとして、採点支援システムの開発を2017年に始めた。",
+      en: "The state in which sport remains whole, valuable, and honorable, unharmed by the various threats it faces (as Fujitsu describes it). The International Gymnastics Federation and Fujitsu began developing the judging support system in 2017 as an effort to strengthen sports integrity by ensuring fair and transparent scoring.",
+    },
+    relatedLessonIds: ["ai-and-sports-02"],
+    sources: [
+      {
+        label: "富士通: 国際体操連盟、富士通のJudging Support Systemを全10種目で利用開始（2023-10-05）",
+        url: "https://info.archives.global.fujitsu/jp/news/2023/10/5-1.html",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "abs-challenge-system",
+    term: { ja: "ABSチャレンジシステム", en: "ABS Challenge System" },
+    definition: {
+      ja: "MLBが2026年から使っている、ボールとストライクの判定へのチャレンジ制度。12台のホークアイのカメラが投球の位置を追跡し、投手・捕手・打者が球審の判定に異議を申し立てたときに、投球を打者のストライクゾーンと比べる。各チームは試合の初めに2回の権利を持ち、成功すれば減らない。MLBの発表は「AI」という言葉を使っていない。",
+      en: "MLB's system, used since 2026, for challenging ball and strike calls. 12 Hawk-Eye cameras track the location of each pitch, and when a pitcher, catcher, or batter challenges the plate umpire's call, the pitch is compared with the batter's strike zone. Each club starts the game with two challenges and keeps them when successful. MLB's announcement does not use the word \"AI.\"",
+    },
+    relatedLessonIds: ["ai-and-sports-03", "ai-and-sports-06"],
+    sources: [
+      {
+        label: "MLB: MLB announces ABS Challenge System coming to the Major Leagues beginning in the 2026 season（2025-09-23）",
+        url: "https://www.mlb.com/press-release/press-release-mlb-announces-abs-challenge-system-coming-to-the-major-leagues-beginning-in-the-2026-season",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "prosody",
+    term: { ja: "プロソディ", en: "Prosody" },
+    definition: {
+      ja: "抑揚、強勢、リズム、声の大きさなど、同じ言葉に違う意味合いを与える話し言葉の要素を指す言語学の用語。IBMの研究者は、多くのLLMは内容は正しく伝えられてもプロソディを扱うのが苦手だとし、試合の盛り上がりに合わせて声の抑揚を変えるスポーツ解説の研究を進めている。",
+      en: "The linguistic term for the elements of speech — such as intonation, stress, rhythm, and loudness — that give different meanings to the same words. IBM researchers say many LLMs convey content correctly but struggle with prosody, and are researching sports commentary whose voice changes with the excitement of play.",
+    },
+    relatedLessonIds: ["ai-and-sports-04"],
+    sources: [
+      {
+        label: "IBM Think: The future of tennis broadcasting: Excitement-driven AI sports commentary（2025-09-02）",
+        url: "https://www.ibm.com/think/news/future-tennis-broadcasting-ai-sports-commentary",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "online-abuse-monitoring",
+    term: { ja: "SNSの中傷の監視（Threat Matrix）", en: "Online abuse monitoring (Threat Matrix)" },
+    definition: {
+      ja: "AIでSNSの投稿を集めて中傷の疑いのあるものを拾い、人が確かめて対応するしくみ。世界陸連はSignify GroupのThreat Matrixを使い、2021年から4つの大会で調査した。パリ2024オリンピックでは、355,873件の投稿・コメントからAIが34,040件を人の確認に回し、809件が中傷と確認された。",
+      en: "A system in which AI collects social media posts and flags likely abuse, which people then verify and act on. World Athletics used Signify Group's Threat Matrix in studies across four events from 2021. At the Paris 2024 Olympics, AI flagged 34,040 of 355,873 posts and comments for human review, and 809 were verified as abusive.",
+    },
+    relatedLessonIds: ["ai-and-sports-05"],
+    sources: [
+      {
+        label: "World Athletics: World Athletics publishes findings of study into online abuse of athletes covering Paris Olympic Games（2024-10-31）",
+        url: "https://worldathletics.org/news/press-releases/study-online-abuse-athletes-paris-2024-olympic-games",
       },
     ],
     lastVerified: "2026-10-13",
