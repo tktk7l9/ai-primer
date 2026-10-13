@@ -44,7 +44,9 @@ AIが答えられるのは、学習した文章と、あなたが入力した情
 2. **質問リストを作る**: 専門家や金融機関の窓口に聞くことを、AIと一緒に整理する。
 3. **前提を書き出してから聞く**: 年齢・家族構成・目的・期間を書き、「一般論として選択肢と注意点を挙げて」と頼む。答えは選択肢の整理として使い、決定には使わない。
 4. **数字は公式で確かめる**: 制度の数字はAIの答えではなく、公的機関のページで確かめる。
-5. **入力する情報を選ぶ**: 口座番号・暗証番号・マイナンバーは入力しない。資産額のような機微な情報も、保存や学習の設定を確かめてから（[仕事でAIを使うときの情報の扱い](/ja/learn/society/data-privacy-at-work)のレッスン参照）。`,
+5. **入力する情報を選ぶ**: 口座番号・暗証番号・マイナンバーは入力しない。資産額のような機微な情報も、保存や学習の設定を確かめてから（[仕事でAIを使うときの情報の扱い](/ja/learn/society/data-privacy-at-work)のレッスン参照）。
+
+金融機関の側がチャットなどでAIを顧客向けに使うときの工夫は、[窓口とチャットのAI](/ja/learn/ai-in-finance/customer-facing-ai)のレッスンで扱っています。`,
     en: `## General information is not advice about you
 
 The difference between NISA and iDeCo, fixed versus variable mortgage rates, whether to change your insurance — ask a chat AI about money and a well-organized answer comes straight back. But it pays to draw a clear line between where AI helps with money questions and where it must not be relied on.
@@ -77,7 +79,9 @@ The Japan Financial Literacy and Education Corporation (J-FLEC) certifies and pu
 2. **Build a list of questions**: organize, with the AI, what to ask a professional or your bank.
 3. **Write down your premises first**: age, household, goal, time horizon — then ask for "the options and caveats, in general terms." Use the answer to organize options, not to decide.
 4. **Check figures against official sources**: take rule-based numbers from public bodies' pages, not from the AI.
-5. **Choose what you enter**: never type in account numbers, PINs, or your My Number. For sensitive details such as your net worth, check the storage and training settings first (see [handling information when using AI at work](/en/learn/society/data-privacy-at-work)).`,
+5. **Choose what you enter**: never type in account numbers, PINs, or your My Number. For sensitive details such as your net worth, check the storage and training settings first (see [handling information when using AI at work](/en/learn/society/data-privacy-at-work)).
+
+How financial institutions themselves safeguard AI they use with customers, in chat and elsewhere, is covered in the [AI at the counter and in chat](/en/learn/ai-in-finance/customer-facing-ai) lesson.`,
   },
   quiz: [
     {

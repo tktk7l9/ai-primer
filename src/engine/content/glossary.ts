@@ -46,7 +46,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIがもっともらしいが事実に基づかない内容を生成してしまう現象。",
       en: "When an AI generates plausible-sounding but factually incorrect or fabricated content.",
     },
-    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02", "ai-and-society-04", "ai-and-society-06", "understanding-ai-02", "understanding-ai-06", "ai-in-daily-life-01", "ai-in-daily-life-02", "ai-in-daily-life-03", "ai-in-daily-life-04", "ai-in-daily-life-05", "ai-and-historical-records-06"],
+    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02", "ai-and-society-04", "ai-and-society-06", "understanding-ai-02", "understanding-ai-06", "ai-in-daily-life-01", "ai-in-daily-life-02", "ai-in-daily-life-03", "ai-in-daily-life-04", "ai-in-daily-life-05", "ai-and-historical-records-06", "ai-in-finance-01", "ai-in-finance-04"],
     sources: [{ label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" }],
     lastVerified: "2026-10-06",
   },
@@ -68,7 +68,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "外部情報を検索してから、その内容を踏まえて回答を生成する手法。",
       en: "A technique that retrieves external information before generating an answer grounded in it.",
     },
-    relatedLessonIds: ["ai-basics-04", "ai-basics-06", "understanding-ai-02", "ai-and-disasters-06"],
+    relatedLessonIds: ["ai-basics-04", "ai-basics-06", "understanding-ai-02", "ai-and-disasters-06", "ai-in-finance-04"],
     sources: [
       {
         label: "Google Cloud: What is Retrieval-Augmented Generation (RAG)?",
@@ -309,7 +309,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "入力やツールで読み込んだ外部コンテンツに含まれる文によって、LLMの挙動が意図せず変えられてしまう脆弱性。外部のWebページや文書経由のものを「間接型」と呼ぶ。",
       en: "A vulnerability where text in the input, or in external content fetched by a tool, alters an LLM's behavior in unintended ways. Cases via web pages or documents are called \"indirect\" injection.",
     },
-    relatedLessonIds: ["ai-agents-04", "ai-at-work-04", "ai-at-work-06", "understanding-ai-02", "ai-and-security-01", "ai-and-security-02"],
+    relatedLessonIds: ["ai-agents-04", "ai-at-work-04", "ai-at-work-06", "understanding-ai-02", "ai-and-security-01", "ai-and-security-02", "ai-in-finance-05"],
     sources: [{ label: "OWASP: LLM01:2025 Prompt Injection", url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/" }],
     lastVerified: "2026-10-06",
   },
@@ -398,7 +398,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "実在する人物・物・場所・出来事などに似せてAIで生成・加工した画像・音声・動画で、本物や真実であるかのように誤って見えるもの（EU AI Actの定義による）。",
       en: "AI-generated or manipulated image, audio, or video content that resembles existing persons, objects, places, entities, or events and would falsely appear to a person to be authentic or truthful (the EU AI Act's definition).",
     },
-    relatedLessonIds: ["generative-media-07", "society-07", "ai-at-work-05", "ai-and-society-05", "ai-and-disasters-04", "ai-and-historical-records-05"],
+    relatedLessonIds: ["generative-media-07", "society-07", "ai-at-work-05", "ai-and-society-05", "ai-and-disasters-04", "ai-and-historical-records-05", "ai-in-finance-02"],
     sources: [
       { label: "AI Act Service Desk: Article 3 (Definitions)", url: "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-3" },
       {
@@ -608,7 +608,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "自動化されたシステムの動作・監督・意思決定に、人が能動的に関わる仕組み。AIエージェントの安全対策としては、影響の大きい操作の前に人の承認を求める形で使われる。",
       en: "A system or process in which a human actively participates in the operation, supervision, or decision-making of an automated system. As a safeguard for AI agents, it takes the form of requiring a person to approve high-impact actions before they are taken.",
     },
-    relatedLessonIds: ["ai-at-work-06", "ai-agents-01", "ai-agents-04"],
+    relatedLessonIds: ["ai-at-work-06", "ai-agents-01", "ai-agents-04", "ai-in-finance-04"],
     sources: [
       { label: "IBM: What Is Human In The Loop (HITL)?", url: "https://www.ibm.com/think/topics/human-in-the-loop" },
       { label: "OWASP: LLM06:2025 Excessive Agency", url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/" },
@@ -752,7 +752,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIシステムの判断や出力に生じる系統的な偏り。NISTは、データが対象の集団を代表していないことなどによる統計的・計算上のバイアスだけでなく、組織の手続きや慣行に由来するシステム的なバイアスと、人の考え方の偏りである人間のバイアスがあるとし、AIシステムのバイアスのリスクをゼロにはできないとしている。",
       en: "Systematic skew in an AI system's decisions or outputs. NIST describes not only statistical and computational bias, such as data that doesn't represent the population, but also systemic bias rooted in institutions' procedures and practices and human bias in people's thinking — and states that it is not possible to achieve zero risk of bias in an AI system.",
     },
-    relatedLessonIds: ["ai-and-society-03", "society-03", "ai-and-japanese-05"],
+    relatedLessonIds: ["ai-and-society-03", "society-03", "ai-and-japanese-05", "ai-in-finance-03"],
     sources: [
       {
         label: "NIST SP 1270: Towards a Standard for Identifying and Managing Bias in Artificial Intelligence (2022)",
@@ -768,7 +768,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "本来は当てはまらないものを、当てはまると誤って判定すること。顔認識では、別人の2枚の写真を同一人物と判定する誤りを指す。逆に、同一人物の写真を一致と判定できない誤りは偽陰性と呼ぶ。どちらの誤りが、どの場面で起きるかによって、結果の重さは大きく変わる。",
       en: "Wrongly judging something to be a match when it isn't. In face recognition, it means wrongly judging photos of two different people to show the same person; the opposite error — failing to match two photos of the same person — is a false negative. Which error happens, and where, makes a big difference to the consequences.",
     },
-    relatedLessonIds: ["ai-and-society-03", "generative-media-07", "ai-in-industry-04"],
+    relatedLessonIds: ["ai-and-society-03", "generative-media-07", "ai-in-industry-04", "ai-in-finance-02"],
     sources: [
       {
         label: "NIST: NIST Study Evaluates Effects of Race, Age, Sex on Face Recognition Software (2019-12-19)",
@@ -1995,7 +1995,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIの学習に使うデータに細工して、モデルに脆弱性、バックドア、偏りを持ち込む攻撃。OWASPの「LLMアプリケーション向けTop 10（2025年版）」のLLM04「データとモデルのポイズニング」に当たり、事前学習、ファインチューニング、埋め込みのどの段階のデータも狙われうる。",
       en: "An attack that tampers with the data used to train an AI model in order to introduce vulnerabilities, backdoors, or biases. It falls under LLM04, \"Data and Model Poisoning,\" in OWASP's Top 10 for LLM Applications (2025), and data at any stage — pre-training, fine-tuning, or embedding — can be targeted.",
     },
-    relatedLessonIds: ["ai-and-security-03"],
+    relatedLessonIds: ["ai-and-security-03", "ai-in-finance-05"],
     sources: [
       {
         label: "OWASP: LLM04:2025 Data and Model Poisoning",
@@ -2692,7 +2692,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "画像に写った文字を読み取り、文字のデータに変換する技術。前処理、レイアウトの解析、文字の認識、後処理といった処理を行う。国立国会図書館は、機械学習で改良したOCRで約247万点のデジタル化資料をテキスト化し、全文検索に使っている。OCRで作ったテキストは校正していないことがあり、誤認識がありうる。",
       en: "Technology that reads characters in images and converts them into text data, typically through preprocessing, layout analysis, character recognition, and post-processing. Japan's National Diet Library used OCR improved with machine learning to convert about 2.47 million digitized items to text for full-text search. OCR text may not be proofread, so it can contain misrecognitions.",
     },
-    relatedLessonIds: ["ai-and-historical-records-02", "ai-and-historical-records-03"],
+    relatedLessonIds: ["ai-and-historical-records-02", "ai-and-historical-records-03", "ai-in-finance-01"],
     sources: [
       { label: "CODH: くずし字OCR（AIくずし字認識）について", url: "https://codh.rois.ac.jp/char-shape/OCR/" },
       { label: "NDLラボ: 1 令和3年度デジタル化資料のOCRテキスト化", url: "https://lab.ndl.go.jp/data_set/ocr/r3_text/" },
@@ -2794,6 +2794,129 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       { label: "CODH: 日本古典籍くずし字データセット", url: "https://codh.rois.ac.jp/char-shape/" },
       { label: "NDLラボ: 古典籍資料のOCRテキスト化実験（令和4年度～）", url: "https://lab.ndl.go.jp/data_set/r4_koten/" },
       { label: "GitHub: ndl-lab/ndlocr_cli", url: "https://github.com/ndl-lab/ndlocr_cli" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "aml-cft",
+    term: { ja: "マネロン・テロ資金供与対策（AML/CFT）", en: "AML/CFT (anti-money laundering and countering the financing of terrorism)" },
+    definition: {
+      ja: "マネー・ローンダリングとテロへの資金の提供を防ぐための対策。マネー・ローンダリングは、一般に、犯罪で得た収益の出所や本当の持ち主を分からなくして、捜査機関などによる発見や検挙を逃れようとする行為をいう（警察庁）。金融庁は、従来型のAIの主な使い道の一つに、AML/CFTなどの不正検知を挙げている。",
+      en: "Measures to prevent money laundering and the financing of terrorism. Money laundering generally means hiding the origin or true owner of proceeds of crime so that investigators cannot find them or make arrests (Japan's National Police Agency). Japan's Financial Services Agency lists fraud detection, including AML/CFT, among the main uses of conventional AI.",
+    },
+    relatedLessonIds: ["ai-in-finance-02"],
+    sources: [
+      { label: "警察庁 JAFIC: マネー・ローンダリング対策の沿革", url: "https://www.npa.go.jp/sosikihanzai/jafic/maneron/manetop.htm" },
+      {
+        label: "金融庁: AIディスカッションペーパー（第1.0版）～金融分野におけるAIの健全な利活用の促進に向けた初期的な論点整理～（2025年3月）",
+        url: "https://www.fsa.go.jp/news/r6/sonota/20250304/aidp_summary.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "fatf",
+    term: { ja: "FATF（金融活動作業部会）", en: "FATF (Financial Action Task Force)" },
+    definition: {
+      ja: "マネー・ローンダリング対策の国際的な対策と協力を進めるために設立された政府間機関で、マネー・ローンダリング、テロリストへの資金供与、拡散金融の防止対策で指導的な役割を果たしている。2021年8月30日に公表した第4次対日審査報告書を受けて、日本の金融機関では取引モニタリングなどの高度化・効率化が課題になった。",
+      en: "An intergovernmental body set up to promote international measures and cooperation against money laundering, playing a leading role in countering money laundering, terrorist financing, and proliferation financing. After it published its fourth mutual evaluation report on Japan on August 30, 2021, upgrading and streamlining measures such as transaction monitoring became a priority for Japanese financial institutions.",
+    },
+    relatedLessonIds: ["ai-in-finance-02"],
+    sources: [{ label: "マネー・ローンダリング対策共同機構: AIスコアリングサービスとは", url: "https://www.caml.co.jp/ai.html" }],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "transaction-monitoring",
+    term: { ja: "取引モニタリング", en: "Transaction monitoring" },
+    definition: {
+      ja: "金融機関が取引を監視して、マネー・ローンダリングなどの疑わしい取引を検知するしくみ。検知したアラートには誤検知も含まれ、その対応が負担になる。全国銀行協会の子会社のマネー・ローンダリング対策共同機構は2025年4月1日から、各金融機関のシステムが検知したアラートのリスクの度合いをAIで評価し、根拠とともに返すサービスを提供している。",
+      en: "Systems with which financial institutions watch transactions to detect suspicious ones, such as money laundering. The alerts include false positives, which are a burden to handle. Since April 1, 2025, the Cooperation Agency for Anti-Money Laundering, a subsidiary of the Japanese Bankers Association, has offered a service that uses AI to score the risk of alerts raised by each institution's systems and returns the scores with their grounds.",
+    },
+    relatedLessonIds: ["ai-in-finance-02"],
+    sources: [
+      { label: "マネー・ローンダリング対策共同機構: AIスコアリングサービスとは", url: "https://www.caml.co.jp/ai.html" },
+      {
+        label: "マネー・ローンダリング対策共同機構: AIスコアリングサービスの提供開始について（2025-04-01）",
+        url: "https://www.caml.co.jp/article/general/a111",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "explainability",
+    term: { ja: "説明可能性", en: "Explainability" },
+    definition: {
+      ja: "AIの個々の判断や回答について、なぜその結果になったのかを示せること。金融庁は、生成AIのような複雑なAIでは難しく、理由が分からないとAIの推奨が現場で使われなくなるといった課題があるとしている。完全な説明可能性の確保は難しいため、使い道に応じて顧客や社員など関係者の納得感を確保することが重要だとしている。",
+      en: "The ability to show why an AI reached a particular judgment or answer. Japan's Financial Services Agency says this is hard with complex AI such as generative AI, and that staff may stop using AI recommendations they cannot understand. Because full explainability is hard to achieve, it says securing the acceptance of the people involved, such as customers and staff, in a way suited to the use is important.",
+    },
+    relatedLessonIds: ["ai-in-finance-03"],
+    sources: [
+      {
+        label: "金融庁: AIディスカッションペーパー（第1.0版）～金融分野におけるAIの健全な利活用の促進に向けた初期的な論点整理～（2025年3月）",
+        url: "https://www.fsa.go.jp/news/r6/sonota/20250304/aidp_summary.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "model-risk",
+    term: { ja: "モデル・リスク", en: "Model risk" },
+    definition: {
+      ja: "モデルの誤りや不適切な使用に基づく意思決定によって悪影響が生じるリスク。金融庁の「モデル・リスク管理に関する原則」（2021年11月12日）は、モデルを、理論や仮定に基づいてインプットのデータを処理し、推定値、予測値、スコア、分類などを出力する定量的な手法と定義し、ガバナンスからモデル検証、内部監査まで8つの原則を示している。",
+      en: "The risk of adverse consequences from decisions based on incorrect or misused models. The Financial Services Agency's Principles for Model Risk Management (November 12, 2021) define a model as a quantitative method that processes input data based on theories and assumptions and outputs estimates, predictions, scores, classifications, and the like, and set out eight principles running from governance to model validation and internal audit.",
+    },
+    relatedLessonIds: ["ai-in-finance-05", "ai-in-finance-06"],
+    sources: [{ label: "金融庁: モデル・リスク管理に関する原則（2021年11月12日）", url: "https://www.fsa.go.jp/common/law/ginkou/pdf_02.pdf" }],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "third-party-concentration",
+    term: { ja: "外部の事業者への依存と集中", en: "Third-party dependencies and service provider concentration" },
+    definition: {
+      ja: "AIに必要な専用のハードウェア、クラウド、事前学習済みのモデルを、限られた外部の事業者に頼ること。金融安定理事会（FSB）は2024年11月、これらの市場は集中しており、主要な提供者の障害が金融機関の業務の弱点やシステミック・リスクにつながりうるとした。金融庁も、特定のベンダーに過度に依存しない取組みの例を紹介している。",
+      en: "Relying on a limited number of outside providers for the specialized hardware, cloud services, and pre-trained models AI needs. In November 2024 the Financial Stability Board (FSB) said these markets are concentrated, so disruptions at key providers could create operational vulnerabilities and systemic risk for financial institutions. Japan's FSA also describes examples of efforts to avoid over-reliance on particular vendors.",
+    },
+    relatedLessonIds: ["ai-in-finance-05", "ai-in-finance-06"],
+    sources: [
+      {
+        label: "FSB: The Financial Stability Implications of Artificial Intelligence（2024-11-14）",
+        url: "https://www.fsb.org/2024/11/the-financial-stability-implications-of-artificial-intelligence/",
+      },
+      {
+        label: "金融庁: AIディスカッションペーパー（第1.0版）～金融分野におけるAIの健全な利活用の促進に向けた初期的な論点整理～（2025年3月）",
+        url: "https://www.fsa.go.jp/news/r6/sonota/20250304/aidp_summary.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "ai-market-correlation",
+    term: { ja: "AIによる市場の連動", en: "AI-driven market correlations" },
+    definition: {
+      ja: "多くの金融機関が共通のAIモデルやデータを使うことで、取引、融資、価格づけの動きが連動しやすくなること。金融安定理事会（FSB）は、群集行動、ネットワーク外部性、選択肢の少なさ、透明性の不足を理由に挙げ、相場の変動の拡大や流動性の逼迫の悪化、フラッシュクラッシュの確率の上昇につながりうるとした。",
+      en: "The tendency for trading, lending, and pricing to move together when many financial institutions use common AI models and data. The Financial Stability Board (FSB) cites herding, network externalities, limited choice, and lack of transparency as causes, and says this could amplify volatility, worsen liquidity crunches, and raise the probability of flash crashes.",
+    },
+    relatedLessonIds: ["ai-in-finance-06"],
+    sources: [{ label: "FSB: The Financial Stability Implications of Artificial Intelligence（報告書PDF）", url: "https://www.fsb.org/uploads/P14112024.pdf" }],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "financial-stability-board",
+    term: { ja: "金融安定理事会（FSB）", en: "Financial Stability Board (FSB)" },
+    definition: {
+      ja: "各国の金融当局と国際基準の設定主体の作業を国際的に調整し、効果的な規制・監督などの政策の策定と実施を進める機関。2024年11月14日にAIが金融の安定に与える影響についての報告書を公表してG20に提出し、2026年6月10日には金融機関がAIを責任をもって導入するための「健全な実務」の案を公表して意見を募った。",
+      en: "A body that coordinates internationally the work of national financial authorities and international standard-setting bodies to develop and promote effective regulatory, supervisory, and other financial sector policies. On November 14, 2024 it published a report on AI's implications for financial stability and submitted it to the G20, and on June 10, 2026 it published proposed sound practices for responsible AI adoption by financial institutions for comment.",
+    },
+    relatedLessonIds: ["ai-in-finance-06"],
+    sources: [
+      {
+        label: "FSB: The Financial Stability Implications of Artificial Intelligence（2024-11-14）",
+        url: "https://www.fsb.org/2024/11/the-financial-stability-implications-of-artificial-intelligence/",
+      },
+      {
+        label: "FSB: Sound Practices for Responsible Adoption of Artificial Intelligence (AI) — Consultation report（2026-06-10）",
+        url: "https://www.fsb.org/uploads/P100626.pdf",
+      },
     ],
     lastVerified: "2026-10-13",
   },

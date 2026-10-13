@@ -35,7 +35,9 @@ AIを使えば、実在の人の声や顔をまねた音声や動画を作れま
 2. **家族で合言葉を決めておく**: 「今度どこに連れて行ってくれるの？」のような家族にしか分からない合言葉を決め、家族を名乗る電話ではまず合言葉を確かめます（政府広報）。
 3. **投資の話は、本人と業者を確かめる**: 国民生活センターは、著名人の公式サイトや公式アカウントで投資に関する注意喚起が出ていないかをまず確かめること、日本の居住者を相手に株やFX、暗号資産などの取引業を行うには登録が必要なので、金融庁のホームページで登録の有無を確かめることを勧めています。振込先に個人名義の口座を指定されたら、それは詐欺です。「AI診断」「AIが自動で売買」をうたう勧誘と、お金の相談でAIに任せてよい範囲は、[お金の相談でAIを使うとき](/ja/learn/ai-in-daily-life/money-questions)のレッスンで扱います。
 4. **かかってくる経路を減らす**: 特殊詐欺に使われる電話番号の約7割は国際電話番号です（2025年7月末時点）。ふだん国際電話を使わないなら、固定電話は「国際電話不取扱受付センター」に申し込めば国際電話を無料で止められ、スマートフォンも着信設定やセキュリティアプリで国際電話番号からの着信を制限できます。
-5. **一人で決めない**: 迷ったら家族や身近な人に話し、警察相談専用電話「#9110」（電話をかけた地域の警察の相談窓口につながる）や、消費者ホットライン「188」（最寄りの消費生活センターなどにつながる）に相談します。`,
+5. **一人で決めない**: 迷ったら家族や身近な人に話し、警察相談専用電話「#9110」（電話をかけた地域の警察の相談窓口につながる）や、消費者ホットライン「188」（最寄りの消費生活センターなどにつながる）に相談します。
+
+銀行などの側が、AIを使って不正な取引やマネー・ローンダリングを見つける取組みは、[不正とマネロンを見つけるAI](/ja/learn/ai-in-finance/fraud-and-money-laundering)のレッスンで扱っています。`,
     en: `## A familiar voice or face is no longer proof
 
 With AI, anyone can make audio or video that imitates a real person's voice or face (see the [deepfakes and provenance](/en/learn/generative-media/deepfakes-and-provenance) lesson). Japan's National Police Agency (NPA) warns that with photos posted online, translation apps, and AI, anyone can easily pose as someone else and create that person's voice and video — so however close you become to someone through chat, calls, or video calls, it may be someone else pretending to be them.
@@ -59,7 +61,9 @@ Voices, faces, and images of ID cards or arrest warrants can all be faked. Inste
 2. **Agree on a family password**: decide on a question only your family can answer — such as "Where are you taking me next time?" — and check it first whenever a caller claims to be family (government public relations office).
 3. **For investment offers, check the person and the firm**: Japan's National Consumer Affairs Center advises first checking the celebrity's official website or accounts for any warning about investment offers, and — because firms dealing in stocks, FX, crypto-assets, and the like with residents of Japan must be registered — checking registration on the Financial Services Agency's website. If you are told to send money to an account in an individual's name, it is a scam. Pitches built on an "AI diagnosis" or "AI that trades for you," and how far to trust AI with money questions, are covered in the [asking AI about money](/en/learn/ai-in-daily-life/money-questions) lesson.
 4. **Cut off the routes calls come in by**: about 70% of the phone numbers used in special fraud are international numbers (as of the end of July 2025). If you don't normally make international calls, you can stop international calls to a landline for free through Japan's International Call Suspension Center, and limit calls from international numbers on a smartphone through its call settings or a security app.
-5. **Don't decide alone**: if in doubt, talk to family or someone close, and contact the police consultation line "#9110" (connects to the police consultation desk for the area you call from) or the consumer hotline "188" (connects to your nearest consumer affairs center).`,
+5. **Don't decide alone**: if in doubt, talk to family or someone close, and contact the police consultation line "#9110" (connects to the police consultation desk for the area you call from) or the consumer hotline "188" (connects to your nearest consumer affairs center).
+
+How banks and other institutions use AI to spot fraudulent transactions and money laundering is covered in the [AI that spots fraud and money laundering](/en/learn/ai-in-finance/fraud-and-money-laundering) lesson.`,
   },
   quiz: [
     {
