@@ -44,7 +44,7 @@ npm run build
 
 - npm audit: 本番依存は 0 件。開発用依存の braces（修正版なし・GHSA-vfj7-8cjw-p6xm）だけを、理由と期限つきの例外リスト（`audit-allowlist.json`）で許容し、CI の `scripts/audit-gate.mjs` で検査
 - gitleaks: 0 leaks
-- テスト: 1398件・カバレッジ: engine/i18n/lib 層 100%（thresholds ゲート）
+- テスト: 1446件・カバレッジ: engine/i18n/lib 層 100%（thresholds ゲート）
 - Lighthouse（本番URL `/ja` 計測・2026-10-11 / Cloudflare Workers・Lighthouse 13.5・3回計測の中央値）:
   mobile 96/100/100/100・desktop 100/100/100/100
   ※ mobile の LCP は約 2.7 秒（低速 4G の模擬）。サーバー応答は 40〜80ms でキャッシュから返っており、
