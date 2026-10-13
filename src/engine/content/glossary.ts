@@ -46,7 +46,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIがもっともらしいが事実に基づかない内容を生成してしまう現象。",
       en: "When an AI generates plausible-sounding but factually incorrect or fabricated content.",
     },
-    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02", "ai-and-society-04", "ai-and-society-06", "understanding-ai-02", "understanding-ai-06", "ai-in-daily-life-01", "ai-in-daily-life-02", "ai-in-daily-life-03", "ai-in-daily-life-04", "ai-in-daily-life-05"],
+    relatedLessonIds: ["ai-basics-04", "ai-agents-05", "society-06", "ai-at-work-01", "ai-at-work-02", "ai-and-society-04", "ai-and-society-06", "understanding-ai-02", "understanding-ai-06", "ai-in-daily-life-01", "ai-in-daily-life-02", "ai-in-daily-life-03", "ai-in-daily-life-04", "ai-in-daily-life-05", "ai-and-historical-records-06"],
     sources: [{ label: "IBM: What Are AI Hallucinations?", url: "https://www.ibm.com/think/topics/ai-hallucinations" }],
     lastVerified: "2026-10-06",
   },
@@ -398,7 +398,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "実在する人物・物・場所・出来事などに似せてAIで生成・加工した画像・音声・動画で、本物や真実であるかのように誤って見えるもの（EU AI Actの定義による）。",
       en: "AI-generated or manipulated image, audio, or video content that resembles existing persons, objects, places, entities, or events and would falsely appear to a person to be authentic or truthful (the EU AI Act's definition).",
     },
-    relatedLessonIds: ["generative-media-07", "society-07", "ai-at-work-05", "ai-and-society-05", "ai-and-disasters-04"],
+    relatedLessonIds: ["generative-media-07", "society-07", "ai-at-work-05", "ai-and-society-05", "ai-and-disasters-04", "ai-and-historical-records-05"],
     sources: [
       { label: "AI Act Service Desk: Article 3 (Definitions)", url: "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-3" },
       {
@@ -2399,7 +2399,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIの検出の成績を表す2つの割合。再現率は、本当にあるもののうち正しく検出できた割合（低いと見逃しが多い）。適合率は、検出したもののうち本当に正しかった割合（低いと誤検出が多い）。片方だけでは成績は分からず、見逃しと誤検出のどちらが困るかは使い方で違う。",
       en: "Two rates that describe how well an AI detects things. Recall is the share of real cases that were correctly detected (low recall means many misses). Precision is the share of detections that were actually correct (low precision means many false alarms). Neither tells the whole story alone, and whether misses or false alarms matter more depends on how the system is used.",
     },
-    relatedLessonIds: ["ai-in-industry-04", "ai-and-disasters-02"],
+    relatedLessonIds: ["ai-in-industry-04", "ai-and-disasters-02", "ai-and-historical-records-02"],
     sources: [
       {
         label: "国土交通省: 点検支援技術性能カタログ BR010035「デジタル画像とAIを用いた橋梁点検サポートシステム」",
@@ -2636,6 +2636,164 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
         label: "文部科学省: BRIDGE 令和6年度補正予算 研究開発等計画「個人情報・公的情報等を安全に活用可能な被災者支援AIサービス開発基盤」（2025年1月）",
         url: "https://www8.cao.go.jp/cstp/bridge/keikaku/r6-h02_bridge_r6.pdf",
       },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "digital-archive",
+    term: { ja: "デジタルアーカイブ", en: "Digital archive" },
+    definition: {
+      ja: "様々なデジタル情報資源を収集・保存・提供する仕組みの総体（国のデジタルアーカイブ戦略2026-2030の説明）。デジタル化した資料（コンテンツ）だけでなく、その内容や所在を記述したメタデータや、縮小版・部分表示のサムネイル/プレビューも扱う。戦略は、生成AIの普及で偽・誤情報が深刻になるなか、信頼性の高い情報を集めて提供する中核的な基盤と位置づけている。",
+      en: "The whole system for collecting, preserving, and providing digital information resources (as described in Japan's Digital Archive Strategy 2026-2030). It covers not only digitized materials (content) but also metadata describing their content and location, and thumbnails or previews. The strategy positions digital archives as core infrastructure for gathering and providing reliable information as misinformation grows more serious with the spread of generative AI.",
+    },
+    relatedLessonIds: ["ai-and-historical-records-01", "ai-and-historical-records-05", "ai-and-historical-records-06"],
+    sources: [
+      {
+        label: "デジタルアーカイブ戦略懇談会・デジタルアーカイブ推進に関する検討会: デジタルアーカイブ戦略2026-2030（2025年5月）",
+        url: "https://www.cas.go.jp/jp/seisakukaigi/titeki2/pdf/archive_2026-2030.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "metadata",
+    term: { ja: "メタデータ", en: "Metadata" },
+    definition: {
+      ja: "データに関するデータ。デジタルアーカイブ戦略2026-2030では、コンテンツの内容、外形、所在などを記述したデータを指し、図書館の書誌データ、収蔵品の目録データ、文化財の基礎データなどが当たる。資料を探すときの手がかりになり、ジャパンサーチは様々な分野のメタデータをまとめて検索できるようにしている。",
+      en: "Data about data. In Japan's Digital Archive Strategy 2026-2030 it means data describing a work's content, form, location, and so on — library catalog records, inventories of collections, basic data on cultural properties, and the like. It is what lets people find materials, and Japan Search makes metadata from many fields searchable in one place.",
+    },
+    relatedLessonIds: ["ai-and-historical-records-01"],
+    sources: [
+      {
+        label: "デジタルアーカイブ戦略懇談会・デジタルアーカイブ推進に関する検討会: デジタルアーカイブ戦略2026-2030（2025年5月）",
+        url: "https://www.cas.go.jp/jp/seisakukaigi/titeki2/pdf/archive_2026-2030.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "japan-search",
+    term: { ja: "ジャパンサーチ", en: "Japan Search" },
+    definition: {
+      ja: "書籍、公文書、文化財、美術、人文学、放送番組、映画など、様々な分野のデジタルアーカイブのメタデータをまとめて検索・閲覧・活用できる国のプラットフォーム。2020年8月25日に正式版を公開し、国立国会図書館がシステムを運用している。2026年10月13日時点で、321のデータベース、208の機関と連携し、メタデータは32,876,812件。",
+      en: "A national platform for searching, viewing, and using metadata from digital archives in many fields — books, public records, cultural properties, art, the humanities, broadcast programs, film, and more. Its official version launched on August 25, 2020, and the National Diet Library runs the system. As of October 13, 2026, it linked 321 databases from 208 institutions, with 32,876,812 metadata records.",
+    },
+    relatedLessonIds: ["ai-and-historical-records-01", "ai-and-historical-records-06"],
+    sources: [
+      { label: "ジャパンサーチ: ジャパンサーチの概要", url: "https://jpsearch.go.jp/about" },
+      { label: "ジャパンサーチ: 現在のデータ", url: "https://jpsearch.go.jp/stats" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "ocr",
+    term: { ja: "OCR（光学的文字認識）", en: "OCR (optical character recognition)" },
+    definition: {
+      ja: "画像に写った文字を読み取り、文字のデータに変換する技術。前処理、レイアウトの解析、文字の認識、後処理といった処理を行う。国立国会図書館は、機械学習で改良したOCRで約247万点のデジタル化資料をテキスト化し、全文検索に使っている。OCRで作ったテキストは校正していないことがあり、誤認識がありうる。",
+      en: "Technology that reads characters in images and converts them into text data, typically through preprocessing, layout analysis, character recognition, and post-processing. Japan's National Diet Library used OCR improved with machine learning to convert about 2.47 million digitized items to text for full-text search. OCR text may not be proofread, so it can contain misrecognitions.",
+    },
+    relatedLessonIds: ["ai-and-historical-records-02", "ai-and-historical-records-03"],
+    sources: [
+      { label: "CODH: くずし字OCR（AIくずし字認識）について", url: "https://codh.rois.ac.jp/char-shape/OCR/" },
+      { label: "NDLラボ: 1 令和3年度デジタル化資料のOCRテキスト化", url: "https://lab.ndl.go.jp/data_set/ocr/r3_text/" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "full-text-search",
+    term: { ja: "全文検索", en: "Full-text search" },
+    definition: {
+      ja: "タイトルや目次だけでなく、本文や挿絵のキャプションなども含めて検索すること。国立国会図書館デジタルコレクションでは、OCRで作ったテキストで全文検索ができ、対象は2024年12月に300万点を超えた。タイトルからは見つからない記述に出会える一方、関係のない資料も見つかりやすく、漢字の表記が違うと見つからない。",
+      en: "Searching not only titles and tables of contents but also body text, illustration captions, and so on. The NDL Digital Collections offers full-text search over text made by OCR, covering more than 3 million items as of December 2024. It can surface passages that titles never would, but also unrelated items, and it misses different kanji spellings of the same word.",
+    },
+    relatedLessonIds: ["ai-and-historical-records-02"],
+    sources: [
+      { label: "国立国会図書館 リサーチ・ナビ: 全文検索をさらに活用するヒント", url: "https://ndlsearch.ndl.go.jp/rnavi/plan/fulltext_tips" },
+      {
+        label: "カレントアウェアネス・ポータル（国立国会図書館）: デジタルコレクションの全文検索対象資料が300万点を突破（2025-01-07）",
+        url: "https://current.ndl.go.jp/car/238190",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "kuzushiji",
+    term: { ja: "くずし字", en: "Kuzushiji" },
+    definition: {
+      ja: "古典籍や古文書に書かれた、くずした書体の文字。前後の文字を続けて書く、変体仮名などで字形が複雑、レイアウトの自由度が高い、1000年にわたって使われ時代による変化がある、といった理由で、機械で読み取るのは現代の手書き文字より難しい。人が翻刻したデータセットで学ぶAIくずし字認識が研究・公開されている。",
+      en: "The cursive script of classical books and old documents. Joined characters, complex shapes such as variant kana, free layouts, and a thousand years of change make it harder for machines to read than modern handwriting. AI kuzushiji recognition that learns from datasets of human transcriptions has been researched and released.",
+    },
+    relatedLessonIds: ["ai-and-historical-records-03", "ai-and-historical-records-04"],
+    sources: [
+      { label: "CODH: くずし字OCR（AIくずし字認識）について", url: "https://codh.rois.ac.jp/char-shape/OCR/" },
+      { label: "CODH: 日本古典籍くずし字データセット", url: "https://codh.rois.ac.jp/char-shape/" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "honkoku",
+    term: { ja: "翻刻", en: "Honkoku (transcription)" },
+    definition: {
+      ja: "くずし字などで書かれた歴史資料の文字を、現代の活字に直してテキストにすること。人文学オープンデータ共同利用センター（CODH）は、翻刻は人による高精度のテキスト化で、OCRを補助に使っても最終的には人が文字を決めると説明している。市民が参加する「みんなで翻刻」では、通算10,800人強が4,800万文字を超える翻刻をしている（2026年10月時点のサイトの表示）。",
+      en: "Converting the characters of historical documents written in kuzushiji and other scripts into modern type as text. Japan's Center for Open Data in the Humanities (CODH) explains that transcription is highly accurate text conversion by people: OCR may assist, but people decide each character in the end. In the public participation project Minna de Honkoku, over 10,800 people have transcribed more than 48 million characters (as shown on its site in October 2026).",
+    },
+    relatedLessonIds: ["ai-and-historical-records-03", "ai-and-historical-records-04"],
+    sources: [
+      { label: "CODH: 日本古典籍くずし字データセット", url: "https://codh.rois.ac.jp/char-shape/" },
+      { label: "みんなで翻刻", url: "https://honkoku.org/" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "iiif",
+    term: { ja: "IIIF", en: "IIIF" },
+    definition: {
+      ja: "International Image Interoperability Frameworkの略。デジタルアーカイブの画像を、機関の垣根を越えて扱うための国際的な規格。「みんなで翻刻」は2019年のリニューアルでIIIFに対応し、国立国会図書館や国文学研究資料館などが公開する史料を扱えるようになった。CODHのくずし字認識サービスも、IIIFに準拠した画像を対象にしている。",
+      en: "Short for International Image Interoperability Framework, an international standard for working with digital archive images across institutions. Minna de Honkoku adopted IIIF in its 2019 renewal, making it possible to work with documents published by the National Diet Library, the National Institute of Japanese Literature, and others. CODH's kuzushiji recognition service also works on IIIF-compliant images.",
+    },
+    relatedLessonIds: ["ai-and-historical-records-03", "ai-and-historical-records-04"],
+    sources: [
+      {
+        label: "国立歴史民俗博物館: 市民参加型翻刻プロジェクト「みんなで翻刻」が7月22日リニューアル公開（2019）",
+        url: "https://www.rekihaku.ac.jp/news/20190722.html",
+      },
+      { label: "CODH: KuroNetくずし字認識サービス（AI OCR）", url: "https://codh.rois.ac.jp/kuronet/" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "image-colorization",
+    term: { ja: "白黒写真の自動カラー化", en: "Automatic photo colorization" },
+    definition: {
+      ja: "AIで白黒写真に自動で色をつけること。東京大学の「記憶の解凍」は、早稲田大学の研究者らが2016年に発表した技術で自動カラー化したあと、戦争体験者との対話、SNSのコメント、当時の資料をもとに手作業で色を補正している。AIの色は出発点で、当時の本当の色だとは限らない。",
+      en: "Using AI to add color to black-and-white photos automatically. The University of Tokyo's Rebooting Memories project colorizes photos with a technique published by Waseda University researchers in 2016, then corrects the colors by hand based on conversations with people who lived through the war, social media comments, and period materials. AI's colors are a starting point and are not necessarily the real colors of the time.",
+    },
+    relatedLessonIds: ["ai-and-historical-records-05"],
+    sources: [
+      {
+        label: "東京大学大学院情報学環: 「AIとカラー化した写真でよみがえる戦前・戦争」出版のお知らせ（2020-06-23）",
+        url: "https://www.iii.u-tokyo.ac.jp/news/2020062312108",
+      },
+      {
+        label: "東京大学大学院情報学環: 人工知能を使った「記憶の解凍」ワークショップ（2018）",
+        url: "https://www.iii.u-tokyo.ac.jp/research/180705kiokunokaito",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "creative-commons-license",
+    term: { ja: "CCライセンス（クリエイティブ・コモンズ・ライセンス）", en: "Creative Commons license" },
+    definition: {
+      ja: "作品を公開する人が「この条件を守れば自由に使ってよい」と示すためのライセンス。CC BY（表示）は、原作者のクレジットを表示すれば改変も営利目的の二次利用もできる。CC BY-SA（表示—継承）は、加えて改変したものを元と同じライセンスで公開することが条件。くずし字データセットや「みんなで翻刻」の翻刻データはCC BY-SA、国立国会図書館のNDLOCRはCC BY 4.0で公開されている。",
+      en: "A license with which people who publish a work say, \"You may use it freely as long as you follow these conditions.\" CC BY (Attribution) allows modification and commercial reuse as long as the original creator is credited; CC BY-SA (Attribution-ShareAlike) also requires releasing modified versions under the same license. The kuzushiji dataset and Minna de Honkoku's transcription data are released under CC BY-SA, and the National Diet Library's NDLOCR under CC BY 4.0.",
+    },
+    relatedLessonIds: ["ai-and-historical-records-06"],
+    sources: [
+      { label: "クリエイティブ・コモンズ・ジャパン: CCライセンスとは", url: "https://creativecommons.jp/licenses/" },
+      { label: "CODH: 日本古典籍くずし字データセット", url: "https://codh.rois.ac.jp/char-shape/" },
+      { label: "NDLラボ: 古典籍資料のOCRテキスト化実験（令和4年度～）", url: "https://lab.ndl.go.jp/data_set/r4_koten/" },
+      { label: "GitHub: ndl-lab/ndlocr_cli", url: "https://github.com/ndl-lab/ndlocr_cli" },
     ],
     lastVerified: "2026-10-13",
   },

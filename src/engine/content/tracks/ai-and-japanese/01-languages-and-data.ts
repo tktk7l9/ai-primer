@@ -47,7 +47,7 @@ Common Crawlが公開している統計で、2026年10月13日時点で最新の
 - それでも英語と同じではなく、差の大きさはモデルによって違う。
 - 成績は、テストの訳し方などの測り方にも左右される（[日本語の力をどう測るか](/ja/learn/ai-and-japanese/measuring-japanese-ability)のレッスンで扱う）。
 
-このトラックでは続いて、日本語の文章の長さの数え方（トークン）、日本語の力の測り方、日本での開発、文化の偏り、日本語で上手に使うコツを見ていきます。`,
+このトラックでは続いて、日本語の文章の長さの数え方（トークン）、日本語の力の測り方、日本での開発、文化の偏り、日本語で上手に使うコツを見ていきます。古い日本語の本をOCRでテキストにする取り組みは、[本の文字を読み取るAI](/ja/learn/ai-and-historical-records/ocr-full-text-search)のレッスンで扱います。`,
     en: `## Languages read more often tend to be handled better
 
 Large language models (LLMs) learn language by reading huge amounts of text and practicing predicting what comes next (pre-training; see the [pre-training](/en/learn/how-llms-work/pretraining) lesson). So they tend to be better at languages that appear more often in their training data, and weaker in languages that appear less.
@@ -83,7 +83,7 @@ Three things follow:
 - Still, it is not the same as English, and the size of the gap differs from model to model.
 - Scores also depend on how they are measured, such as how the test was translated (covered in [measuring Japanese ability](/en/learn/ai-and-japanese/measuring-japanese-ability)).
 
-The rest of this track looks at how Japanese text is counted (tokens), how Japanese ability is measured, development in Japan, cultural bias, and tips for using AI well in Japanese.`,
+The rest of this track looks at how Japanese text is counted (tokens), how Japanese ability is measured, development in Japan, cultural bias, and tips for using AI well in Japanese. Efforts to turn old Japanese books into text with OCR are covered in the [AI that reads the text in books](/en/learn/ai-and-historical-records/ocr-full-text-search) lesson.`,
   },
   quiz: [
     {

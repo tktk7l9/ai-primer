@@ -38,7 +38,9 @@ export interface TimelineEvent {
 // the care technology priority areas, the care worker estimate, and the smart agriculture act 2024 — also added on 2026-10-13;
 // the AI-and-disasters entries — DISAANA 2015, D-SUMM 2016, photo-based housing damage assessment 2018, the JMA–RIKEN joint
 // research 2019 and its results 2023, the Noto earthquake misinformation response and Google's two flood forecasting milestones
-// 2024, and the survivor-support AI plan 2025 — also added on 2026-10-13).
+// 2024, and the survivor-support AI plan 2025 — also added on 2026-10-13; the historical-records entries — MOJIZO 2016,
+// Minna de Honkoku 2017 and its AI relaunch 2019, Japan Search 2020, the miwo app 2021, NDL full-text search 2022, the Digital
+// Archive Strategy 2025, and NDLOCR-Lite 2026 — also added on 2026-10-13).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -138,6 +140,26 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "Wikipedia: AlphaGo versus Lee Sedol", url: "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol" }],
   },
   {
+    id: "2016-mojizo-beta",
+    date: "2016-03-25",
+    precision: "day",
+    title: {
+      ja: "木簡・くずし字解読システム「MOJIZO」のβ版が公開",
+      en: "MOJIZO, a System for Reading Wooden Tablets and Kuzushiji, Opens in Beta",
+    },
+    summary: {
+      ja: "奈良文化財研究所と東京大学史料編纂所が、1文字分の画像から木簡や古文書などの似た字形の画像を探すMOJIZOのβ版を公開した。約1年で22万件余のアクセスがあり（2017年2月末時点）、2023年3月には深層学習による文字画像の特徴抽出をもとにした検索になった。",
+      en: "The Nara National Research Institute for Cultural Properties and the University of Tokyo's Historiographical Institute released a beta of MOJIZO, which finds images of similarly shaped characters on wooden tablets, old documents, and more from an image of one character. It drew over 220,000 accesses in about a year (as of the end of February 2017), and in March 2023 its search came to be based on features extracted with deep learning.",
+    },
+    sources: [
+      { label: "奈良文化財研究所・東京大学史料編纂所: 木簡・くずし字解読システム MOJIZO", url: "https://aimojizo.nabunken.go.jp/" },
+      {
+        label: "東京大学: 「木簡・くずし字解読システム―MOJIZO―」スマホ・タブレット版の公開に関するお知らせ（2017-03-17）",
+        url: "https://www.u-tokyo.ac.jp/focus/ja/articles/t_z0206_00013.html",
+      },
+    ],
+  },
+  {
     id: "2016-d-summ-trial",
     date: "2016-10-18",
     precision: "day",
@@ -154,6 +176,26 @@ export const TIMELINE: readonly TimelineEvent[] = [
       {
         label: "総務省: 令和6年版 情報通信白書 コラム「災害時における偽・誤情報への対応」",
         url: "https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r06/html/nd122c00.html",
+      },
+    ],
+  },
+  {
+    id: "2017-minna-de-honkoku",
+    date: "2017-01-10",
+    precision: "day",
+    title: { ja: "市民参加の翻刻プロジェクト「みんなで翻刻」が始まる", en: "Minna de Honkoku, a Public Transcription Project, Launches" },
+    summary: {
+      ja: "京都大学の古地震研究会が、地震の史料のくずし字を市民と一緒に翻刻するWebアプリを公開した。約2年で東京大学地震研究所図書室の古文書495点すべての解読を終えた。",
+      en: "Kyoto University's historical earthquake research group released a web app for transcribing the kuzushiji in earthquake documents together with the public. In about two years, all 495 old documents held by the library of the University of Tokyo's Earthquake Research Institute had been read.",
+    },
+    sources: [
+      {
+        label: "京都大学: Webアプリケーション「みんなで翻刻【地震史料】」の公開（2017-01-10）",
+        url: "https://www.kyoto-u.ac.jp/ja/research-news/2017-01-10",
+      },
+      {
+        label: "京都大学: 「みんなで翻刻」プロジェクトが東京大学地震研究所蔵の古文書のうち495点をすべて解読（2019-03-19）",
+        url: "https://www.kyoto-u.ac.jp/ja/news/2019-03-27-1",
       },
     ],
   },
@@ -263,6 +305,25 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "NOTICE（総務省・NICT・ICT-ISAC）: みんなで守る、IoT。", url: "https://notice.go.jp/" }],
   },
   {
+    id: "2019-minna-de-honkoku-ai",
+    date: "2019-07-22",
+    precision: "day",
+    title: {
+      ja: "「みんなで翻刻」がリニューアル、AIのくずし字認識を搭載",
+      en: "Minna de Honkoku Relaunches with AI Kuzushiji Recognition",
+    },
+    summary: {
+      ja: "国立歴史民俗博物館などが開発を進める「みんなで翻刻」がリニューアルし、凸版印刷とCODHが開発したAIによるくずし字の自動認識を使えるようになった。国際規格IIIFにも対応し、「東寺百合文書」の翻刻も始めた。それまでに約5,000人の参加で600万文字以上が翻刻されていた。",
+      en: "Minna de Honkoku, developed by the National Museum of Japanese History and others, relaunched with automatic kuzushiji recognition by AI developed by Toppan Printing and CODH. It also adopted the international IIIF standard and began transcribing the Toji Temple Hyakugo Documents. By then, about 5,000 participants had transcribed over 6 million characters.",
+    },
+    sources: [
+      {
+        label: "国立歴史民俗博物館: 市民参加型翻刻プロジェクト「みんなで翻刻」が7月22日リニューアル公開（2019）",
+        url: "https://www.rekihaku.ac.jp/news/20190722.html",
+      },
+    ],
+  },
+  {
     id: "2019-nist-face-recognition-demographics",
     date: "2019-12-19",
     precision: "day",
@@ -350,6 +411,20 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2020-japan-search",
+    date: "2020-08-25",
+    precision: "day",
+    title: { ja: "ジャパンサーチの正式版が公開", en: "Japan Search Launches Its Official Version" },
+    summary: {
+      ja: "様々な分野のデジタルアーカイブのメタデータをまとめて検索・閲覧・活用できる国のプラットフォーム、ジャパンサーチの正式版が公開された。国立国会図書館がシステムを運用する。2026年10月13日時点で、321のデータベース、208の機関と連携し、メタデータは32,876,812件。",
+      en: "Japan Search, a national platform for searching, viewing, and using metadata from digital archives in many fields, launched its official version, with the National Diet Library running the system. As of October 13, 2026, it linked 321 databases from 208 institutions, with 32,876,812 metadata records.",
+    },
+    sources: [
+      { label: "ジャパンサーチ: ジャパンサーチ正式版を公開しました（2020-08-25）", url: "https://jpsearch.go.jp/news/20200821" },
+      { label: "ジャパンサーチ: 現在のデータ", url: "https://jpsearch.go.jp/stats" },
+    ],
+  },
+  {
     id: "2020-mmlu",
     date: "2020-09-07",
     precision: "day",
@@ -416,6 +491,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "GitHub announced a technical preview of Copilot, its AI coding assistant.",
     },
     sources: [{ label: "Wikipedia: GitHub Copilot", url: "https://en.wikipedia.org/wiki/GitHub_Copilot" }],
+  },
+  {
+    id: "2021-miwo-app",
+    date: "2021-08-30",
+    precision: "day",
+    title: { ja: "AIくずし字認識アプリ「みを」が公開", en: "The AI Kuzushiji Recognition App miwo Is Released" },
+    summary: {
+      ja: "人文学オープンデータ共同利用センター（CODH）が、スマホで撮ったくずし字をAIで認識して現代の文字に変換するアプリ「みを」を公開した。2022年10月の v1.1 から、新しいAIモデルRURIを使っている。CODHは、認識結果には誤りが含まれることがあり、利用者自身で確かめるよう求めている。",
+      en: "Japan's Center for Open Data in the Humanities (CODH) released miwo, an app that uses AI to recognize kuzushiji photographed with a smartphone and convert it to modern characters. Since v1.1 in October 2022 it has used a new AI model, RURI. CODH warns that results can contain errors and asks users to check them themselves.",
+    },
+    sources: [{ label: "CODH: みを（miwo）とは？", url: "https://codh.rois.ac.jp/miwo/about/" }],
   },
   {
     id: "2021-latent-diffusion",
@@ -504,6 +590,29 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [
       { label: "国土交通省: 無人航空機レベル4飛行ポータルサイト", url: "https://www.mlit.go.jp/koku/level4/" },
       { label: "国土交通省: 無人航空機のレベル4飛行初実施のために飛行の許可・承認を行いました！（2023年3月17日）", url: "https://www.mlit.go.jp/report/press/kouku10_hh_000231.html" },
+    ],
+  },
+  {
+    id: "2022-ndl-full-text-search",
+    date: "2022-12-21",
+    precision: "day",
+    title: {
+      ja: "国立国会図書館デジタルコレクションがリニューアル、約247万点を全文検索可能に",
+      en: "The NDL Digital Collections Renews, Making About 2.47 Million Items Full-Text Searchable",
+    },
+    summary: {
+      ja: "国立国会図書館が、機械学習で改良したOCRで作ったテキストを使い、全文検索できるデジタル化資料を5万点から約247万点に増やした。全文検索の対象は2024年12月に300万点を超えた。OCRのテキストは校正していないため、誤認識がありうる。",
+      en: "Using text produced with OCR improved by machine learning, Japan's National Diet Library expanded the digitized materials searchable by full text from 50,000 to about 2.47 million. Coverage passed 3 million items in December 2024. The OCR text has not been proofread, so misrecognitions are possible.",
+    },
+    sources: [
+      {
+        label: "カレントアウェアネス・ポータル（国立国会図書館）: 「国立国会図書館デジタルコレクション」をリニューアル（2022-12-21）",
+        url: "https://current.ndl.go.jp/car/168581",
+      },
+      {
+        label: "カレントアウェアネス・ポータル（国立国会図書館）: デジタルコレクションの全文検索対象資料が300万点を突破（2025-01-07）",
+        url: "https://current.ndl.go.jp/car/238190",
+      },
     ],
   },
   {
@@ -1483,6 +1592,22 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "IEA: Energy and AI", url: "https://www.iea.org/reports/energy-and-ai" }],
   },
   {
+    id: "2025-digital-archive-strategy",
+    date: "2025-05-01",
+    precision: "month",
+    title: { ja: "「デジタルアーカイブ戦略2026-2030」が決定", en: "Japan Adopts Its Digital Archive Strategy 2026-2030" },
+    summary: {
+      ja: "2026年度から5年間のデジタルアーカイブ推進の方向を示す戦略。生成AIの普及などで偽・誤情報が深刻になるなか、デジタルアーカイブを信頼性の高い情報を集めて提供する中核的な基盤と位置づけ、知的財産権を守りながらAIを含む先端技術の活用を進めることを重要な課題とした。",
+      en: "A strategy setting the direction for promoting digital archives over the five years from fiscal 2026. As misinformation grows more serious, partly with the spread of generative AI, it positions digital archives as core infrastructure for gathering and providing reliable information, and calls using advanced technologies including AI, while protecting intellectual property, an important issue.",
+    },
+    sources: [
+      {
+        label: "デジタルアーカイブ戦略懇談会・デジタルアーカイブ推進に関する検討会: デジタルアーカイブ戦略2026-2030（2025年5月）",
+        url: "https://www.cas.go.jp/jp/seisakukaigi/titeki2/pdf/archive_2026-2030.pdf",
+      },
+    ],
+  },
+  {
     id: "2025-ilo-genai-exposure-index",
     date: "2025-05-20",
     precision: "day",
@@ -1782,6 +1907,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
       { label: "xAI: xAI joins SpaceX", url: "https://x.ai/news/xai-joins-spacex" },
       { label: "Wikipedia: SpaceXAI", url: "https://en.wikipedia.org/wiki/SpaceXAI" },
     ],
+  },
+  {
+    id: "2026-ndlocr-lite",
+    date: "2026-02-24",
+    precision: "day",
+    title: { ja: "国立国会図書館がNDLOCR-Liteを公開", en: "Japan's National Diet Library Releases NDLOCR-Lite" },
+    summary: {
+      ja: "国立国会図書館が、GPUがなくても一般的な家庭用のコンピュータで図書や雑誌の画像からテキストを作れる、NDLOCRの軽量版をCC BY 4.0で公開した。NDLOCRが苦手だった英文や手書き文字にも実験的に対応している。",
+      en: "Japan's National Diet Library released, under CC BY 4.0, a lightweight version of NDLOCR that can make text from images of books and magazines on ordinary home computers without a GPU. It also experimentally supports English text and handwriting, which NDLOCR handled poorly.",
+    },
+    sources: [{ label: "NDLラボ: NDLOCR-Liteの公開について（2026-02-24）", url: "https://lab.ndl.go.jp/news/2025/2026-02-24/" }],
   },
   {
     id: "2026-pixiv-guideline-ai-settings",
