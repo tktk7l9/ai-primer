@@ -47,7 +47,9 @@ export const infrastructureInspection: Lesson = {
 ## 読むときの注意
 - カタログの性能値は、国の標準項目に沿って開発者が示したものです。撮影の条件や構造物の状態が違えば、結果も変わりえます。
 - AIは損傷を「見つけて測る」のを助けますが、要領では、どの方法で状態を把握するかを判断し、橋の健全性を診断するのは点検する人です。
-- 再現率と適合率は、片方だけ見ても分かりません。見逃しと誤検出のどちらが困るかは、使い方によって違います（誤りの種類で重さが変わる例は[AIのバイアスと公平性](/ja/learn/ai-and-society/bias-and-fairness)のレッスン参照）。`,
+- 再現率と適合率は、片方だけ見ても分かりません。見逃しと誤検出のどちらが困るかは、使い方によって違います（誤りの種類で重さが変わる例は[AIのバイアスと公平性](/ja/learn/ai-and-society/bias-and-fairness)のレッスン参照）。
+
+野生動物の調査で、AIの検出の数字が何を測っているかを読み分ける例は、[自動撮影カメラとAI](/ja/learn/ai-and-nature/camera-traps)のレッスンで扱っています。`,
     en: `## Infrastructure aging all at once
 
 According to the Ministry of Land, Infrastructure, Transport and Tourism (MLIT), Japan's roads, rivers, sewers, ports, and other public infrastructure were built intensively during the period of rapid economic growth, and the share of facilities 50 or more years old is expected to rise at an accelerating pace over the next 20 years.
@@ -83,7 +85,9 @@ The catalog also lists caveats: accuracy can drop with dirty or low-resolution i
 ## Reading the numbers
 - Catalog performance values are submitted by developers against the government's standard items. Different shooting conditions or structures can give different results.
 - AI helps "find and measure" damage, but under the guidelines it is the inspector who decides how to assess the condition and who diagnoses the bridge's soundness.
-- Recall and precision mean little on their own. Whether misses or false alarms matter more depends on how the system is used (for an example of how the weight of each kind of error changes with the setting, see the [bias and fairness](/en/learn/ai-and-society/bias-and-fairness) lesson).`,
+- Recall and precision mean little on their own. Whether misses or false alarms matter more depends on how the system is used (for an example of how the weight of each kind of error changes with the setting, see the [bias and fairness](/en/learn/ai-and-society/bias-and-fairness) lesson).
+
+For an example from wildlife surveys of telling apart what each AI detection number measures, see the [camera traps and AI](/en/learn/ai-and-nature/camera-traps) lesson.`,
   },
   quiz: [
     {

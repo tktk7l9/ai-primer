@@ -608,7 +608,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "自動化されたシステムの動作・監督・意思決定に、人が能動的に関わる仕組み。AIエージェントの安全対策としては、影響の大きい操作の前に人の承認を求める形で使われる。",
       en: "A system or process in which a human actively participates in the operation, supervision, or decision-making of an automated system. As a safeguard for AI agents, it takes the form of requiring a person to approve high-impact actions before they are taken.",
     },
-    relatedLessonIds: ["ai-at-work-06", "ai-agents-01", "ai-agents-04", "ai-in-finance-04", "ai-and-sports-05", "ai-and-sports-06"],
+    relatedLessonIds: ["ai-at-work-06", "ai-agents-01", "ai-agents-04", "ai-in-finance-04", "ai-and-sports-05", "ai-and-sports-06", "ai-and-nature-05"],
     sources: [
       { label: "IBM: What Is Human In The Loop (HITL)?", url: "https://www.ibm.com/think/topics/human-in-the-loop" },
       { label: "OWASP: LLM06:2025 Excessive Agency", url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/" },
@@ -931,7 +931,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "文章などを、意味をとらえた数字の並び（ベクトル）に変えたもの。2つのベクトルの距離が関連の強さを表し、距離が小さいほど関連が強い。検索・分類・クラスタリング・おすすめなどに使われ、RAGでは質問と意味の近い資料の断片を探すのに使う。",
       en: "A list of numbers (a vector) that captures the meaning of a piece of text or other data. The distance between two vectors measures how related they are: the smaller the distance, the more related. Embeddings are used for search, classification, clustering, and recommendations; in RAG, they are how the passages closest in meaning to a question are found.",
     },
-    relatedLessonIds: ["understanding-ai-02"],
+    relatedLessonIds: ["understanding-ai-02", "ai-and-nature-04"],
     sources: [
       { label: "OpenAI Docs: Vector embeddings", url: "https://developers.openai.com/api/docs/guides/embeddings" },
       { label: "Google AI for Developers: Embeddings", url: "https://ai.google.dev/gemini-api/docs/embeddings" },
@@ -2399,7 +2399,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       ja: "AIの検出の成績を表す2つの割合。再現率は、本当にあるもののうち正しく検出できた割合（低いと見逃しが多い）。適合率は、検出したもののうち本当に正しかった割合（低いと誤検出が多い）。片方だけでは成績は分からず、見逃しと誤検出のどちらが困るかは使い方で違う。",
       en: "Two rates that describe how well an AI detects things. Recall is the share of real cases that were correctly detected (low recall means many misses). Precision is the share of detections that were actually correct (low precision means many false alarms). Neither tells the whole story alone, and whether misses or false alarms matter more depends on how the system is used.",
     },
-    relatedLessonIds: ["ai-in-industry-04", "ai-and-disasters-02", "ai-and-historical-records-02"],
+    relatedLessonIds: ["ai-in-industry-04", "ai-and-disasters-02", "ai-and-historical-records-02", "ai-and-nature-01", "ai-and-nature-03"],
     sources: [
       {
         label: "国土交通省: 点検支援技術性能カタログ BR010035「デジタル画像とAIを用いた橋梁点検サポートシステム」",
@@ -3040,6 +3040,114 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       {
         label: "World Athletics: World Athletics publishes findings of study into online abuse of athletes covering Paris Olympic Games（2024-10-31）",
         url: "https://worldathletics.org/news/press-releases/study-online-abuse-athletes-paris-2024-olympic-games",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "bioacoustics",
+    term: { ja: "生物音響学（バイオアコースティクス）", en: "Bioacoustics" },
+    definition: {
+      ja: "生きものが出す音を録音して調べる分野。マイクや水中マイクで、鳥、カエル、虫、クジラ、魚などの声が詰まった音を大量に集め、その場所にどんな動物がいるかや、生態系の健康の手がかりを読み取る。録音が膨大なため、Google DeepMindのPerchのように、声を聞き分けるAIが使われている。",
+      en: "The field that records and studies the sounds living things make. Microphones and underwater hydrophones collect vast amounts of audio dense with the calls of birds, frogs, insects, whales, fish, and more, revealing which animals are present and offering clues about an ecosystem's health. Because the recordings are so vast, AI that tells calls apart, such as Google DeepMind's Perch, is used.",
+    },
+    relatedLessonIds: ["ai-and-nature-01", "ai-and-nature-04"],
+    sources: [
+      {
+        label: "Google DeepMind: How AI is helping advance the science of bioacoustics to save endangered species（2025-08-07）",
+        url: "https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "research-grade",
+    term: { ja: "研究用（Research Grade）", en: "Research Grade" },
+    definition: {
+      ja: "市民科学のサービスiNaturalistで、データの質の条件を満たした観察記録の段階。正確な日時と位置、写真か音があり、野生の生きものであることに加え、同定した人の3分の2を超える人が同じ種に同意すると、この段階になる。AIで画像や音の要素を足したり消したりした記録は、正確な証拠として扱われない。",
+      en: "On the citizen science service iNaturalist, the status of an observation that meets its data quality criteria: besides an accurate date and location, photos or sounds, and a wild organism, more than two-thirds of identifiers must agree on the species. Observations in which AI was used to add or remove elements of the image or sound are not treated as accurate evidence.",
+    },
+    relatedLessonIds: ["ai-and-nature-02", "ai-and-nature-05"],
+    sources: [
+      {
+        label: "iNaturalist Help: What is the Data Quality Assessment (DQA) and how do observations qualify to become \"Research Grade\"?",
+        url: "https://help.inaturalist.org/en/support/solutions/articles/151000169936-what-is-the-data-quality-assessment-dqa-and-how-do-observations-qualify-to-become-research-grade-",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "transfer-learning",
+    term: { ja: "転移学習", en: "Transfer learning" },
+    definition: {
+      ja: "ある課題で学習済みのモデルを、別の課題に生かす方法。生物音響学では、学習済みのモデルで音の区間ごとに埋め込みを作り、その上で簡単な分類器だけを学習させる。新しいモデルを一から作るより、計算も試行錯誤もずっと少なくて済む。主に鳥の声で学んだPerch 2.0は、この方法でクジラの声の分類にもよく使えた。",
+      en: "Reusing a model trained on one task for a different task. In bioacoustics, a pre-trained model produces embeddings for each window of audio, and only a simple classifier is trained on top of them — far less computation and experimentation than building a new model from scratch. Perch 2.0, trained mostly on bird calls, worked well this way for classifying whale calls too.",
+    },
+    relatedLessonIds: ["ai-and-nature-02", "ai-and-nature-04"],
+    sources: [
+      {
+        label: "Google Research: How AI trained on birds is surfacing underwater mysteries（2026-02-09）",
+        url: "https://research.google/blog/how-ai-trained-on-birds-is-surfacing-underwater-mysteries/",
+      },
+      {
+        label: "iNaturalist Help: Which taxa are included in the computer vision suggestions?",
+        url: "https://help.inaturalist.org/en/support/solutions/articles/151000170368-which-taxa-are-included-in-the-computer-vision-suggestions-",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "camera-trap",
+    term: { ja: "自動撮影カメラ（カメラトラップ）", en: "Camera trap" },
+    definition: {
+      ja: "動くものに反応して写真を撮る、野生動物の調査用のカメラ。センサーカメラとも呼ばれる。多くは木に取り付け、体温のある動物の動きをきっかけに数秒間の連続写真を撮る。安くなって何十台、何百台と置けるようになり、写真が膨大になったため、動物が写っていない写真の仕分けや種の判別にAIが使われている。",
+      en: "A wildlife survey camera that takes photos when something moves in front of it; also called a sensor camera. Cameras are typically mounted on trees, and motion by heat-radiating bodies triggers a few-second burst of images. As they became cheap enough to deploy by the dozens or hundreds, the photos piled up, so AI is used to sort out empty images and identify species.",
+    },
+    relatedLessonIds: ["ai-and-nature-03"],
+    sources: [
+      {
+        label: "Google Research: Where wild things roam: Identifying wildlife with SpeciesNet（2026-03）",
+        url: "https://research.google/blog/where-wild-things-roam-identifying-wildlife-with-speciesnet/",
+      },
+      {
+        label: "日本自然保護協会: AIを使った動物画像の自動検出アプリでモニタリング調査の大幅な労力削減が実現（2022-07-13）",
+        url: "https://www.nacsj.or.jp/media/2022/07/31218/",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "passive-acoustic-monitoring",
+    term: { ja: "受動的音響モニタリング", en: "Passive acoustic monitoring" },
+    definition: {
+      ja: "水中マイク（ハイドロフォン）などで生きものの声を録音し、後から検出・分類・位置の推定を行う調べ方。船からの目視の調査と比べ、潜っている動物も見つけられ、遠くまで、長い期間調べられる。長く広く録音できるようになってデータが膨大になり、NOAAとGoogleはザトウクジラの歌をAIで探した。",
+      en: "Surveying animals by recording their calls with underwater microphones (hydrophones) or similar devices, then detecting, classifying, and locating them later. Compared with visual surveys from ships, it can detect submerged animals, over longer ranges and longer periods. As recordings grew longer and wider-ranging, the data became enormous, and NOAA and Google used AI to search it for humpback whale song.",
+    },
+    relatedLessonIds: ["ai-and-nature-04"],
+    sources: [
+      {
+        label: "NOAA NCEI: Using AI to Listen and Learn about Humpback Whales（2021-05-18）",
+        url: "https://www.ncei.noaa.gov/news/using-ai-listen-and-learn-about-humpback-whales",
+      },
+      {
+        label: "Google Research: Acoustic Detection of Humpback Whales Using a Convolutional Neural Network（2018-10-29）",
+        url: "https://research.google/blog/acoustic-detection-of-humpback-whales-using-a-convolutional-neural-network/",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "geoprivacy",
+    term: { ja: "位置の非公開（ジオプライバシー）", en: "Geoprivacy" },
+    definition: {
+      ja: "観察記録の位置の情報を、公開しないか粗くする設定。iNaturalistでは、観察者が自分の記録に設定できるほか、居場所が知られると脅かされる生きもの（密猟者に狙われる一部のランなど）の記録の位置を、自動でぼかすしくみもある。ぼかした位置は0.2度×0.2度のマスの中のランダムな点になるが、写真の目印や近くの記録から推測されうるため、完全ではない。",
+      en: "A setting that hides or coarsens the location of an observation. On iNaturalist, observers can set it on their own observations, and the locations of observations of organisms threatened by disclosure (such as certain orchids sought by poachers) are obscured automatically. An obscured location becomes a random point within a 0.2 × 0.2 degree cell, but the approach is not perfect: the true location can be guessed from landmarks in photos or from nearby observations.",
+    },
+    relatedLessonIds: ["ai-and-nature-06"],
+    sources: [
+      {
+        label: "iNaturalist Help: What is geoprivacy? What does it mean for an observation to be obscured?",
+        url: "https://help.inaturalist.org/en/support/solutions/articles/151000169938-what-is-geoprivacy-what-does-it-mean-for-an-observation-to-be-obscured-",
       },
     ],
     lastVerified: "2026-10-13",

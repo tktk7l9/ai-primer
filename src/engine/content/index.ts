@@ -20,10 +20,11 @@ import { aiAndDisastersTrack } from "./tracks/ai-and-disasters";
 import { aiAndHistoricalRecordsTrack } from "./tracks/ai-and-historical-records";
 import { aiInFinanceTrack } from "./tracks/ai-in-finance";
 import { aiAndSportsTrack } from "./tracks/ai-and-sports";
+import { aiAndNatureTrack } from "./tracks/ai-and-nature";
 import { aiAndSocietyTrack } from "./tracks/ai-and-society";
 import { societyTrack } from "./tracks/society";
 
-/** All tracks in display order (23, all complete). */
+/** All tracks in display order (24, all complete). */
 export const TRACKS: readonly Track[] = [
   aiBasicsTrack,
   historyTrack,
@@ -59,6 +60,8 @@ export const TRACKS: readonly Track[] = [
   aiInFinanceTrack,
   // AI and sports (offside technology, gymnastics judging, ball-strike challenges, AI commentary, online abuse, human vs machine calls).
   aiAndSportsTrack,
+  // AI and wildlife (bird calls, photo identification, camera traps, whale song, human verification, protecting locations).
+  aiAndNatureTrack,
   // Society-wide effects (jobs, energy, bias, accessibility, scams, children); also kept before society.
   aiAndSocietyTrack,
   societyTrack,
