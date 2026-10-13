@@ -27,6 +27,7 @@ export const safeUsageChecklist: Lesson = {
 - [ ] 学ぶために使うなら、先に自分で考え、答えではなくヒントを頼む（AIで学ぶレッスン参照）。
 - [ ] 子どもが使うなら、サービスの年齢の条件と保護者向けの設定を確かめ、使い方を家庭で話し合う（[子どもとAI](/ja/learn/ai-and-society/children-and-ai)のレッスン参照）。
 - [ ] スマートフォンや家電のAI機能は、端末内で処理するのか、クラウドや別の会社のAIに送るのか、送る前に確認が出るかを設定で確かめる（[家電・スマホのAI機能の設定](/ja/learn/ai-in-daily-life/device-ai-settings)のレッスン参照）。
+- [ ] 車の運転支援機能を自動運転と取り違えない。運転支援では運転するのは自分で、レベル3の車でも交代を求められたらすぐ引き継ぐ（[自動運転の「レベル」](/ja/learn/self-driving-and-robots/driving-automation-levels)のレッスン参照）。
 
 ### プロンプトを書くとき
 - [ ] 役割・文脈・タスク・出力形式を具体的にする（プロンプト術トラック参照）。
@@ -83,6 +84,7 @@ Here's a checklist for everyday use, drawing on every track in this course.
 - [ ] When using AI to learn, think first and ask for hints rather than answers (see the lesson on learning with AI).
 - [ ] If a child will use it, check the service's age requirements and parental settings, and talk through how to use it as a family (see the [children and AI](/en/learn/ai-and-society/children-and-ai) lesson).
 - [ ] For AI features on your phone or home devices, check in the settings whether they run on the device or send data to the cloud or another company's AI, and whether they ask before sending (see the [device AI settings](/en/learn/ai-in-daily-life/device-ai-settings) lesson).
+- [ ] Don't mistake a car's driver-assistance features for automated driving: with driver assistance you are the one driving, and even in a Level 3 car you must take over promptly when asked (see [the levels of driving automation](/en/learn/self-driving-and-robots/driving-automation-levels)).
 
 ### Writing your prompt
 - [ ] Make role, context, task, and format concrete (see Prompting Techniques).

@@ -21,7 +21,7 @@ export const multimodal: Lesson = {
 - マルチモーダルモデルは、異なる種類のデータを共通の内部表現（埋め込み空間）に写像し、モダリティをまたいで対応づけます（例: 画像の特定領域を指しながらテキストで説明する）。
 - 複数のタスクをこなせても入力が1種類のモデル（マルチタスクモデル）や、別々のモデルをパイプラインでつなぐ方式とも区別されます。
 
-2020年代半ば以降、主要なチャットAI（ChatGPT・Claude・Gemini・Grok）はいずれもテキストと画像の入力に対応し、Gemini は音声・動画、GPT系の一部モデルは音声も扱えるようになっています（対応範囲はモデル・プランにより異なるため、最新情報は各社の公式ドキュメントで確認してください）。`,
+2020年代半ば以降、主要なチャットAI（ChatGPT・Claude・Gemini・Grok）はいずれもテキストと画像の入力に対応し、Gemini は音声・動画、GPT系の一部モデルは音声も扱えるようになっています（対応範囲はモデル・プランにより異なるため、最新情報は各社の公式ドキュメントで確認してください）。画像と言葉の理解を、ロボットの動作の出力につなげる研究は、[ロボットとAI](/ja/learn/self-driving-and-robots/robots-and-ai)のレッスンで扱います。`,
     en: `## Multiple kinds of data, one model
 
 **Multimodal AI** refers to models that can process and relate multiple types (modalities) of data — text, images, audio, and video — together. That's what lets you show a photo and ask "what is this?" in plain language, or have audio transcribed and summarized in one pass.
@@ -31,7 +31,7 @@ export const multimodal: Lesson = {
 - Multimodal models map different modalities into a shared internal representation (an embedding space) and can connect across them — for instance, describing a specific region of an image in text.
 - This is also distinct from multi-task models (many tasks, one modality) and from pipelines that chain separate single-modality models together.
 
-Since the mid-2020s, the major chat AIs (ChatGPT, Claude, Gemini, Grok) have all added text-plus-image input, and Gemini handles audio and video while some GPT-family models also handle audio (exact support varies by model and plan — check each vendor's current documentation).`,
+Since the mid-2020s, the major chat AIs (ChatGPT, Claude, Gemini, Grok) have all added text-plus-image input, and Gemini handles audio and video while some GPT-family models also handle audio (exact support varies by model and plan — check each vendor's current documentation). Research that connects understanding images and language to outputting robot actions is covered in [robots and AI](/en/learn/self-driving-and-robots/robots-and-ai).`,
   },
   quiz: [
     {

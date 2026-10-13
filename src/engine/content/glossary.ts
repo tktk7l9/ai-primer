@@ -1786,4 +1786,189 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     ],
     lastVerified: "2026-10-11",
   },
+  {
+    id: "driving-automation-levels",
+    term: { ja: "自動運転レベル（運転自動化レベル）", en: "Levels of driving automation" },
+    definition: {
+      ja: "SAE Internationalの基準J3016による、運転の自動化の段階。日本の制度でも使われる。国土交通省の整理では、レベル1はアクセル・ブレーキかハンドルの一方、レベル2は両方が部分的に自動化された状態。レベル3と4は、特定の走行環境条件を満たす限定された領域で自動運行装置が運転操作の全部を代わりに行う状態で、レベル3では作動中に運転操作を促されたら人が応じる必要がある。レベル5は条件の限定なく全部を代わりに行う状態。",
+      en: "The stages of driving automation in SAE International's J3016 standard, which Japan's rules also use. As MLIT summarizes them, Level 1 partly automates either acceleration/braking or steering, and Level 2 partly automates both. At Levels 3 and 4 an automated driving system performs all of the driving within a limited domain meeting specific operating conditions — at Level 3, a person must respond when prompted to take over. Level 5 performs all of the driving without such limits.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-01", "self-driving-and-robots-02"],
+    sources: [
+      {
+        label: "国土交通省: ロボットタクシー導入等に向けた自動運転における自賠法上の損害賠償責任に関する検討会 報告書（2025年4月30日）",
+        url: "https://www.mlit.go.jp/jidosha/content/001888339.pdf",
+      },
+      { label: "警察庁: 令和7年版 警察白書 — ITSの推進と自動運転の実現に向けた取組", url: "https://www.npa.go.jp/hakusyo/r07/honbun/html/bb5545000.html" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "operating-conditions-limited-domain",
+    term: { ja: "走行環境条件（限定領域）", en: "Operating conditions (limited domain)" },
+    definition: {
+      ja: "自動運転ができる場所・天候・速度などの条件。国土交通省の資料は、高速道路だけ、晴れの日だけといった例を挙げ、条件はシステムの性能によって違うとしている。レベル3・4の自動運行装置は、国土交通大臣が付けたこの条件の範囲内でだけ作動する。SAE J3016の定義では「システムが機能するよう設計されている特有の条件」にあたる。",
+      en: "The conditions — place, weather, speed, and so on — under which automated driving is possible. MLIT gives examples such as expressways only or fine weather only, and notes that the conditions differ with each system's capability. Level 3 and 4 automated driving systems operate only within the conditions set by the minister. In SAE J3016's terms, these are the specific conditions under which the system is designed to function.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-01", "self-driving-and-robots-02"],
+    sources: [
+      {
+        label: "国土交通省: 自動運転車の定義及び政府目標（2020年11月11日の報道発表 別紙１）",
+        url: "https://www.mlit.go.jp/report/press/content/001371533.pdf",
+      },
+      { label: "国土交通省: 世界初！ 自動運転車（レベル３）の型式指定を行いました（2020年11月11日）", url: "https://www.mlit.go.jp/report/press/jidosha08_hh_003888.html" },
+      { label: "警察庁: 令和7年版 警察白書 — ITSの推進と自動運転の実現に向けた取組", url: "https://www.npa.go.jp/hakusyo/r07/honbun/html/bb5545000.html" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "driver-assistance-vehicle",
+    term: { ja: "運転支援車", en: "Driver-assistance vehicle" },
+    definition: {
+      ja: "国土交通省が、自動運転レベル1・2の車に付けた呼び方（2018年度に策定）。レベル3は「条件付自動運転車（限定領域）」、レベル4は「自動運転車（限定領域）」、レベル5は「完全自動運転車」と呼ぶ（2020年12月11日公表）。利用者が機能の限界を正しく理解し、過信しないことが目的。警察庁も、運転支援機能では運転操作の主体はあくまで運転者で、自動運転機能とは異なると注意を呼びかけている。",
+      en: "The official name MLIT gave to Level 1 and 2 vehicles (set in fiscal 2018). Level 3 vehicles are called conditionally automated vehicles (limited domain), Level 4 automated vehicles (limited domain), and Level 5 fully automated vehicles (published December 11, 2020). The aim is for users to understand the limits correctly and not overtrust them. The National Police Agency likewise warns that with driver-assistance features the driver remains the one operating the vehicle, unlike automated driving.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-01"],
+    sources: [
+      {
+        label: "国土交通省: 主要なASV技術の概要及び自動運転関連用語の概説を公表 〜自動運転レベル３以降の車両の呼称も策定〜（2020年12月11日）",
+        url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000353.html",
+      },
+      { label: "警察庁: 自動運転", url: "https://www.npa.go.jp/bureau/traffic/selfdriving/index.html" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "specified-automated-operation",
+    term: { ja: "特定自動運行", en: "Specified automated operation" },
+    definition: {
+      ja: "2023年4月1日施行の改正道路交通法で定められた、レベル4に相当する、運転者がいない状態での自動運転。「運転」の定義から外され、行うには経路や事故時の対応などを書いた計画を出して都道府県公安委員会の許可を受ける。許可を受けた人は、車内か遠隔監視の場所に特定自動運行主任者を置き、主任者は交通事故のときに必要な措置をとる。警察白書によると、許可は2024年末時点で全国6件。",
+      en: "Driverless automated driving equivalent to Level 4, defined in Japan's amended Road Traffic Act in force from April 1, 2023. It is excluded from the legal definition of \"driving\"; to carry it out, one submits a plan including the route and accident response and obtains a permit from the prefectural public safety commission. The permit holder stations an operation supervisor in the vehicle or at a remote-monitoring location, who takes the necessary measures in a traffic accident. According to the police white paper, six permits had been granted nationwide as of the end of 2024.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-02", "self-driving-and-robots-06"],
+    sources: [
+      { label: "警察庁: 令和7年版 警察白書 — ITSの推進と自動運転の実現に向けた取組", url: "https://www.npa.go.jp/hakusyo/r07/honbun/html/bb5545000.html" },
+      { label: "警察庁: 道路交通法の一部を改正する法律（概要・2022年）", url: "https://www.npa.go.jp/laws/kaisei/houritsu/20220427/01_gaiyou.pdf" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "robotaxi",
+    term: { ja: "ロボタクシー", en: "Robotaxi" },
+    definition: {
+      ja: "運転者のいない自動運転車（レベル4）を使ったタクシーサービス。国土交通省の報告書（2025年4月）は、米国や中国の一部地域で始まっており、日本でも実装が見込まれるとしている。米国のWaymoは、運転者のいない走行が2026年6月までに2億7,130万マイルに達したと公表している。米国では、カリフォルニア州が2023年10月にCruiseの無人運行の許可を停止した例もある。",
+      en: "A taxi service using driverless automated vehicles (Level 4). An MLIT report (April 2025) says such services have begun in parts of the US and China and are expected in Japan too. In the US, Waymo reports 271.3 million rider-only miles through June 2026; California also suspended Cruise's driverless permits in October 2023.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-03"],
+    sources: [
+      {
+        label: "国土交通省: ロボットタクシー導入等に向けた自動運転における自賠法上の損害賠償責任に関する検討会 報告書（2025年4月30日）",
+        url: "https://www.mlit.go.jp/jidosha/content/001888339.pdf",
+      },
+      { label: "Waymo: Safety Impact（rider-only miles through June 2026）", url: "https://waymo.com/safety/impact/" },
+      { label: "California DMV: DMV Statement on Cruise LLC Suspension（2023-10-24）", url: "https://www.dmv.ca.gov/portal/news-and-media/dmv-statement-on-cruise-llc-suspension/" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "remotely-operated-small-vehicle",
+    term: { ja: "遠隔操作型小型車", en: "Remotely operated small vehicle" },
+    definition: {
+      ja: "2023年4月1日施行の改正道路交通法で定められた、自動配送ロボットなどの区分。遠隔操作で通行する車で、性能上の最高速度が時速6km以下、車体が長さ120cm・幅70cm・高さ120cm以下などの基準を満たすもの。歩道や路側帯を通り、歩行者と同じ交通ルールに従い、歩行者に進路を譲る。使う人は通行場所の都道府県公安委員会に事前に届け出る。",
+      en: "A category in Japan's amended Road Traffic Act, in force from April 1, 2023, for automated delivery robots and similar machines: vehicles moved by remote operation that meet standards such as a maximum design speed of 6 km/h and a body no larger than 120 cm long, 70 cm wide, and 120 cm high. They use sidewalks and roadside strips, follow pedestrian rules, and give way to pedestrians; users must notify the prefectural public safety commission in advance.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-04"],
+    sources: [
+      {
+        label: "警察庁: 令和４年改正道路交通法（遠隔操作型小型車の交通方法等）の概要",
+        url: "https://www.npa.go.jp/bureau/traffic/selfdriving/roadtesting/kaiseidourokoutuuhou.pdf",
+      },
+      { label: "警察庁: 令和5年版 警察白書 — 新たなモビリティや自転車の良好な交通秩序の実現", url: "https://www.npa.go.jp/hakusyo/r05/honbun/html/zt300000.html" },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "drone-level-4-flight",
+    term: { ja: "レベル4飛行（ドローン）", en: "Level 4 flight (drones)" },
+    definition: {
+      ja: "人のいる地域の上空（第三者上空）を、補助者を置かずに目視外で無人航空機を飛ばすこと。改正航空法により2022年12月5日から、機体認証、操縦ライセンス（無人航空機操縦者技能証明）、運航のルールの制度が始まって可能になった。第一種機体認証を受けた機体を、一等の技能証明を持つ人が、飛行の許可・承認を受けて飛ばす。国土交通省は2023年3月17日、日本郵便に初めての許可・承認を出した。",
+      en: "Flying an unmanned aircraft beyond visual line of sight over populated areas (over third parties) without assistants. It became possible on December 5, 2022, when the amended Civil Aeronautics Act launched aircraft certification, pilot certification, and operating rules. It requires a Type 1 certified aircraft flown by a first-class certificate holder with flight permission and approval; MLIT granted the first permission to Japan Post on March 17, 2023.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-04"],
+    sources: [
+      { label: "国土交通省: 無人航空機レベル4飛行ポータルサイト", url: "https://www.mlit.go.jp/koku/level4/" },
+      {
+        label: "国土交通省: 無人航空機のレベル4飛行初実施のために飛行の許可・承認を行いました！（2023年3月17日）",
+        url: "https://www.mlit.go.jp/report/press/kouku10_hh_000231.html",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "vision-language-action-model",
+    term: { ja: "視覚・言語・行動（VLA）モデル", en: "Vision-language-action (VLA) model" },
+    definition: {
+      ja: "画像と言葉を理解するモデルに、ロボットの動作を出力させるようにしたモデル。Google DeepMindのRT-2（2023年）は、ウェブの規模のデータで学んだ視覚・言語のモデルをロボットのデータとウェブのデータで追加学習させ、動作を数字の列（トークン）として出力させた。Gemini Robotics（2025年）は、Gemini 2.0に物理的な動作を新しい出力として加えたVLAモデルとされる。ウェブで得た知識で、ロボットのデータになかった物や指示に対応することを目指す。",
+      en: "A model that understands images and language and outputs robot actions. Google DeepMind's RT-2 (2023) further trained a vision-language model, pre-trained on web-scale data, on robot and web data, outputting actions as strings of numbers (tokens). Gemini Robotics (2025) is described as a VLA model built on Gemini 2.0 with physical actions added as a new output. The aim is to use web knowledge to handle objects and instructions absent from the robot data.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-05"],
+    sources: [
+      {
+        label: "Google DeepMind: RT-2 — New model translates vision and language into action（2023-07-28）",
+        url: "https://deepmind.google/blog/rt-2-new-model-translates-vision-and-language-into-action/",
+      },
+      {
+        label: "Google DeepMind: Gemini Robotics brings AI into the physical world（2025-03-12）",
+        url: "https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "industrial-robot",
+    term: { ja: "産業用ロボット", en: "Industrial robot" },
+    definition: {
+      ja: "工場などで使われるロボット。国際ロボット連盟（IFR）のWorld Robotics 2025によると、2024年に世界で54万2,000台が新たに設置され（10年前の2倍超）、稼働台数は466万4,000台。日本は設置台数で世界2位の市場で、2024年の設置は4万4,500台、稼働台数は45万500台。",
+      en: "Robots used in factories and similar settings. According to the International Federation of Robotics' World Robotics 2025, 542,000 were installed worldwide in 2024 (more than double ten years earlier) and 4,664,000 were in operation. Japan is the second-largest market by installations, with 44,500 installed in 2024 and 450,500 in operation.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-05"],
+    sources: [
+      {
+        label: "IFR: Global Robot Demand in Factories Doubles Over 10 Years（World Robotics 2025・2025-09-25）",
+        url: "https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "operator-liability",
+    term: { ja: "運行供用者責任（自賠法）", en: "Operator liability (Japan's compulsory auto insurance law)" },
+    definition: {
+      ja: "自動車損害賠償保障法（自賠法）が、「自己のために自動車を運行の用に供する者」（運行供用者）に負わせる損害賠償の責任。国土交通省の研究会は2018年に、レベル0〜4の車が混在する当面の過渡期には、被害者を早く救うためにこの責任を保ちつつ、保険会社などが自動車メーカーなどに求償する仕組みを検討するのが適当と整理し、2025年の報告書もこれを前提にロボットタクシーなどを検討した。",
+      en: "The liability for damages that Japan's Automobile Liability Security Act places on \"a person who puts a vehicle into operation for their own benefit\" (the operator). In 2018 an MLIT study group concluded that during the transition period, with vehicles of Levels 0 to 4 on the road, this liability should be kept so victims are compensated quickly, while considering ways for insurers and others to seek recourse from manufacturers; a 2025 report examined robotaxis on that basis.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-06"],
+    sources: [
+      {
+        label: "国土交通省: ロボットタクシー導入等に向けた自動運転における自賠法上の損害賠償責任に関する検討会 報告書（2025年4月30日）",
+        url: "https://www.mlit.go.jp/jidosha/content/001888339.pdf",
+      },
+    ],
+    lastVerified: "2026-10-13",
+  },
+  {
+    id: "user-in-charge",
+    term: { ja: "user-in-charge（英国の自動運転法）", en: "User-in-charge (UK Automated Vehicles Act)" },
+    definition: {
+      ja: "英国の自動運転法（Automated Vehicles Act 2024、2024年5月20日成立）が定める立場。認可された自動運転車で、認可された機能が作動していて、操作できる位置にいるが操作していない人を指す。同法は、この人は車の走らせ方から生じる罪には原則として問われないとしている（例外あり）。条文ごとに施行の時期が決まる。",
+      en: "A role defined by the UK's Automated Vehicles Act 2024 (Royal Assent May 20, 2024): an individual in an authorised automated vehicle whose authorised user-in-charge feature is engaged, in position to exercise control but not controlling it. The Act provides that this person does not commit an offence arising from the way the vehicle is driven, subject to exceptions. Each provision comes into force on its own schedule.",
+    },
+    relatedLessonIds: ["self-driving-and-robots-06"],
+    sources: [
+      { label: "legislation.gov.uk: Automated Vehicles Act 2024, section 46（Meaning of \"user-in-charge\"）", url: "https://www.legislation.gov.uk/ukpga/2024/10/section/46" },
+      { label: "legislation.gov.uk: Automated Vehicles Act 2024, section 47（User-in-charge not liable for manner of driving）", url: "https://www.legislation.gov.uk/ukpga/2024/10/section/47" },
+      { label: "legislation.gov.uk: Automated Vehicles Act 2024（Introduction・2024-05-20）", url: "https://www.legislation.gov.uk/ukpga/2024/10/introduction/enacted" },
+    ],
+    lastVerified: "2026-10-13",
+  },
 ];

@@ -26,7 +26,10 @@ export interface TimelineEvent {
 // partnerships 2025, Collins' "vibe coding" 2025, and JASRAC's generative AI page 2026 — added on 2026-10-11; the AI-and-science
 // entries — Japan's AI endoscopy program approval and the health ministry's AI diagnosis notice 2018, AlphaFold2 at CASP14 2020,
 // GraphCast 2023, AlphaGeometry, AlphaFold 3, the IMO silver result, and the physics and chemistry Nobel Prizes 2024, ECMWF's
-// operational AIFS and the officially graded IMO gold result 2025 — added on 2026-10-11).
+// operational AIFS and the officially graded IMO gold result 2025 — added on 2026-10-11; the self-driving-and-robots entries —
+// Japan's Level 3 rules and Honda's Level 3 type designation 2020, Level 4 drone flights 2022, the Level 4 permit system and
+// delivery-robot rules, the Eiheiji service, RT-2, and the Cruise suspension 2023, the UK Automated Vehicles Act and GM's
+// exit from robotaxis 2024, and Gemini Robotics 2025 — added on 2026-10-13).
 export const TIMELINE: readonly TimelineEvent[] = [
   {
     id: "1950-turing-test",
@@ -183,6 +186,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2020-japan-level3-rules",
+    date: "2020-04-01",
+    precision: "month",
+    title: { ja: "日本でレベル3の自動運転車が公道を走れるように", en: "Japan Allows Level 3 Automated Cars on Public Roads" },
+    summary: {
+      ja: "2019年に成立した改正道路交通法の自動運転関係の規定が施行され、道路運送車両法の改正と相まって、レベル3の自動運転車が公道を走れるようになった。道路交通法には、自動運行装置を使う運転者の義務や、作動状態を記録する装置の記録に関する規定が整えられた。",
+      en: "Automated-driving provisions of the 2019 amendment to the Road Traffic Act took effect; together with the amended Road Transport Vehicle Act, they allowed Level 3 automated vehicles on public roads. The Road Traffic Act gained rules on the duties of drivers using an automated driving system and on records kept by a device logging its operating status.",
+    },
+    sources: [{ label: "警察庁: 自動運転", url: "https://www.npa.go.jp/bureau/traffic/selfdriving/index.html" }],
+  },
+  {
     id: "2020-rag-paper",
     date: "2020-05-22",
     precision: "day",
@@ -241,6 +255,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
         url: "https://arxiv.org/abs/2009.03300",
       },
     ],
+  },
+  {
+    id: "2020-honda-legend-level3",
+    date: "2020-11-11",
+    precision: "day",
+    title: { ja: "ホンダ・レジェンドに世界初のレベル3の型式指定", en: "Honda Legend Gets the World's First Level 3 Type Designation" },
+    summary: {
+      ja: "国土交通省が、本田技研工業のレジェンドに、自動運行装置を備えた車として世界で初めて型式指定を行った。装置「Traffic Jam Pilot」は高速道路の渋滞時に運転者に代わって運転し、条件を外れそうなときは警報を出して運転者に運転を求める。",
+      en: "MLIT granted Honda's Legend the world's first type designation for a vehicle with an automated driving system. Its Traffic Jam Pilot drives in place of the driver in expressway traffic jams and warns the driver to take over when its operating conditions are about to stop being met.",
+    },
+    sources: [{ label: "国土交通省: 世界初！ 自動運転車（レベル３）の型式指定を行いました（2020年11月11日）", url: "https://www.mlit.go.jp/report/press/jidosha08_hh_003888.html" }],
   },
   {
     id: "2020-alphafold2-casp14",
@@ -346,6 +371,20 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "HISTORY: ChatGPT is released to the public", url: "https://www.history.com/this-day-in-history/november-30/chatgpt-released-openai" }],
   },
   {
+    id: "2022-japan-drone-level4",
+    date: "2022-12-05",
+    precision: "day",
+    title: { ja: "ドローンのレベル4飛行の制度が始まる", en: "Japan Launches the System for Level 4 Drone Flights" },
+    summary: {
+      ja: "改正航空法により、無人航空機の機体認証、操縦ライセンス、運航のルールの制度が始まり、人のいる地域の上空を補助者なしで目視外で飛ばすレベル4飛行ができるようになった。2023年3月17日には日本郵便に初めての許可・承認が出た。",
+      en: "Under the amended Civil Aeronautics Act, aircraft certification, pilot licensing, and operating rules for unmanned aircraft took effect, making Level 4 flight — beyond visual line of sight over populated areas without assistants — possible. The first permission and approval went to Japan Post on March 17, 2023.",
+    },
+    sources: [
+      { label: "国土交通省: 無人航空機レベル4飛行ポータルサイト", url: "https://www.mlit.go.jp/koku/level4/" },
+      { label: "国土交通省: 無人航空機のレベル4飛行初実施のために飛行の許可・承認を行いました！（2023年3月17日）", url: "https://www.mlit.go.jp/report/press/kouku10_hh_000231.html" },
+    ],
+  },
+  {
     id: "2023-clarkesworld-closes-submissions",
     date: "2023-02-20",
     precision: "day",
@@ -372,6 +411,20 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "OpenAI rolled out the more capable GPT-4 in ChatGPT and Bing.",
     },
     sources: [{ label: "HISTORY: ChatGPT is released to the public", url: "https://www.history.com/this-day-in-history/november-30/chatgpt-released-openai" }],
+  },
+  {
+    id: "2023-japan-level4-permit-system",
+    date: "2023-04-01",
+    precision: "day",
+    title: { ja: "レベル4の「特定自動運行」と配送ロボットのルールが施行", en: "Japan's Rules for Level 4 Operation and Delivery Robots Take Effect" },
+    summary: {
+      ja: "改正道路交通法が施行され、運転者のいないレベル4相当の自動運転（特定自動運行）が都道府県公安委員会の許可制で認められた。同じ日から、自動配送ロボットなどを「遠隔操作型小型車」として歩行者と同じルールで扱う規定も施行された。",
+      en: "The amended Road Traffic Act took effect, allowing driverless automated driving equivalent to Level 4 (specified automated operation) under permits from prefectural public safety commissions. From the same day, delivery robots and similar machines were treated as remotely operated small vehicles under pedestrian rules.",
+    },
+    sources: [
+      { label: "警察庁: 令和7年版 警察白書 — ITSの推進と自動運転の実現に向けた取組", url: "https://www.npa.go.jp/hakusyo/r07/honbun/html/bb5545000.html" },
+      { label: "警察庁: 令和5年版 警察白書 — 新たなモビリティや自転車の良好な交通秩序の実現", url: "https://www.npa.go.jp/hakusyo/r05/honbun/html/zt300000.html" },
+    ],
   },
   {
     id: "2023-chatbot-arena",
@@ -409,6 +462,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2023-eiheiji-level4-service",
+    date: "2023-05-21",
+    precision: "day",
+    title: { ja: "全国初のレベル4の自動運転移動サービスが福井県永平寺町で開始", en: "Japan's First Level 4 Automated Mobility Service Starts in Eiheiji" },
+    summary: {
+      ja: "運転者を置かないレベル4の自動運転移動サービスが、全国で初めて福井県永平寺町で始まった。約2kmの区間を、道路に敷いた電磁誘導線をたどって時速12kmで走る。車両の認可（3月30日）、旅客運送の登録（5月2日）、福井県公安委員会の許可（5月11日）を経て開始した。",
+      en: "Japan's first Level 4 automated mobility service with no driver began in Eiheiji, Fukui, running about 2 km at 12 km/h along an electromagnetic guide wire in the road. It followed vehicle certification (March 30), passenger-transport registration (May 2), and a permit from the Fukui Prefectural Public Safety Commission (May 11).",
+    },
+    sources: [{ label: "国土交通省: 国内初！運転者を配置しないレベル４での自動運転移動サービスの開始について（2023年5月12日）", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html" }],
+  },
+  {
     id: "2023-mata-v-avianca",
     date: "2023-06-22",
     precision: "day",
@@ -426,6 +490,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
         url: "https://storage.courtlistener.com/recap/gov.uscourts.nysd.575368/gov.uscourts.nysd.575368.54.0.pdf",
       },
     ],
+  },
+  {
+    id: "2023-rt2",
+    date: "2023-07-28",
+    precision: "day",
+    title: { ja: "ロボットを言葉で動かすVLAモデルRT-2", en: "RT-2, a Vision-Language-Action Model for Robots" },
+    summary: {
+      ja: "Google DeepMindが、ウェブの規模のデータで学んだ視覚・言語のモデルをロボットのデータでも学習させ、動作をトークンとして出力する視覚・言語・行動（VLA）モデルRT-2を発表。6,000回を超える試行で、ロボットのデータになかった物や状況への汎化が従来の3倍を超えたとした。",
+      en: "Google DeepMind introduced RT-2, a vision-language-action (VLA) model that trains a web-pretrained vision-language model on robot data as well and outputs actions as tokens. Across more than 6,000 trials, it reported more than three times the generalization of earlier models to objects and situations absent from the robot data.",
+    },
+    sources: [{ label: "Google DeepMind: RT-2 — New model translates vision and language into action（2023-07-28）", url: "https://deepmind.google/blog/rt-2-new-model-translates-vision-and-language-into-action/" }],
   },
   {
     id: "2023-moj-ai-contract-review-guideline",
@@ -498,6 +573,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
         url: "https://arxiv.org/abs/2310.06770",
       },
     ],
+  },
+  {
+    id: "2023-california-suspends-cruise",
+    date: "2023-10-24",
+    precision: "day",
+    title: { ja: "カリフォルニア州がCruiseの無人運行の許可を停止", en: "California Suspends Cruise's Driverless Permits" },
+    summary: {
+      ja: "カリフォルニア州車両管理局が、GM傘下のCruiseの無人での運行と無人の試験走行の許可を即日停止した。車の性能から公道での運行が安全でないと判断したことや、安全に関する情報を偽ったことなどを理由に挙げた。",
+      en: "The California DMV suspended, effective immediately, the driverless deployment and testing permits of Cruise, a GM company, citing among other reasons that the vehicles were not safe for public operation based on their performance and that the company had misrepresented safety information.",
+    },
+    sources: [{ label: "California DMV: DMV Statement on Cruise LLC Suspension（2023-10-24）", url: "https://www.dmv.ca.gov/portal/news-and-media/dmv-statement-on-cruise-llc-suspension/" }],
   },
   {
     id: "2023-graphcast",
@@ -662,6 +748,20 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "OpenAI: Hello GPT-4o", url: "https://openai.com/index/hello-gpt-4o/" }],
   },
   {
+    id: "2024-uk-automated-vehicles-act",
+    date: "2024-05-20",
+    precision: "day",
+    title: { ja: "英国で自動運転法が成立", en: "UK Automated Vehicles Act Receives Royal Assent" },
+    summary: {
+      ja: "英国で、道路などでの自動運転車の利用を規律する自動運転法（Automated Vehicles Act 2024）が成立した。自動運転車の認可の仕組みを定め、認可された機能が作動している間の「user-in-charge」は、車の走らせ方から生じる罪に原則として問われないとした。",
+      en: "The UK's Automated Vehicles Act 2024, regulating the use of automated vehicles on roads and in other public places, received Royal Assent. It sets up authorization for automated vehicles and provides that a user-in-charge does not commit an offence arising from the way the vehicle is driven while an authorised feature is engaged, subject to exceptions.",
+    },
+    sources: [
+      { label: "legislation.gov.uk: Automated Vehicles Act 2024（Introduction・2024-05-20）", url: "https://www.legislation.gov.uk/ukpga/2024/10/introduction/enacted" },
+      { label: "legislation.gov.uk: Automated Vehicles Act 2024, section 47（User-in-charge not liable for manner of driving）", url: "https://www.legislation.gov.uk/ukpga/2024/10/section/47" },
+    ],
+  },
+  {
     id: "2024-frontier-ai-safety-commitments",
     date: "2024-05-21",
     precision: "day",
@@ -818,6 +918,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
     sources: [{ label: "Anthropic: Introducing the Model Context Protocol", url: "https://www.anthropic.com/news/model-context-protocol" }],
   },
   {
+    id: "2024-gm-ends-cruise-robotaxi",
+    date: "2024-12-10",
+    precision: "day",
+    title: { ja: "GMがCruiseのロボタクシー開発への資金提供を終了", en: "GM Stops Funding Cruise's Robotaxi Development" },
+    summary: {
+      ja: "General Motorsが、事業を拡大するのに必要な時間と資源の大きさや競争の激しさを理由に、Cruiseのロボタクシー開発への資金提供をやめ、個人向けの車の自動運転・運転支援の開発に集中すると発表した。",
+      en: "General Motors announced it would no longer fund Cruise's robotaxi development, citing the considerable time and resources needed to scale the business and an increasingly competitive market, and would focus on automated and assisted driving for personal vehicles.",
+    },
+    sources: [{ label: "GM: GM to refocus autonomous driving development on personal vehicles（2024-12-10）", url: "https://news.gm.com/home.detail.html/Pages/news/us/en/2024/dec/1210-gm.html" }],
+  },
+  {
     id: "2024-gemini-deep-research",
     date: "2024-12-11",
     precision: "day",
@@ -887,6 +998,17 @@ export const TIMELINE: readonly TimelineEvent[] = [
         url: "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
       },
     ],
+  },
+  {
+    id: "2025-gemini-robotics",
+    date: "2025-03-12",
+    precision: "day",
+    title: { ja: "Google DeepMindがGemini Roboticsを発表", en: "Google DeepMind Introduces Gemini Robotics" },
+    summary: {
+      ja: "Google DeepMindが、Gemini 2.0に物理的な動作を新しい出力として加えたVLAモデルGemini Roboticsと、空間を理解して推論するGemini Robotics-ERを発表。汎用性・対話性・器用さを掲げ、人型ロボットの開発でApptronik社と提携した。",
+      en: "Google DeepMind announced Gemini Robotics, a VLA model built on Gemini 2.0 with physical actions as a new output, and Gemini Robotics-ER for spatial reasoning, emphasizing generality, interactivity, and dexterity, and partnering with Apptronik on humanoid robots.",
+    },
+    sources: [{ label: "Google DeepMind: Gemini Robotics brings AI into the physical world（2025-03-12）", url: "https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/" }],
   },
   {
     id: "2025-apple-intelligence-japanese",
