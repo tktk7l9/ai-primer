@@ -28,6 +28,9 @@
 //
 // Responses that are not HTML (RSC, JSON, XML, images) keep the static header unchanged; they
 // run no inline script. `next dev` / `next start` never reach this code and keep the static CSP.
+//
+// The same wrapper also rewrites Next's CDN-only Cache-Control on every response, HTML or not
+// (browserCacheControl below).
 
 export const CSP_HEADER = "Content-Security-Policy";
 
@@ -165,19 +168,60 @@ export function applyScriptNonce(
     .transform(rewritten);
 }
 
+export const CACHE_CONTROL_HEADER = "Cache-Control";
+
+/** What Vercel sends browsers in place of Next's CDN-only header. */
+export const BROWSER_CACHE_CONTROL = "public, max-age=0, must-revalidate";
+
+// Next sends `s-maxage=31536000, stale-while-revalidate=2592000` on prerendered pages and their
+// RSC payloads (the ?_rsc= fetches behind prefetch and client navigation). It is meant for a CDN,
+// and Vercel rewrites it to BROWSER_CACHE_CONTROL, but on Workers it reaches the browser as is:
+// Chrome then serves RSC payloads from its disk cache for up to 30 days, and after a deploy they
+// point at chunks that no longer exist (404, unstyled pages, broken client navigation).
+const S_MAXAGE_DIRECTIVE = /(^|,)\s*s-maxage\s*=/i;
+
+/**
+ * The Cache-Control a browser should get: BROWSER_CACHE_CONTROL when `value` has the s-maxage
+ * directive (case-insensitive, matched as a directive name), otherwise `value` unchanged
+ * (null stays null).
+ */
+export function browserCacheControl(value: string | null): string | null {
+  return value !== null && S_MAXAGE_DIRECTIVE.test(value) ? BROWSER_CACHE_CONTROL : value;
+}
+
+/**
+ * Applies browserCacheControl to a response of any type. Returns the same response when the
+ * header needs no change, so a response without Cache-Control never gains one; otherwise returns
+ * a copy that differs only in that header (the original's headers may be immutable).
+ */
+export function applyBrowserCacheControl(response: Response): Response {
+  const current = response.headers.get(CACHE_CONTROL_HEADER);
+  const normalized = browserCacheControl(current);
+  if (normalized === null || normalized === current) return response;
+
+  const headers = new Headers(response.headers);
+  headers.set(CACHE_CONTROL_HEADER, normalized);
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 /** A Workers module handler, typed loosely (no workers-types dependency). */
 export interface FetchHandler {
   fetch(request: Request, env: unknown, ctx: unknown): Promise<Response>;
 }
 
 /**
- * Wraps a Workers handler (the OpenNext worker, in worker.ts) so each of its responses goes
- * through applyScriptNonce. Request, env and ctx are passed through untouched.
+ * Wraps a Workers handler (the OpenNext worker, in worker.ts) so every one of its responses (HTML,
+ * RSC payloads, route handlers) goes through applyBrowserCacheControl, and then through
+ * applyScriptNonce, which only touches HTML. Request, env and ctx are passed through untouched.
  */
 export function wrapWithScriptNonce(inner: FetchHandler): FetchHandler {
   return {
     async fetch(request, env, ctx) {
-      return applyScriptNonce(await inner.fetch(request, env, ctx));
+      return applyScriptNonce(applyBrowserCacheControl(await inner.fetch(request, env, ctx)));
     },
   };
 }

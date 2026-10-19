@@ -52,6 +52,11 @@ An AI literacy tutorial in the style of nextjs.org/learn. Fully bilingual ja/en,
   goes through `worker.ts`, so the nonce stays per request. Every page must stay SSG
   (`generateStaticParams`, no request-time APIs); a page that turns dynamic quietly goes back to
   rendering per request. Check the `next build` route table (● / ○, not ƒ) after route changes.
+  Next marks these pages and their RSC payloads `s-maxage=31536000, stale-while-revalidate=2592000`
+  (meant for a CDN); `worker.ts` rewrites it to `public, max-age=0, must-revalidate` on every
+  response, as Vercel does (`browserCacheControl` in `src/lib/csp-nonce.ts`). Without it Chrome
+  serves RSC payloads from its disk cache for up to 30 days and, after a deploy, requests chunks
+  that no longer exist.
   The root `not-found.tsx` is prerendered once (in Japanese), so unmatched paths under a locale
   are caught by `[locale]/[...rest]` and get the localized 404 rendered per request instead
   (otherwise `/en/...` 404s hydrate English over Japanese markup, React error 418).

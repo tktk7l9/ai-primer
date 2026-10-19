@@ -1,5 +1,6 @@
 // Worker entry (wrangler.jsonc "main"). Wraps the OpenNext worker so every HTML response gets
-// a per-request script nonce instead of script-src 'unsafe-inline' (src/lib/csp-nonce.ts).
+// a per-request script nonce instead of script-src 'unsafe-inline' (src/lib/csp-nonce.ts), and
+// every response trades Next's CDN-only Cache-Control (s-maxage) for one meant for browsers.
 // Static assets (/_next/static/*, favicon.ico) are served by Workers Assets before this runs.
 // https://opennext.js.org/cloudflare/howtos/custom-worker
 // src/lib/worker-entry.test.ts pins the import and export lines below by text, because the
