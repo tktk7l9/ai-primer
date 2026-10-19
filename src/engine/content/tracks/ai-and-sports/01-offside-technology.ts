@@ -112,7 +112,7 @@ In the 2026/27 Laws of the Game changes published by the Japan Football Associat
   sources: [
     {
       label: "FIFA: Semi-automated offside technology to be used at FIFA World Cup 2022（2022-07-01）",
-      url: "https://inside.fifa.com/innovation/media-releases/semi-automated-offside-technology-to-be-used-at-fifa-world-cup-2022-tm",
+      url: "https://www.fifa.com/en/articles/semi-automated-offside-technology-to-be-used-at-fifa-world-cup-2022-tm",
     },
     {
       label: "Jリーグ: 「3Dオフサイドライン導入」でより正確な判定の実現へ「第1回JFAレフェリーブリーフィング」レポート（2023-02-01）",
