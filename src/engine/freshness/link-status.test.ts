@@ -2,11 +2,20 @@
 import { describe, expect, it } from "vitest";
 import {
   BODY_SAMPLE_CHARS,
+  classifyFetchError,
   classifyResponse,
   describeFetchError,
   isChallengePage,
+  isTransientFetchError,
   readBodySample,
 } from "./link-status";
+
+/** The shape Node's fetch rejects with: a bare "fetch failed" whose cause carries the OS/TLS code. */
+function fetchFailed(code: string): TypeError {
+  return new TypeError("fetch failed", { cause: Object.assign(new Error(`connect failed (${code})`), { code }) });
+}
+
+const TIMEOUT = new DOMException("The operation was aborted due to timeout", "TimeoutError");
 
 const NO_HEADERS = new Headers();
 const CLOUDFLARE_CHALLENGE = new Headers({ "cf-mitigated": "challenge" });
@@ -160,5 +169,59 @@ describe("describeFetchError", () => {
     expect(describeFetchError(new Error("more than 10 redirects from https://a.example/"))).toBe(
       "more than 10 redirects from https://a.example/",
     );
+  });
+});
+
+describe("isTransientFetchError", () => {
+  it.each(["ECONNRESET", "ETIMEDOUT", "EPIPE", "EAI_AGAIN", "UND_ERR_SOCKET", "UND_ERR_CONNECT_TIMEOUT"])(
+    "is worth a retry after %s",
+    (code) => {
+      expect(isTransientFetchError(fetchFailed(code))).toBe(true);
+    },
+  );
+
+  it("is worth a retry after a timeout", () => {
+    expect(isTransientFetchError(TIMEOUT)).toBe(true);
+  });
+
+  it.each(["ENOTFOUND", "ECONNREFUSED", "CERT_HAS_EXPIRED", "UNABLE_TO_VERIFY_LEAF_SIGNATURE"])(
+    "does not retry %s, which a second try would not change",
+    (code) => {
+      expect(isTransientFetchError(fetchFailed(code))).toBe(false);
+    },
+  );
+
+  it("does not retry an error without a code, or a non-Error value", () => {
+    expect(isTransientFetchError(new TypeError("fetch failed", { cause: new Error("bad port") }))).toBe(false);
+    expect(isTransientFetchError(new Error("more than 10 redirects from https://a.example/"))).toBe(false);
+    expect(isTransientFetchError("boom")).toBe(false);
+  });
+});
+
+describe("classifyFetchError", () => {
+  it.each(["UNABLE_TO_VERIFY_LEAF_SIGNATURE", "UNABLE_TO_GET_ISSUER_CERT_LOCALLY"])(
+    "treats %s (a certificate chain without its intermediate) as blocked, not dead",
+    (code) => {
+      expect(classifyFetchError(fetchFailed(code))).toEqual({
+        verdict: "blocked",
+        reason: `fetch failed: ${code} (incomplete certificate chain; browsers complete it)`,
+      });
+    },
+  );
+
+  it.each(["ENOTFOUND", "ECONNREFUSED", "CERT_HAS_EXPIRED", "ERR_TLS_CERT_ALTNAME_INVALID"])(
+    "treats %s as possibly dead",
+    (code) => {
+      expect(classifyFetchError(fetchFailed(code))).toEqual({ verdict: "dead", reason: `fetch failed: ${code}` });
+    },
+  );
+
+  it("treats a timeout, an error without a code and a non-Error value as possibly dead", () => {
+    expect(classifyFetchError(TIMEOUT)).toEqual({ verdict: "dead", reason: "timed out" });
+    expect(classifyFetchError(new Error("more than 10 redirects from https://a.example/"))).toEqual({
+      verdict: "dead",
+      reason: "more than 10 redirects from https://a.example/",
+    });
+    expect(classifyFetchError("boom")).toEqual({ verdict: "dead", reason: "boom" });
   });
 });

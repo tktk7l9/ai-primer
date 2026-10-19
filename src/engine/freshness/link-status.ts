@@ -1,10 +1,11 @@
 // Classification of one source-link check for scripts/check-freshness.ts.
 //
-// A link is "alive" (2xx/3xx), "blocked" (the site turned the automated client away although the page most likely
-// exists: 401/403/429, or a 503 that is a bot-protection challenge page) or "dead" (404/410, other HTTP errors, DNS
-// failures, connection errors, timeouts). Blocked links go into the report for information only: openai.com,
-// britannica.com, midjourney.com and others challenge anything that does not look like a browser, and counting those
-// as dead made every monthly report cry wolf (issue #18).
+// A link is "alive" (2xx/3xx), "blocked" (the page most likely exists but cannot be verified from a script: the site
+// turned the automated client away with 401/403/429 or a bot-protection 503, or its TLS certificate chain lacks the
+// intermediate that browsers fetch themselves) or "dead" (404/410, other HTTP errors, DNS failures, connection errors,
+// timeouts, bad certificates). Blocked links go into the report for information only: openai.com, britannica.com,
+// midjourney.com and others challenge anything that does not look like a browser, and counting those as dead made
+// every monthly report cry wolf (issue #18).
 
 export type LinkVerdict = "alive" | "blocked" | "dead";
 
@@ -80,6 +81,56 @@ export function describeFetchError(error: unknown): string {
   if (error.name === "TimeoutError") return "timed out";
   const cause = error.cause;
   if (!(cause instanceof Error)) return error.message;
-  const code = (cause as { code?: unknown }).code;
-  return `${error.message}: ${typeof code === "string" ? code : cause.message}`;
+  const code = causeCode(error);
+  return `${error.message}: ${code ?? cause.message}`;
+}
+
+/** The OS/TLS code (ECONNRESET, UNABLE_TO_VERIFY_LEAF_SIGNATURE...) Node keeps in the cause of "fetch failed". */
+function causeCode(error: Error): string | undefined {
+  const code = (error.cause as { code?: unknown } | undefined)?.code;
+  return typeof code === "string" ? code : undefined;
+}
+
+/**
+ * Failures that are often a passing hiccup of a slow or busy host rather than a dead page: a timeout, a reset or
+ * dropped connection, a temporary DNS failure. One of these is worth one more try before the link is called dead.
+ */
+const TRANSIENT_CODES: ReadonlySet<string> = new Set([
+  "ECONNRESET",
+  "ETIMEDOUT",
+  "EPIPE",
+  "EAI_AGAIN",
+  "UND_ERR_SOCKET",
+  "UND_ERR_CONNECT_TIMEOUT",
+]);
+
+export function isTransientFetchError(error: unknown): boolean {
+  if (!(error instanceof Error)) return false;
+  if (error.name === "TimeoutError") return true;
+  const code = causeCode(error);
+  return code !== undefined && TRANSIENT_CODES.has(code);
+}
+
+/**
+ * The server sends its own certificate without the intermediate one. Browsers fetch the missing intermediate
+ * themselves (from the certificate's AIA address) and open the page; Node does not, so the check cannot verify it.
+ * An expired or mismatched certificate is a different code and stays dead.
+ */
+const INCOMPLETE_CHAIN_CODES: ReadonlySet<string> = new Set([
+  "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+  "UNABLE_TO_GET_ISSUER_CERT_LOCALLY",
+]);
+
+/**
+ * Classifies a fetch that threw: an incomplete certificate chain is "blocked" (the page most likely opens in a
+ * browser, it just cannot be verified from here); anything else (DNS failure, refused connection, timeout, bad
+ * certificate) is "dead".
+ */
+export function classifyFetchError(error: unknown): LinkStatus {
+  const reason = describeFetchError(error);
+  const code = error instanceof Error ? causeCode(error) : undefined;
+  if (code !== undefined && INCOMPLETE_CHAIN_CODES.has(code)) {
+    return { verdict: "blocked", reason: `${reason} (incomplete certificate chain; browsers complete it)` };
+  }
+  return { verdict: "dead", reason };
 }
