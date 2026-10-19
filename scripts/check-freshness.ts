@@ -1,5 +1,7 @@
 // Freshness check run by the monthly freshness-report.yml.
-// (1) Sends HEAD requests (falling back to GET when HEAD fails) to the deduplicated list of all sources[].url to find dead links.
+// (1) Sends a browser-like GET to the deduplicated list of all sources[].url and sorts each answer into alive, blocked or
+//     dead (src/engine/freshness/link-status.ts). Blocked means the site turned the automated client away (403 and the
+//     like); those links are listed for information and do not count as dead.
 //     It is polite to the sites it checks: requests to the same host go one at a time, each at least MIN_GAP_MS after
 //     the previous one ends, redirects are followed hop by hop through the same per-host queue, and only different
 //     hosts run in parallel (src/engine/freshness/pacing.ts).
@@ -13,6 +15,12 @@ import { ALL_LESSONS } from "../src/engine/content";
 import { GLOSSARY } from "../src/engine/content/glossary";
 import { MODELS } from "../src/engine/content/models";
 import { TIMELINE } from "../src/engine/content/timeline";
+import {
+  classifyResponse,
+  describeFetchError,
+  readBodySample,
+  type LinkVerdict,
+} from "../src/engine/freshness/link-status";
 import { groupByHost, HostPacer, MIN_GAP_MS, pacedFetch, runPool, type FetchLike } from "../src/engine/freshness/pacing";
 import { isStale, STALE_AFTER_DAYS } from "../src/engine/freshness/staleness";
 import type { Source } from "../src/engine/content/types";
@@ -21,15 +29,27 @@ import type { Source } from "../src/engine/content/types";
 const TIMEOUT_MS = 10_000;
 // Hosts checked at the same time. Requests to any single host never overlap (see HostPacer).
 const CONCURRENCY = 8;
-// Send a UA close to a real browser: many sites treat HEAD/GET without a UA as a bot and return 403, which would
-// flood the report with false positives. The contact is the repository, so site owners can see who is checking.
-const USER_AGENT = "Mozilla/5.0 (compatible; ai-primer-freshness-check/1.1; +https://github.com/tktk7l9/ai-primer)";
+// The headers of a real browser. openai.com, britannica.com, midjourney.com and others answer 403 to anything that
+// does not look like one, which listed 13 of 60 sources as dead in every monthly report (issue #18). With these, most
+// of them answer normally; the rest are reported as blocked rather than dead. The contact of the person running the
+// check goes in From (RFC 9110 10.1.2), since the User-Agent no longer carries it.
+const BROWSER_HEADERS = {
+  "User-Agent":
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+  "Accept-Language": "ja,en;q=0.8",
+  From: "https://github.com/tktk7l9/ai-primer",
+};
+// The declared-bot identity, tried once more when the browser headers are turned away: a few sites (opensource.org)
+// wave a declared bot through but challenge a browser User-Agent that comes without a browser's TLS fingerprint.
+const BOT_HEADERS = {
+  "User-Agent": "Mozilla/5.0 (compatible; ai-primer-freshness-check/1.2; +https://github.com/tktk7l9/ai-primer)",
+};
 
 interface CheckResult {
   url: string;
-  ok: boolean;
-  status?: number;
-  error?: string;
+  verdict: LinkVerdict;
+  reason: string;
 }
 
 interface StaleEntry {
@@ -78,19 +98,25 @@ function collectStale(now: Date): StaleEntry[] {
 const timedFetch: FetchLike = (url, init) => fetch(url, { ...init, signal: AbortSignal.timeout(TIMEOUT_MS) });
 
 async function checkUrl(url: string, pacer: HostPacer): Promise<CheckResult> {
-  const headers = { "User-Agent": USER_AGENT };
+  const asBrowser = await attempt(url, pacer, BROWSER_HEADERS);
+  if (asBrowser.verdict !== "blocked") return asBrowser;
+  // Turned away as a browser: one more try as a declared bot (it waits its turn in the host's queue too), then give up.
+  const asBot = await attempt(url, pacer, BOT_HEADERS);
+  return asBot.verdict === "alive" ? asBot : asBrowser;
+}
+
+async function attempt(url: string, pacer: HostPacer, headers: Record<string, string>): Promise<CheckResult> {
   try {
-    let res = await pacedFetch(url, { method: "HEAD", headers }, pacer, timedFetch);
-    if (!res.ok) {
-      // Besides HEAD being unsupported (405/501), also retry 403s from UA-based bot detection
-      // with GET (some servers reject only HEAD). The retry waits its turn in the host's queue too.
-      res = await pacedFetch(url, { method: "GET", headers }, pacer, timedFetch);
-    }
-    // Only the status matters; release the connection instead of downloading the page.
-    await res.body?.cancel();
-    return { url, ok: res.ok, status: res.status };
+    // GET rather than HEAD: bot protection treats a HEAD as one more sign of a script. The page itself is never
+    // downloaded: a good answer releases the connection as soon as the headers are in, and an error page is read only
+    // as far as the challenge check needs (its first few kB).
+    const res = await pacedFetch(url, { method: "GET", headers }, pacer, timedFetch);
+    const sample = res.status >= 400 ? await readBodySample(res) : "";
+    if (res.status < 400) await res.body?.cancel();
+    const { verdict, reason } = classifyResponse(res.status, res.headers, sample);
+    return { url, verdict, reason };
   } catch (error) {
-    return { url, ok: false, error: error instanceof Error ? error.message : String(error) };
+    return { url, verdict: "dead", reason: describeFetchError(error) };
   }
 }
 
@@ -120,7 +146,8 @@ async function main() {
   const urls = [...byUrl.keys()];
 
   const results = await checkUrls(urls);
-  const dead = results.filter((r) => !r.ok);
+  const dead = results.filter((r) => r.verdict === "dead");
+  const blocked = results.filter((r) => r.verdict === "blocked");
   const stale = collectStale(now);
 
   const lines: string[] = [];
@@ -128,18 +155,21 @@ async function main() {
   lines.push("");
   lines.push(`- Source URLs checked: ${urls.length}`);
   lines.push(`- Possibly dead links: ${dead.length}`);
+  lines.push(`- Blocked by bot protection (not checked automatically): ${blocked.length}`);
   lines.push(`- Items not verified for over ${STALE_AFTER_DAYS} days: ${stale.length}`);
   lines.push("");
 
-  if (dead.length > 0) {
-    lines.push("## Possibly dead links");
-    lines.push("");
-    for (const d of dead) {
-      const labels = byUrl.get(d.url) ?? [];
-      lines.push(`- ${d.url} — ${d.status ? `HTTP ${d.status}` : d.error}`);
-      for (const label of labels) lines.push(`  - Referenced by: ${label}`);
-    }
-    lines.push("");
+  if (dead.length > 0) pushLinkSection(lines, "Possibly dead links", dead, byUrl);
+
+  if (blocked.length > 0) {
+    pushLinkSection(
+      lines,
+      "Blocked by bot protection (could not be checked automatically)",
+      blocked,
+      byUrl,
+      "These sites turn away clients that are not a real browser. The pages most likely open fine in one; " +
+        "this list is for information only and is not counted as a problem.",
+    );
   }
 
   if (stale.length > 0) {
@@ -152,14 +182,36 @@ async function main() {
   }
 
   if (dead.length === 0 && stale.length === 0) {
-    lines.push("No problems found.");
+    lines.push(blocked.length > 0 ? "No problems found (the blocked links above are informational)." : "No problems found.");
   }
 
   console.log(lines.join("\n"));
 
+  // Blocked links do not count: only real problems make the workflow open or update the Issue.
   if (dead.length > 0 || stale.length > 0) {
     process.exitCode = 1;
   }
+}
+
+/** Appends a Markdown section listing `items`, each with the content that references its URL. */
+function pushLinkSection(
+  lines: string[],
+  heading: string,
+  items: readonly CheckResult[],
+  byUrl: Map<string, string[]>,
+  note?: string,
+) {
+  lines.push(`## ${heading}`);
+  lines.push("");
+  if (note) {
+    lines.push(note);
+    lines.push("");
+  }
+  for (const item of items) {
+    lines.push(`- ${item.url} — ${item.reason}`);
+    for (const label of byUrl.get(item.url) ?? []) lines.push(`  - Referenced by: ${label}`);
+  }
+  lines.push("");
 }
 
 main().catch((error) => {

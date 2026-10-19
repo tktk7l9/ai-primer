@@ -4,6 +4,8 @@
 // - redirects are followed hop by hop through the same per-host queue, so a hop never skips the gap;
 // - different hosts proceed in parallel, up to the caller's concurrency limit.
 
+import { CookieJar } from "./cookies";
+
 /** Minimum pause between two requests to the same host, measured from the end of one to the start of the next. */
 export const MIN_GAP_MS = 300;
 
@@ -100,6 +102,7 @@ export type FetchLike = (url: string, init: RequestInit) => Promise<Response>;
 /**
  * Fetches `url` through `pacer`, following redirects manually so that every hop waits its turn in the
  * queue of the host it goes to. `fetchImpl` is called once per hop, when that hop actually starts.
+ * Cookies set along the way go back to the same host on later hops, as a browser would (see CookieJar).
  */
 export async function pacedFetch(
   url: string,
@@ -109,9 +112,14 @@ export async function pacedFetch(
   maxRedirects: number = MAX_REDIRECTS,
 ): Promise<Response> {
   let current = url;
+  const jar = new CookieJar();
   for (let hops = 0; ; hops += 1) {
     const target = current;
-    const res = await pacer.run(target, () => fetchImpl(target, { ...init, redirect: "manual" }));
+    const headers = new Headers(init.headers);
+    const cookie = jar.headerFor(target);
+    if (cookie !== undefined) headers.set("cookie", cookie);
+    const res = await pacer.run(target, () => fetchImpl(target, { ...init, headers, redirect: "manual" }));
+    jar.store(target, res.headers.getSetCookie());
     const location = res.headers.get("location");
     if (res.status < 300 || res.status > 399 || location === null) return res;
     // Free the connection: the body of a redirect is never read.

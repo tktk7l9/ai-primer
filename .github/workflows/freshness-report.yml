@@ -23,10 +23,15 @@ jobs:
         id: check
         run: |
           set +e
+          # Exit code 1 = possibly dead links or stale items (worth an Issue); 0 = nothing to do.
+          # Links blocked by bot protection are listed in the report for information and leave the exit code at 0.
           npx tsx scripts/check-freshness.ts > freshness-report.md 2>freshness-report.err
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
           cat freshness-report.err
+          # The whole report, blocked links included, stays readable in the run summary even when no Issue is filed.
+          cat freshness-report.md >> "$GITHUB_STEP_SUMMARY"
       - name: Create or update issue
+        # Only real problems open or update the Issue; a month with nothing but blocked links stays quiet.
         if: steps.check.outputs.exit_code != '0'
         env:
           GH_TOKEN: ${{ github.token }}

@@ -226,6 +226,31 @@ describe("pacedFetch", () => {
     expect(cancel).toHaveBeenCalledOnce();
   });
 
+  it("sends the cookies set on earlier hops back to the same host only, which ends a sign-in round trip", async () => {
+    const cookies: Array<string | null> = [];
+    const fetchImpl: FetchLike = async (url, init) => {
+      cookies.push(new Headers(init.headers).get("cookie"));
+      if (url === "https://a.example/page" && cookies.length === 1) {
+        return new Response(null, {
+          status: 302,
+          headers: [
+            ["location", "https://b.example/signin"],
+            ["set-cookie", "tried=1; Path=/; Secure"],
+            ["set-cookie", "lang=ja"],
+          ],
+        });
+      }
+      if (url === "https://b.example/signin") {
+        return new Response(null, { status: 302, headers: { location: "https://a.example/page", "set-cookie": "b=1" } });
+      }
+      return new Response("ok", { status: 200 });
+    };
+    const done = pacedFetch("https://a.example/page", { method: "GET", headers: { "user-agent": "x" } }, new HostPacer(), fetchImpl);
+    await vi.runAllTimersAsync();
+    await expect(done).resolves.toMatchObject({ status: 200 });
+    expect(cookies).toEqual([null, null, "tried=1; lang=ja"]);
+  });
+
   it("returns errors, and redirects without a Location, as they are", async () => {
     const notFound = stub(() => new Response(null, { status: 404 }));
     await expect(pacedFetch("https://a.example/x", { method: "HEAD" }, new HostPacer(), notFound.fetchImpl)).resolves.toMatchObject({
