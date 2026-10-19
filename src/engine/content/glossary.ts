@@ -21,8 +21,8 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     relatedLessonIds: ["ai-basics-02", "ai-basics-03", "understanding-ai-01", "ai-and-japanese-02"],
     sources: [
       {
-        label: "OpenAI Help: What are tokens and how to count them?",
-        url: "https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them",
+        label: "OpenAI Help: Understanding and counting tokens",
+        url: "https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens",
       },
       { label: "Anthropic Docs: Glossary", url: "https://platform.claude.com/docs/en/about-claude/glossary" },
     ],

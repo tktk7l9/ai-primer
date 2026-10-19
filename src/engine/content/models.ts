@@ -99,8 +99,16 @@ export const MODELS: readonly ModelEntry[] = [
         label: "Perplexity Help Center: What is an answer engine?",
         url: "https://www.perplexity.ai/help-center/en/articles/10354917-what-is-an-answer-engine-and-how-does-perplexity-work-as-one",
       },
+      {
+        label: "Perplexity Help Center: How does Perplexity work?",
+        url: "https://www.perplexity.ai/help-center/en/articles/10352895-how-does-perplexity-work",
+      },
+      {
+        label: "Perplexity Help Center: Which Perplexity Subscription Plan is right for you?",
+        url: "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you",
+      },
     ],
-    lastVerified: "2026-07-15",
+    lastVerified: "2026-10-20",
   },
   {
     id: "github-copilot",
@@ -170,13 +178,24 @@ export const MODELS: readonly ModelEntry[] = [
     name: "Midjourney",
     kind: "image",
     strengths: {
-      ja: "美術的な仕上がりの質に定評があり、Discordや自社サイトから利用する画像生成AI。",
-      en: "Known for aesthetically polished output; used via Discord or its own website.",
+      ja: "美術的な仕上がりの質に定評があり、Discordや自社サイトから利用する画像生成AI。画像をもとに短い動画を作る機能もある。",
+      en: "Known for aesthetically polished output; used via Discord or its own website. It can also turn an image into a short video.",
     },
     freeTier: false,
     officialUrl: "https://www.midjourney.com/",
-    sources: [{ label: "Midjourney", url: "https://www.midjourney.com/" }],
-    lastVerified: "2026-07-15",
+    sources: [
+      { label: "Midjourney", url: "https://www.midjourney.com/" },
+      {
+        label: "Midjourney Docs: Web vs Discord",
+        url: "https://docs.midjourney.com/hc/en-us/articles/33329300781837-Web-vs-Discord",
+      },
+      {
+        label: "Midjourney Docs: Free Trials",
+        url: "https://docs.midjourney.com/hc/en-us/articles/27870399340173-Free-Trials",
+      },
+      { label: "Midjourney Docs: Video", url: "https://docs.midjourney.com/hc/en-us/articles/37460773864589-Video" },
+    ],
+    lastVerified: "2026-10-20",
   },
   {
     id: "gpt-image",
