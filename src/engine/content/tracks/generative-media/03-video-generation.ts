@@ -4,8 +4,8 @@ export const videoGeneration: Lesson = {
   id: "generative-media-03",
   slug: "video-generation",
   title: {
-    ja: "動画生成 — Sora・Veoなど",
-    en: "Video Generation: Sora, Veo, and Others",
+    ja: "動画生成 — Veo・Runwayと、終了したSora",
+    en: "Video Generation: Veo, Runway, and the End of Sora",
   },
   summary: {
     ja: "文章から動画を生成する技術は急速に進化しており、提供形態の変化も速い。",
@@ -21,7 +21,7 @@ export const videoGeneration: Lesson = {
 - **Runway**: 映像制作者向けのプラットフォームで、文章・画像からの生成に加え、キーフレーム指定や動画から動画への編集といった制作向けの制御を打ち出しています。
 
 ### 消えたツールの例 — Sora
-OpenAIの **Sora** は、物理法則に沿った動きや音声の同期生成を掲げて2024〜2025年に注目を集めましたが、2026年3月に提供終了が発表され、アプリは同年4月に、APIは9月に停止しました。注目度の高いサービスでも、採算や計算資源の都合で短期間に終わることがある、という実例です。
+OpenAIの **Sora** は、物理法則に沿った動きや音声の同期生成を掲げて2024〜2025年に注目を集めましたが、2026年3月24日に提供終了が発表され、アプリとWeb版は4月26日に、APIは9月24日に停止しました。OpenAIは理由を具体的に示していませんが、報道は採算の悪さと計算資源の不足を挙げています。注目度の高いサービスでも短期間に終わることがある、という実例です。
 
 ### 動画生成ならではの難しさ
 - **時間的な一貫性**: 前後のコマで人物やモノの形が変わってしまわないようにする必要がある。
@@ -38,7 +38,7 @@ Building on image generation (previous lesson), video generation also has to han
 - **Runway**: a platform aimed at filmmakers, offering text- and image-to-video plus production controls such as keyframes and video-to-video editing.
 
 ### A tool that disappeared: Sora
-OpenAI's **Sora** drew attention in 2024–2025 for physically plausible motion and synchronized audio, but OpenAI announced its discontinuation in March 2026; the app closed in April and the API in September of that year. It's a concrete example of how even a high-profile service can end within a short time over cost and compute constraints.
+OpenAI's **Sora** drew attention in 2024–2025 for physically plausible motion and synchronized audio, but OpenAI announced its discontinuation on March 24, 2026; the app and web experience closed on April 26 and the API on September 24. OpenAI gave no specific reason, but news reports pointed to poor economics and a shortage of compute. It's a concrete example of how even a high-profile service can end within a short time.
 
 ### What makes video generation hard
 - **Temporal consistency**: keeping people and objects looking the same from frame to frame.
@@ -69,8 +69,17 @@ OpenAI's **Sora** drew attention in 2024–2025 for physically plausible motion 
   sources: [
     { label: "Google DeepMind: Veo", url: "https://deepmind.google/models/veo/" },
     { label: "Runway: Introducing Runway Gen-4.5", url: "https://runway.com/research/introducing-runway-gen-4.5" },
+    {
+      label: "OpenAI Help Center: What to know about the Sora discontinuation",
+      url: "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
+    },
     { label: "OpenAI Docs: Deprecations (Sora video models)", url: "https://developers.openai.com/api/docs/deprecations" },
+    { label: "OpenAI Docs: Sora 2 model", url: "https://developers.openai.com/api/docs/models/sora-2" },
     { label: "Wikipedia: Sora (text-to-video model)", url: "https://en.wikipedia.org/wiki/Sora_(text-to-video_model)" },
+    {
+      label: "TechCrunch: Why OpenAI really shut down Sora (2026-03-29)",
+      url: "https://techcrunch.com/2026/03/29/why-openai-really-shut-down-sora/",
+    },
   ],
-  lastVerified: "2026-10-06",
+  lastVerified: "2026-10-20",
 };

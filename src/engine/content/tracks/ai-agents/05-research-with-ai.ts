@@ -118,6 +118,10 @@ What happens at the retrieval step (embeddings and vector search), and the mecha
   sources: [
     { label: "OpenAI: Introducing deep research", url: "https://openai.com/index/introducing-deep-research/" },
     {
+      label: "Perplexity Help Center: What is Research mode?",
+      url: "https://www.perplexity.ai/help-center/en/articles/10738684-what-is-research-mode",
+    },
+    {
       label: "Columbia Journalism Review (Tow Center): AI Search Has a Citation Problem",
       url: "https://www.cjr.org/tow_center/we-compared-eight-ai-search-engines-theyre-all-bad-at-citing-news.php",
     },

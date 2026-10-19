@@ -2256,7 +2256,12 @@ export const TIMELINE: readonly TimelineEvent[] = [
       en: "OpenAI announced it was discontinuing its Sora video service; the app and web experience closed on April 26 and the API on September 24. A reminder that even high-profile services can end quickly.",
     },
     sources: [
+      {
+        label: "OpenAI Help Center: What to know about the Sora discontinuation",
+        url: "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
+      },
       { label: "OpenAI Docs: Deprecations", url: "https://developers.openai.com/api/docs/deprecations" },
+      { label: "OpenAI Docs: Sora 2 model", url: "https://developers.openai.com/api/docs/models/sora-2" },
       { label: "Wikipedia: Sora (text-to-video model)", url: "https://en.wikipedia.org/wiki/Sora_(text-to-video_model)" },
     ],
   },

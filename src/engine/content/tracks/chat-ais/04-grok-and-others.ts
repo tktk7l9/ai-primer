@@ -72,6 +72,10 @@ An **answer engine** that combines search with a chat AI. It answers questions w
     { label: "xAI Docs: Release notes", url: "https://docs.x.ai/developers/release-notes" },
     { label: "Wikipedia: SpaceXAI", url: "https://en.wikipedia.org/wiki/SpaceXAI" },
     { label: "xAI: Company", url: "https://x.ai/company" },
+    {
+      label: "Perplexity Help Center: How does Perplexity work?",
+      url: "https://www.perplexity.ai/help-center/en/articles/10352895-how-does-perplexity-work",
+    },
   ],
   lastVerified: "2026-10-06",
 };
