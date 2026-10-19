@@ -1,7 +1,8 @@
 // Freshness check run by the monthly freshness-report.yml.
 // (1) Sends a browser-like GET to the deduplicated list of all sources[].url and sorts each answer into alive, blocked or
-//     dead (src/engine/freshness/link-status.ts). Blocked means the site turned the automated client away (403 and the
-//     like); those links are listed for information and do not count as dead.
+//     dead (src/engine/freshness/link-status.ts). Blocked means the page could not be verified from a script (403 and
+//     the like, or a certificate chain missing its intermediate); those links are listed for information and do not
+//     count as dead. A timeout or a reset connection is tried once more before it counts.
 //     It is polite to the sites it checks: requests to the same host go one at a time, each at least MIN_GAP_MS after
 //     the previous one ends, redirects are followed hop by hop through the same per-host queue, and only different
 //     hosts run in parallel (src/engine/freshness/pacing.ts).
@@ -16,8 +17,9 @@ import { GLOSSARY } from "../src/engine/content/glossary";
 import { MODELS } from "../src/engine/content/models";
 import { TIMELINE } from "../src/engine/content/timeline";
 import {
+  classifyFetchError,
   classifyResponse,
-  describeFetchError,
+  isTransientFetchError,
   readBodySample,
   type LinkVerdict,
 } from "../src/engine/freshness/link-status";
@@ -105,7 +107,12 @@ async function checkUrl(url: string, pacer: HostPacer): Promise<CheckResult> {
   return asBot.verdict === "alive" ? asBot : asBrowser;
 }
 
-async function attempt(url: string, pacer: HostPacer, headers: Record<string, string>): Promise<CheckResult> {
+async function attempt(
+  url: string,
+  pacer: HostPacer,
+  headers: Record<string, string>,
+  retries = 1,
+): Promise<CheckResult> {
   try {
     // GET rather than HEAD: bot protection treats a HEAD as one more sign of a script. The page itself is never
     // downloaded: a good answer releases the connection as soon as the headers are in, and an error page is read only
@@ -116,7 +123,11 @@ async function attempt(url: string, pacer: HostPacer, headers: Record<string, st
     const { verdict, reason } = classifyResponse(res.status, res.headers, sample);
     return { url, verdict, reason };
   } catch (error) {
-    return { url, verdict: "dead", reason: describeFetchError(error) };
+    // A reset connection or a timeout is often a passing hiccup of a slow host (codh.rois.ac.jp failed a different
+    // URL on each of three runs): try once more, waiting its turn in the host's queue, before calling it dead.
+    if (retries > 0 && isTransientFetchError(error)) return attempt(url, pacer, headers, retries - 1);
+    const { verdict, reason } = classifyFetchError(error);
+    return { url, verdict, reason };
   }
 }
 
@@ -155,7 +166,7 @@ async function main() {
   lines.push("");
   lines.push(`- Source URLs checked: ${urls.length}`);
   lines.push(`- Possibly dead links: ${dead.length}`);
-  lines.push(`- Blocked by bot protection (not checked automatically): ${blocked.length}`);
+  lines.push(`- Could not be checked automatically (bot protection, incomplete certificate chain): ${blocked.length}`);
   lines.push(`- Items not verified for over ${STALE_AFTER_DAYS} days: ${stale.length}`);
   lines.push("");
 
@@ -164,10 +175,11 @@ async function main() {
   if (blocked.length > 0) {
     pushLinkSection(
       lines,
-      "Blocked by bot protection (could not be checked automatically)",
+      "Could not be checked automatically",
       blocked,
       byUrl,
-      "These sites turn away clients that are not a real browser. The pages most likely open fine in one; " +
+      "These sites turn away clients that are not a real browser, or send a certificate chain without the " +
+        "intermediate that browsers fetch themselves. The pages most likely open fine in a browser; " +
         "this list is for information only and is not counted as a problem.",
     );
   }
