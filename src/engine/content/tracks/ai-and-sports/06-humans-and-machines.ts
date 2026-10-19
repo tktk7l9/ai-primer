@@ -116,7 +116,7 @@ What follows is this course's own advice.
   sources: [
     {
       label: "FIFA: Semi-automated offside technology to be used at FIFA World Cup 2022（2022-07-01）",
-      url: "https://inside.fifa.com/innovation/media-releases/semi-automated-offside-technology-to-be-used-at-fifa-world-cup-2022-tm",
+      url: "https://www.fifa.com/en/articles/semi-automated-offside-technology-to-be-used-at-fifa-world-cup-2022-tm",
     },
     {
       label: "日本サッカー協会: 2026/27年サッカー競技規則 変更の概要と詳細",
