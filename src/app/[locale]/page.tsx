@@ -8,6 +8,14 @@ import { JsonLd } from "@/components/json-ld";
 import { ResumeLink } from "@/components/resume-link";
 import { NEWS_APP_URL, SITE_URL } from "@/engine/site";
 
+// Only the listed locales exist. Without dynamicParams = false, any one-segment path (bot probes
+// such as /xmlrpc.php or /.env.aws) matched this page, rendered it in the Worker only to reach
+// notFound(), and Next 16.4 then tried to store that 404 in the read-only static assets cache
+// ("StaticAssetsIncrementalCache: Failed to set to read-only cache" in Workers Logs). Set here,
+// not on the layout: Next applies dynamicParams = false from any segment to every route below
+// it, which would also turn off the per-request localized 404 of [...rest].
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
