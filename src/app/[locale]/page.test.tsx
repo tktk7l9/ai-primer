@@ -12,7 +12,7 @@ vi.mock("next/navigation", () => ({
   },
 }));
 
-const { default: HomePage, generateStaticParams } = await import("./page");
+const { default: HomePage, dynamicParams, generateStaticParams } = await import("./page");
 const params = (locale: string) => ({ params: Promise.resolve({ locale }) });
 
 beforeEach(() => window.localStorage.clear());
@@ -20,6 +20,8 @@ beforeEach(() => window.localStorage.clear());
 describe("HomePage", () => {
   it("pre-renders both languages", () => {
     expect(generateStaticParams()).toEqual([{ locale: "ja" }, { locale: "en" }]);
+    // Any other one-segment path (bot probes like /xmlrpc.php) 404s without rendering.
+    expect(dynamicParams).toBe(false);
   });
 
   it("invites a first-time visitor to start the first track", async () => {
