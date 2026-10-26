@@ -26,4 +26,8 @@ describe("public/_headers", () => {
   it("keeps nosniff on assets served without the Worker's headers", () => {
     expect(block("/_next/static/*")).toContain("X-Content-Type-Options: nosniff");
   });
+
+  it("keeps nosniff on favicon.ico, which OpenNext copies into the assets directory", () => {
+    expect(block("/favicon.ico")).toContain("X-Content-Type-Options: nosniff");
+  });
 });
