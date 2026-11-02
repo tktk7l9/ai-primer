@@ -71,6 +71,7 @@ An **answer engine** that combines search with a chat AI. It answers questions w
   sources: [
     { label: "SpaceXSI Docs: Release notes", url: "https://docs.x.ai/developers/release-notes" },
     { label: "SpaceXSI Docs: Welcome to Grok", url: "https://docs.x.ai/grok/overview" },
+    { label: "SpaceXSI Docs: X Search", url: "https://docs.x.ai/developers/tools/x-search" },
     { label: "Wikipedia: SpaceXAI", url: "https://en.wikipedia.org/wiki/SpaceXAI" },
     { label: "xAI: Company", url: "https://x.ai/company" },
     {
