@@ -102,7 +102,7 @@ Adapting a product or document to the language, cultural, and other requirements
       label: "Behr (2017): Assessing the use of back translation: the shortcomings of back translation as a quality testing method",
       url: "https://www.ssoar.info/ssoar/handle/document/74190",
     },
-    { label: "AAMT（アジア太平洋機械翻訳協会）: 機械翻訳ポストエディットガイドライン", url: "https://aamt.info/act/posteditguideline" },
+    { label: "AAMT（アジア太平洋機械翻訳協会）: 機械翻訳ポストエディットガイドライン", url: "https://aamt.info/activity/241/" },
   ],
   lastVerified: "2026-10-07",
   glossaryRefs: ["localization", "post-editing", "back-translation", "llm"],

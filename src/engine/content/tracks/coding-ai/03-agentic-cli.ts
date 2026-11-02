@@ -23,7 +23,7 @@ export const agenticCli: Lesson = {
 - **提供形態**: ターミナル・IDE拡張・デスクトップアプリ・ブラウザなど複数の形で利用できる。
 - **拡張性**: MCP（AIエージェントトラック参照）で外部ツールにつなぎ、プロジェクトの指示ファイルやスキル・フックで振る舞いを調整できる。
 
-同じ発想のツールに、OpenAIの **Codex**（CLI・IDE拡張・クラウドで動くエージェント）や **GitHub Copilot CLI** があります。
+同じ発想のツールに、OpenAIの **Codex**（CLI・IDE拡張・クラウドのほか、ChatGPTのアプリからも使えるエージェント）、**GitHub Copilot CLI**、Googleの **Antigravity CLI**、SpaceXSIの **Grok Build** があります。
 
 こうしたエージェント型CLIツールは、GitHub Copilotのエージェント機能や、後述するCursorのようなAIエディタとも役割が重なる部分がありますが、「**ターミナル操作を起点に、コードベース全体を横断して作業する**」という位置づけが共通点です。`,
     en: `## Terminal-first, autonomous tools
@@ -37,7 +37,7 @@ export const agenticCli: Lesson = {
 - **Available surfaces**: terminal, IDE extensions, a desktop app, and the browser.
 - **Extensibility**: connects to external tools through MCP (see the AI Agents track), and is shaped by project instruction files, skills, and hooks.
 
-Tools built on the same idea include OpenAI's **Codex** (an agent that runs as a CLI, IDE extension, and in the cloud) and **GitHub Copilot CLI**.
+Tools built on the same idea include OpenAI's **Codex** (an agent available as a CLI, an IDE extension, in the cloud, and from the ChatGPT apps), **GitHub Copilot CLI**, Google's **Antigravity CLI**, and SpaceXSI's **Grok Build**.
 
 Agentic CLI tools like this overlap in role with GitHub Copilot's agent mode and AI editors like Cursor (next lesson), but they share a common premise: **working from the terminal, across the whole codebase.**`,
   },
@@ -62,8 +62,11 @@ Agentic CLI tools like this overlap in role with GitHub Copilot's agent mode and
   ],
   sources: [
     { label: "GitHub Docs: Plans for GitHub Copilot", url: "https://docs.github.com/en/copilot/get-started/plans" },
-    { label: "OpenAI: Codex docs", url: "https://developers.openai.com/codex" },
+    { label: "ChatGPT Learn: Overview (Codex surfaces)", url: "https://learn.chatgpt.com/docs" },
+    { label: "ChatGPT Learn: Codex CLI", url: "https://learn.chatgpt.com/docs/codex/cli" },
+    { label: "Google Antigravity", url: "https://antigravity.google/" },
+    { label: "SpaceXSI Docs: Grok Build", url: "https://docs.x.ai/build/overview" },
     { label: "Claude Code Docs: Overview", url: "https://code.claude.com/docs/en/overview" },
   ],
-  lastVerified: "2026-10-06",
+  lastVerified: "2026-11-02",
 };

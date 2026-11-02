@@ -565,7 +565,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     },
     relatedLessonIds: ["ai-at-work-03", "ai-in-daily-life-05"],
     sources: [
-      { label: "AAMT（アジア太平洋機械翻訳協会）: 機械翻訳ポストエディットガイドライン", url: "https://aamt.info/act/posteditguideline" },
+      { label: "AAMT（アジア太平洋機械翻訳協会）: 機械翻訳ポストエディットガイドライン", url: "https://aamt.info/activity/241/" },
     ],
     lastVerified: "2026-10-07",
   },

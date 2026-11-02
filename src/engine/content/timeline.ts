@@ -2187,12 +2187,13 @@ export const TIMELINE: readonly TimelineEvent[] = [
     precision: "day",
     title: { ja: "SpaceXがxAIを統合", en: "SpaceX Acquires xAI" },
     summary: {
-      ja: "SpaceXがGrokの開発元xAIを統合すると発表。xAIは「宇宙を理解する」ことを使命に掲げてきた。同年7月には社名をSpaceXAIに改めた。",
-      en: "SpaceX announced it had acquired xAI, the maker of Grok, which has framed its mission as \"understanding the universe.\" That July the company was renamed SpaceXAI.",
+      ja: "SpaceXがGrokの開発元xAIを統合すると発表。xAIは「宇宙を理解する」ことを使命に掲げてきた。同年7月に社名をSpaceXAIに改め、10月にはSpaceX Super Intelligence（SpaceXSI）の名前に変わった。",
+      en: "SpaceX announced it had acquired xAI, the maker of Grok, which has framed its mission as \"understanding the universe.\" That July the company was renamed SpaceXAI, and in October it took the name SpaceX Super Intelligence (SpaceXSI).",
     },
     sources: [
       { label: "xAI: xAI joins SpaceX", url: "https://x.ai/news/xai-joins-spacex" },
       { label: "Wikipedia: SpaceXAI", url: "https://en.wikipedia.org/wiki/SpaceXAI" },
+      { label: "SpaceXSI Docs: Welcome to Grok", url: "https://docs.x.ai/grok/overview" },
     ],
   },
   {
@@ -2385,6 +2386,20 @@ export const TIMELINE: readonly TimelineEvent[] = [
     ],
   },
   {
+    id: "2026-claude-opus-5-5",
+    date: "2026-09-22",
+    precision: "day",
+    title: { ja: "Claude Opus 5.5発表", en: "Claude Opus 5.5 Announced" },
+    summary: {
+      ja: "AnthropicがClaude 5.5ファミリーの最初のモデルOpus 5.5を発表。多くの作業でFable 5.1に並ぶ性能を、より低いコストで提供するとした。その後Sonnet 5.5、Haiku 5.5が続いた。",
+      en: "Anthropic announced Claude Opus 5.5, the first of the Claude 5.5 family, saying it matched Fable 5.1 on most work at a lower cost. Sonnet 5.5 and Haiku 5.5 followed.",
+    },
+    sources: [
+      { label: "Anthropic: Introducing Claude Opus 5.5", url: "https://www.anthropic.com/claude-opus-5-5" },
+      { label: "Anthropic: Models overview", url: "https://platform.claude.com/docs/en/about-claude/models/overview" },
+    ],
+  },
+  {
     id: "2026-llm-jp-4-1",
     date: "2026-09-28",
     precision: "day",
@@ -2422,11 +2437,26 @@ export const TIMELINE: readonly TimelineEvent[] = [
     precision: "day",
     title: { ja: "Gemini 4 Argon発表", en: "Gemini 4 Argon Announced" },
     summary: {
-      ja: "GoogleがGemini 4世代の最初のモデルArgonを発表。ソフトウェア開発・企業の知的業務・サイバー防御を掲げ、まず審査済みのサイバー防御者向けに段階的に提供を開始した。",
-      en: "Google announced Gemini 4 Argon, the first of the Gemini 4 generation, aimed at software engineering, enterprise knowledge work, and cyber defense, rolling out first to vetted cyber defenders.",
+      ja: "GoogleがGemini 4世代の最初のモデルArgonを発表。ソフトウェア開発・企業の知的業務・サイバー防御を掲げ、まず審査済みのサイバー防御者向けに提供を始め、10月13日に開発者・企業向けのAPIと、有料プラン向けのGeminiアプリなどへ広げた。",
+      en: "Google announced Gemini 4 Argon, the first of the Gemini 4 generation, aimed at software engineering, enterprise knowledge work, and cyber defense. It went first to vetted cyber defenders, then on October 13 to developers and enterprises through the API and to paid subscribers in the Gemini app and elsewhere.",
     },
     sources: [
       { label: "Google: Introducing Gemini 4 Argon", url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" },
+      { label: "Google: Gemini 4 Argon is now available for everyone（2026-10-13）", url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/" },
+    ],
+  },
+  {
+    id: "2026-gpt-6-1-terra",
+    date: "2026-10-26",
+    precision: "day",
+    title: { ja: "GPT-6.1 Terra公開", en: "GPT-6.1 Terra Released" },
+    summary: {
+      ja: "OpenAIがGPT-6.1 Terraを公開。画像の読み取りと、画面を見てコンピュータを操作する作業に向けた高速なモデルと位置づけ、APIとChatGPT Work・Codexで提供した。",
+      en: "OpenAI released GPT-6.1 Terra, a fast model positioned for visual reasoning and computer use, in the API and in ChatGPT Work and Codex.",
+    },
+    sources: [
+      { label: "OpenAI API: Changelog", url: "https://developers.openai.com/api/docs/changelog" },
+      { label: "ChatGPT Learn: Models", url: "https://learn.chatgpt.com/docs/models" },
     ],
   },
 ];
