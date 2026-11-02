@@ -12,6 +12,59 @@ export interface GlossaryTerm {
 
 export const GLOSSARY: readonly GlossaryTerm[] = [
   {
+    id: "computer-use",
+    term: { ja: "コンピュータ操作（Computer Use）", en: "Computer use" },
+    definition: {
+      ja: "AIが画面のスクリーンショットを見て、クリックや入力などの操作を行う機能。連携が用意されていないアプリも扱える一方、画面に映る内容からプロンプトインジェクションを受けるおそれがあり、ログイン中のサイトでは利用者として動く。",
+      en: "A capability in which an AI looks at screenshots and performs actions such as clicking and typing. It can reach apps with no integration, but what appears on screen can carry prompt injection, and on signed-in sites it acts as the user.",
+    },
+    relatedLessonIds: ["ai-agents-06", "ai-agents-04", "history-06"],
+    sources: [
+      { label: "Anthropic Docs: Computer use tool", url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool" },
+      { label: "ChatGPT Learn: Computer Use", url: "https://learn.chatgpt.com/docs/computer-use" },
+    ],
+    lastVerified: "2026-11-02",
+  },
+  {
+    id: "memory-feature",
+    term: { ja: "メモリ機能（チャットAIの記憶）", en: "Memory feature (chat AI)" },
+    definition: {
+      ja: "サービスが利用者の情報を保存し、以後の会話で読み込ませて回答を個人に合わせる機能。モデル自体が学習し直すわけではない。サービスによっては、会話を削除しても作られた記憶は残るので、別に削除する必要がある。",
+      en: "A feature in which a service stores information about you and loads it into later conversations to personalize answers. The model itself isn't retrained. On some services memories remain after a chat is deleted and must be removed separately.",
+    },
+    relatedLessonIds: ["chat-ais-08", "ai-basics-03"],
+    sources: [
+      {
+        label: "Claude Help Center: Use Claude's chat search and memory",
+        url: "https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context",
+      },
+      { label: "ChatGPT Learn: Memories", url: "https://learn.chatgpt.com/docs/customization/memories" },
+    ],
+    lastVerified: "2026-11-02",
+  },
+  {
+    id: "agents-md",
+    term: { ja: "AGENTS.md", en: "AGENTS.md" },
+    definition: {
+      ja: "コーディングエージェントにプロジェクトの決まりや手順を伝えるMarkdownファイル。多くのツールが読み、Linux Foundation傘下のAgentic AI Foundationが管理している。書かれた内容はモデルが読んで判断するもので、強制される設定ではない。",
+      en: "A Markdown file that gives coding agents a project's conventions and procedures. Many tools read it, and it is stewarded by the Agentic AI Foundation under the Linux Foundation. Its contents are read and weighed by the model, not enforced as configuration.",
+    },
+    relatedLessonIds: ["coding-ai-06"],
+    sources: [{ label: "AGENTS.md", url: "https://agents.md/" }],
+    lastVerified: "2026-11-02",
+  },
+  {
+    id: "agent-skills",
+    term: { ja: "スキル（Agent Skills）", en: "Agent Skills" },
+    definition: {
+      ja: "エージェントに特定の作業の手順や知識を渡すオープンな形式。SKILL.mdを含むフォルダで、まず名前と説明だけを読み、必要なときに全文を読む。スクリプトを同梱できるので、他人のスキルはコードと同じように確かめてから使う。",
+      en: "An open format for giving agents the procedures and knowledge for a particular job: a folder containing SKILL.md, with only the name and description read at first and the full text when needed. Skills can bundle scripts, so check other people's skills as you would code.",
+    },
+    relatedLessonIds: ["coding-ai-06"],
+    sources: [{ label: "Agent Skills: Overview", url: "https://agentskills.io/" }],
+    lastVerified: "2026-11-02",
+  },
+  {
     id: "token",
     term: { ja: "トークン", en: "Token" },
     definition: {
@@ -565,7 +618,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     },
     relatedLessonIds: ["ai-at-work-03", "ai-in-daily-life-05"],
     sources: [
-      { label: "AAMT（アジア太平洋機械翻訳協会）: 機械翻訳ポストエディットガイドライン", url: "https://aamt.info/act/posteditguideline" },
+      { label: "AAMT（アジア太平洋機械翻訳協会）: 機械翻訳ポストエディットガイドライン", url: "https://aamt.info/activity/241/" },
     ],
     lastVerified: "2026-10-07",
   },

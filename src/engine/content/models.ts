@@ -34,7 +34,7 @@ export const MODELS: readonly ModelEntry[] = [
       { label: "OpenAI: ChatGPT", url: "https://openai.com/chatgpt/overview/" },
       { label: "OpenAI Docs: Models", url: "https://developers.openai.com/api/docs/models" },
     ],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
   {
     id: "claude",
@@ -50,7 +50,7 @@ export const MODELS: readonly ModelEntry[] = [
     sources: [
       { label: "Anthropic: Models overview", url: "https://platform.claude.com/docs/en/about-claude/models/overview" },
     ],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
   {
     id: "gemini",
@@ -63,12 +63,15 @@ export const MODELS: readonly ModelEntry[] = [
     },
     freeTier: true,
     officialUrl: "https://deepmind.google/models/gemini/",
-    sources: [{ label: "Google DeepMind: Gemini", url: "https://deepmind.google/models/gemini/" }],
-    lastVerified: "2026-10-06",
+    sources: [
+      { label: "Google DeepMind: Gemini", url: "https://deepmind.google/models/gemini/" },
+      { label: "Google: Gemini 4 Argon is now available for everyone", url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/" },
+    ],
+    lastVerified: "2026-11-02",
   },
   {
     id: "grok",
-    vendor: "SpaceXAI (formerly xAI)",
+    vendor: "SpaceXSI (formerly xAI)",
     name: "Grok",
     kind: "chat",
     strengths: {
@@ -78,10 +81,12 @@ export const MODELS: readonly ModelEntry[] = [
     freeTier: true,
     officialUrl: "https://x.ai/grok",
     sources: [
-      { label: "xAI: Grok", url: "https://x.ai/grok" },
-      { label: "xAI Docs: Release notes", url: "https://docs.x.ai/developers/release-notes" },
+      { label: "SpaceXSI: Grok", url: "https://x.ai/grok" },
+      { label: "SpaceXSI Docs: Welcome to Grok", url: "https://docs.x.ai/grok/overview" },
+      { label: "SpaceXSI Docs: X Search", url: "https://docs.x.ai/developers/tools/x-search" },
+      { label: "SpaceXSI Docs: Release notes", url: "https://docs.x.ai/developers/release-notes" },
     ],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
   {
     id: "perplexity",
@@ -125,7 +130,7 @@ export const MODELS: readonly ModelEntry[] = [
       { label: "GitHub: Copilot", url: "https://github.com/features/copilot/" },
       { label: "GitHub Docs: Plans for GitHub Copilot", url: "https://docs.github.com/en/copilot/get-started/plans" },
     ],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
   {
     id: "claude-code",
@@ -139,7 +144,7 @@ export const MODELS: readonly ModelEntry[] = [
     freeTier: false,
     officialUrl: "https://claude.com/product/claude-code",
     sources: [{ label: "Claude Code Docs: Overview", url: "https://code.claude.com/docs/en/overview" }],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
   {
     id: "codex",
@@ -147,13 +152,17 @@ export const MODELS: readonly ModelEntry[] = [
     name: "Codex",
     kind: "coding",
     strengths: {
-      ja: "ChatGPTと統合されたエージェント型コーディング環境。CLI・IDE拡張・デスクトップ・Web・クラウドの複数の形で、コードの理解から実装・レビュー・修正まで行う。",
-      en: "An agentic coding environment integrated with ChatGPT, available as a CLI, IDE extension, desktop, web, and cloud — from understanding code to building, reviewing, and fixing it.",
+      ja: "ChatGPTと統合されたエージェント型コーディング環境。ChatGPTのデスクトップ・モバイル・Web、CLI、IDE拡張、クラウドの複数の形で、コードの理解から実装・レビュー・修正まで行う。",
+      en: "An agentic coding environment integrated with ChatGPT, available in the ChatGPT desktop, mobile, and web apps, as a CLI and IDE extension, and in the cloud — from understanding code to building, reviewing, and fixing it.",
     },
     freeTier: true,
-    officialUrl: "https://developers.openai.com/codex",
-    sources: [{ label: "OpenAI: Codex docs", url: "https://developers.openai.com/codex" }],
-    lastVerified: "2026-10-06",
+    officialUrl: "https://learn.chatgpt.com/docs/codex/cli",
+    sources: [
+      { label: "ChatGPT Learn: Overview", url: "https://learn.chatgpt.com/docs" },
+      { label: "ChatGPT Learn: Codex CLI", url: "https://learn.chatgpt.com/docs/codex/cli" },
+      { label: "ChatGPT Learn: Pricing", url: "https://learn.chatgpt.com/docs/pricing" },
+    ],
+    lastVerified: "2026-11-02",
   },
   {
     id: "cursor",
@@ -170,7 +179,7 @@ export const MODELS: readonly ModelEntry[] = [
       { label: "Cursor: Product", url: "https://cursor.com/product" },
       { label: "Cursor: Pricing", url: "https://cursor.com/pricing" },
     ],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
   {
     id: "midjourney",
@@ -212,7 +221,7 @@ export const MODELS: readonly ModelEntry[] = [
       { label: "OpenAI Docs: Image generation", url: "https://developers.openai.com/api/docs/guides/image-generation" },
       { label: "OpenAI Docs: Deprecations", url: "https://developers.openai.com/api/docs/deprecations" },
     ],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
   {
     id: "stable-diffusion",
@@ -220,13 +229,17 @@ export const MODELS: readonly ModelEntry[] = [
     name: "Stable Diffusion",
     kind: "image",
     strengths: {
-      ja: "オープンソースで、ローカル実行やファインチューニングなど自由度の高いカスタマイズが可能。",
-      en: "Open source, allowing local execution and fine-tuning for high customization freedom.",
+      ja: "モデルの重みが公開されたオープンウェイトで、ローカル実行やファインチューニングなど自由度の高いカスタマイズが可能。Stability AI Community Licenseでは、年間売上100万ドル未満なら商用でも無料で使える。",
+      en: "Open-weight, allowing local execution and fine-tuning for high customization freedom. The Stability AI Community License allows free commercial use for those with under US$1M in annual revenue.",
     },
     freeTier: true,
     officialUrl: "https://stability.ai/",
-    sources: [{ label: "Stability AI", url: "https://stability.ai/" }],
-    lastVerified: "2026-10-06",
+    sources: [
+      { label: "Stability AI", url: "https://stability.ai/" },
+      { label: "Stability AI: License", url: "https://stability.ai/license" },
+      { label: "Stability AI: Introducing Stable Diffusion 3.5", url: "https://stability.ai/news-updates/introducing-stable-diffusion-3-5" },
+    ],
+    lastVerified: "2026-11-02",
   },
   {
     id: "runway",
@@ -243,7 +256,7 @@ export const MODELS: readonly ModelEntry[] = [
       { label: "Runway: Introducing Runway Gen-4.5", url: "https://runway.com/research/introducing-runway-gen-4.5" },
       { label: "Runway: Pricing", url: "https://runway.com/pricing" },
     ],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
   {
     id: "veo",
@@ -257,7 +270,7 @@ export const MODELS: readonly ModelEntry[] = [
     freeTier: false,
     officialUrl: "https://deepmind.google/models/veo/",
     sources: [{ label: "Google DeepMind: Veo", url: "https://deepmind.google/models/veo/" }],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
   {
     id: "suno",
@@ -271,7 +284,7 @@ export const MODELS: readonly ModelEntry[] = [
     freeTier: true,
     officialUrl: "https://suno.com/",
     sources: [{ label: "Suno", url: "https://suno.com/" }],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
   {
     id: "elevenlabs",
@@ -288,6 +301,6 @@ export const MODELS: readonly ModelEntry[] = [
       { label: "ElevenLabs", url: "https://elevenlabs.io/" },
       { label: "ElevenLabs: Pricing", url: "https://elevenlabs.io/pricing" },
     ],
-    lastVerified: "2026-10-06",
+    lastVerified: "2026-11-02",
   },
 ];

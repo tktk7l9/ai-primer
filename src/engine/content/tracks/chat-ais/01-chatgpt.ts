@@ -20,6 +20,7 @@ export const chatgptLesson: Lesson = {
 - 2022年11月の一般公開（歴史トラック参照）以降、最も広いユーザー基盤を持つチャットAIの一つ。
 - 用途に応じて複数のモデル（高速な応答向け・じっくり推論する向けなど）を使い分けられる設計を採用。
 - プラグイン的な拡張やコード実行、画像生成など、対話以外の機能も統合。
+- 相談や下書きには **Chat**、資料や分析など結果を仕上げてほしい仕事には **ChatGPT Work**、開発には **Codex** と、同じアプリの中で切り替えて使う形になっている（プランや地域で使える範囲は異なる）。
 
 具体的なモデル名・料金プランは更新が速いため、本サイトでは個別の版数を追わず [モデルカタログ](/ja/models) にまとめています。最新情報は必ず OpenAI の公式サイトで確認してください。`,
     en: `## Made by: OpenAI
@@ -30,6 +31,7 @@ export const chatgptLesson: Lesson = {
 - One of the most widely used chat AIs since its public launch in November 2022 (see the History track).
 - Offers multiple models tuned for different needs — fast everyday responses versus deeper step-by-step reasoning.
 - Integrates features beyond conversation, including code execution and image generation.
+- Inside the same app you switch between **Chat** for questions and drafts, **ChatGPT Work** for tasks that should end in a finished result such as a deck or analysis, and **Codex** for development (what you can use varies by plan and region).
 
 Specific model names and pricing change quickly, so this site doesn't track individual versions in lesson text — see the [model catalog](/en/models) instead. Always check OpenAI's official site for the current lineup.`,
   },
@@ -54,8 +56,10 @@ Specific model names and pricing change quickly, so this site doesn't track indi
   ],
   sources: [
     { label: "OpenAI Docs: Models", url: "https://developers.openai.com/api/docs/models" },
+    { label: "ChatGPT Learn: Use ChatGPT", url: "https://learn.chatgpt.com/docs/use-chatgpt" },
+    { label: "ChatGPT Learn: Get started with ChatGPT Work", url: "https://learn.chatgpt.com/docs/get-started-with-work" },
     { label: "OpenAI: About", url: "https://openai.com/about/" },
     { label: "OpenAI: Evolving OpenAI's structure", url: "https://openai.com/index/evolving-our-structure/" },
   ],
-  lastVerified: "2026-10-06",
+  lastVerified: "2026-11-02",
 };

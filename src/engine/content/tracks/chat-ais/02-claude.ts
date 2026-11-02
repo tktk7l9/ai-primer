@@ -25,6 +25,7 @@ Anthropicは長らく、用途に応じて複数の「サイズ」のモデル�
 ### 特徴・位置づけ
 - 長文の文書やコードベースを扱える大きなコンテキストウィンドウ（AI基礎トラック参照）。
 - コーディング支援・エージェント的なタスク実行（ツールを使った自律的な作業）に力を入れている。
+- 大きな仕事を任せる **Cowork** と通常のチャットは、1つの会話にまとめられつつある。Claudeが調査やファイルの読み込み、コードの実行などを自分で進め、資料などのファイルを仕上げて返す（段階的な提供で、プランにより異なる）。
 - 対話の安全性・有用性・正直さを重視する設計方針を公言している。
 
 具体的なモデル名は更新が速いため、[モデルカタログ](/ja/models) にまとめています。最新情報は Anthropic の公式サイトで確認してください。`,
@@ -41,6 +42,7 @@ Anthropic has long offered several model "sizes" in parallel for different needs
 ### Positioning
 - Large context windows (see the AI Fundamentals track) suited to long documents and codebases.
 - Strong emphasis on coding assistance and agentic task execution — autonomous work using tools.
+- **Cowork**, the mode for handing over larger tasks, is being merged with regular chat into one conversation. Claude can research, read files, and run code on its own and return finished files such as documents (a staged rollout that varies by plan).
 - A stated design philosophy centered on being helpful, honest, and safe.
 
 Specific model names change quickly — see the [model catalog](/en/models) for current details, and check Anthropic's official site for the latest lineup.`,
@@ -60,8 +62,9 @@ Specific model names change quickly — see the [model catalog](/en/models) for 
     },
   ],
   sources: [
+    { label: "Claude Help Center: Claude Cowork and chat are one Claude", url: "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude" },
     { label: "Anthropic Docs: Model deprecations", url: "https://platform.claude.com/docs/en/about-claude/model-deprecations" },
     { label: "Anthropic: Models overview", url: "https://platform.claude.com/docs/en/about-claude/models/overview" },
   ],
-  lastVerified: "2026-10-06",
+  lastVerified: "2026-11-02",
 };
