@@ -4,6 +4,7 @@ import { githubCopilot } from "./02-github-copilot";
 import { agenticCli } from "./03-agentic-cli";
 import { aiEditors } from "./04-ai-editors";
 import { safeUsage } from "./05-safe-usage";
+import { instructionsAndSkills } from "./06-instructions-and-skills";
 
 export const codingAiTrack: Track = {
   id: "coding-ai",
@@ -16,5 +17,5 @@ export const codingAiTrack: Track = {
     ja: "補完・チャット・エージェント型の違いから、代表的ツール、安全な使い方まで。",
     en: "Completion, chat, and agentic tools — plus how to use them safely.",
   },
-  lessons: [codingAiOverview, githubCopilot, agenticCli, aiEditors, safeUsage],
+  lessons: [codingAiOverview, githubCopilot, agenticCli, aiEditors, safeUsage, instructionsAndSkills],
 };

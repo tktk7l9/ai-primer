@@ -6,6 +6,7 @@ import { grokAndOthers } from "./04-grok-and-others";
 import { choosing } from "./05-choosing";
 import { localAndOpenModels } from "./06-local-and-open-models";
 import { voiceAssistants } from "./07-voice-assistants";
+import { memoryFeatures } from "./08-memory-features";
 
 export const chatAisTrack: Track = {
   id: "chat-ais",
@@ -19,5 +20,5 @@ export const chatAisTrack: Track = {
     en: "ChatGPT, Claude, Gemini, Grok — who makes them, what they're good at, voice modes and local models, and how to choose.",
   },
   // Lesson ids are stable keys for saved progress and do not imply order; "choosing" stays last as the wrap-up.
-  lessons: [chatgptLesson, claudeLesson, geminiLesson, grokAndOthers, voiceAssistants, localAndOpenModels, choosing],
+  lessons: [chatgptLesson, claudeLesson, geminiLesson, grokAndOthers, voiceAssistants, memoryFeatures, localAndOpenModels, choosing],
 };
